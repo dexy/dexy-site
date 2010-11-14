@@ -1,0 +1,5 @@
+"Jinja2":http://jinja.pocoo.org/ is just the first of many templating systems which will eventually be available within Dexy. I could add support for these now, but I feel it will be better to improve the experience of using just 1 templating system first, then broaden this out into multiple filters. Of course, if you particularly want to use templating system X then go ahead and implement this yourself or "put in a request":http://bitbucket.org/ananelson/dexy/issues to do so.
+
+Jinja (and when I say jinja I mean jinja2) is very simple to start with, but has a lot of additional features which you can explore at your leisure. In your document, you place tags to indicate that you'd like dynamic content in that location. For example, here is a short HTML document.
+
+
