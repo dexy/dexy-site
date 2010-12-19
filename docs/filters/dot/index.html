@@ -1,0 +1,23 @@
+<h1>Dot</h1>
+
+<p>This is some dot:</p>
+<pre>
+{{ d['example.dot|dexy'] }}
+</pre>
+
+<p>Here is what it looks like when rendered:</p>
+<img src="example.png" />
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['dot'] }}
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}
+

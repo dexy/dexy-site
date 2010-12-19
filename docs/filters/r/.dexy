@@ -1,0 +1,8 @@
+{
+  "*.R|rart" : {},
+  "*.R|rint|pyg" : {},
+  "*.R|pyg" : {},
+  "@subprocess_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "*.rst|rst2html|pyg" : {},
+  "*.rst|rst2latex|pyg" : {},
+  "*.rst|rst2beamer|pyg" : {},
+  "*.rst|pyg" : {},
+  "@subprocess_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+  }
+}

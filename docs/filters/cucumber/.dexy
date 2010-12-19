@@ -1,0 +1,10 @@
+{
+  "*.feature|dexy" : {},
+  "*.rb|pyg" : {},
+  "*.feature|cuke" : {
+    "ifinput": ["%.rb|jinja"]
+  },
+  "@cucumber_handler.py|pyg" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/cucumber_handler.py"
+  }
+}

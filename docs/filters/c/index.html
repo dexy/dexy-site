@@ -1,0 +1,62 @@
+<h1>C</h1>
+
+<p>The clang compiler is used as this produces more helpful error messages. You could modify these to use another c compiler.</p>
+
+<h3>C</h3>
+{{ d['001.c|pyg'] }}
+
+<p>This is what it looks like when run:</p>
+<pre>
+{{ d['001.c|c'] }}
+</pre>
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['clang.py|idio']['clang-handler'] }}
+
+<h3>C with timing</h3>
+
+<p>The ctime handler just returns the time taken to run the code.</p>
+<pre>
+{{ d['001.c|ctime'] }}
+</pre>
+
+<p>Here is the source of the timing handler:</p>
+{{ d['sections']['clang.py|idio']['clang-timing-handler'] }}
+
+<h3>C with input</h3>
+Sometimes you need to work with a script that expects to read from STDIN.
+{{ d['009.c|pyg'] }}
+
+Put the input text in a separate file.
+<pre>
+{{ d['009-input.txt|dexy'] }}
+</pre>
+
+<p>This is what it looks like when run:</p>
+<pre>
+{{ d['009.c|cint'] }}
+</pre>
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['clang.py|idio']['clang-interactive-handler'] }}
+
+<h3>C with input and timing</h3>
+<p>The ctimeint handler just returns the time taken to run the code.</p>
+<pre>
+{{ d['009.c|ctimeint'] }}
+</pre>
+
+<p>Here is the source of the timing handler:</p>
+{{ d['sections']['clang.py|idio']['clang-timing-interactive-handler'] }}
+
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}
+

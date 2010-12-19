@@ -1,0 +1,38 @@
+<h1>Ragel</h1>
+
+<p>This is some <a href="http://www.complang.org/ragel/">Ragel</a>:</p>
+{{ d['ruby-example.rl|pyg'] }}
+
+<h3>Ragel Ruby Filter</h3>
+<p>This is what it looks like when run through the filter:</p>
+{{ d['ruby-example.rl|rlrb|pyg'] }}
+
+<p>The resulting Ruby code produces this output when run through the <a href="/docs/filters/ruby">ruby</a> filter:</p>
+<pre>
+{{ d['ruby-example.rl|rlrb|rb'] }}
+</pre>
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['ragelruby'] }}
+
+<h3>Ragel Ruby Dot Filter</h3>
+<p>This is what it looks like when run:</p>
+<pre>
+{{ d['ruby-example.rl|rlrbd'] }}
+</pre>
+
+<p>And here is the dot diagram rendered by the <a href="/docs/filters/dot">dot</a> filter:</p>
+<img src="ruby-example.png" />
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['ragelrubydot'] }}
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}

@@ -1,0 +1,8 @@
+{
+  "*.py|pycon|pyg" : {},
+  "*.py|idio|pycon|pyg" : {},
+  "*.py|pyg" : {},
+  "@subprocess_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+  }
+}

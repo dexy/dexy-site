@@ -1,0 +1,25 @@
+<h1>timing</h1>
+
+<p>This is more of a demo/example handler than a serious one for now. This handler runs Python code (in theory it could be subclassed to run other types of code). Instead of returning the output, this handler runs the code 10 times and returns the time it takes for each run.</p>
+
+<p>This is some Python:</p>
+{{ d['example.py|pyg'] }}
+
+<p>Here is the output of the timing filter:</p>
+<pre>
+{{ d['example.py|timing'] }}
+</pre>
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['timing'] }}
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}
+

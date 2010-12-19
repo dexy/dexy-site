@@ -1,0 +1,37 @@
+<h1>reStructuredText</h1>
+
+<p>This is some reStructuredText:</p>
+{{ d['example.rst|pyg'] }}
+
+<h3>rst2html Filter</h3>
+<p>Here is what gets output by the rst2html <a href="/docs/filters/stdout">stdout</a> handler:</p>
+{{ d['example.rst|rst2html|pyg'] }}
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['rst2html'] }}
+
+<h3>rst2latex Filter</h3>
+<p>Here is what gets output by the rst2latex <a href="/docs/filters/stdout">stdout</a> handler:</p>
+{{ d['example.rst|rst2latex|pyg'] }}
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['rst2latex'] }}
+
+<h3>rst2beamer Filter</h3>
+<p>Here is what gets output by the rst2latex <a href="/docs/filters/stdout">stdout</a> handler:</p>
+{{ d['example.rst|rst2beamer|pyg'] }}
+
+<p>Here is the source of the handler:</p>
+{{ d['sections']['subprocess_handler.py|idio']['rst2beamer'] }}
+
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}
+

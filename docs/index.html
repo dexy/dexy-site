@@ -1,5 +1,7 @@
+<p>documentation for <a href="filters">individual filters</a>.</p>
+
+<p>Tutorials:</p>
 {% for d in ["writing-docs-with-jinja"] %}
-html: <a href="{{ d }}">{{ d }}</a>
-pdf: <a href="{{ d }}/{{ d }}.pdf">{{ d }}</a>
+<p> {{ d }} <a href="{{ d }}">html</a> <a href="{{ d }}/{{ d }}.pdf">pdf</a></p>
 {% endfor %}
 

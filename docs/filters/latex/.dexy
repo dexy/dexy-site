@@ -1,0 +1,7 @@
+{
+  "*.tex|pyg" : {},
+  "*.tex|latex" : {},
+  "@subprocess_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+  }
+}

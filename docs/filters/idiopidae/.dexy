@@ -1,0 +1,7 @@
+{
+  "*.py|idio" : {},
+  "*.py|pyg" : {},
+  "@pyg_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/pyg_handler.py"
+  }
+}

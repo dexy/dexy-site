@@ -1,0 +1,7 @@
+{
+  "*.txt|dexy" : {},
+  "*.txt|jinja" : {},
+  "@jinja_handler.py|pyg" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/jinja_handler.py"
+  }
+}

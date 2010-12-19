@@ -1,0 +1,17 @@
+<h1>Posterous</h1>
+
+<p>The Posterous handler does work basically, although unfortunately Posterous's API strips out all syntax highlighting. There is a built-in syntax highlighter which requires you to mark chunks of code with the language, it should be possible to automate this language tagging (if posterous supports your choice of language), so in theory you could do code blogging using dexy with your posterous blog. Please let me know if this is an important feature.</p>
+
+<p>Here is the source of the Posterous handler, which inherits from the <a href="/docs/filters/blogging">blogging</a> handler:</p>
+{{ d['posterous_handler.py|pyg'] }}
+
+<h3>Dexy Specification</h3>
+<p>Here is how to specify this:</p>
+<pre>
+{{ d['.dexy|dexy'] }}
+</pre>
+
+<h3>Source</h3>
+<p>Here is the source of this document:</p>
+{{ d['index.html|pyg'] }}
+

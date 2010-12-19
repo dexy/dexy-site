@@ -1,0 +1,8 @@
+{
+  "*.lua|pyg" : {},
+  "*.lua|lua" : {},
+  "*.lua|luaout" : {},
+  "@subprocess_handler.py|idio" : {
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+  }
+}
