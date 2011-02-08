@@ -1,0 +1,6 @@
+{
+  "@hello.txt|jinja" : {
+    "url" : "http://dexy.it/examples/jinja/hello.txt"
+  }
+}
+

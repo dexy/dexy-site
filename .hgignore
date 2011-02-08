@@ -2,3 +2,4 @@ cache/
 logs/
 artifacts/
 times.csv
+.*.swp

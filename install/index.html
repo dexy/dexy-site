@@ -1,0 +1,70 @@
+<h1>Installation Instructions</h1>
+
+<p>Dexy is written in pure Python, and uses Setuptools. Dexy should be very simple to install. Many of Dexy's filters depend on having other software installed, so depending on how you want to use Dexy you might need to install some extra software too. For example, if you want to use the latex filter to turn documents written in LaTeX into PDFs, then you'll need to install TeXLive or a similar package.</p>
+
+<p>If you are worried about messing up your system, then I suggest you install Dexy and any software you want to use with it within a Virtual Machine. If you use Ubuntu then you can follow the install guides exactly or even run the install scripts directly. This is also a good option if your system comes with an old version of Python.</p>
+
+<p>Dexy should work on Python 2.6 or greater. I do hope to support slightly older versions, but there are syntax errors with Python 2.5 currently. There is no support yet for Python 3.0.</p>
+
+<p>If you run into issues with this install process then <a href="http://discuss.dexy.it">let me know</a>.</p>
+
+<h2>Dexy Source Code</h2>
+
+<p>Obtain the Dexy source code either via</p>
+
+{{ d['sections']['easy-install.sh|idio']['clone-repo'] }}
+
+<pre></pre>
+
+<p>or if you don't have Mercurial and don't want to install it, by downloading the source via the "get source" link at <a href="http://bitbucket.org/ananelson/dexy">http://bitbucket.org/ananelson/dexy</a>.</p>
+
+<h2>Easy Install</h2>
+
+<p>After you have obtained the source code, then run easy_install on the source code directory. You will probably need to run this command with 'sudo'.</p>
+
+{{ d['sections']['easy-install.sh|idio']['install'] }}
+
+<p>This will fetch all the modules which Dexy depends upon and then install Dexy itself.</p>
+
+<p>You can test the setup by typing</p>
+
+{{ d['sections']['easy-install.sh|idio']['test'] }}
+
+<p>Let's run a simple Dexy example. Make a new working directory first. Then run dexy with the --setup switch to create some directories which dexy needs to work.<p>
+
+{{ d['sections']['easy-install.sh|idio']['setup'] }}
+
+<p>Now we're going to call Dexy, specifying a remote configuration file (so you don't have to bother with typing or downloading stuff to see Dexy working). The -g switch lets you specify a configuration file other than the default of .dexy. We also need a -d switch to tell Dexy we are happy to run remote files (please take care when using this --dangerous option as the remote files could potentially include dangerous code which you are running on your machine).</p>
+
+{{ d['sections']['easy-install.sh|idio']['run'] }}
+
+<p>The log file in logs/dexy.log gives you detailed information about the Dexy run.</p>
+
+{{ d['sections']['easy-install.sh|idio']['log'] }}
+
+<p>And you'll find your finished documents in the cache/ directory.</p>
+
+{{ d['sections']['easy-install.sh|idio']['output'] }}
+
+<p>And here's what you should see:</p>
+<pre>
+{{ d['hello.txt|jinja'] }}
+</pre>
+
+<h2>Minimalist Install</h2>
+
+<p>If you are an expert user and don't want to mess up your system with any extra packages, then you can install Dexy by hand.</p>
+
+<p>If you are running Python 2.6, then you will need to easy_install ordereddict (or equivalent). If you are running Python 2.5, you will need to easy_install ordereddict and easy_install simplejson.</p>
+
+<p>Obtain the source code as above. Once you have the source code, then cd into the dexy directory and run</p>
+
+<pre>sudo python setup.py develop</pre>
+
+<p>You can test the setup by typing</p>
+
+<pre>dexy -h</pre>
+
+<h2>Mega Super Duper Install</h2>
+
+<p>If you want to be able to run *all* the Dexy examples, and the Dexy web server, then you can follow the steps detailed in this <a href="/install.pdf">PDF install guide</a>.
