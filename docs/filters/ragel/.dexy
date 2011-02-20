@@ -5,6 +5,6 @@
   "*.rl|rlrbd|dot" : {},
   "*.rl|pyg" : {},
   "@subprocess_handler.py|idio" : {
-    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/subprocess.py"
+    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/pexpect_handlers.py"
   }
 }
