@@ -1,0 +1,6 @@
+{
+  "hello.txt|jinja" : {
+    "inputs" : ["hello.py|py", "hello.py|dexy"]
+  }
+}
+

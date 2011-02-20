@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="pastie.css" />
+  </head>
+  <body>
+  
+    <p>Here is the original Python script:</p>
+    {{ d['run-prisoner.py|pyg'] }}
+
+    <p>Here is how it looks when it is run:</p>
+    {{ d['run-prisoner.py|fn|pycon|pyg'] }}
+
+    <p>Here is the original R script:</p>
+{{ d['prisoner.R|pyg'] }}
+
+    <p>Here is how it looks when it is run:</p>
+    {{ d['prisoner.R|fn|r|pyg'] }}
+
+    <p>Here is a bar chart:</p>
+    <img src="../artifacts/{{ d['a']['strategy-counts'] }}" />
+
+    <p>Here is a histogram:</p>
+    <img src="../artifacts/{{ d['a']['hist'] }}" />
+
+    </body>
+  </html>

@@ -1,0 +1,8 @@
+{
+  "*.txt|jinja" : {
+    "allinputs" : true
+  },
+  "hello.py|py" : {},
+  "hello.py|dexy" : {}
+}
+

@@ -1,0 +1,12 @@
+Hi, welcome to Dexy
+
+1 + 1 = {{ 1 + 1 }}
+
+Here is some Python code:
+
+{{ d['hello.py|dexy'] }}
+
+Here is the output from running this script:
+
+{{ d['hello.py|py'] }}
+

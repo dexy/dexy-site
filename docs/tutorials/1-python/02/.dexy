@@ -1,0 +1,6 @@
+{
+  "*.html|jinja" : {"allinputs" : true},
+  "*.css|dexy" : {},
+  "*.py|pyg" : {},
+  "*.py|py" : {}
+}

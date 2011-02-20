@@ -1,0 +1,56 @@
+You need the garlicsim and garlicsim_lib Python packages installed for this tutorial. You also need R installed and the "rjson" package installed within R.
+
+h1. 00
+
+We are going to run a Python script to generate some data, then run R to analyze that data and (eventually) make some graphs.
+
+Here is the Python script:
+
+{{ d['00/run-prisoner.py|pyg'] }}
+
+You can run this from the command line and you should see a CSV file and a JSON file after you run it.
+
+Here is the R script:
+
+{{ d['00/prisoner.R|pyg'] }}
+
+If you run this (AFTER you run the python script) you should get some PNGs and another JSON file.
+
+For example, you can run these via:
+{{ d['00/run-scripts.sh|pyg'] }}
+
+h1. 01
+
+However, we don't want to have to run these files manually and in the correct order, and we also don't want the generated files cluttering up our workspace.
+
+Dexy has a random filename generator. It looks for filenames starting with <code>dexy--</code> and it generates a random filename which is different each time you run Dexy.
+
+In order for prisoner.R to have access to the random filenames generated for run-prisoner.py, we need to have run-prisoner.py as an input to prisoner.R.
+
+<pre>
+{{ d['01/.dexy|dexy'] }}
+</pre>
+
+Here is how you might write a HTML file to show these:
+{{ d['01/doc.html|pyg'] }}
+
+h1. 02
+
+Next we want to add the images we generated to this HTML file. We first write a simple txt file to help us figure out:
+
+<pre>
+{{ d['02/files.txt|dexy'] }}
+</pre>
+
+And we modify the .dexy file so we can run this:
+<pre>
+{{ d['02/.dexy|dexy'] }}
+</pre>
+
+This gives us output like this:
+{{ d['run-02.sh|bash'] }}
+
+So we can see where the png files are located.
+
+Here is how you might write a HTML file to show these:
+{{ d['02/doc.html|pyg'] }}

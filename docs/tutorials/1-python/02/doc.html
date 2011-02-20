@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="pastie.css" />
+  </head>
+  <body>
+
+    <p>Here is a Python script:</p>
+    {{ d['script.py|pyg'] }}
+
+    <p>Here is the output:</p>
+<pre>
+{{ d['script.py|py'] }}
+</pre>
+
+    </body>
+  </html>

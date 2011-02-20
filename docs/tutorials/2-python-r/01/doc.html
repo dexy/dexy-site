@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="pastie.css" />
+  </head>
+  <body>
+  
+    <p>Here is the original Python script:</p>
+    {{ d['run-prisoner.py|pyg'] }}
+
+    <p>Here is how it looks when it is run:</p>
+    {{ d['run-prisoner.py|fn|pycon|pyg'] }}
+
+    <p>Here is the original R script:</p>
+{{ d['prisoner.R|pyg'] }}
+
+    <p>Here is how it looks when it is run:</p>
+{{ d['prisoner.R|fn|r|pyg'] }}
+    </body>
+  </html>

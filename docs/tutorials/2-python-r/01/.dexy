@@ -1,0 +1,11 @@
+{
+  "doc.html|jinja" : {
+    "allinputs" : true
+  },
+  "prisoner.R|fn|r|pyg" : {
+    "inputs" : ["run-prisoner.py|fn|pycon|pyg"]
+  },
+  "*.py|pyg" : {},
+  "*.R|pyg" : {},
+  "*.css|dexy" : {}
+}
