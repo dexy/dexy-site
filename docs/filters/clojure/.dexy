@@ -1,5 +1,7 @@
 {
-  "*.clj|cljint" : {},
+  "*.clj|cljint" : {
+    "env" : { "CLASSPATH" : {"/clojure.jar"}}
+  },
   "*.clj|pyg" : {},
   "*.clj|pyg|l" : {},
   "@subprocess_handler.py|idio" : {
