@@ -1,6 +1,6 @@
 {
   "*.clj|cljint" : {
-    "env" : { "CLASSPATH" : {"/clojure.jar"}}
+    "env" : { "CLASSPATH" : "/clojure.jar"}
   },
   "*.clj|pyg" : {},
   "*.clj|pyg|l" : {},
