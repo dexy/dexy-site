@@ -1,6 +1,6 @@
 {
   "*.txt|dexy" : {},
-  "*.txt|asciidoc|pyg" : {},
+  "*.txt|asciidoc|pyg" : { "disabled" : true },
   "*.txt|asciidoc|x|pyg" : {},
   "@asciidoc.py|pyg" : {
     "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/asciidoc.py"
