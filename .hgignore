@@ -3,3 +3,4 @@ logs/
 artifacts/
 times.csv
 .*.swp
+annotator/

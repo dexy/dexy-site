@@ -1,23 +1,66 @@
-<div class="span-7 colborder">
-    <h2>Programmers</h2>
-    <p><b>Promote</b> and improve your code with automated documentation.</p>
-</div>
-<div class="span-7 colborder">
-    <h2>Scientists</h2>
-    <p><b>Create</b> beautiful, reproducible documents including graphs and analysis from your raw data and code.</p>
-</div>
+<p>Dexy is an open source document automation tool that can help you create documents using your favourite programming languages and your favourite software. To get started look at the <a href="/intro">intro</a></p>
+<h2>Programmers</h2>
+<p><b>Promote</b> and improve your code with automated documentation.</p>
 
-<hr class="space" />
-<p>Dexy is an open source document automation tool that can help you create documents using your favourite programming languages and your favourite software.</p>
+<h2>Scientists</h2>
+<p><b>Create</b> beautiful, reproducible documents including graphs and analysis from your raw data and code.</p>
 
 
-<h3>Learn More</h3>
-<p>Check out <a href="/docs">the docs</a> (such as they are). <a href="/docs/filters">filter references</a> (see what Dexy's filters can do)</p>
-<p>Work through the <a href="/docs/tutorials">tutorials</a>.</p>
-<p>Read the <a href="/install">Installation Instructions</a>.</p>
-<p>Read articles and see examples of dexy at the <a href="http://blog.dexy.it/">Dexy Blog</a>.</p>
-<p>Browse and download the source code at Dexy's <a href="http://bitbucket.org/ananelson/dexy/">bitbucket repository</a>, or simply:<br />
-hg clone http://bitbucket.org/ananelson/dexy</p>
-<p>Ask a question on <a href="http://discuss.dexy.it">the forum</a>.</p>
-<p>Say hi in channel #dexy on freenode <a href="/chat">web chat</a></p>
-<p>Drop me an email ana@ananelson.com </p>
+<!-- ++Begin Dynamic Feed Wizard Generated Code++ -->
+<!--
+  // Created with a Google AJAX Search and Feed Wizard
+  // http://code.google.com/apis/ajaxsearch/wizards.html
+  //
+  // actually google it's here update your wizard:
+  // http://www.google.com/uds/solutions/wizards/dynamicfeed.html
+  -->
+
+  <!--
+  // The Following div element will end up holding the actual feed control.
+  // You can place this anywhere on your page.
+  -->
+  <div id="feed-control">
+    <span style="color:#676767;font-size:11px;margin:10px;padding:4px;">Loading...</span>
+  </div>
+
+  <!-- Google Ajax Api
+  -->
+  <script src="http://www.google.com/jsapi?key=notsupplied-wizard"
+    type="text/javascript"></script>
+
+  <!-- Dynamic Feed Control and Stylesheet -->
+  <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+  </style>
+
+  <script type="text/javascript">
+    function LoadDynamicFeedControl() {
+      var feeds = [
+	{title: 'Dexy Blog',
+	 url: 'http://blog.dexy.it/feed'
+  },
+   {title: 'Commits',
+url: 'https://bitbucket.org/ananelson/dexy/rss'
+   },
+   {title: 'Support Forum',
+url: 'http://discuss.dexy.it/index.php?p=/categories/support/feed.rss'
+   }
+	];
+  var options = {
+        numResults : 10,
+        stacked : true,
+        horizontal : false,
+        title : "Latest news"
+      }
+
+      new GFdynamicFeedControl(feeds, 'feed-control', options);
+    }
+    // Load the feeds API and set the onload callback.
+    google.load('feeds', '1');
+    google.setOnLoadCallback(LoadDynamicFeedControl);
+  </script>
+<!-- ++End Dynamic Feed Control Wizard Generated Code++ -->
+
+

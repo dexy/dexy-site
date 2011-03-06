@@ -1,4 +1,4 @@
-dexy -s -d .
+dexy -s -d
 
 # Want to rename index.pdf files to something more useful.
 for f in `find cache/docs/*/index.pdf`; do
