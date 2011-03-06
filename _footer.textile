@@ -14,13 +14,14 @@
 		<div id="fbox2" class="box2">
 			<h2><b>dexy.it</b> pages</h2>
 			<ul>
-				<li><a href="/intro">intro</a></li>
-				<li><a href="/search">search</a></li>
+				<li><a href="/chat">chat</a></li>
 				<li><a href="/contact">contact</a></li>
 				<li><a href="/docs">documentation</a></li>
+				<li><a href="/gallery">gallery</a></li>
 				<li><a href="/install">install guide</a></li>
+				<li><a href="/intro">intro</a></li>
+				<li><a href="/search">search</a></li>
 				<li><a href="/services">consulting and support services</a></li>
-				<li><a href="/chat">chat</a></li>
 			</ul>
 		</div>
 		<div id="fbox3" class="box2">
