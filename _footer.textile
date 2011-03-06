@@ -20,13 +20,14 @@
 				<li><a href="/docs">documentation</a></li>
 				<li><a href="/install">install guide</a></li>
 				<li><a href="/services">consulting and support services</a></li>
+				<li><a href="/chat">chat</a></li>
 			</ul>
 		</div>
 		<div id="fbox3" class="box2">
 			<h2><b>Useful Sites</b> elsewhere</h2>
 			<ul>
 				<li><a href="http://discuss.dexy.it">Dexy Forum</a></li>
-				<li><a href="http://bitbucket.org/ananelson/dexy/">Bitbucket Repo</a></li>
+				<li><a href="http://bitbucket.org/ananelson/dexy/">Dexy's Bitbucket Repo</a></li>
 				<li><a href="http://bitbucket.org/ananelson/dexy-site/">This Site's Source</a></li>
 			</ul>
 		</div>
