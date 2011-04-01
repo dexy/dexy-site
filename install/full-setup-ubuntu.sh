@@ -13,6 +13,7 @@ apt-get update
 
 apt-get install -y gcc make
 apt-get install -y python-setuptools
+apt-get install -y python-pip
 apt-get install -y r-base-dev # CRAN_MIRROR multiverse
 apt-get install -y mercurial
 apt-get install -y clang
@@ -30,8 +31,24 @@ apt-get install -y ruby1.8-dev
 apt-get install -y texlive-full
 apt-get install -y espeak
 apt-get install -y lame # multiverse
+apt-get install -y php5-cli
+apt-get install -y erlang
+apt-get install -y tree
 
 easy_install nose
+easy_install garlicsim==0.6.0
+easy_install garlicsim_lib==0.6.0
+
+R -e 'install.packages("rjson", repos="http://cran.r-project.org")'
+
+wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.4/asciidoc-8.6.4.tar.gz/download
+mv download asciidoc.tgz
+tar -xzvf asciidoc.tgz
+cd asciidoc-8.6.4/
+./configure
+make
+make install
+cd ..
 
 ### @export "install-clojure"
 wget --no-check-certificate http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
