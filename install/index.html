@@ -2,68 +2,35 @@
 
 <p>Dexy is written in pure Python, and uses Setuptools. Dexy should be very simple to install. Many of Dexy's filters depend on having other software installed, so depending on how you want to use Dexy you might need to install some extra software too. For example, if you want to use the latex filter to turn documents written in LaTeX into PDFs, then you'll need to install TeXLive or a similar package.</p>
 
-<p>If you are worried about messing up your system, then you can install Dexy and any software you want to use with it within a Virtual Machine. Using a virtual machine is also a good option if your system comes with an old version of Python. There is *very* limited support for <a href="#windows">Windows</a>.</p>
-
 <p>Dexy should work on Python 2.6 or Python 2.7. There is no support for Python 3.0 yet.</p>
 
 <p>If you run into issues with this install process then <a href="http://discuss.dexy.it">let me know</a>.</p>
 
+<p>Dexy's source code is available either from <a href="http://bitbucket.org/ananelson/dexy">bitbucket</a> or <a href="http://github.com/ananelson/dexy">github</a>.</p>
+
 <h2>Easy Install</h2>
 
-<p>The recommended way to install Dexy is using easy_install (which is part of <a href="http://pypi.python.org/pypi/setuptools">setuptools</a>).</p>
+<p>The recommended way to install Dexy is using either pip or easy_install (which is part of <a href="http://pypi.python.org/pypi/setuptools">setuptools</a>).</p>
 
-{{ d['easy-install.sh|pyg'] }}
-
-<p>or if you are on Python 2.6:</p>
-
-{{ d['easy-install-py26.sh|pyg'] }}
-
-<p>(Dexy WILL NOT WORK on Python 2.6 unless you have installed 'ordereddict' and this does this for you)</p>
-
-<p>If you want an absolutely minimal installation of Dexy without some of the common Python libraries that make Dexy more useful out-of-the-box then you can just do:</p>
-
-{{ d['easy-install-min.sh|pyg'] }}
+{{ d['sections']['source-install.sh|idio']['source-install'] }}
 
 <p>You can upgrade your Dexy by calling easy_install with the --upgrade flag. There are various other tools available to help with Python package management that you might also use, instead of or in addition to easy_install. Check out <a href="http://pypi.python.org/pypi/yolk/">yolk</a>, <a href="http://pypi.python.org/pypi/pip">pip</a>,and <a href="http://virtualenv.openplans.org/">virtualenv</a>.
-
-<h2>Source Install</h2>
-
-<p>Before installing from source, it is recommended that you install via easy_install to have some of the useful dependencies installed automatically for you.</p>
-{{ d['sections']['source-install.sh|idio']['easy-install-deps'] }}
-
-<p>Obtain the Dexy source code either via</p>
-
-{{ d['sections']['source-install.sh|idio']['clone-repo'] }}
-
-<p>or if you don't have Mercurial and don't want to install it, by downloading the source via the "get source" link at <a href="http://bitbucket.org/ananelson/dexy">http://bitbucket.org/ananelson/dexy</a>.</p>
-
-<p>Then to install simply:</p>
-{{ d['sections']['source-install.sh|idio']['install'] }}
-
-<p>If you are using Python 2.6 then you need to call easy_install with the py26 option or do:</p>
-{{ d['sections']['source-install.sh|idio']['ordereddict'] }}
 
 <h2>Checking That It Works</h2>
 
 <p>Regardless of which method you use, you can make sure it works by typing:</p>
 
-{{ d['test.sh|pyg'] }}
+{{ d['sections']['source-install.sh|idio']['dexy-help'] }}
+
 
 <p>Once you have Dexy installed, you can start working through the <a href="/docs/tutorials">tutorials</a>.</p>
 
 <h2 id="windows">Windows</h2>
 
-<p>There is currently very limited support for Dexy on Windows. The core of Dexy should work on Windows (as of Version 0.1.7), but many of the Dexy filters will only work on Mac/Linux. Unless you are an experienced developer and are willing to get your hands dirty, write new filters and deal with bugs, to get Dexy to work, then you should set up a Linux virtual machine and run Dexy this way instead.</p>
-
-<p>For the intrepid, here is a script that will get you started:</p>
-{{ d['install.bat|pyg'] }}
-
-<h2>Mega Super Duper Install</h2>
-
-<p>If you want to be able to run *all* the Dexy examples, and the Dexy web server, then you can follow the steps detailed in this <a href="/install.pdf">PDF install guide</a>.
+<p>Dexy should install on Windows using easy_install, however not all the filters will work on Windows. The dexy.log file should provide clues.</p>
 
 <h2 id="nosudo">Install Without Sudo</h2>
 
 <p>Here is an example using <a href="http://virtualenv.openplans.org/">virtualenv</a> to create a local self-contained install of Dexy without requiring root access.</p>
 
-{{ d['scripts/py27-virtualenv-install.sh|pyg'] }}
+{{ d['virtualenv-install.sh|pyg'] }}
