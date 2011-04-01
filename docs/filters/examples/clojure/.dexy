@@ -1,6 +1,7 @@
 {
   "*.clj|cljint" : {
-    "env" : { "CLASSPATH" : "/clojure.jar"}
+    "env" : { "CLASSPATH" : "/clojure.jar"},
+    "disabled" : true
   },
   "*.clj|pyg" : {},
   "ClojureInteractiveHandler-example.html|jinja" : {
