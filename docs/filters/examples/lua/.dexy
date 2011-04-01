@@ -1,0 +1,7 @@
+{
+  "*.lua|pyg" : {},
+  "*.lua|lua" : {},
+  "*-example.html|jinja" : {
+    "inputs" : ["*.lua|pyg", "*.lua|lua"]
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "SplitHtmlHandler-example.html|jinja" : {
+    "inputs" : ["split.html|pyg", "split.html|split"]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "*.py|dexy" : {},
+  "*.py|pyg" : {},
+  "*-example.html|jinja" : {
+    "inputs" : ["*.py|dexy", "*.py|pyg"]
+  }
+}

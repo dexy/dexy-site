@@ -1,0 +1,7 @@
+{
+  "*.tex|pyg" : {},
+  "*.tex|latex" : {},
+  "*-example.html|jinja" : {
+    "inputs" : ["*.tex|pyg", "*.tex|latex"]
+  }
+}

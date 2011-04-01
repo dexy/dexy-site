@@ -1,8 +1,0 @@
-{
-  "*.pdf|pdf2png" : {},
-  "*.pdf|cp" : {},
-  "@subprocess_handler.py|idio" : {
-    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/pexpect_handlers.py"
-  }
-}
-

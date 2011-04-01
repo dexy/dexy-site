@@ -1,7 +1,0 @@
-{
-  "*.php|pyg" : {},
-  "*.php|php|pyg" : {"disabled" : true},
-  "@stdout_handlers.py|idio" : {
-    "url" : "https://bitbucket.org/ananelson/dexy/raw/tip/handlers/stdout_handlers.py"
-  }
-}

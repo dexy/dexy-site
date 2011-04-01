@@ -1,0 +1,10 @@
+{
+  "*.feature|dexy" : {},
+  "*.rb|pyg" : {},
+  "*.feature|cuke" : {
+    "ifinput": ["%.rb|jinja"]
+  },
+  "CucumberHandler-example.html|jinja" : {
+    "inputs" : ["*.feature|dexy", "*.rb|pyg", "*.feature|cuke"]
+  }
+}

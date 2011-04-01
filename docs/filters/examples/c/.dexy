@@ -1,0 +1,19 @@
+{
+  "*.c|c" : { "ifnoinput" : "%-input.txt|dexy"},
+  "*.c|clang" : { "ifnoinput" : "%-input.txt|dexy"},
+  "*.c|ctime" : { "ifnoinput" : "%-input.txt|dexy"},
+  "*.c|cint" : { "ifinput" : "%-input.txt|dexy"},
+  "*.c|pyg" : {},
+  "ClangTimingHandler-example.html|jinja" : {
+    "inputs" : ["*.c|pyg", "001.c|ctime"]
+  },
+  "ClangHandler-example.html|jinja" : {
+    "inputs" : ["*.c|pyg", "001.c|clang"]
+  },
+  "CHandler-example.html|jinja" : {
+    "inputs" : ["*.c|pyg", "001.c|c"]
+  },
+  "ClangInteractiveHandler-example.html|jinja" : {
+    "inputs" : ["*.c|pyg", "009.c|cint", "*.txt|dexy"]
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "*.php|pyg" : {},
+  "*.php|php" : {},
+  "*-example.html|jinja" : {
+    "inputs" : ["*.php|pyg", "*.php|php"]
+  }
+}

@@ -1,0 +1,19 @@
+<h2>Asciidoc Example</h2>
+
+<p>This is some asciidoc source:</p>
+<pre>
+{{ d['example.txt|dexy'] }}
+</pre>
+
+<h3>HTML</h3>
+
+<p>By default, the asciidoc filter produces HTML. Here is what the output looks like:</p>
+
+<iframe src="examples/asciidoc/example.html" width="600px" height="360px">
+Yeah, it's an iframe.
+</iframe>
+
+<h3>XML</h3>
+<p>You can also choose to output DocBook XML:</p>
+{{ d['example.txt|asciidoc|x|pyg'] }}
+
