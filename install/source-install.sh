@@ -1,3 +1,7 @@
+wget --no-check-certificate http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
+unzip clojure-1.2.0.zip
+mv clojure-1.2.0/clojure.jar /clojure.jar
+
 apt-get install -y python-pip
 
 ### @export "pip-install"
