@@ -1,6 +1,61 @@
-<notextile>
 	</div>
   <!-- end content -->
+  <!-- start sidebar -->
+  <div id="sidebar">
+		<ul>
+			<li>
+				<h2><b>More</b> options</h2>
+				<ul>
+					<li><a href="/search">Search Dexy Sites</a></li>
+					<li><a href="https://bitbucket.org/ananelson/dexy/issues/new">Report a bug/Request a feature</a></li>
+					<li><a href="/contact">Get in touch</a></li>
+					<li><a href="/gallery">Gallery</a></li>
+					<li><a href="/chat">Chat</a></li>
+				</ul>
+        </li>
+            <li>
+        <h2><b>Sponsors</b></h2>
+        <ul>
+          <li><a href="http://opengamma.com"><img width="200px" alt="OpenGamma Logo" src="/sponsorlogo-opengamma.png" /></a></li>
+          <li><a href="http://websterclay.com"><img width="200px" alt="Webster Clay Logo" src="/sponsorlogo-websterclay.png" /></a></li>
+        </ul>
+        </li>
+        <li>
+            <script src="http://widgets.twimg.com/j/2/widget.js"></script>
+            <script>
+              new TWTR.Widget({
+                version: 2,
+                type: 'profile',
+                rpp: 3,
+                interval: 6000,
+                width: 200,
+                height: 200,
+                theme: {
+                  shell: {
+                    background: '#003448',
+                    color: '#ffffff'
+                  },
+                  tweets: {
+                    background: '#ffffff',
+                    color: '#000000',
+                    links: '#003448'
+                  }
+                },
+                features: {
+                  scrollbar: false,
+                  loop: false,
+                  live: false,
+                  hashtags: true,
+                  timestamp: true,
+                  avatars: false,
+                  behavior: 'all'
+                }
+              }).render().setUser('dexyit').start();
+            </script>
+            </li>
+		</ul>
+	</div>
+  <!-- end sidebar -->
   <div style="clear: both;">&nbsp;</div>
 </div>
 <!-- end page -->
@@ -51,4 +106,3 @@ piwikTracker.enableLinkTracking();
 
 </body>
 </html>
-</notextile>

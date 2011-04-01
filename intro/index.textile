@@ -1,6 +1,6 @@
 h2. What is Dexy?
 
-Dexy is a tool for writing documents which relate to code. This might mean software documentation, journal articles relating to computational research, a code tutorial on your blog, writing up computer science class assignments, pretty much anything. You can think of Dexy as a very fancy 'make' tool with lots of document-related features and powerful "filters":/docs/filters.
+Dexy is a tool for writing documents which relate to code. This might mean software documentation, journal articles relating to computational research, a code tutorial on your blog, writing up computer science class assignments, pretty much anything. You can think of Dexy as a very fancy 'make' tool with lots of document-related features and powerful "filters":/docs/filters. Dexy is open source, licensed under the "MIT license":http://www.opensource.org/licenses/mit-license.
 
 h2. How do I install Dexy?
 

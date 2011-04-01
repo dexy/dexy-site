@@ -1,6 +1,9 @@
+.DS_Store
 cache/
 logs/
 artifacts/
 times.csv
 .*.swp
 annotator/
+output/
+output-long/
