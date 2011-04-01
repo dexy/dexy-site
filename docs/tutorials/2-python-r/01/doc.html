@@ -3,17 +3,18 @@
     <link rel="stylesheet" href="pastie.css" />
   </head>
   <body>
-  
-    <p>Here is the original Python script:</p>
-    {{ d['run-prisoner.py|pyg'] }}
 
-    <p>Here is how it looks when it is run:</p>
+    <p>Here is the python script when run:</p>
     {{ d['run-prisoner.py|fn|pycon|pyg'] }}
 
-    <p>Here is the original R script:</p>
-{{ d['prisoner.R|pyg'] }}
+    <p>Here is the R script when it is run:</p>
+    {{ d['prisoner.R|fn|r|pyg'] }}
 
-    <p>Here is how it looks when it is run:</p>
-{{ d['prisoner.R|fn|r|pyg'] }}
+    <p>Here is the histogram:</p>
+    <img src="/hist.png" alt="histogram" />
+
+    <p>Here is the bar chart:</p>
+    <img src="/strategy-counts.png" alt="count of strategies over time" />
+
     </body>
   </html>

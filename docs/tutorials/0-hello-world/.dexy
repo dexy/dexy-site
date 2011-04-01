@@ -3,9 +3,9 @@
   "*.sh|idio" : {},
   "*.py|dexy" : {},
   "*.sh|bash" : {},
-  "*/*.txt|dexy" : {},
-  "*/*.py|pyg" : {},
-  "*/.dexy|dexy" : {},
-  "*/*.dexy|dexy" : {},
+  "*.txt|dexy" : {},
+  "*.py|pyg" : {},
+  ".dexy|dexy" : {},
+  "*.dexy|dexy" : {},
   "index.txt|jinja|textile" : { "allinputs" : true, "notextile" : true }
 }

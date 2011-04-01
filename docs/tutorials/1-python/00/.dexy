@@ -1,4 +1,5 @@
 {
-  "*.html|jinja" : {"allinputs" : true},
-    "*.py|dexy" : {}
+  "*.html|jinja" : {
+    "inputs" : ["*.py|dexy"]
+  }
 }

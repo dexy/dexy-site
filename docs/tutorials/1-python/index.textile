@@ -4,61 +4,70 @@ In this tutorial we start creating HTML documents and learn about some of the di
 
 Let's start by writing a short Python script:
 
-{{ d['00/script.py|pyg'] }}
+{{ d['docs/tutorials/1-python/00/script.py|pyg'] }}
 
 And a simple HTML file which includes it:
 
-{{ d['00/doc.html|pyg'] }}
+{{ d['docs/tutorials/1-python/00/doc.html|pyg'] }}
 
 Here is the .dexy configuration to run this.
-{{ d['00/.dexy|dexy'] }}
+{{ d['docs/tutorials/1-python/00/.dexy|dexy'] }}
 
 Then by running this:
 {{ d['sections']['run-00.sh|idio']['run'] }}
-{{ d['sections']['run-00.sh|idio']['cat'] }}
 
-You should see this:
-{{ d['run-00.sh|bash|ch|pyg'] }}
+You should generate a html file that looks like this:
+<iframe src="00/doc.html" width="300px" height="200px">
+</iframe>
 
 h1. 01
 
 Now that we're using HTML, let's make this output a little more colourful. We want to use syntax highlighting and apply a stylesheet. You must have Pygments installed (easy_install pygments). You can generate a stylesheet as follows:
 
-{{ d['01/generate-stylesheet.sh|pyg'] }}
+{{ d['docs/tutorials/1-python/01/generate-stylesheet.sh|pyg'] }}
 
 You can experiment with other styles besides 'pastie'.
 
 Instead of putting our python script through a 'dexy' filter to show it as plain text, we want to run it through the 'pyg' filter which will apply syntax highlighting.
 
-{{ d['01/.dexy|dexy'] }}
+{{ d['docs/tutorials/1-python/01/.dexy|dexy'] }}
 
 We also added a line so that the css file we created (from pygmentize) gets copied to our output directory. Now we can update the HTML file. We need to add a link to the stylesheet, and change the reference to the Python script to reflect our change to use pygments:
 
-{{ d['01/doc.html|pyg'] }}
+{{ d['docs/tutorials/1-python/01/doc.html|pyg'] }}
 
 We want to run dexy with the -s filter to make the filenames nicer:
 {{ d['sections']['run-01.sh|idio']['run'] }}
 
 If you open the generated html file in a web browser, you should be able to see the Python source code with syntax highlighting. If not check that your relative paths to the stylesheet is correct. You can view source on the HTML or open the generated file in a text editor to check that the syntax highlighting markup is present.
 
+<iframe src="01/doc.html" width="300px" height="200px">
+</iframe>
+
 h1. 02
 
 Next we want to run the code. Add a line to the .dexy file:
 
-{{ d['02/.dexy|dexy'] }}
+{{ d['docs/tutorials/1-python/02/.dexy|dexy'] }}
 
 And update the html file:
 
-{{ d['02/doc.html|pyg'] }}
+{{ d['docs/tutorials/1-python/02/doc.html|pyg'] }}
+
+<iframe src="02/doc.html" width="300px" height="200px">
+</iframe>
 
 h1. 03
 
 Now, let's change this so that instead of showing the code and, separately, showing the output, we just show a console transcript.
 
-{{ d['03/.dexy|dexy'] }}
+{{ d['docs/tutorials/1-python/03/.dexy|dexy'] }}
 
 And update the html file:
 
-{{ d['03/doc.html|pyg'] }}
+{{ d['docs/tutorials/1-python/03/doc.html|pyg'] }}
 
 Different filters can be used depending on which style of code presentation you like. Sometimes the console view is useful, other times you will only want to show the output.
+
+<iframe src="03/doc.html" width="300px" height="200px">
+</iframe>

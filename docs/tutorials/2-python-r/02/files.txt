@@ -1,4 +1,0 @@
-{% for k, v in d['a'].items() %}
-key: {{ k }}
-value: {{ v }}
-{% endfor %}

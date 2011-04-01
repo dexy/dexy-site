@@ -4,20 +4,17 @@ h1. 00
 
 We are going to run a Python script to generate some data, then run R to analyze that data and (eventually) make some graphs.
 
-Here is the Python script:
+Here is the "Python script":00/run-prisoner.py:
 
-{{ d['00/run-prisoner.py|pyg'] }}
+{{ d['docs/tutorials/2-python-r/00/run-prisoner.py|pyg'] }}
 
 You can run this from the command line and you should see a CSV file and a JSON file after you run it.
 
-Here is the R script:
+Here is the "R script":00/prisoner.R:
 
-{{ d['00/prisoner.R|pyg'] }}
+{{ d['docs/tutorials/2-python-r/00/prisoner.R|pyg'] }}
 
 If you run this (AFTER you run the python script) you should get some PNGs and another JSON file.
-
-For example, you can run these via:
-{{ d['00/run-scripts.sh|pyg'] }}
 
 h1. 01
 
@@ -28,29 +25,12 @@ Dexy has a random filename generator. It looks for filenames starting with <code
 In order for prisoner.R to have access to the random filenames generated for run-prisoner.py, we need to have run-prisoner.py as an input to prisoner.R.
 
 <pre>
-{{ d['01/.dexy|dexy'] }}
+{{ d['docs/tutorials/2-python-r/01/.dexy|dexy'] }}
 </pre>
 
 Here is how you might write a HTML file to show these:
-{{ d['01/doc.html|pyg'] }}
+{{ d['docs/tutorials/2-python-r/01/doc.html|pyg'] }}
 
-h1. 02
+<iframe src="01/doc.html" width="500px" height="300px">
+</iframe>
 
-Next we want to add the images we generated to this HTML file. We first write a simple txt file to help us figure out:
-
-<pre>
-{{ d['02/files.txt|dexy'] }}
-</pre>
-
-And we modify the .dexy file so we can run this:
-<pre>
-{{ d['02/.dexy|dexy'] }}
-</pre>
-
-This gives us output like this:
-{{ d['run-02.sh|bash'] }}
-
-So we can see where the png files are located.
-
-Here is how you might write a HTML file to show these:
-{{ d['02/doc.html|pyg'] }}

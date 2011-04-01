@@ -1,10 +1,11 @@
 {
-  "*/*.py|pyg" : {},
-  "*/*.R|pyg" : {},
-  "*/*.sh|pyg" : {},
-  "*/*.html|pyg" : {},
-  "run-02.sh|bash" : {},
-  "*/*.txt|dexy" : {},
-  "*/.dexy|dexy" : {},
+  "*.py|pyg" : {},
+  "*.py|dexy" : {"final" : true},
+  "*.R|pyg" : {},
+  "*.R|dexy" : {"final" : true},
+  "*.sh|pyg" : {},
+  "*.html|pyg" : {},
+  "*.txt|dexy" : {},
+  ".dexy|dexy" : {},
   "index.txt|jinja|textile" : { "allinputs" : true, "notextile" : true }
 }
