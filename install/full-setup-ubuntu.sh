@@ -1,5 +1,7 @@
-#!/bin/bash
+### @export "update-package-manager"
 apt-get update
+
+### @export "additional-sources"
 apt-get install -y gnupg
 
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
@@ -11,10 +13,10 @@ echo "deb http://archive.ubuntu.com/ubuntu lucid multiverse" >> /etc/apt/sources
 
 apt-get update
 
+### @export "sys-installs"
 apt-get install -y gcc make
 apt-get install -y python-setuptools
 apt-get install -y python-pip
-apt-get install -y r-base-dev # CRAN_MIRROR multiverse
 apt-get install -y mercurial
 apt-get install -y clang
 apt-get install -y ragel
@@ -30,17 +32,27 @@ apt-get install -y sloccount
 apt-get install -y ruby1.8-dev
 apt-get install -y texlive-full
 apt-get install -y espeak
-apt-get install -y lame # multiverse
 apt-get install -y php5-cli
 apt-get install -y erlang
 apt-get install -y tree
+apt-get install -y lame # multiverse
+apt-get install -y r-base-dev # CRAN_MIRROR multiverse
 
+### @export "ruby-installs"
+gem install --no-rdoc --no-ri RedCloth
+gem install --no-rdoc --no-ri rspec
+gem install --no-rdoc --no-ri gherkin
+gem install --no-rdoc --no-ri cucumber
+
+### @export "python-installs"
 easy_install nose
 easy_install garlicsim==0.6.0
 easy_install garlicsim_lib==0.6.0
 
-R -e 'install.packages("rjson", repos="http://cran.r-project.org")'
+### @export "r-installs"
+R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
 
+### @export "install-asciidoc"
 wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.4/asciidoc-8.6.4.tar.gz/download
 mv download asciidoc.tgz
 tar -xzvf asciidoc.tgz
@@ -53,14 +65,8 @@ cd ..
 ### @export "install-clojure"
 wget --no-check-certificate http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
 unzip clojure-1.2.0.zip
-cp clojure-1.2.0/clojure.jar /
+mv clojure-1.2.0/clojure.jar /clojure.jar
 
-### @export "install-gems"
-export PATH=$PATH:/var/lib/gems/1.8/bin
-gem install --no-rdoc --no-ri RedCloth
-gem install --no-rdoc --no-ri rspec
-gem install --no-rdoc --no-ri gherkin
-gem install --no-rdoc --no-ri cucumber
 
 ### @export "install-python-2.7"
 curl -O http://python.org/ftp/python/2.7.1/Python-2.7.1.tgz
@@ -70,5 +76,6 @@ cd Python-2.7.1
 make
 make altinstall
 
+### @export "shutdown"
 shutdown -h now
 

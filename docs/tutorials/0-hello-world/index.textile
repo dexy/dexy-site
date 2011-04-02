@@ -87,7 +87,7 @@ Modify your .dexy file so that it looks like this:
 {{ d['docs/tutorials/0-hello-world/01/.dexy|dexy'] }}
 </pre>
 
-We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add somethign in the next step, but let's look at the keys now.
+We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add something in the next step, but let's look at the keys now.
 
 We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter "here":http://www.dexy.it/docs/filters/jinja/). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is "here":http://dexy.it/docs/filters/stdout.
 

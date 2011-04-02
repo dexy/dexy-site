@@ -6,7 +6,7 @@ Dexy should work on Python 2.6 or Python 2.7. There is no support for Python 3.0
 
 If you run into issues with this install process then <a href="http://discuss.dexy.it">let me know</a>.
 
-Dexy's source code is available either from <a href="http://bitbucket.org/ananelson/dexy">bitbucket</a> or <a href="http://github.com/ananelson/dexy">github</a>.
+Dexy's source code is available either from <a href="http://bitbucket.org/ananelson/dexy">bitbucket</a> or <a href="http://github.com/ananelson/dexy">github</a>. Most people shouldn't need more than what's on this page, but if you'd like to know more about Dexy's automated build or what you need to install to run all the Dexy examples, then there is a "PDF install guide":dexy-install-guide.pdf.
 
 h2. Easy Install
 
@@ -47,5 +47,17 @@ Dexy should install on Windows using any of the above methods, however not all t
 
 Here is an example using <a href="http://virtualenv.openplans.org/">virtualenv</a> to create a local self-contained install of Dexy without requiring root access.
 
-{{ d['virtualenv-install.sh|pyg'] }}
+Download and unpack virtualenv:
+{{ d['sections']['virtualenv-install.sh|idio']['download-virtualenv'] }}
 
+Create a new virtual environment:
+{{ d['sections']['virtualenv-install.sh|idio']['create-virtualenv'] }}
+
+Activate the virtualenv (you will need to do this each time you wish to use it):
+{{ d['sections']['virtualenv-install.sh|idio']['activate-virtualenv'] }}
+
+Install Dexy:
+{{ d['sections']['virtualenv-install.sh|idio']['install-dexy'] }}
+
+When you are finished, you can deactivate the virtualenv:
+{{ d['sections']['virtualenv-install.sh|idio']['deactivate-virtualenv'] }}

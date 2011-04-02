@@ -1,9 +1,3 @@
-wget --no-check-certificate http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
-unzip clojure-1.2.0.zip
-mv clojure-1.2.0/clojure.jar /clojure.jar
-
-apt-get install -y python-pip
-
 ### @export "pip-install"
 pip install dexy
 
@@ -26,31 +20,42 @@ dexy --version
 dexy --help
 
 ### @export "nosetests"
-easy_install nose
 nosetests
 
+### @export "examples"
 dexy --setup examples
-
 dexy examples
 dexy --no-recurse examples
 
+### @export "no-reports"
+dexy --no-reports examples
+
+### @export "dexy-docs"
 dexy docs
 
-dexy
-
+### @export "list-filters"
 dexy --filters
 
+### @export "list-reporters"
 dexy --reporters
 
+### @export "test-custom-locations"
+dexy --setup -a my_artifacts -l my_logs
 
+### @export "dexy-all"
+dexy
+
+### @end
 cd ..
 
+### @export "clone-templates"
 hg clone http://bitbucket.org/ananelson/dexy-templates
 cd dexy-templates
 
 cd code-journal-html-r
 dexy --setup
 cd ..
+### @end
 
 cd code-journal-html-python
 dexy --setup
@@ -74,9 +79,10 @@ cd ..
 
 cd .. # finished with templates
 
+### @export "dexy-site"
 hg clone http://bitbucket.org/ananelson/dexy-site
 cd dexy-site
 dexy --setup
 tar -czvf dexy-site.tgz -C output .
-/home/ubuntu/s3-put -k $AWS_KEY -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
+/home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 

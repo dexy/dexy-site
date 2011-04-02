@@ -1,0 +1,5 @@
+{
+  "dexy-install-guide.tex|jinja|latex" : {
+    "inputs" : ["*.sh|idio|l"]
+  }
+}
