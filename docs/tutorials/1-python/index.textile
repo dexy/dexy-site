@@ -11,7 +11,9 @@ And a simple HTML file which includes it:
 {{ d['docs/tutorials/1-python/00/doc.html|pyg'] }}
 
 Here is the .dexy configuration to run this.
+<pre>
 {{ d['docs/tutorials/1-python/00/.dexy|dexy'] }}
+</pre>
 
 Then by running this:
 {{ d['sections']['run-00.sh|idio']['run'] }}
@@ -29,8 +31,9 @@ Now that we're using HTML, let's make this output a little more colourful. We wa
 You can experiment with other styles besides 'pastie'.
 
 Instead of putting our python script through a 'dexy' filter to show it as plain text, we want to run it through the 'pyg' filter which will apply syntax highlighting.
-
+<pre>
 {{ d['docs/tutorials/1-python/01/.dexy|dexy'] }}
+</pre>
 
 We also added a line so that the css file we created (from pygmentize) gets copied to our output directory. Now we can update the HTML file. We need to add a link to the stylesheet, and change the reference to the Python script to reflect our change to use pygments:
 
@@ -47,8 +50,9 @@ If you open the generated html file in a web browser, you should be able to see 
 h1. 02
 
 Next we want to run the code. Add a line to the .dexy file:
-
+<pre>
 {{ d['docs/tutorials/1-python/02/.dexy|dexy'] }}
+</pre>
 
 And update the html file:
 
@@ -60,8 +64,9 @@ And update the html file:
 h1. 03
 
 Now, let's change this so that instead of showing the code and, separately, showing the output, we just show a console transcript.
-
+<pre>
 {{ d['docs/tutorials/1-python/03/.dexy|dexy'] }}
+</pre>
 
 And update the html file:
 
