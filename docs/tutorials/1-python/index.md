@@ -1,4 +1,4 @@
-h1. 00
+# 00
 
 In this tutorial we start creating HTML documents and learn about some of the different Python filters.
 
@@ -11,18 +11,21 @@ And a simple HTML file which includes it:
 {{ d['docs/tutorials/1-python/00/doc.html|pyg'] }}
 
 Here is the .dexy configuration to run this.
+
 <pre>
 {{ d['docs/tutorials/1-python/00/.dexy|dexy'] }}
 </pre>
 
 Then by running this:
+
 {{ d['run-00.sh|idio']['run'] }}
 
 You should generate a html file that looks like this:
+
 <iframe src="00/doc.html" width="300px" height="200px">
 </iframe>
 
-h1. 01
+# 01
 
 Now that we're using HTML, let's make this output a little more colourful. We want to use syntax highlighting and apply a stylesheet. You must have Pygments installed (easy_install pygments). You can generate a stylesheet as follows:
 
@@ -31,6 +34,7 @@ Now that we're using HTML, let's make this output a little more colourful. We wa
 You can experiment with other styles besides 'pastie'.
 
 Instead of putting our python script through a 'dexy' filter to show it as plain text, we want to run it through the 'pyg' filter which will apply syntax highlighting.
+
 <pre>
 {{ d['docs/tutorials/1-python/01/.dexy|dexy'] }}
 </pre>
@@ -40,6 +44,7 @@ We also added a line so that the css file we created (from pygmentize) gets copi
 {{ d['docs/tutorials/1-python/01/doc.html|pyg'] }}
 
 We want to run dexy with the -s filter to make the filenames nicer:
+
 {{ d['run-01.sh|idio']['run'] }}
 
 If you open the generated html file in a web browser, you should be able to see the Python source code with syntax highlighting. If not check that your relative paths to the stylesheet is correct. You can view source on the HTML or open the generated file in a text editor to check that the syntax highlighting markup is present.
@@ -47,9 +52,10 @@ If you open the generated html file in a web browser, you should be able to see 
 <iframe src="01/doc.html" width="300px" height="200px">
 </iframe>
 
-h1. 02
+# 02
 
 Next we want to run the code. Add a line to the .dexy file:
+
 <pre>
 {{ d['docs/tutorials/1-python/02/.dexy|dexy'] }}
 </pre>
@@ -61,9 +67,10 @@ And update the html file:
 <iframe src="02/doc.html" width="300px" height="200px">
 </iframe>
 
-h1. 03
+# 03
 
 Now, let's change this so that instead of showing the code and, separately, showing the output, we just show a console transcript.
+
 <pre>
 {{ d['docs/tutorials/1-python/03/.dexy|dexy'] }}
 </pre>

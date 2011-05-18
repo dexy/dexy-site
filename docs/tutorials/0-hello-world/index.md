@@ -1,24 +1,23 @@
-h1. 00
+# 00
 
 This tutorial is mostly about making sure that everything is installed correctly and working.
 
 You need Python installed in order for Dexy to work, and of course you need Dexy installed to use Dexy!
 
-If you haven't already, please "read the instructions":http://dexy.it/install and install Dexy. If you installed Dexy a while ago then you should install it again to upgrade to the latest version.
+If you haven't already, please [read the instructions](http://dexy.it/install) and install Dexy. If you installed Dexy a while ago then you should install it again to upgrade to the latest version.
 
 To check if Dexy is installed:
+
 {{ d['version.sh|pyg'] }}
 
-{% if False %}
 This tutorial was tested using Dexy version:
 
 <pre>
 {{ d['version.sh|bash'] }}
 </pre>
 
-{% endif %}
-
 Too see the documentation for the Dexy command:
+
 {{ d['help.sh|pyg'] }}
 
 Here are the options currently available (may be slightly different depending on your version of Python):
@@ -35,7 +34,7 @@ Create a new, empty directory to work in. Create a text file, you can name it he
 {{ d['docs/tutorials/0-hello-world/00/hello.txt|dexy'] }}
 </pre>
 
-The curly brackets are "Jinja":http://jinja.pocoo.org/ tags, and soon they will be how we are going to get Dexy to incorporate code and other fun stuff into our documents.
+The curly brackets are [Jinja](http://jinja.pocoo.org/) tags, and soon they will be how we are going to get Dexy to incorporate code and other fun stuff into our documents.
 
 Next we need to give Dexy some instructions about what files we want Dexy to process, and what we want done to those files. Dexy looks for configuration files named .dexy (later we'll see how to name them something else), so create another text file named .dexy and type the following into it:
 
@@ -43,7 +42,7 @@ Next we need to give Dexy some instructions about what files we want Dexy to pro
 {{ d['docs/tutorials/0-hello-world/00/.dexy|dexy'] }}
 </pre>
 
-This is a little "JSON":http://www.json.org/ which is the file format we currently use for writing configuration files for Dexy. In terms of JSON elements, we have an object containing a single key/value pair whose key is "*.txt|jinja" and whose value is another object which happens to be empty, i.e. {}. For now, you don't need to worry too much about this, just type it in exactly as you see it here.
+This is a little [JSON](http://www.json.org/) which is the file format we currently use for writing configuration files for Dexy. In terms of JSON elements, we have an object containing a single key/value pair whose key is "*.txt|jinja" and whose value is another object which happens to be empty, i.e. {}. For now, you don't need to worry too much about this, just type it in exactly as you see it here.
 
 Now we are ready to run dexy! The first time you run dexy you will need to call dexy with the --setup flag so it can create some directories it needs (this is a safety measure so you don't run Dexy in the wrong directory):
 {{ d['run-00.sh|idio']['run'] }}
@@ -69,7 +68,7 @@ To learn more:
 * study the log file and look at the contents of the artifacts/ directory
 * run dexy with the --help option and try to figure out what the command line options do (some of them relate to features you haven't seen yet, but many should make sense now)
 
-h1. 01
+# 01
 
 Now we are going to get Dexy to do something more useful and interesting, we are going to write some Python code and then modify our hello.txt file so that we can see the contents of the Python file and also run the file to see the outcome.
 
@@ -89,18 +88,21 @@ Modify your .dexy file so that it looks like this:
 
 We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add something in the next step, but let's look at the keys now.
 
-We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter "here":http://www.dexy.it/docs/filters/jinja/). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is "here":http://dexy.it/docs/filters/stdout.
+We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter [here](http://www.dexy.it/docs/filters/jinja/)). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is [here](http://dexy.it/docs/filters/stdout).
 
 If you have written your script and modified your .dexy configuration file as shown, then you can call dexy again. Unless you have removed them, you already have the directories that Dexy needs to run so this time you don't need the --setup flag and you can just do:
+
 {{ d['run-01.sh|idio']['run'] }}
 
 Now there should be a file containing the output of running the Python script, so you should be able to do:
+
 {{ d['run-01.sh|idio']['cat'] }}
 
 And you should see something like this:
+
 <pre>{{ d['docs/tutorials/0-hello-world/01/hello.py|py'] }}</pre>
 
-h1. 02
+# 02
 
 Now we're finally ready to start using Dexy to document code!
 
@@ -127,6 +129,7 @@ We'll come back to these a little more after we run our example. Now let's add s
 The 'd' inside the jinja tags is a dictionary which Dexy has created. This dictionary (i.e. a hashmap of key-value pairs) has stored in it the contents of "hello.py|py" and "hello.py|dexy". Dexy stored these contents in the dictionary because we specified in the inputs array that we wanted these available as inputs. Now that we are writing our documents, we simply retrieve these items from this dictionary wherever we want them.
 
 Now try running Dexy, and then do:
+
 {{ d['run-02.sh|idio']['cat'] }}
 
 Hopefully you will see something like this:
@@ -159,6 +162,6 @@ Here are some ideas you can try now to explore how Dexy works:
 * Write a .dexy file which uses wildcards everywhere.
 * Write a second Python script and include this in your hello.txt file also. (You might need to modify your .dexy file - unless you are using wildcards everywhere.)
 * Create a second .txt file and include the source and output of your Python script(s) in a different way. (You might need to modify your .dexy file - unless you are using wildcards everywhere.)
-* Create a .txt file which lists all the objects present in d. ("This":http://docs.python.org/tutorial/datastructures.html#tut-dictionaries Python documentation might be helpful.) How might this be helpful when composing documents?
-* Look at the list of filters "here":http://dexy.it/docs/filters. Read the documentation and look at the source code for all the filters we have used. Feel free to try other filters (if you have the necessary software installed).
-* Read the "jinja":http://jinja.pocoo.org/docs documentation. Try using one of the "built-in filters":http://jinja.pocoo.org/docs/templates/#builtin-filters in your document.
+* Create a .txt file which lists all the objects present in d. ([This](http://docs.python.org/tutorial/datastructures.html#tut-dictionaries) Python documentation might be helpful.) How might this be helpful when composing documents?
+* Look at the list of filters [here](http://dexy.it/docs/filters). Read the documentation and look at the source code for all the filters we have used. Feel free to try other filters (if you have the necessary software installed).
+* Read the [jinja](http://jinja.pocoo.org/docs) documentation. Try using one of the [built-in filters](http://jinja.pocoo.org/docs/templates/#builtin-filters) in your document.
