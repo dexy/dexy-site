@@ -26,6 +26,11 @@
       "notextile" : true,
       "footer" : "_footer.html|dexy"
     },
+    "index.md|markdown|hd|ft|jinja" : {
+      "allinputs" : true,
+      "notextile" : true,
+      "footer" : "_footer.html|dexy"
+    },
     "index.txt|ch|jinja|hd|ft" : {
       "allinputs" : true,
       "footer" : "_index_footer.html|dexy"

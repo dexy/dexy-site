@@ -1,3 +1,6 @@
+# temporary items - should be part of main setup
+easy_install Markdown
+
 ### @export "pip-install"
 pip install dexy
 
@@ -52,30 +55,15 @@ cd ..
 hg clone http://bitbucket.org/ananelson/dexy-templates
 cd dexy-templates
 
-cd code-journal-html-r
-dexy --setup
-cd ..
-### @end
-
-cd code-journal-html-python
-dexy --setup
-cd ..
-
-cd code-journal-textile-r
-dexy --setup
-cd ..
-
-cd code-journal-textile-ruby
-dexy --setup
-cd ..
-
-cd latex-article-r
-dexy --setup
-cd ..
-
-cd latex-tufte-article-r
-dexy --setup
-cd ..
+for dir in `ls`
+do
+  if [ -d "$dir" ]; then
+    cd $dir
+    echo "running dexy in $dir"
+    dexy --setup
+    cd ..
+  fi
+done
 
 cd .. # finished with templates
 

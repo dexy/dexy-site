@@ -46,6 +46,7 @@ gem install --no-rdoc --no-ri cucumber
 
 ### @export "python-installs"
 easy_install nose
+easy_install Markdown
 easy_install garlicsim==0.6.0
 easy_install garlicsim_lib==0.6.0
 

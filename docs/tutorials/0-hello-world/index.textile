@@ -46,11 +46,11 @@ Next we need to give Dexy some instructions about what files we want Dexy to pro
 This is a little "JSON":http://www.json.org/ which is the file format we currently use for writing configuration files for Dexy. In terms of JSON elements, we have an object containing a single key/value pair whose key is "*.txt|jinja" and whose value is another object which happens to be empty, i.e. {}. For now, you don't need to worry too much about this, just type it in exactly as you see it here.
 
 Now we are ready to run dexy! The first time you run dexy you will need to call dexy with the --setup flag so it can create some directories it needs (this is a safety measure so you don't run Dexy in the wrong directory):
-{{ d['sections']['run-00.sh|idio']['run'] }}
+{{ d['run-00.sh|idio']['run'] }}
 
-Dexy puts the finished documents into the output-long/ directory where they are named with the base filename, any filters they have been passed through separated with hyphens, and finally the correct final file extension. So, you should now be able to type:
+Look to see what new directories have been created and feel free to poke around. Dexy puts the finished documents into the output-long/ directory where they are named with the base filename, any filters they have been passed through separated with hyphens, and finally the correct final file extension. So, you should now be able to type:
 
-{{ d['sections']['run-00.sh|idio']['cat'] }}
+{{ d['run-00.sh|idio']['cat'] }}
 
 And you should see something like this:
 
@@ -92,10 +92,10 @@ We discussed briefly how each item in here is a key-value pair. Our 'values' are
 We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter "here":http://www.dexy.it/docs/filters/jinja/). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is "here":http://dexy.it/docs/filters/stdout.
 
 If you have written your script and modified your .dexy configuration file as shown, then you can call dexy again. Unless you have removed them, you already have the directories that Dexy needs to run so this time you don't need the --setup flag and you can just do:
-{{ d['sections']['run-01.sh|idio']['run'] }}
+{{ d['run-01.sh|idio']['run'] }}
 
 Now there should be a file containing the output of running the Python script, so you should be able to do:
-{{ d['sections']['run-01.sh|idio']['cat'] }}
+{{ d['run-01.sh|idio']['cat'] }}
 
 And you should see something like this:
 <pre>{{ d['docs/tutorials/0-hello-world/01/hello.py|py'] }}</pre>
@@ -127,7 +127,7 @@ We'll come back to these a little more after we run our example. Now let's add s
 The 'd' inside the jinja tags is a dictionary which Dexy has created. This dictionary (i.e. a hashmap of key-value pairs) has stored in it the contents of "hello.py|py" and "hello.py|dexy". Dexy stored these contents in the dictionary because we specified in the inputs array that we wanted these available as inputs. Now that we are writing our documents, we simply retrieve these items from this dictionary wherever we want them.
 
 Now try running Dexy, and then do:
-{{ d['sections']['run-02.sh|idio']['cat'] }}
+{{ d['run-02.sh|idio']['cat'] }}
 
 Hopefully you will see something like this:
 

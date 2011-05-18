@@ -47,23 +47,23 @@ The sources and scripts for this guide are part of the dexy-site repository \url
 
 Dexy can be installed via easy\_install or pip. Here are examples for a generic Ubuntu machine:
 
-<< d['sections']['min-install-ubuntu.sh|idio|l']['easy-install'] >>
+<< d['min-install-ubuntu.sh|idio|l']['easy-install'] >>
 
 \noindent or:
-<< d['sections']['min-install-ubuntu.sh|idio|l']['pip-install'] >>
+<< d['min-install-ubuntu.sh|idio|l']['pip-install'] >>
 
 \noindent You should then be able to check that Dexy has been installed and see which filters are available by running commands like:
-<< d['sections']['min-install-ubuntu.sh|idio|l']['check'] >>
+<< d['min-install-ubuntu.sh|idio|l']['check'] >>
 
 \section{Automated Build}
 
 The instructions in this document, such as the install script in the previous section, are validated by running them on virtual machines within Amazon's EC2 infrastructure, and then saving the output to S3.
 
 \noindent The following convenience function is called to run scripts on EC2 instances:
-<< d['sections']['run-builds.sh|idio|l']['function'] >>
+<< d['run-builds.sh|idio|l']['function'] >>
 
 \noindent This function is called as follows:
-<< d['sections']['run-builds.sh|idio|l']['run-scripts'] >>
+<< d['run-builds.sh|idio|l']['run-scripts'] >>
 
 So we pass the name of the script, the AMI identifier, and the instance size we wish to use. The run\_script\_in\_ec2 function will start the instance and pass the script we wish to run. It also sets some environment variables (such as our S3 credentials), and makes sure that the result of running our script will be saved in a log file for later.
 
@@ -74,7 +74,7 @@ And the close.sh file contains:
 << d['close.sh|idio|l'] >>
 
 The AMIs currently in use are:
-<< d['sections']['run-builds.sh|idio|l']['amis'] >>
+<< d['run-builds.sh|idio|l']['amis'] >>
 
 The custom AMI is private, however it can easily be replicated by running an install script on the Ubuntu AMI, as per this example:
 << d['create-custom-ami.sh|idio|l'] >>
@@ -86,34 +86,34 @@ By running this on an elastic boot store (EBC)-based AMI, the resulting virtual 
 In this section we discuss the full-setup-ubuntu.sh script which is used to generate a custom AMI.
 
 First, we make sure our package definitions are up to date:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['update-package-manager'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['update-package-manager'] >>
 
 We need to make some additional sources available to us, in particular for installing R related software:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['additional-sources'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['additional-sources'] >>
 
 Now that we are set up, we can install the software we will need to run the various Dexy demos and examples:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['sys-installs'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['sys-installs'] >>
 
 Next we can install some Ruby gems:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['ruby-installs'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['ruby-installs'] >>
 
 and some Python packages:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['python-installs'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['python-installs'] >>
 
 and some R packages:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['r-installs'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['r-installs'] >>
 
 although we installed asciidoc above, we want a more recent version:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['install-asciidoc'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['install-asciidoc'] >>
 
 intall clojure and move the JAR:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['install-clojure'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['install-clojure'] >>
 
 finally we give ourselves the option of using Pythong 2.7:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['install-python-2.7'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['install-python-2.7'] >>
 
 That's everything, we want to shut down the instance once we've finished installing everything:
-<< d['sections']['full-setup-ubuntu.sh|idio|l']['shutdown'] >>
+<< d['full-setup-ubuntu.sh|idio|l']['shutdown'] >>
 
 Recall that our script specified the instance should be stopped, not terminated, on shutdown. So once we see that the instance is stopped we can manually create an AMI with all this software installed.
 
@@ -122,77 +122,77 @@ Recall that our script specified the instance should be stopped, not terminated,
 The source-install.sh script installs Dexy both as a package and from source, and runs a number of tests, including generating the Dexy website. The idea of this script is to check that various commands function as expected. These commands are then used in the installation page to describe how to do various tasks. You wouldn't choose to run all these commands in this order, many of them are repetitive, but they form a useful basis for documentation.
 
 First we install the Dexy package via pip:
-<< d['sections']['source-install.sh|idio|l']['pip-install'] >>
+<< d['source-install.sh|idio|l']['pip-install'] >>
 
 And then via easy\_install:
-<< d['sections']['source-install.sh|idio|l']['easy-install'] >>
+<< d['source-install.sh|idio|l']['easy-install'] >>
 
 Call easy\_install with --ugprade to verify this syntax:
-<< d['sections']['source-install.sh|idio|l']['easy-install-upgrade'] >>
+<< d['source-install.sh|idio|l']['easy-install-upgrade'] >>
 
 Install the most recent Dexy from source:
-<< d['sections']['source-install.sh|idio|l']['source-install'] >>
+<< d['source-install.sh|idio|l']['source-install'] >>
 
 Switch to develop mode:
-<< d['sections']['source-install.sh|idio|l']['develop'] >>
+<< d['source-install.sh|idio|l']['develop'] >>
 
 Check that the installation is working:
-<< d['sections']['source-install.sh|idio|l']['dexy-help'] >>
+<< d['source-install.sh|idio|l']['dexy-help'] >>
 
 Run the unit tests:
-<< d['sections']['source-install.sh|idio|l']['nosetests'] >>
+<< d['source-install.sh|idio|l']['nosetests'] >>
 
 Run Dexy's built-in examples. Run this twice to test saving/loading of artifacts. Also test the --no-recurse switch:
-<< d['sections']['source-install.sh|idio|l']['examples'] >>
+<< d['source-install.sh|idio|l']['examples'] >>
 
 Test the --no-reports option:
-<< d['sections']['source-install.sh|idio|l']['no-reports'] >>
+<< d['source-install.sh|idio|l']['no-reports'] >>
 
 Run Dexy's developer documentation:
-<< d['sections']['source-install.sh|idio|l']['dexy-docs'] >>
+<< d['source-install.sh|idio|l']['dexy-docs'] >>
 
 Test the --filters option:
-<< d['sections']['source-install.sh|idio|l']['list-filters'] >>
+<< d['source-install.sh|idio|l']['list-filters'] >>
 
 Test the --reporters option:
-<< d['sections']['source-install.sh|idio|l']['list-reporters'] >>
+<< d['source-install.sh|idio|l']['list-reporters'] >>
 
 Test setting custom locations:
-<< d['sections']['source-install.sh|idio|l']['test-custom-locations'] >>
+<< d['source-install.sh|idio|l']['test-custom-locations'] >>
 
 Run examples and docs together:
-<< d['sections']['source-install.sh|idio|l']['dexy-all'] >>
+<< d['source-install.sh|idio|l']['dexy-all'] >>
 
 Next we are going to run the various dexy templates to ensure no errors are generated. Here is just the first one:
-<< d['sections']['source-install.sh|idio|l']['clone-templates'] >>
+<< d['source-install.sh|idio|l']['clone-templates'] >>
 
 Finally, we clone and generate the dexy site:
-<< d['sections']['source-install.sh|idio|l']['dexy-site'] >>
+<< d['source-install.sh|idio|l']['dexy-site'] >>
 
 \section{Installation with Virtualenv}
 
 Virtualenv is a useful Python utility if you want to have a fully sandboxed Python environment to work with, or if you aren't able to use sudo when installing software.
 
 First, download virtualenv:
-<< d['sections']['virtualenv-install.sh|idio|l']['download-virtualenv'] >>
+<< d['virtualenv-install.sh|idio|l']['download-virtualenv'] >>
 
 Run the virtualenv.py script to create a new virtual environment, we will use Python 2.7 for this example:
-<< d['sections']['virtualenv-install.sh|idio|l']['create-virtualenv'] >>
+<< d['virtualenv-install.sh|idio|l']['create-virtualenv'] >>
 
 Any time you are ready to activate your virtualenv, do:
-<< d['sections']['virtualenv-install.sh|idio|l']['activate-virtualenv'] >>
+<< d['virtualenv-install.sh|idio|l']['activate-virtualenv'] >>
 
 Now we can install Dexy to our new environment:
-<< d['sections']['virtualenv-install.sh|idio|l']['install-dexy'] >>
+<< d['virtualenv-install.sh|idio|l']['install-dexy'] >>
 
 We could also install Dexy from source:
-<< d['sections']['virtualenv-install.sh|idio|l']['source-install-dexy'] >>
+<< d['virtualenv-install.sh|idio|l']['source-install-dexy'] >>
 
 To leave the virtualenv:
-<< d['sections']['virtualenv-install.sh|idio|l']['deactivate-virtualenv'] >>
+<< d['virtualenv-install.sh|idio|l']['deactivate-virtualenv'] >>
 
 To re-enter the virtualenv any time you wish to work with this installation of Dexy do:
-<< d['sections']['virtualenv-install.sh|idio|l']['activate-virtualenv'] >>
+<< d['virtualenv-install.sh|idio|l']['activate-virtualenv'] >>
 
 \end{document}
 

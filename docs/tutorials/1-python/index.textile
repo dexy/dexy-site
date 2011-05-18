@@ -16,7 +16,7 @@ Here is the .dexy configuration to run this.
 </pre>
 
 Then by running this:
-{{ d['sections']['run-00.sh|idio']['run'] }}
+{{ d['run-00.sh|idio']['run'] }}
 
 You should generate a html file that looks like this:
 <iframe src="00/doc.html" width="300px" height="200px">
@@ -40,7 +40,7 @@ We also added a line so that the css file we created (from pygmentize) gets copi
 {{ d['docs/tutorials/1-python/01/doc.html|pyg'] }}
 
 We want to run dexy with the -s filter to make the filenames nicer:
-{{ d['sections']['run-01.sh|idio']['run'] }}
+{{ d['run-01.sh|idio']['run'] }}
 
 If you open the generated html file in a web browser, you should be able to see the Python source code with syntax highlighting. If not check that your relative paths to the stylesheet is correct. You can view source on the HTML or open the generated file in a text editor to check that the syntax highlighting markup is present.
 

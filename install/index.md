@@ -11,21 +11,21 @@ Dexy's source code is available either from <a href="http://bitbucket.org/ananel
 h2. Easy Install
 
 You can install Dexy using either "pip":http://pypi.python.org/pypi/pip:
-{{ d['sections']['source-install.sh|idio']['pip-install'] }}
+{{ d['source-install.sh|idio']['pip-install'] }}
 
 or easy_install:
-{{ d['sections']['source-install.sh|idio']['easy-install'] }}
+{{ d['source-install.sh|idio']['easy-install'] }}
 
 You can upgrade your Dexy by calling easy_install with the --upgrade flag:
-{{ d['sections']['source-install.sh|idio']['easy-install-upgrade'] }}
+{{ d['source-install.sh|idio']['easy-install-upgrade'] }}
 
 h2. Source Install
 
 Here is how to install Dexy from source using easy_install:
-{{ d['sections']['source-install.sh|idio']['source-install'] }}
+{{ d['source-install.sh|idio']['source-install'] }}
 
 This will also install any dependencies which Dexy needs. You might want to follow this by:
-{{ d['sections']['source-install.sh|idio']['develop'] }}
+{{ d['source-install.sh|idio']['develop'] }}
 
 which will put the code into 'develop' mode so any changes to the source code (either from pulling down updated code from the repository, or making changes yourself) are reflected immediately.
 
@@ -35,7 +35,7 @@ If you prefer you can obtain the source from "github":http://github.com/ananelso
 
 <p>Regardless of which method you use, you can make sure it works by typing:</p>
 
-{{ d['sections']['source-install.sh|idio']['dexy-help'] }}
+{{ d['source-install.sh|idio']['dexy-help'] }}
 
 Once you have Dexy installed, you can start working through the <a href="/docs/tutorials">tutorials</a> or get started with one of the "project templates":http://github.com/ananelson/dexy-templates.
 
@@ -48,16 +48,16 @@ Dexy should install on Windows using any of the above methods, however not all t
 Here is an example using <a href="http://virtualenv.openplans.org/">virtualenv</a> to create a local self-contained install of Dexy without requiring root access.
 
 Download and unpack virtualenv:
-{{ d['sections']['virtualenv-install.sh|idio']['download-virtualenv'] }}
+{{ d['virtualenv-install.sh|idio']['download-virtualenv'] }}
 
 Create a new virtual environment:
-{{ d['sections']['virtualenv-install.sh|idio']['create-virtualenv'] }}
+{{ d['virtualenv-install.sh|idio']['create-virtualenv'] }}
 
 Activate the virtualenv (you will need to do this each time you wish to use it):
-{{ d['sections']['virtualenv-install.sh|idio']['activate-virtualenv'] }}
+{{ d['virtualenv-install.sh|idio']['activate-virtualenv'] }}
 
 Install Dexy:
-{{ d['sections']['virtualenv-install.sh|idio']['install-dexy'] }}
+{{ d['virtualenv-install.sh|idio']['install-dexy'] }}
 
 When you are finished, you can deactivate the virtualenv:
-{{ d['sections']['virtualenv-install.sh|idio']['deactivate-virtualenv'] }}
+{{ d['virtualenv-install.sh|idio']['deactivate-virtualenv'] }}
