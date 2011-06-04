@@ -64,7 +64,8 @@ Dexy also places files in directories called artifacts/ and logs/. At this point
 The files stored in the artifacts/ directory mean that the next time you run Dexy, it won't need to reprocess every file. Dexy will only reprocess files whose contents have changed, or which depend on other files which have changed. If for some reason you want Dexy to reprocess everything, then you can run dexy with the --purge option and the artifacts/ files will be emptied. You can also run dexy with the --cleanup option and all dexy-generated files and reports will be removed.
 
 To learn more:
-* read more about "Jinja":http://jinja.pocoo.org if you haven't used it before
+
+* read more about [Jinja](http://jinja.pocoo.org) if you haven't used it before
 * study the log file and look at the contents of the artifacts/ directory
 * run dexy with the --help option and try to figure out what the command line options do (some of them relate to features you haven't seen yet, but many should make sense now)
 
@@ -157,6 +158,7 @@ And, we also don't have to list every dependency explicitly. Dexy has a shortcut
 The "allinputs" flag tells Dexy that we want everything else in the .dexy file to be available to our document. In practice this is usually the best option. Note that here we have gone back to "*.txt" rather than "hello.txt".
 
 Here are some ideas you can try now to explore how Dexy works:
+
 * Change the Python script and re-run Dexy to see what happens.
 * Try these different options for the .dexy file format, re-run Dexy to make sure they work.
 * Write a .dexy file which uses wildcards everywhere.

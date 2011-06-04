@@ -10,7 +10,7 @@ See the [installation instructions](/install)
 
 The recommended way to get started with Dexy is to work through [the tutorials](/docs/tutorials).
 
-When you are finished, then you can look through the [filter references](/docs/filters) to see what the various Dexy filters can do. Dexy's [template repository](http://bitbucket.org/ananelson/dexy-templates) has some simple examples you can copy as starting points for your projects. You can also find some interesting Dexy examples on the "blog":http://blog.dexy.it and recreate them. The source code for the blog is [available](http://bitbucket.org/ananelson/dexy-blog) and there are more examples [here](http://bitbucket.org/ananelson/dexy-examples). Note that due to the rapid pace of development, some syntax might have changed. If you run into trouble or have other questions, please ask on the [forum](http://discuss.dexy.it).
+When you are finished, then you can look through the [filter references](/docs/filters) to see what the various Dexy filters can do. Dexy's [template repository](http://bitbucket.org/ananelson/dexy-templates) has some simple examples you can copy as starting points for your projects. You can also find some interesting Dexy examples on the [blog](http://blog.dexy.it) and recreate them. The source code for the blog is [available](http://bitbucket.org/ananelson/dexy-blog) and there are more examples [here](http://bitbucket.org/ananelson/dexy-examples). Note that due to the rapid pace of development, some syntax might have changed. If you run into trouble or have other questions, please ask on the [forum](http://discuss.dexy.it).
 
 ## How is Dexy different to JavaDoc?
 

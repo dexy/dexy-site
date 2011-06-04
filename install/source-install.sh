@@ -55,11 +55,11 @@ cd ..
 hg clone http://bitbucket.org/ananelson/dexy-templates
 cd dexy-templates
 
-for dir in `ls`
+for dir in \`ls\`
 do
-  if [ -d "$dir" ]; then
-    cd $dir
-    echo "running dexy in $dir"
+  if [ -d "\$dir" ]; then
+    cd \$dir
+    echo "running dexy in \$dir"
     dexy --setup
     cd ..
   fi
