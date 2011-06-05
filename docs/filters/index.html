@@ -14,18 +14,17 @@
 
 <p>Aliases for this filter:
 <ul>
-  {% for alias in v['aliases'] %}
+  {% for alias in v['aliases'] -%}
   <li>{{ alias }}</li>
-  {% endfor %}
+  {% endfor -%}
 </ul>
 </p>
 
-{% for x in d.keys() %}
-{% if x.endswith(k + "-example.html|jinja") %}
+{% for x in d.keys() -%}
+{% if x.endswith(k + "-example.html|jinja") -%}
 {{ d[x] }}
-{% endif %}
-{% endfor %}
-
+{% endif -%}
+{% endfor -%}
 
 <h2>Source Code</h2>
 
