@@ -1,5 +1,15 @@
+env
+
 # temporary items - should be part of main setup
 easy_install Markdown
+
+gem install RedCloth
+
+sudo apt-get install -y git-core
+git clone https://github.com/rennat/pynliner.git
+cd pynliner
+python setup.py install
+cd ..
 
 ### @export "pip-install"
 pip install dexy
@@ -70,7 +80,7 @@ cd .. # finished with templates
 ### @export "dexy-site"
 hg clone http://bitbucket.org/ananelson/dexy-site
 cd dexy-site
-dexy --setup
+dexy --setup -x ".*00.*",".*01.*",".*02.*",".*03.*"
 tar -czvf dexy-site.tgz -C output .
 /home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 

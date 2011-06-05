@@ -5,7 +5,7 @@ function run_script_in_ec2 {
   temp_filename=/tmp/user-data-script.$RANDOM.$$.sh
   echo $temp_filename
 
-  script_dir=`pwd`
+  script_dir=/Users/ana/dev/dexy-site/install/
 
   script=$1
   script_name_length=${#script}
