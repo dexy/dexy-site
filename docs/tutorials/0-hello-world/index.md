@@ -10,11 +10,16 @@ To check if Dexy is installed:
 
 {{ d['version.sh|pyg'] }}
 
+{% if False -%}
+
+Note dexy --version writes to stderr not stdout so this will not work as written
+
 This tutorial was tested using Dexy version:
 
 <pre>
 {{ d['version.sh|bash'] }}
 </pre>
+{% endif %}
 
 Too see the documentation for the Dexy command:
 

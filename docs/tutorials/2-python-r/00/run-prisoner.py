@@ -4,7 +4,7 @@ from garlicsim_lib.simpacks import prisoner
 import csv
 import json
 
-NUMBER_OF_PLAYERS = 70 # hard coded into simpack
+NUMBER_OF_PLAYERS = 100
 NUMBER_OF_STEPS = 10
 
 csv_filename = "dexy--sim-output.csv"
@@ -13,12 +13,11 @@ data_writer = csv.writer(csv_file)
 
 data_writer.writerow(["step", "agent", "points", "strategy"])
 
-state = prisoner.State.create_messy_root()
+state = prisoner.State.create_messy_root(NUMBER_OF_PLAYERS)
 i = -1
 
 def collect_data():
-    for j in range(NUMBER_OF_PLAYERS):
-        agent = state.player_pool[j]
+    for j, agent in enumerate(state.players):
         strategy = agent.__class__.__name__
         data_writer.writerow([i, j, agent.points, strategy])
 
