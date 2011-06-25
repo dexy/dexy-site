@@ -1,12 +1,6 @@
 env
 
-# temporary items - should be part of main setup
-easy_install Markdown
-easy_install --upgrade garlicsim garlicsim_lib
 
-gem install RedCloth
-
-sudo apt-get install -y git-core
 git clone https://github.com/rennat/pynliner.git
 cd pynliner
 python setup.py install

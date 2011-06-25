@@ -11,7 +11,7 @@ controller = Controller()
 handlers = controller.find_handlers()
 
 py_lexer = PythonLexer()
-fm = HtmlFormatter()
+fm = HtmlFormatter(lineanchors = "l")
 
 handler_info = {}
 for k, v in handlers.items():

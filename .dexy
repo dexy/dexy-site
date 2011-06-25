@@ -5,6 +5,7 @@
     "*.swf|cp" : {},
     "*.dexy|dexy" : {},
     "*.html|pyg" : {},
+    "*.html|dexy" : {},
     "*.jpg|cp" : {},
     "*.gif|cp" : {},
     "*.js|cp" : {},
@@ -33,7 +34,6 @@
     },
     "index.md|markdown|hd|ft|jinja" : {
       "allinputs" : true,
-      "notextile" : true,
       "footer" : "_footer.html|dexy"
     },
     "index.txt|ch|jinja|hd|ft" : {

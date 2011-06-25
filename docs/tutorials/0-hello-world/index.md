@@ -91,7 +91,7 @@ Modify your .dexy file so that it looks like this:
 
 We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add something in the next step, but let's look at the keys now.
 
-We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter [here](http://www.dexy.it/docs/filters/jinja/)). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is [here](http://dexy.it/docs/filters/stdout).
+We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter [here](http://www.dexy.it/docs/filters/jinja)). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is [here](http://dexy.it/docs/filters/py).
 
 If you have written your script and modified your .dexy configuration file as shown, then you can call dexy again. Unless you have removed them, you already have the directories that Dexy needs to run so this time you don't need the --setup flag and you can just do:
 
@@ -167,3 +167,6 @@ Here are some ideas you can try now to explore how Dexy works:
 * Create a .txt file which lists all the objects present in d. ([This](http://docs.python.org/tutorial/datastructures.html#tut-dictionaries) Python documentation might be helpful.) How might this be helpful when composing documents?
 * Look at the list of filters [here](http://dexy.it/docs/filters). Read the documentation and look at the source code for all the filters we have used. Feel free to try other filters (if you have the necessary software installed).
 * Read the [jinja](http://jinja.pocoo.org/docs) documentation. Try using one of the [built-in filters](http://jinja.pocoo.org/docs/templates/#builtin-filters) in your document.
+
+[next tutorial](/docs/tutorials/1-python)
+[tutorial home](/docs/tutorials/)

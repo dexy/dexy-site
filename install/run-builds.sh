@@ -30,8 +30,9 @@ function run_script_in_ec2 {
 }
 
 ### @export "amis"
-UBUNTU_AMI="ami-3e02f257"
-CUSTOM_AMI="ami-92c13cfb"
+#UBUNTU_AMI="ami-3e02f257"
+UBUNTU_AMI="ami-06ad526f" # natty
+CUSTOM_AMI="ami-62ac570b"
 ### @end
 
 cd ~/.ec2

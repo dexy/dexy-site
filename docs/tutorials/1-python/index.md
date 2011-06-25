@@ -5,16 +5,16 @@ In this tutorial we start creating HTML documents and learn about some of the di
 Let's start by writing a short Python script:
 
 {{ d['docs/tutorials/1-python/00/script.py|pyg'] }}
+{{ f.clippy_helper(d['docs/tutorials/1-python/00/script.py|dexy']) }}
 
 And a simple HTML file which includes it:
 
 {{ d['docs/tutorials/1-python/00/doc.html|pyg'] }}
+{{ f.clippy_helper(d['docs/tutorials/1-python/00/doc.html|dexy']) }}
 
 Here is the .dexy configuration to run this.
 
-<pre>
-{{ d['docs/tutorials/1-python/00/.dexy|dexy'] }}
-</pre>
+{{ f.pre_and_clippy(d['docs/tutorials/1-python/00/.dexy|dexy']) }}
 
 Then by running this:
 
@@ -35,15 +35,12 @@ You can experiment with other styles besides 'pastie'.
 
 Instead of putting our python script through a 'dexy' filter to show it as plain text, we want to run it through the 'pyg' filter which will apply syntax highlighting.
 
-<pre>
-{{ d['docs/tutorials/1-python/01/.dexy|dexy'] }}
-</pre>
+{{ f.pre_and_clippy(d['docs/tutorials/1-python/01/.dexy|dexy']) }}
 
 We also added a line so that the css file we created (from pygmentize) gets copied to our output directory. Now we can update the HTML file. We need to add a link to the stylesheet, and change the reference to the Python script to reflect our change to use pygments:
 
 {{ d['docs/tutorials/1-python/01/doc.html|pyg'] }}
-
-We want to run dexy with the -s filter to make the filenames nicer:
+{{ f.clippy_helper(d['docs/tutorials/1-python/01/doc.html|dexy']) }}
 
 {{ d['run-01.sh|idio']['run'] }}
 
@@ -56,13 +53,12 @@ If you open the generated html file in a web browser, you should be able to see 
 
 Next we want to run the code. Add a line to the .dexy file:
 
-<pre>
-{{ d['docs/tutorials/1-python/02/.dexy|dexy'] }}
-</pre>
+{{ f.pre_and_clippy(d['docs/tutorials/1-python/02/.dexy|dexy']) }}
 
 And update the html file:
 
 {{ d['docs/tutorials/1-python/02/doc.html|pyg'] }}
+{{ f.clippy_helper(d['docs/tutorials/1-python/02/doc.html|dexy']) }}
 
 <iframe src="02/doc.html" width="300px" height="200px">
 </iframe>
@@ -71,15 +67,17 @@ And update the html file:
 
 Now, let's change this so that instead of showing the code and, separately, showing the output, we just show a console transcript.
 
-<pre>
-{{ d['docs/tutorials/1-python/03/.dexy|dexy'] }}
-</pre>
+{{ f.pre_and_clippy(d['docs/tutorials/1-python/01/.dexy|dexy']) }}
 
 And update the html file:
 
 {{ d['docs/tutorials/1-python/03/doc.html|pyg'] }}
+{{ f.clippy_helper(d['docs/tutorials/1-python/03/doc.html|dexy']) }}
 
 Different filters can be used depending on which style of code presentation you like. Sometimes the console view is useful, other times you will only want to show the output.
 
 <iframe src="03/doc.html" width="300px" height="200px">
 </iframe>
+
+[next tutorial](/docs/tutorials/2-python-r)
+[tutorial home](/docs/tutorials/)
