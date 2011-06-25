@@ -2,6 +2,7 @@ env
 
 # temporary items - should be part of main setup
 easy_install Markdown
+easy_install --upgrade garlicsim garlicsim_lib
 
 gem install RedCloth
 
@@ -80,7 +81,7 @@ cd .. # finished with templates
 ### @export "dexy-site"
 hg clone http://bitbucket.org/ananelson/dexy-site
 cd dexy-site
-dexy --setup -x ".*00.*",".*01.*",".*02.*",".*03.*"
+dexy --setup
 tar -czvf dexy-site.tgz -C output .
 /home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 

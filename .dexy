@@ -19,6 +19,9 @@
     "*.txt|dexy" : {},
     ".dexy|dexy" : {},
     "_*.html|dexy" : {},
+    ".htaccess|jinja" : {
+      "allinputs" : true
+    },
     "index.html|hd|ft|jinja|split" : {
       "allinputs" : true,
       "footer" : "_footer.html|dexy"

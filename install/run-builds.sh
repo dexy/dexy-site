@@ -37,7 +37,7 @@ CUSTOM_AMI="ami-92c13cfb"
 cd ~/.ec2
 
 ### @export "run-scripts"
-#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
-#run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
+run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
 
