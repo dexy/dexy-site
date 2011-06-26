@@ -76,7 +76,8 @@ cd .. # finished with templates
 hg clone http://bitbucket.org/ananelson/dexy-site
 cd dexy-site
 dexy --setup
-cp -r logs output/logs
+cp -r logs output/
+cp -r artifacts output/
 tar -czvf dexy-site.tgz -C output .
 /home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 
