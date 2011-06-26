@@ -11,7 +11,7 @@
     <p>The simulation was run for {{ d['sim-params']['number_of_steps'] }} steps and with {{ d['sim-params']['number_of_players'] }} players.</p>
 
     <p>Here is the R script when it is run:</p>
-    {{ d['prisoner.R|fn|r|pyg'] }}
+    {{ d['prisoner.R|fn|rintbatch|pyg'] }}
 
     <p>The maximum number of points in the final period of the simulation was {{ d['sim-results']['max_points_in_last_period'] }}.</p>
 

@@ -1,4 +1,10 @@
 {
+    "$globals" : {
+        "jinjavars" : {
+            "global_var" : 123.45
+        }
+    },
+    "dexy-source.py|fn|py" : {},
     "*.R|jinja|r|pyg" : {},
     "*.R|pyg" : {},
     "*.css|cp" : {},
@@ -6,6 +12,7 @@
     "*.dexy|dexy" : {},
     "*.html|pyg" : {},
     "*.html|dexy" : {},
+    "*.md|dexy" : {},
     "*.jpg|cp" : {},
     "*.gif|cp" : {},
     "*.js|cp" : {},

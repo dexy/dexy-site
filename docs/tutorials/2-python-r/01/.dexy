@@ -1,8 +1,8 @@
 {
-  "doc.html|jinja" : {
+ "doc.html|jinja" : {
     "allinputs" : true
   },
-  "prisoner.R|fn|r|pyg" : {
+  "prisoner.R|fn|rintbatch|pyg" : {
     "inputs" : ["run-prisoner.py|fn|pycon|pyg"]
   },
   "*.py|pyg" : {},

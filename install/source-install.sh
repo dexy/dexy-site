@@ -27,13 +27,13 @@ python setup.py develop
 dexy --version
 dexy --help
 
-### @export "nosetests"
-nosetests
-
 ### @export "examples"
 dexy --setup examples
 dexy examples
 dexy --no-recurse examples
+
+### @export "nosetests"
+nosetests # Must be after --setup to have correct dirs
 
 ### @export "no-reports"
 dexy --no-reports examples
@@ -76,6 +76,7 @@ cd .. # finished with templates
 hg clone http://bitbucket.org/ananelson/dexy-site
 cd dexy-site
 dexy --setup
+cp -r logs output/logs
 tar -czvf dexy-site.tgz -C output .
 /home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 

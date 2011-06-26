@@ -1,4 +1,5 @@
 #!/bin/bash
+UBUNTU_DISTRO=natty
 
 ### @export "update-package-manager"
 apt-get update
@@ -11,8 +12,8 @@ gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
 
 CRAN_MIRROR=http://software.rc.fas.harvard.edu/mirrors/R/
-echo "deb $CRAN_MIRROR/bin/linux/ubuntu lucid/" >> /etc/apt/sources.list.d/sources.list
-echo "deb http://archive.ubuntu.com/ubuntu lucid multiverse" >> /etc/apt/sources.list.d/sources.list
+echo "deb $CRAN_MIRROR/bin/linux/ubuntu $UBUNTU_DISTRO/" >> /etc/apt/sources.list.d/sources.list
+echo "deb http://archive.ubuntu.com/ubuntu $UBUNTU_DISTRO multiverse" >> /etc/apt/sources.list.d/sources.list
 
 apt-get update # with multiverse
 
@@ -59,10 +60,10 @@ easy_install garlicsim_lib
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
 
 ### @export "install-asciidoc"
-wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.4/asciidoc-8.6.4.tar.gz/download
+wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.5/asciidoc-8.6.5.tar.gz/download
 mv download asciidoc.tgz
 tar -xzvf asciidoc.tgz
-cd asciidoc-8.6.4/
+cd asciidoc-8.6.5/
 ./configure
 make
 make install

@@ -32,13 +32,13 @@ function run_script_in_ec2 {
 ### @export "amis"
 #UBUNTU_AMI="ami-3e02f257"
 UBUNTU_AMI="ami-06ad526f" # natty
-CUSTOM_AMI="ami-62ac570b"
+CUSTOM_AMI="ami-22a55e4b"
 ### @end
 
 cd ~/.ec2
 
 ### @export "run-scripts"
-run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
+#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
+#run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
 
