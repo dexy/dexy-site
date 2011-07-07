@@ -8,7 +8,7 @@ from pygments.lexers.web import JavascriptLexer
 from pygments.styles import get_style_by_name
 
 controller = Controller()
-handlers = controller.find_handlers()
+handlers = controller.find_filters()
 
 py_lexer = PythonLexer()
 fm = HtmlFormatter(lineanchors = "l")
