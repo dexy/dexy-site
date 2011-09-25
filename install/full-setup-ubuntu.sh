@@ -1,5 +1,8 @@
 #!/bin/bash
-UBUNTU_DISTRO=natty
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+
+source /etc/lsb-release
+echo $DISTRIB_CODENAME
 
 ### @export "update-package-manager"
 apt-get update
@@ -12,8 +15,8 @@ gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
 
 CRAN_MIRROR=http://software.rc.fas.harvard.edu/mirrors/R/
-echo "deb $CRAN_MIRROR/bin/linux/ubuntu $UBUNTU_DISTRO/" >> /etc/apt/sources.list.d/sources.list
-echo "deb http://archive.ubuntu.com/ubuntu $UBUNTU_DISTRO multiverse" >> /etc/apt/sources.list.d/sources.list
+echo "deb $CRAN_MIRROR/bin/linux/ubuntu $DISTRIB_CODENAME/" >> /etc/apt/sources.list.d/sources.list
+echo "deb http://archive.ubuntu.com/ubuntu $DISTRIB_CODENAME multiverse" >> /etc/apt/sources.list.d/sources.list
 
 apt-get update # with multiverse
 
@@ -58,6 +61,7 @@ easy_install garlicsim_lib
 
 ### @export "r-installs"
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
+R -e "install.packages(\"xtable\", repos=\"$CRAN_MIRROR\")"
 
 ### @export "install-asciidoc"
 wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.5/asciidoc-8.6.5.tar.gz/download

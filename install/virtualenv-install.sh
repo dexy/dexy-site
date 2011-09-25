@@ -1,9 +1,9 @@
 ### @export "download-virtualenv"
-curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.5.1.tar.gz
-tar -xzvf virtualenv-1.5.1.tar.gz
+curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.6.4.tar.gz
+tar -xzvf virtualenv-1.6.4.tar.gz
 
 ### @export "create-virtualenv"
-python2.7 virtualenv-1.5.1/virtualenv.py --no-site-packages dexy_env
+python virtualenv-1.6.4/virtualenv.py --no-site-packages dexy_env
 
 ### @export "activate-virtualenv"
 source dexy_env/bin/activate
@@ -22,7 +22,7 @@ dexy --version
 dexy --help
 
 ### @export "source-install-dexy"
-hg clone https://bitbucket.org/ananelson/dexy
+git clone https://github.com/ananelson/dexy
 cd dexy
 easy_install .
 nosetests

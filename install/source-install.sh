@@ -1,6 +1,5 @@
 env
 
-
 git clone https://github.com/rennat/pynliner.git
 cd pynliner
 python setup.py install
@@ -16,7 +15,7 @@ easy_install dexy
 easy_install --upgrade dexy
 
 ### @export "source-install"
-hg clone http://bitbucket.org/ananelson/dexy
+git clone http://github.com/ananelson/dexy
 cd dexy
 easy_install .
 
@@ -57,7 +56,7 @@ dexy
 cd ..
 
 ### @export "clone-templates"
-hg clone http://bitbucket.org/ananelson/dexy-templates
+git clone http://github.com/ananelson/dexy-templates
 cd dexy-templates
 
 for dir in \`ls\`
@@ -73,7 +72,7 @@ done
 cd .. # finished with templates
 
 ### @export "dexy-site"
-hg clone http://bitbucket.org/ananelson/dexy-site
+git clone http://github.com/ananelson/dexy-site
 cd dexy-site
 dexy --setup
 cp -r logs output/logs

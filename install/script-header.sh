@@ -1,8 +1,8 @@
 #!/bin/bash
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+
 cd /home/ubuntu
 
-export AWS_ACCESS_KEY_ID="AKIA..."
-export AWS_SECRET_ACCESS_KEY="AeT27..."
 echo -n $AWS_SECRET_ACCESS_KEY > secret.txt
 
 curl -o s3-bash.tgz http://s3-bash.googlecode.com/files/s3-bash.0.02.tar.gz
