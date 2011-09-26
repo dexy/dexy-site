@@ -5,6 +5,9 @@ cd pynliner
 python setup.py install
 cd ..
 
+### @export "python-version"
+python --version
+
 ### @export "pip-install"
 pip install dexy
 

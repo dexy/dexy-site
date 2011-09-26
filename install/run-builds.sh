@@ -39,10 +39,10 @@ cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
-#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_LUCID_AMI t1.micro
-#run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
-#run_script_in_ec2 virtualenv-install.sh $CUSTOM_LUCID_AMI t1.micro
+run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_LUCID_AMI t1.micro
+run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
+run_script_in_ec2 virtualenv-install.sh $CUSTOM_LUCID_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_LUCID_AMI t1.micro
 

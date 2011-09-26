@@ -10,9 +10,8 @@
 \usepackage{graphicx}
 \setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
 
-\title{Dexy Install Guide}
+\title{Dexy Automated Builds}
 \author{Ana Nelson}
-%\date{24 January 2009}  % if the \date{} command is left out, the current date will be used
 
 % The following package makes prettier tables.  We're all about the bling!
 \usepackage{booktabs}
@@ -37,23 +36,11 @@
 \maketitle
 
 \begin{abstract}
-Before you begin, you should make sure you have the most recent version of this document. You can obtain this from here \url{http://dexy.it/install/dexy-install-guide.pdf}. Visit \url{http://dexy.it} for more information about Dexy. Instructions for installing Dexy are available at \url{http://dexy.it/install} and these will suffice in most circumstances. This document goes into more detail about Dexy's automated build setup and installing the other software needed to run various Dexy example projects.
+Before you begin, you should make sure you have the most recent version of this document. You can obtain this from here \url{http://dexy.it/install/dexy-automated-build-guide.pdf}. Visit \url{http://dexy.it} for more information about Dexy. Instructions for installing Dexy are available at \url{http://dexy.it/install} and these will suffice in most circumstances. This document goes into more detail about Dexy's automated build setup and installing the other software needed to run various Dexy example projects.
 
 The sources and scripts for this guide are part of the dexy-site repository \url{http://github.com/ananelson/dexy-site/}.
 
 \end{abstract}
-
-\section{Simple Install}
-
-Dexy can be installed via easy\_install or pip. Here are examples for a generic Ubuntu machine:
-
-<< d['min-install-ubuntu.sh|idio|l']['easy-install'] >>
-
-\noindent or:
-<< d['min-install-ubuntu.sh|idio|l']['pip-install'] >>
-
-\noindent You should then be able to check that Dexy has been installed and see which filters are available by running commands like:
-<< d['min-install-ubuntu.sh|idio|l']['check'] >>
 
 \section{Automated Build}
 
@@ -65,7 +52,7 @@ The instructions in this document, such as the install script in the previous se
 \noindent This function is called as follows:
 << d['run-builds.sh|idio|l']['run-scripts'] >>
 
-So we pass the name of the script, the AMI identifier, and the instance size we wish to use. The run\_script\_in\_ec2 function will start the instance and pass the script we wish to run. It also sets some environment variables (such as our S3 credentials), and makes sure that the result of running our script will be saved in a log file for later.
+So we pass the name of the script, the AMI identifier, and the instance size we wish to use. The run\_script\_in\_ec2 function will start the instance and pass the script we wish to run, and it makes sure that the result of running our script will be saved in a log file for later.
 
 The contents of script-header look like:
 << d['script-header.sh|idio|l'] >>
@@ -79,13 +66,16 @@ The AMIs currently in use are:
 The custom AMI is private, however it can easily be replicated by running an install script on the Ubuntu AMI, as per this example:
 << d['create-custom-ami.sh|idio|l'] >>
 
-By running this on an elastic boot store (EBC)-based AMI, the resulting virtual machine image can be snapshotted and turned into an AMI. So in this way we can easily create AMIs with have all the software we need to run the Dexy examples, and which are easy to update and modify if we need to change our environment. The full-setup-ubuntu.sh script will be discussed in the next section.
+By running this on an elastic boot store (EBS)-based AMI, the resulting virtual machine image can be snapshotted and turned into an AMI. So in this way we can easily create AMIs with have all the software we need to run the Dexy examples, and which are easy to update and modify if we need to change our environment. The full-setup-ubuntu.sh script will be discussed in the next section.
 
 \section{Building the Environment}
 
 In this section we discuss the full-setup-ubuntu.sh script which is used to generate a custom AMI.
 
-First, we make sure our package definitions are up to date:
+We get the code name of the Ubuntu release we are running on, e.g. 'natty'. We will use this later:
+<< d['full-setup-ubuntu.sh|idio|l']['get-release-name'] >>
+
+We make sure our package definitions are up to date:
 << d['full-setup-ubuntu.sh|idio|l']['update-package-manager'] >>
 
 We need to make some additional sources available to us, in particular for installing R related software:
@@ -121,7 +111,7 @@ The source-install.sh script installs Dexy both as a package and from source, an
 First we install the Dexy package via pip:
 << d['source-install.sh|idio|l']['pip-install'] >>
 
-And then via easy\_install:
+And then again via easy\_install:
 << d['source-install.sh|idio|l']['easy-install'] >>
 
 Call easy\_install with --ugprade to verify this syntax:
@@ -136,11 +126,11 @@ Switch to develop mode:
 Check that the installation is working:
 << d['source-install.sh|idio|l']['dexy-help'] >>
 
-Run the unit tests:
-<< d['source-install.sh|idio|l']['nosetests'] >>
-
 Run Dexy's built-in examples. Run this twice to test saving/loading of artifacts. Also test the --no-recurse switch:
 << d['source-install.sh|idio|l']['examples'] >>
+
+Run the unit tests:
+<< d['source-install.sh|idio|l']['nosetests'] >>
 
 Test the --no-reports option:
 << d['source-install.sh|idio|l']['no-reports'] >>
@@ -160,7 +150,7 @@ Test setting custom locations:
 Run examples and docs together:
 << d['source-install.sh|idio|l']['dexy-all'] >>
 
-Next we are going to run the various dexy templates to ensure no errors are generated. Here is just the first one:
+Next we are going to run the various dexy templates to ensure no errors are generated:
 << d['source-install.sh|idio|l']['clone-templates'] >>
 
 Finally, we clone and generate the dexy site:
@@ -173,7 +163,7 @@ Virtualenv is a useful Python utility if you want to have a fully sandboxed Pyth
 First, download virtualenv:
 << d['virtualenv-install.sh|idio|l']['download-virtualenv'] >>
 
-Run the virtualenv.py script to create a new virtual environment, we will use Python 2.7 for this example:
+Run the virtualenv.py script to create a new virtual environment:
 << d['virtualenv-install.sh|idio|l']['create-virtualenv'] >>
 
 Any time you are ready to activate your virtualenv, do:
