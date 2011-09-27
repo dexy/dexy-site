@@ -29,7 +29,7 @@ function run_script_in_ec2 {
 
 ### @export "amis"
 UBUNTU_AMI="ami-06ad526f" # natty
-UBUNTU_LUCID_AMI="ami-3e02f257" # lucid
+UBUNTU_LUCID_AMI="ami-61be7908" # lucid, for python 2.6 testing
 
 CUSTOM_AMI="ami-1554967c" # natty
 CUSTOM_LUCID_AMI="ami-ef549686" # lucid
