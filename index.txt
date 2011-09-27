@@ -1,9 +1,12 @@
-<p>Dexy is an open source document automation tool that can help you create documents using your favourite programming languages and your favourite software. To get started look at the <a href="/intro">intro</a></p>
+<p>Dexy is an open source document automation tool that can help you create documents using your favourite programming languages and your favourite software.</p>
+
 <h2>Programmers</h2>
 <p><b>Promote</b> and improve your code with automated documentation.</p>
 
 <h2>Scientists</h2>
 <p><b>Create</b> beautiful, reproducible documents including graphs and analysis from your raw data and code.</p>
+
+<p><a style="color:blue; background-color:yellow; font-size: 20px;" href="/intro">Get Started! Check out the intro.</a></p>
 
 
 <!-- ++Begin Dynamic Feed Wizard Generated Code++ -->

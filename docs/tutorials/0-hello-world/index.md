@@ -139,7 +139,7 @@ Hopefully you will see something like this:
 {{ d['docs/tutorials/0-hello-world/02/hello.txt|jinja'] }}
 </pre>
 
-So, we wrote a document containing both the Python code and its output. Try changing the Python code, initialize x to 6 instead of 5 say, and run Dexy again.
+So, we wrote a document containing both the Python code and its output. Try changing the Python code, e.g. initialize x a different value, and run Dexy again.
 
 We could have written our .dexy configuration file a few different ways to get this same result.
 
