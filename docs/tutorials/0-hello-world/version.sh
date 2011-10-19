@@ -1,1 +1,1 @@
-dexy --version
+dexy version

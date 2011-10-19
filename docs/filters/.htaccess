@@ -1,4 +1,4 @@
-{% for k, v in d['handler-info'].items() -%}
+{% for k, v in d['filter-info.json'].items() -%}
 {% for a in v.aliases -%}
 Redirect /docs/filters/{{ a }} http://dexy.it/docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
 Redirect /docs/filters/{{ a }}/ http://dexy.it/docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html

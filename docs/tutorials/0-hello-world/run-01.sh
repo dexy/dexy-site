@@ -2,7 +2,7 @@ set -u
 set -e
 
 cd ../docs/tutorials/0-hello-world/01/
-dexy --setup
+dexy setup
 
 ### @export "run"
 dexy
@@ -11,4 +11,4 @@ dexy
 cat output-long/hello.py-py.txt
 ### @end
 
-dexy --cleanup
+dexy cleanup

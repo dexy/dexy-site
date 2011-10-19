@@ -2,7 +2,7 @@
 <h2>Filters</h2>
 <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, <a href="http://bitbucket.org/ananelson/dexy">submit them as a patch</a> to the Dexy project.</p>
 
-{% for k, v in d['handler-info'].items() %}
+{% for k, v in d['filter-info.json'].items() %}
 <!-- split "{{k}} ({{ " ".join(v.aliases) }})" -->
 <p><a href="/docs/filters">&larr; return to filter list</a></p>
 
