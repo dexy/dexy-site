@@ -47,6 +47,8 @@ apt-get install -y tree
 apt-get install -y lame # multiverse
 apt-get install -y r-base-dev # CRAN_MIRROR multiverse
 apt-get install -y git-core
+apt-get install -y libimlib2-dev
+apt-get install -y python-kaa-imlib2
 
 ### @export "ruby-installs"
 gem install --no-rdoc --no-ri RedCloth
@@ -55,29 +57,29 @@ gem install --no-rdoc --no-ri gherkin
 gem install --no-rdoc --no-ri cucumber
 
 ### @export "python-installs"
-easy_install nose
-easy_install Markdown
-easy_install garlicsim
-easy_install garlicsim_lib
+pip install GitPython
+pip install Markdown
+pip install garlicsim
+pip install garlicsim_lib
 
 ### @export "r-installs"
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
 R -e "install.packages(\"xtable\", repos=\"$CRAN_MIRROR\")"
 
 ### @export "install-asciidoc"
-wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.5/asciidoc-8.6.5.tar.gz/download
+wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.6/asciidoc-8.6.6.tar.gz/download
 mv download asciidoc.tgz
 tar -xzvf asciidoc.tgz
-cd asciidoc-8.6.5/
+cd asciidoc-8.6.6/
 ./configure
 make
 make install
 cd ..
 
 ### @export "install-clojure"
-wget --no-check-certificate http://github.com/downloads/clojure/clojure/clojure-1.2.0.zip
-unzip clojure-1.2.0.zip
-mv clojure-1.2.0/clojure.jar /clojure.jar
+curl -O http://repo1.maven.org/maven2/org/clojure/clojure/1.3.0/clojure-1.3.0.zip
+unzip clojure-1.3.0.zip
+mv clojure-1.3.0/clojure-1.3.0.jar /clojure.jar
 
 ### @export "shutdown"
 shutdown -h now

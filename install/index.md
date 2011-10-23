@@ -4,15 +4,15 @@ Dexy's source code is available from [github](http://github.com/ananelson/dexy).
 
 ## Installation Instructions
 
-Dexy should work on Python 2.6 or Python 2.7. There is no support for Python 3.X yet.
+Dexy is tested on Python 2.6 and Python 2.7. There is no support for Python 3.X yet.
 
 You can:
-{{ d['source-install.sh|idio']['easy-install'] }}
+{{ d['min-install-ubuntu.sh|idio']['pip-install'] }}
 
 or:
-{{ d['source-install.sh|idio']['pip-install'] }}
+{{ d['source-install.sh|idio']['easy-install'] }}
 
-You can upgrade your Dexy by calling easy_install with the --upgrade flag:
+You can upgrade to the most re
 {{ d['source-install.sh|idio']['easy-install-upgrade'] }}
 
 If you want more detail or if you are new to installing Python packages, keep reading.  

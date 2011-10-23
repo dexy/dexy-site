@@ -10,7 +10,10 @@ function run_script_in_ec2 {
   script_name=${script:0:($script_name_length-3)}
   ami_id=$2
 
-  cat $script_dir/script-header.sh > $temp_filename
+  echo "#!/bin/bash" > $temp_filename
+  echo "AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $temp_filename
+  echo "AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $temp_filename
+  cat $script_dir/script-header.sh >> $temp_filename
   echo "FOLDER_NAME=\"/dexy-builds/\$TIMESTAMP--$script_name--$ami_id\"" >> $temp_filename
   echo "script_name=$script_name" >> $temp_filename
   echo "cd /mnt" >> $temp_filename
@@ -28,21 +31,22 @@ function run_script_in_ec2 {
 }
 
 ### @export "amis"
-UBUNTU_AMI="ami-06ad526f" # natty
+UBUNTU_AMI="ami-a7f539ce" # oneiric
 UBUNTU_LUCID_AMI="ami-61be7908" # lucid, for python 2.6 testing
 
-CUSTOM_AMI="ami-1554967c" # natty
-CUSTOM_LUCID_AMI="ami-ef549686" # lucid
+CUSTOM_AMI="ami-49a26d20" # oneiric
+CUSTOM_LUCID_AMI="ami-bbd71ad2" # lucid
 ### @end
 
 cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_LUCID_AMI t1.micro
-run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
-run_script_in_ec2 virtualenv-install.sh $CUSTOM_LUCID_AMI t1.micro
+#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_LUCID_AMI t1.micro
+#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
+#run_script_in_ec2 virtualenv-install.sh $CUSTOM_LUCID_AMI t1.micro
+#run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
+#run_script_in_ec2 source-install.sh $CUSTOM_LUCID_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
-run_script_in_ec2 source-install.sh $CUSTOM_LUCID_AMI t1.micro
+#run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI t1.micro
 
