@@ -1,0 +1,6 @@
+[submodule "gallery/examples"]
+	path = gallery/examples
+	url = https://github.com/ananelson/dexy-examples
+[submodule "gallery/templates"]
+	path = gallery/templates
+	url = https://github.com/ananelson/dexy-templates
