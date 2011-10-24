@@ -3,12 +3,16 @@ A showcase of documents created with Dexy.
 
 ## Templates
 
-{% for child in ck %}
-{{ c['child'] }}
+{% for k in sorted(d) -%}
+{% if k.startswith("templates/") -%}
+{{ k }}
+{% endif %}
 {% endfor %}
-
-## Cookbooks
 
 ## Examples
 
-<a href="dexy-news.pdf">Dexy News</a>
+{% for k in sorted(d) -%}
+{% if k.startswith("examples/") -%}
+{{ k }}
+{% endif %}
+{% endfor %}

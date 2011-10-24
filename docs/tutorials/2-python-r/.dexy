@@ -1,11 +1,10 @@
 {
+  "*.py" : {"final" : true},
+  "*.R" : {"final" : true},
   "*.py|pyg" : {},
-  "*.py|dexy" : {"final" : true},
   "*.R|pyg" : {},
-  "*.R|dexy" : {"final" : true},
   "*.sh|pyg" : {},
   "*.html|pyg" : {},
-  "*.txt|dexy" : {},
-  ".dexy|dexy" : {},
-  "index.txt|jinja|textile" : { "allinputs" : true, "notextile" : true }
+  "*.txt" : {},
+  ".dexy" : {}
 }

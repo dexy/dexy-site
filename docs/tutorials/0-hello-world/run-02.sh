@@ -8,7 +8,13 @@ dexy setup
 dexy
 
 ### @export "cat"
-cat output-long/hello.txt-jinja.txt
+cat output/hello.txt
 ### @end
+
+# make sure alternate config files work
+dexy reset
+dexy -config implicit.dexy
+dexy reset
+dexy -config allinputs.dexy
 
 dexy cleanup

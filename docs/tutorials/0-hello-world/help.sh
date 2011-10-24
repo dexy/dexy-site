@@ -1,1 +1,1 @@
-dexy -h
+dexy help -on dexy

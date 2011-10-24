@@ -13,7 +13,7 @@ function run_script_in_ec2 {
   echo "#!/bin/bash" > $temp_filename
   echo "AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $temp_filename
   echo "AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $temp_filename
-  cat $script_dir/script-header.sh >> $temp_filename
+  cat $script_dir/_ec2_script_header.sh >> $temp_filename
   echo "FOLDER_NAME=\"/dexy-builds/\$TIMESTAMP--$script_name--$ami_id\"" >> $temp_filename
   echo "script_name=$script_name" >> $temp_filename
   echo "cd /mnt" >> $temp_filename
@@ -24,7 +24,7 @@ function run_script_in_ec2 {
   echo "END" >> $temp_filename
   echo "bash script.sh &> out.txt" >> $temp_filename
   echo "cd .." >> $temp_filename
-  cat $script_dir/close.sh >> $temp_filename
+  cat $script_dir/_ec2_script_footer.sh >> $temp_filename
 
   ec2-run-instances $ami_id -k $EC2_KEYPAIR -g ssh \
     -t $3 -f $temp_filename --instance-initiated-shutdown-behavior terminate
@@ -42,11 +42,11 @@ cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_LUCID_AMI t1.micro
-#run_script_in_ec2 min-install-ubuntu.sh $UBUNTU_AMI t1.micro
-#run_script_in_ec2 virtualenv-install.sh $CUSTOM_LUCID_AMI t1.micro
-#run_script_in_ec2 virtualenv-install.sh $CUSTOM_AMI t1.micro
-#run_script_in_ec2 source-install.sh $CUSTOM_LUCID_AMI t1.micro
+run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI t1.micro
+run_script_in_ec2 dexy-easy-install.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 dexy-easy-upgrade.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 dexy-pip-install.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 dexy-pip-upgrade.sh $UBUNTU_AMI t1.micro
 run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
-#run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI t1.micro
+run_script_in_ec2 virtualenv-install.sh $UBUNTU_AMI t1.micro
 

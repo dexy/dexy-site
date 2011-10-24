@@ -4,7 +4,7 @@ Hi, welcome to Dexy
 
 Here is some Python code:
 
-{{ d['hello.py|dexy'] }}
+{{ d['hello.py'] }}
 
 Here is the output from running this script:
 

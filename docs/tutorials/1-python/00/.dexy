@@ -1,5 +1,5 @@
 {
   "*.html|jinja" : {
-    "inputs" : ["*.py|dexy"]
+    "inputs" : ["*.py"]
   }
 }

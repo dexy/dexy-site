@@ -2,7 +2,6 @@
   "*.sh|pyg" : {},
   "*.sh|idio" : {},
   "*.py|dexy" : {},
-  "*.sh|bash" : {},
   "*.txt|dexy" : {},
   "*.py|pyg" : {},
   ".dexy|dexy" : {},

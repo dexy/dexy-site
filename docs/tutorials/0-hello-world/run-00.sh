@@ -7,7 +7,7 @@ dexy setup
 dexy
 
 ### @export "cat"
-cat output-long/hello.txt-jinja.txt
+cat output/hello.txt
 ### @end
 
-dexy cleanup > /dev/null
+dexy cleanup

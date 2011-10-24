@@ -8,7 +8,7 @@ dexy setup
 dexy
 
 ### @export "cat"
-cat output-long/doc.html-jinja.html
+cat output/doc.html
 ### @end
 
 dexy cleanup

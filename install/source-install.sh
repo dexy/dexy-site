@@ -1,4 +1,4 @@
-env
+env # print env for debugging
 
 ### @export "python-version"
 python --version
@@ -10,6 +10,20 @@ pip install .
 
 ### @export "nosetests"
 nosetests
+
+### @export "run-dexy-test-template"
+dexy setup
+
+# all filters should run
+dexy --directory test-template/
+dexy report --allreports
+
+# filters should be cached
+dexy --directory test-template/
+dexy report --allreports
+### @end
+
+cd .. # finished in dexy dir
 
 ### @export "dexy-version"
 dexy version
@@ -23,45 +37,12 @@ dexy filters
 ### @export "list-reporters"
 dexy reporters
 
-### @export "clone-templates"
-git clone http://github.com/ananelson/dexy-templates
-cd dexy-templates
-
-for dir in \`ls\`
-do
-  if [ -d "\$dir" ]; then
-    cd \$dir
-    echo "running dexy in \$dir"
-    dexy setup
-    dexy
-    cd ..
-  fi
-done
-
-cd .. # finished with templates
-
-### @export "clone-examples"
-git clone http://github.com/ananelson/dexy-examples
-cd dexy-examples
-
-for dir in \`ls\`
-do
-  if [ -d "\$dir" ]; then
-    cd \$dir
-    echo "running dexy in \$dir"
-    dexy setup
-    dexy
-    cd ..
-  fi
-done
-
-cd .. # finished with examples
-
 ### @export "dexy-site"
 git clone http://github.com/ananelson/dexy-site
 cd dexy-site
 dexy setup
-dexy
+dexy -output
+dexy reports -allreports
 
 cd .. # finished with website
 

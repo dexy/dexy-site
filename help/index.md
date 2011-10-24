@@ -2,11 +2,9 @@
 
 First, some general suggestions and reminders.
 
-Dexy has a lot of command line options which may help you to solve or at least narrow down your problem or question. Run dexy --help to see what these options are. These may also give you ideas about things you can do with Dexy that you hadn't thought of.
+Dexy has a lot of command line options which may help you to solve or at least narrow down your problem or question. Run *dexy help* to see what these options are. These may also give you ideas about things you can do with Dexy that you hadn't thought of.
 
-Some terminology: Dexy takes Documents and runs them through various Filters, generating Artifacts at each stage along the way. When Dexy is finished processing the documents, it runs Reporters which present the Dexy output in various ways. For example, one reporter generates the content which you find in the output/ directory after a successful Dexy run, and another reporter generates the content which you find in the output-long directory. You can easily write custom filters and custom reporters if you want to, but you can also use Dexy very powerfully without ever needing to.
-
-Dexy stores the artifacts and, if nothing has changed when you next run Dexy, it uses the artifact it made earlier. This saves a lot of time, and usually works really well. However, if something goes wrong during a Dexy run then it is possible for an artifact to be corrupt or incomplete. If you think this may have happened, or if you just want to run a clean build of your documents, you can run Dexy with the --purge (-p) option. This will run everything from scratch. (The --purge option leaves the logs/ directory intact. If you want to clear out your logs you can do so manually, or by running dexy --cleanup followed by dexy --setup.)
+If a script generates an error, or if dexy is interrupted while it's running, elements in the cache may be corrupted. This may cause problems with later dexy runs. A good first step in debugging is to run dexy with the -nocache option or, even better, run *dexy reset* to get rid of all artifacts and logs (this does mean you will lose your history).
 
 Each of the dexy filters has [its own documentation page](/docs/filters/) including the full source code for the filter. If you are having trouble with a particular filter, check the doc page for examples or tips. Sometimes you can figure out what to do by looking at the source code. You can always get to any filter's page by going to http://dexy.it/docs/filters/alias where alias is any of the filter's aliases. This will redirect you to the page for that filter. For example, <http://dexy.it/docs/filters/py> or <http://dexy.it/docs/filters/python> will bring you to the Python stdout filter doc page.
 
