@@ -1,0 +1,331 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Global Settings
+/*-----------------------------------------------------------------------------------*/
+ 
+html, body {
+	border:0;
+	margin:0;
+	padding:0;
+}
+body {
+	font:100%/1.25 'Droid Sans', arial, sans-serif;
+}
+/*-----------------------------------------------------------------------------------*/
+/*	Headings
+/*-----------------------------------------------------------------------------------*/
+ 
+h1, h2, h3, h4, h5, h6 {
+	margin:0;
+	padding:0;
+	font-weight:normal;
+}
+
+h1 {
+	padding:30px 0 15px 0;
+	margin:0;
+	font-size:36px;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#fff 0px 2px 0px;
+}
+h2  {
+	padding:0 0 20px 0;
+	letter-spacing:-1px;
+	font-size:28px;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#fff 0px 1px 0px;
+}
+h3 {
+	padding:0 0 10px 0;
+	font-size:18px;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#fff 0px 1px 0px;
+}
+h4 {
+	padding:10px 0;
+	font-size:14px;
+	font-family: 'Droid Sans', arial, sans-serif;
+	text-shadow:#fff 0px 1px 0px;
+	font-weight:bold;
+	color:#000;
+	line-height:22px;
+}
+h5 {
+	padding:6px 0 12px 0;
+	font-size:10px;
+	font-family: 'Droid Serif', georgia, serif;
+	font-style:italic;
+	text-shadow:#fff 0px 1px 0px;
+	color:#555555;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Common Formatting
+/*-----------------------------------------------------------------------------------*/
+
+ul, ol {
+	padding:0 0 1.25em 2.5em;
+}
+#tabs ul, #tabs ol {
+	padding:0;	
+}
+ul {
+	list-style-type: square;
+}
+ol {
+	list-style-type:decimal;	
+}
+blockquote {
+	margin:1.25em;
+	padding:1.25em 1.25em 0 1.25em;
+}
+small {
+	font-size:0.85em;
+}
+img {
+	border:0;
+}
+sup {
+	position:relative;
+	bottom:0.3em;
+	vertical-align:baseline;
+}
+sub {
+	position:relative;
+	bottom:-0.2em;
+	vertical-align:baseline;
+}
+acronym, abbr {
+	cursor:help;
+	letter-spacing:1px;
+	border-bottom:1px dashed;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Navigation
+/*-----------------------------------------------------------------------------------*/
+
+.sf-menu, .sf-menu ul {
+	font-family: 'Droid Sans', arial, sans-serif;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: bold;
+	text-shadow: none;
+	text-decoration: none;
+	word-spacing: 0em;
+	line-height: 1.2;
+	text-shadow: 0px, 1px, 1px, #ffffff;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Links
+/*-----------------------------------------------------------------------------------*/
+ 
+a, a:link, a:visited, a:hover {
+	text-decoration:none;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Global Classes
+/*-----------------------------------------------------------------------------------*/
+ 
+.text-left {
+	text-align:left;
+}
+.text-right {
+	text-align:right;
+}
+.text-center {
+	text-align:center;
+}
+.text-justify {
+	text-align:justify;
+}
+.bold {
+	font-weight:bold;
+}
+.italic {
+	font-style:italic;
+}
+.underline {
+	border-bottom:1px solid;
+}
+.highlight {
+	background:#fff;
+}
+
+.nopadding {
+	padding:0;
+}
+.noindent {
+	margin-left:0;
+	padding-left:0;
+}
+.nobullet {
+	list-style:none;
+	list-style-image:none;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Section Specific Typography
+/*-----------------------------------------------------------------------------------*/
+
+p, ul, ol, .button {
+	font-family: 'Droid Sans', arial, serif;
+	font-size:12px;
+	line-height:20px;
+	margin:0;
+	padding:0 0 1.25em 0;
+	color:#555555;
+	text-shadow:#fff 0px 1px 0px;
+}
+
+/* Divider Element **************************/
+.divider h5 {
+	padding:0 20px;
+	font-style:italic;
+	color:#999999;
+}
+
+/* Testimonial Section **************************/
+.testimonial p {
+	font-family: 'Droid Serif', georgia, serif;
+	font-size:10px;
+	font-style:italic;
+	letter-spacing:1px;
+	margin-bottom:0px;
+	padding-bottom:0px;
+	text-shadow:#000 0px -1px 0px;
+}
+/* Pricing Section **************************/
+.pricing h1 {
+	padding:0px 0 15px 0;
+	margin:0;
+	font-size:68px;
+	font-family: 'Droid Sans', arial, sans-serif;
+	font-weight:bold;
+}
+.grid_2 .pricing h1 {
+	font-size:55px;	
+}
+.pricing h1 sup {
+	position:relative;
+	bottom: 30px;
+	font-size:30px;
+	font-weight:normal;
+}
+
+.grid_2 .pricing h1 sup {
+	position:relative;
+	bottom: 30px;
+	font-size:24px;
+	font-weight:normal;
+}
+.pricing h4 {
+	font-family: 'Droid Sans', arial, sans-serif;
+	letter-spacing:3px;
+	text-transform:uppercase;
+	font-weight:normal;
+}
+
+/* Latest Section **************************/
+
+.latest h4, .latest h4 a, #tabs h4, #tabs h4 a {
+	text-decoration:none;
+	font-weight:bold;
+	color:#000000;
+}
+
+.latest h5, .latest h5 a {
+	color:#666666;
+}
+
+.latest h3, .callout h3 {
+	font-weight:bold;
+}
+
+/* Callout Section **************************/
+
+.callout h3 {
+	padding:10px 0 0 0;	
+	font-weight:normal;
+	font-style:italic;
+	color:#333333;
+}
+
+/* Footer Section **************************/
+
+.footer h4.subheadline {
+	margin:0px;
+	padding:0px;
+	line-height:18px;
+	font-style:italic;
+	color:#999999;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#000 0px -1px 0px;
+	font-weight:normal;
+}
+
+.footer h2.subheadline {
+	margin:0 0 10px 0;
+	padding:0px;
+	line-height:28px;
+	font-weight:bold;
+	text-shadow:#000 0px -1px 0px;
+}
+
+.footer .note h4 {
+	font-style:italic;
+	color:#333333;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#fff 0px -1px 0px;
+	font-weight:normal;
+}
+.footer h1, .footer h2, .footer h3, .footer h4, .footer h5, .footer h6 {
+	color:#ffffff;
+}
+.footer p, .footer ul, .footer ol, .footer.button, .credits p, .credits ul, .credits ol, .credits.button, .footer textarea, .footer input {
+	color:#999999;
+	text-shadow:#000 0px -1px 0px;
+	font-family: 'Droid Sans', arial, serif;
+}
+
+/* Comments Section **************************/
+
+.authorname, .authorname a  {
+	padding:0 0 20px 0;
+	letter-spacing:-1px;
+	font-size:28px;
+	font-family: 'Droid Serif', georgia, serif;
+	text-shadow:#fff 0px 1px 0px;
+	color:#333;
+}
+
+/* Breadcrumbs Section **************************/
+.breadcrumbs p {
+	font-size:10px;
+	font-family: 'Droid Serif', georgia, serif;
+	font-style:italic;
+}
+
+/* Search Box Typography **************************/
+.sidebar input#search {
+	font-family:'Droid Serif', georgia, serif;
+	color:#555555;
+	font-size:10px;
+	font-style:italic;
+}
+/* Tabs Typography **************************/
+.ui-tabs-vertical .ui-tabs-nav li a span {
+	text-shadow:#fff 0px 1px 0px;
+	color:#555555;
+	font-weight:normal;
+	text-decoration:none;
+	font-family: 'Droid Sans', arial, sans-serif;
+}
+
+.ui-tabs-vertical .ui-tabs-nav li a strong {
+	font-size:14px;
+	font-weight:bold;
+	font-size:14px;
+	color:#000000;
+}

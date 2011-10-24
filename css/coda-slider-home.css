@@ -1,0 +1,52 @@
+/*
+	jQuery Coda-Slider v2.0 - http://www.ndoherty.biz/coda-slider
+	Copyright (c) 2009 Niall Doherty
+	This plugin available for use in all personal or commercial projects under both MIT and GPL licenses.
+*/
+
+
+/* Most common stuff you'll need to change */
+
+	.coda-slider-wrapper { padding:20px 0 0 0; margin-bottom:-30px; width:940px; }
+	.coda-slider { }
+	
+	/* Use this to keep the slider content contained in a box even when JavaScript is disabled */
+	.coda-slider-no-js .coda-slider { height: 200px; overflow: auto !important; padding-right: 20px }
+	
+	/* Change the width of the entire slider (without dynamic arrows) */
+	.coda-slider, .coda-slider .panel { width: 940px } 
+	
+	/* Change margin and width of the slider (with dynamic arrows) */
+	.coda-slider-wrapper.arrows .coda-slider, .coda-slider-wrapper.arrows .coda-slider .panel { width: 940px }
+	.coda-slider-wrapper.arrows .coda-slider { margin: 0 10px }
+	
+	/* Arrow styling */
+	.coda-nav-left {position:absolute; left:-75px; top:50%;margin-top:-15px;  }
+	.coda-nav-left a { background:url(../images/arrows.png) top left no-repeat; color: #fff; width:30px; height:30px; text-indent:-9999px; }
+	.coda-nav-right{position:absolute; right:-75px; top:50%; margin-top:-15px;}
+	.coda-nav-right a {background:url(../images/arrows.png) top right no-repeat;  color: #fff; width:30px; height:30px; text-indent:-9999px; }
+	
+	/* Tab nav */
+	.coda-nav ul li a.current { background:url(../images/bullets.png) no-repeat; background-position:0 -22px; }
+	
+	/* Panel padding */
+	.coda-slider .panel-wrapper { margin-bottom:8px;}
+	
+	/* Preloader */
+	.coda-slider p.loading { padding: 20px; text-align: center; z-index:-9999; position:absolute; top:50%; left:50%;  visibility:hidden; }
+
+/* Don't change anything below here unless you know what you're doing */
+
+	/* Tabbed nav */
+	.coda-nav ul { clear: both; display: block; margin: auto; overflow: hidden; padding:0; }
+	.coda-nav ul li { display: inline }
+	.coda-nav ul li a { background:url(../images/bullets.png) no-repeat;  display: block; float: left; 	width:22px; height:22px; text-decoration: none; text-indent:-9999px; }
+	
+	/* Miscellaneous */
+	.coda-slider-wrapper { clear: both; overflow: auto }
+	.coda-slider { float: left; overflow: hidden; position: relative }
+	.coda-slider .panel { display: block; float: left }
+	.coda-slider .panel-container { position: relative }
+	.coda-nav-left, .coda-nav-right { float: left }
+	.coda-nav-left a, .coda-nav-right a { display: block; text-align: center; text-decoration: none }
+	

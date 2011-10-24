@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.slideshow span.image-wrapper {
+width:375px;
+}
+
+div.loader, div.slideshow a.advance-link {
+width:375px;
+}
+
+div.slideshow a.advance-link {
+position:relative;
+}
+
+div.slideshow a.advance-link img {
+	position:absolute;
+	top:0;
+}
+
+.coda-nav ul {
+margin-top: 20px;
+}
