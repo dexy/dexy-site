@@ -2,7 +2,4 @@ artifacts/
 logs/
 output/
 output-long/
-output-latest.tgz
-memory.log
-testdb
-
+*.swp

@@ -1,6 +1,9 @@
 You need the garlicsim and garlicsim_lib Python packages installed for this tutorial. You also need R installed and the "rjson" package installed within R.
 
-# 00
+<div class="divider">
+<h5><span>00</span></h5>
+<!--Divider With Titling-->
+</div>
 
 We are going to run a Python script to generate some data, then run R to analyze that data and (eventually) make some graphs.
 
@@ -18,7 +21,10 @@ Here is the [R script](00/prisoner.R):
 
 If you run this (AFTER you run the python script) you should get some PNGs and another JSON file.
 
-# 01
+<div class="divider">
+<h5><span>01</span></h5>
+<!--Divider With Titling-->
+</div>
 
 However, we don't want to have to run these files manually and in the correct order, and we also don't want the generated files cluttering up our workspace.
 
@@ -38,4 +44,4 @@ Here is how you might write a HTML file to show these:
 <iframe src="01/doc.html" width="500px" height="300px">
 </iframe>
 
-[tutorial home](/docs/tutorials/)
+<p><a href="/docs/tutorials" class="button dark small">Tutorials Home</a></p>

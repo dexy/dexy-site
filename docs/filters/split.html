@@ -4,16 +4,16 @@
 
 {% for k, v in d['filter-info.json'].items() %}
 <!-- split "{{k}} ({{ " ".join(v.aliases) }})" -->
-<p><a href="/docs/filters">&larr; return to filter list</a></p>
-
 <h2>{{ k }}</h2>
+<p></p>
+<p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
 {% if v['doc'] -%}
 <p>{{ v['doc'] }}</p>
 {% endif -%}
 
 <p>Aliases for this filter:
-<ul>
+<ul class="split">
   {% for alias in v['aliases'] -%}
   <li>{{ alias }}</li>
   {% endfor -%}
@@ -21,18 +21,35 @@
 </p>
 
 {% for x in d.keys() -%}
-{% if x.endswith(k + "-example.html|jinja") -%}
+{% if x.startswith("/docs/filters/examples") and x.endswith(k + "-example.html|jinja") -%}
+<div class="divider">
+<h5><span>Example</span></h5>
+<!--Divider With Titling-->
+</div>
 {{ d[x] }}
+
+<div class="divider">
+<h5><span>Example Source</span></h5>
+<!--Divider With Titling-->
+</div>
+{{ d[x.replace("|jinja", "|pyg")] }}
 {% endif -%}
 {% endfor -%}
 
-<h2>Source Code</h2>
+<div class="divider">
+<h5><span>Filter Source Code</span></h5>
+<!--Divider With Titling-->
+</div>
 
-<p>Here is the source code of this filter.</p>
+{% if v['parentclass'] != 'object' -%}
+<p>Parent class is <a href="{{ v['parentclass'] }}"/>{{ v['parentclass'] }}</a>.</p>
+{% endif -%}
 
 {{ v['html_source'] }}
 
 {% endfor %}
+
+<p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
 <!-- endsplit -->
 

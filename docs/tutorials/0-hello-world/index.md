@@ -1,4 +1,7 @@
-# 00
+<div class="divider">
+<h5><span>00</span></h5>
+<!--Divider With Titling-->
+</div>
 
 This tutorial is mostly about making sure that everything is installed correctly and working.
 
@@ -61,7 +64,10 @@ To learn more:
 * study the log file and look at the contents of the artifacts/ directory
 * run 'dexy help -on dexy' and try to figure out what the command line options do (some of them relate to features you haven't seen yet, but many should make sense now)
 
-# 01
+<div class="divider">
+<h5><span>01</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Now we are going to get Dexy to do something more useful and interesting, we are going to write some Python code and then modify our hello.txt file so that we can see the contents of the Python file and also run the file to see the outcome.
 
@@ -94,7 +100,10 @@ And you should see something like this:
 
 <pre>{{ d['01/hello.py|py'] }}</pre>
 
-# 02
+<div class="divider">
+<h5><span>02</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Now we're finally ready to start using Dexy to document code!
 
@@ -157,5 +166,5 @@ Here are some ideas you can try now to explore how Dexy works:
 * Look at the list of filters [here](http://dexy.it/docs/filters). Read the documentation and look at the source code for all the filters we have used. Feel free to try other filters (if you have the necessary software installed).
 * Read the [jinja](http://jinja.pocoo.org/docs) documentation. Try using one of the [built-in filters](http://jinja.pocoo.org/docs/templates/#builtin-filters) in your document.
 
-[next tutorial](/docs/tutorials/1-python)
-[tutorial home](/docs/tutorials/)
+<p><a href="/docs/tutorials/1-python/" class="button light small">Next Tutorial</a></p>
+<p><a href="/docs/tutorials" class="button dark small">Tutorials Home</a></p>

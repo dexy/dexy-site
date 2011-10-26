@@ -1,0 +1,34 @@
+<!-- split "index" -->
+<p>To list the available Dexy commands:</p>
+
+{{ d['dexy-help.sh|pyg'] }}
+
+<p>&nbsp;</p>
+
+<p>You should see output like:</p>
+
+<pre>
+{{ d['dexy-help.sh|bash'] }}
+</pre>
+
+<p>Here is help for the available commands:</p>
+
+{% for cmd, help_text in d['commands.json'].iteritems() -%}
+<!-- split "{{ cmd }}" -->
+<h2>{{ "%s Command" % cmd.title() }}</h2>
+<p></p>
+<p><a href="/docs/commands/" class="button light small">&larr; Back to Command List</a></p>
+
+<div class="divider">
+<h5><span>Help Text For {{ "%s Command" % cmd.title() }}</span></h5>
+<!--Divider With Titling-->
+</div>
+
+<pre>
+{{ help_text }}
+</pre>
+
+<p><a href="/docs/commands/" class="button light small">&larr; Back to Command List</a></p>
+
+{% endfor -%}
+<!-- endsplit -->

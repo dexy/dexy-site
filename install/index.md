@@ -1,8 +1,14 @@
-## Source
+<div class="divider">
+<h5><span>Source Code</span></h5>
+<!--Divider With Titling-->
+</div>
 
-Dexy's source code is available from [github](http://github.com/ananelson/dexy).
+Dexy's source code is available from [gitorious](http://gitorious.org/dexy).
 
-## Installation Instructions
+<div class="divider">
+<h5><span>Installation Instructions</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Dexy is tested on Python 2.6 and Python 2.7. There is no support for Python 3.X yet.
 
@@ -14,6 +20,13 @@ You can also:
 
 {{ d['dexy-easy-install.sh|idio']['install'] }}
 
+If you want more detail or if you are new to installing Python packages, keep reading.
+
+<div class="divider">
+<h5><span>Upgrading</span></h5>
+<!--Divider With Titling-->
+</div>
+
 To upgrade to the most recent version:
 
 {{ d['dexy-pip-upgrade.sh|idio']['upgrade'] }}
@@ -22,9 +35,10 @@ or
 
 {{ d['dexy-easy-upgrade.sh|idio']['upgrade'] }}
 
-If you want more detail or if you are new to installing Python packages, keep reading.
-
-## New to Python?
+<div class="divider">
+<h5><span>New to Python?</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Dexy is installed in the same way as most Python packages. Dexy uses Setuptools which is a standard Python way to handle package management. Many systems already have setuptools installed. If you have a command called easy_install, then you can install dexy by typing:
 
@@ -47,22 +61,31 @@ Once you have installed Dexy, you can make sure it's working by typing:
 
 {{ d['dexy-easy-install.sh|idio']['check'] }}
 
-## Dexy Filter Requirements
+<div class="divider">
+<h5><span>Software for Filters</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Many of Dexy's filters depend on having other software installed, so depending on which filters you want to use, you might need to install some extra software too. For example, if you want to use the latex filter to turn documents written in LaTeX into PDFs, then you'll need to install TeXLive or another latex distribution.
 
-You can call dexy with the --filters option to see which filters are available on your system. If a filter you want isn't available, then search the dexy.log file for information about why it's not available.
+You can call the filters command to see which filters are available on your system. If a filter you want isn't available, then search the dexy.log file for information about why it's not available:
 
 {{ d['source-install.sh|idio']['list-filters'] }}
 
 In order to test all the Dexy filters and generate the filter documentation, we install all the software needed for each of the filters on a Ubuntu server. You can look at the [automated build guide](dexy-automated-build-guide.pdf) to see what is installed.
 
-## Source Install
+<div class="divider">
+<h5><span>Source Install</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Here is how to install Dexy from source using pip:
 {{ d['source-install.sh|idio']['source-install'] }}
 
-## Checking That It Works
+<div class="divider">
+<h5><span>Checking Your Installation</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Regardless of which method you use, you can make sure it works by typing:
 
@@ -70,15 +93,17 @@ Regardless of which method you use, you can make sure it works by typing:
 
 Once you have Dexy installed, you can start working through the [tutorials](/docs/tutorials) or get started with one of the [project templates](http://github.com/ananelson/dexy-templates).
 
-## Windows
-
-<span id="windows">&nbsp;</span>
+<div class="divider" id="windows">
+<h5><span>Windows</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Dexy should install on Windows using any of the above methods, however not all the filters will work on Windows. The dexy.log file should provide clues about why a given filter isn't available. Any filters that rely on the pexpect module will not be available on Windows.
 
-## Virtualenv Install
-
-<span id="nosudo">&nbsp;</span>
+<div class="divider" id="nosudo">
+<h5><span>Virtualenv</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Here is an example using [virtualenv](http://virtualenv.openplans.org/) to create a local self-contained install of Dexy without requiring root access.
 

@@ -3,5 +3,9 @@
         "jinjavars" : {
          "global_var" : "321.98"
         }
+    },
+    "index.html|hd|ft|jinja" : {
+      "intro" : "<h2>Dexy Documentation</h2><p>Dexy has training and reference documentation.</p>",
+      "allinputs" : true
     }
 }

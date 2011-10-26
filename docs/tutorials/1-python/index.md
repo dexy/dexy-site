@@ -1,4 +1,7 @@
-# 00
+<div class="divider">
+<h5><span>00</span></h5>
+<!--Divider With Titling-->
+</div>
 
 In this tutorial we start creating HTML documents and learn about some of the different Python filters.
 
@@ -25,7 +28,10 @@ You should generate a html file that looks like this:
 <iframe src="00/doc.html" width="300px" height="200px">
 </iframe>
 
-# 01
+<div class="divider">
+<h5><span>01</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Now that we're using HTML, let's make this output a little more colorful by applying syntax highlighting to our source code. Dexy's jinja filter automatically generates CSS for syntax highlighting if you have pygments installed (it should have been installed automatically when you installed dexy).
 
@@ -45,7 +51,10 @@ After you run dexy, if you open the generated html file in a web browser, you sh
 <iframe src="01/doc.html" width="300px" height="200px">
 </iframe>
 
-# 02
+<div class="divider">
+<h5><span>02</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Next we want to run the code. Add a line to the .dexy file:
 
@@ -59,7 +68,10 @@ And update the html file:
 <iframe src="02/doc.html" width="300px" height="200px">
 </iframe>
 
-# 03
+<div class="divider">
+<h5><span>03</span></h5>
+<!--Divider With Titling-->
+</div>
 
 Now, let's change this so that instead of showing the code and, separately, showing the output, we just show a console transcript.
 
@@ -75,5 +87,5 @@ Different filters can be used depending on which style of code presentation you 
 <iframe src="03/doc.html" width="300px" height="200px">
 </iframe>
 
-[next tutorial](/docs/tutorials/2-python-r)
-[tutorial home](/docs/tutorials/)
+<p><a href="/docs/tutorials/2-python-r/" class="button light small">Next Tutorial</a></p>
+<p><a href="/docs/tutorials" class="button dark small">Tutorials Home</a></p>
