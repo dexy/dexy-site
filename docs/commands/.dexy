@@ -1,0 +1,10 @@
+{
+    "*.sh|bash" : {},
+    "*.py|fn|py" : {},
+    "split.html|hd|ft|jinja|split" : {
+        "allinputs" : true,
+        "title" : "Commands",
+        "canonical-name" : "index.html",
+        "split-ul-class" : "split"
+    }
+}

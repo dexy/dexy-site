@@ -7,11 +7,15 @@
     "dexy-source.py|fn|py" : {},
     "*.R|jinja|r|pyg" : {},
     "*.R|pyg" : {},
-    "*.css" : { "final" : true},
+    "*.css" : {},
     "*.swf" : {},
     "*.dexy" : {},
-    "*.html|pyg" : {},
-    "*.html" : {},
+    "*.html|pyg" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : { "noclasses" : true }
+    },
+    "*.html" : { "final" : false },
     "*.md" : {},
     "*.jpg" : {},
     "*.gif" : {},
@@ -26,25 +30,29 @@
     "*.tar.gz" : {},
     "*.txt|dexy" : {},
     ".dexy|dexy" : {},
-    "_*.html|dexy" : {},
+    "_*.html" : { "final" : false },
     ".htaccess|jinja" : {
       "allinputs" : true
     },
-    "index.html|hd|ft|jinja|split" : {
+    "split.html|hd|ft|jinja|split" : {
       "allinputs" : true,
-      "footer" : "_footer.html|dexy"
+      "canonical-name" : "index.html"
     },
-    "index.textile|jinja|textile|hd|ft" : {
-      "allinputs" : true,
-      "notextile" : true,
-      "footer" : "_footer.html|dexy"
+    "index.html|hd|ft|jinja" : {
+      "allinputs" : true
     },
     "index.md|markdown|hd|ft|jinja" : {
-      "allinputs" : true,
-      "footer" : "_footer.html|dexy"
+      "allinputs" : true
+    },
+    "mailer.php|hd|ft" : {
+      "inputs" : ["_*.html"],
+      "final" : true,
+      "header" : "_header.html",
+      "footer" : "_footer.html"
     },
     "index.txt|ch|jinja|hd|ft" : {
       "allinputs" : true,
-      "footer" : "_index_footer.html|dexy"
+      "header" : "_homepage_header.html",
+      "footer" : "_homepage_footer.html"
     }
 }

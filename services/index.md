@@ -2,5 +2,5 @@ If your company would like training or consultation on how to make the most of D
 
 Custom filter development, hourly support and support contracts are also available.
 
-[Contact](/contact) me at ana@ananelson.com
+Contact me at ana@ananelson.com
 

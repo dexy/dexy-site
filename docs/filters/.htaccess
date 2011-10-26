@@ -1,6 +1,8 @@
 {% for k, v in d['filter-info.json'].items() -%}
+Redirect /docs/filters/{{ k }} /docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
+Redirect /docs/filters/{{ k }}/ /docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
 {% for a in v.aliases -%}
-Redirect /docs/filters/{{ a }} http://dexy.it/docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
-Redirect /docs/filters/{{ a }}/ http://dexy.it/docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
+Redirect /docs/filters/{{ a }} /docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
+Redirect /docs/filters/{{ a }}/ /docs/filters/{{ k }}-({{ "-".join(v.aliases) }}).html
 {% endfor -%}
 {% endfor -%}

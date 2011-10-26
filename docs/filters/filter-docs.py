@@ -18,6 +18,7 @@ for k, v in filters.items():
     if not filter_info.has_key(name):
         filter_info[name] = {
             'aliases' : v.ALIASES,
+            'parentclass' : v.__base__.__name__,
             'doc' : v.__doc__,
             'source' : source,
             'html_source' : html_source
