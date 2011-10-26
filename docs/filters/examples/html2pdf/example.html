@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>Code Journal</title>
+
+	<link href="../lib/css/zp-compressed.css" type="text/css" media="screen, print" rel="stylesheet" />
+	<link href="../lib/css/zp-print.css" type="text/css" media="print" rel="stylesheet" />
+	<link href="../lib/pastie.css" type="text/css" media="screen, print" rel="stylesheet" />
+	
+	<!--[if IE]>
+	<link href="../lib/css/zp-ie.css" type="text/css" media="screen" rel="stylesheet" />
+	<![endif]-->
+
+	<style type="text/css">
+		.sidebar {
+			font-size: 11px;
+    }
+		p.intro { 
+			font-style: bold;
+		} 
+		
+		.content .padding {
+			padding: 0 36px 0 0;
+		}
+		
+		.item .padding {
+			padding: 0 12px 0 0;
+		}
+		
+		.list-item h2 {
+			margin: 0;
+			line-height: 27px;
+		}
+		
+	</style>
+</head>
+<body>
+
+<div class="skip">
+	<a href="#content" title="Go directly to page content">Go to page content</a>
+</div>
+
+<div class="zp-wrapper">
+	<div class="zp-70 content">
+		<div class="padding">
+
+<h1>Dexy Templates</h1>
+<h2>Some R Examples</h2>
+
+<p class="intro">An example of using Dexy to document an R script in HTML, including using the filename filter and referencing generated graphs.</p>
+
+<p>First we assign variables:</p>
+<div class="highlight"><pre><a name="code001.R|fn|idio|rint|pyg-1"></a><span class="gp">&gt; </span>x <span class="o">&lt;-</span> <span class="m">5</span>
+<a name="code001.R|fn|idio|rint|pyg-2"></a><span class="gp">&gt; </span>y <span class="o">&lt;-</span> <span class="m">7</span>
+</pre></div>
+
+
+<p>Let's do some multiplication:</p>
+<div class="highlight"><pre><a name="code001.R|fn|idio|rint|pyg-1"></a><span class="gp">&gt; </span>x <span class="o">*</span> y
+<a name="code001.R|fn|idio|rint|pyg-2"></a><span class="go">[1] 35</span>
+</pre></div>
+
+
+<p>Here's the source code of a graph:</p>
+<div class="highlight"><pre><a name="code001.R|fn|idio|rint|pyg-1"></a><span class="gp">&gt; </span>png<span class="p">(</span><span class="s">&quot;89b4b7322d4815ed63810d79370465a1.png&quot;</span><span class="p">)</span>
+<a name="code001.R|fn|idio|rint|pyg-2"></a><span class="gp">&gt; </span>plot<span class="p">(</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">),</span> pch<span class="o">=</span><span class="m">19</span><span class="p">,</span> col<span class="o">=</span><span class="s">&quot;purple&quot;</span><span class="p">)</span>
+<a name="code001.R|fn|idio|rint|pyg-3"></a><span class="gp">&gt; </span>dev.off<span class="p">()</span>
+<a name="code001.R|fn|idio|rint|pyg-4"></a><span class="go">null device </span>
+<a name="code001.R|fn|idio|rint|pyg-5"></a><span class="go">          1 </span>
+</pre></div>
+
+
+<p>Here is the graph:</p>
+<img src="plot.png" width="300px" height="300px" />
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+    "*.pdf" : {},
+    "*.pdf|pdf2img" : {},
+    "*.pdf|pdf2jpg" : {},
+    "*.html|jinja" : { "allinputs" : true }
+}

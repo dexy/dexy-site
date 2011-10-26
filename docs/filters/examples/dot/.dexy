@@ -1,7 +1,7 @@
 {
-  "*.dot|dexy" : {},
+  "*.dot" : {},
   "*.dot|dot" : {},
-  "DotHandler-example.html|jinja" : {
-    "inputs" : ["*.dot|dexy", "*.dot|dot"]
+  "DotFilter-example.html|jinja" : {
+    "inputs" : ["*.dot", "*.dot|dot"]
   }
 }

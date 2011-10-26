@@ -1,0 +1,7 @@
+{
+    "example.html|html2pdf" : {},
+    "index.html|jinja" : { "allinputs" : true },
+    "example.html" : {},
+    "*.css" : {},
+    "*.png" : {}
+}
