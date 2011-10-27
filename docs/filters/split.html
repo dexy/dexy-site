@@ -33,6 +33,13 @@
 <!--Divider With Titling-->
 </div>
 {{ d[x.replace("|jinja", "|pyg")] }}
+<br />
+<div class="divider">
+<h5><span>Example Config</span></h5>
+<!--Divider With Titling-->
+</div>
+{{ d["/".join(x.split("/")[:-1]) + "/.dexy|ppjson|pyg"] }}
+<br />
 {% endif -%}
 {% endfor -%}
 

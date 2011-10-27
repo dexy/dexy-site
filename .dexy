@@ -10,12 +10,13 @@
     "*.css" : {},
     "*.swf" : {},
     "*.dexy" : {},
-    "*.html|pyg" : {
+    "*.html|pyg|-" : {
         "postfix" : "-src.html",
         "final" : true,
         "pygments" : { "noclasses" : true }
     },
     "*.html" : { "final" : false },
+    "*.html|pyg" : { "final" : false },
     "*.md" : {},
     "*.jpg" : {},
     "*.gif" : {},
@@ -30,6 +31,7 @@
     "*.tar.gz" : {},
     "*.txt|dexy" : {},
     ".dexy|dexy" : {},
+    ".dexy|ppjson|pyg" : {},
     "_*.html" : { "final" : false },
     ".htaccess|jinja" : {
       "allinputs" : true
@@ -50,9 +52,8 @@
       "header" : "_header.html",
       "footer" : "_footer.html"
     },
-    "index.txt|ch|jinja|hd|ft" : {
-      "allinputs" : true,
-      "header" : "_homepage_header.html",
-      "footer" : "_homepage_footer.html"
+    "home.html|jinja" : {
+      "canonical-name" : "index.html",
+      "allinputs" : true
     }
 }

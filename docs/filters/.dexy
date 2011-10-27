@@ -1,3 +1,6 @@
 {
-  "filter-docs.py|fn|py" : {}
+  "filter-docs.py|fn|py" : {},
+  "*-example.html|jinja" : {
+      "allinputs" : true
+  }
 }

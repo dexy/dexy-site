@@ -3,17 +3,5 @@
   "*.c|clang" : { "ifnoinput" : "%-input.txt|dexy"},
   "*.c|ctime" : { "ifnoinput" : "%-input.txt|dexy"},
   "*.c|cint" : { "ifinput" : "%-input.txt|dexy"},
-  "*.c|pyg" : {},
-  "ClangTimingFilter-example.html|jinja" : {
-    "inputs" : ["*.c|pyg", "001.c|ctime"]
-  },
-  "ClangFilter-example.html|jinja" : {
-    "inputs" : ["*.c|pyg", "001.c|clang"]
-  },
-  "CFilter-example.html|jinja" : {
-    "inputs" : ["*.c|pyg", "001.c|c"]
-  },
-  "ClangInteractiveFilter-example.html|jinja" : {
-    "inputs" : ["*.c|pyg", "009.c|cint", "*.txt|dexy"]
-  }
+  "*.c|pyg" : {}
 }
