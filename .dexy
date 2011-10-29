@@ -41,10 +41,12 @@
       "canonical-name" : "index.html"
     },
     "index.html|hd|ft|jinja" : {
-      "allinputs" : true
+      "allinputs" : true,
+      "priority" : 100
     },
     "index.md|markdown|hd|ft|jinja" : {
-      "allinputs" : true
+      "allinputs" : true,
+      "priority" : 100
     },
     "mailer.php|hd|ft" : {
       "inputs" : ["_*.html"],
@@ -52,8 +54,18 @@
       "header" : "_header.html",
       "footer" : "_footer.html"
     },
+    "features.html|jinja" : {
+      "comment" : "Don't apply header and footer since we use the full page width.",
+      "canonical-name" : "index.html",
+      "allinputs" : true,
+      "priority" : 100
+    },
+    "complete.html" : {
+      "comment" : "Use complete.html as the name for files which provide their own HEAD and don't need a header and footer, or any dynamic content.",
+      "canonical-name" : "index.html"
+    },
     "home.html|jinja" : {
       "canonical-name" : "index.html",
-      "allinputs" : true
+      "inputs" : ["_*.html"]
     }
 }

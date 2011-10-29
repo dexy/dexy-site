@@ -1,6 +1,10 @@
 .highlight { background: transparent; }
 pre, code { font-family: Courier; font-size: 14px; }
 
+.smalltable th { font-size: 12px; text-align: left; }
+.smalltable th, .smalltable td { border: thin solid gray; padding: 10px 5px 10px 5px; }
+.smalltable pre { font-size: 10px; }
+
 /* non-pygments custom CSS */
 ul.split { margin-left: 50px; }
 

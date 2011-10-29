@@ -1,10 +1,10 @@
 {
   "*.sh|pyg" : {},
   "*.sh|idio" : {},
-  "*.py|dexy" : {},
-  "*.txt|dexy" : {},
+  "*.py" : {},
+  "*.txt" : {},
   "*.py|pyg" : {},
-  ".dexy|dexy" : {},
-  "*.dexy|dexy" : {},
+  ".dexy" : {},
+  "*.dexy" : {},
   "index.txt|jinja|textile" : { "allinputs" : true, "notextile" : true }
 }
