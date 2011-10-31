@@ -10,7 +10,7 @@ Dexy's source code is available from [gitorious](http://gitorious.org/dexy).
 <!--Divider With Titling-->
 </div>
 
-Dexy is tested on Python 2.6 and Python 2.7. There is no support for Python 3.X yet.
+Dexy is tested on Python 2.6 and Python 2.7.
 
 The easiest way to install dexy is:
 

@@ -15,6 +15,11 @@
         "final" : true,
         "pygments" : { "noclasses" : true }
     },
+    "*.md|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : { "noclasses" : true }
+    },
     "*.html" : { "final" : false },
     "*.html|pyg" : { "final" : false },
     "*.md" : {},
@@ -42,23 +47,21 @@
     },
     "index.html|hd|ft|jinja" : {
       "allinputs" : true,
-      "priority" : 100
+      "priority" : 100,
+      "header" : "_header.html",
+      "footer" : "_footer.html"
     },
     "index.md|markdown|hd|ft|jinja" : {
       "allinputs" : true,
-      "priority" : 100
+      "priority" : 100,
+      "header" : "_header.html",
+      "footer" : "_footer.html"
     },
     "mailer.php|hd|ft" : {
       "inputs" : ["_*.html"],
       "final" : true,
       "header" : "_header.html",
       "footer" : "_footer.html"
-    },
-    "features.html|jinja" : {
-      "comment" : "Don't apply header and footer since we use the full page width.",
-      "canonical-name" : "index.html",
-      "allinputs" : true,
-      "priority" : 100
     },
     "complete.html" : {
       "comment" : "Use complete.html as the name for files which provide their own HEAD and don't need a header and footer, or any dynamic content.",

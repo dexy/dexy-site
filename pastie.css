@@ -1,6 +1,13 @@
 .highlight { background: transparent; }
 pre, code { font-family: Courier; font-size: 14px; }
 
+.pos-NN, .pos-NNP, .pos-NNS { color: green; }
+.pos-PRP { color: purple; }
+.pos-VBP, .pos-VBD, .pos-VBN, .pos-VBG { color: red; }
+.pos-JJ { color: orange; }
+.pos-RB { color: #FF00FF; }
+.pos-IN { color: cyan; font-weight: bold; }
+
 .smalltable th { font-size: 12px; text-align: left; }
 .smalltable th, .smalltable td { border: thin solid gray; padding: 10px 5px 10px 5px; }
 .smalltable pre { font-size: 10px; }

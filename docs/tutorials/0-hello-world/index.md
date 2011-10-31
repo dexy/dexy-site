@@ -35,7 +35,7 @@ The curly brackets are [Jinja](http://jinja.pocoo.org/) tags, and soon they will
 
 Next we need to give Dexy some instructions about what files we want Dexy to process, and what we want done to those files. Dexy looks for configuration files named .dexy (later we'll see how to name them something else), so create another text file named .dexy and type the following into it:
 
-{{ f.pre_and_clippy(d['00/.dexy']) }}
+{{ pre_and_clippy(d['00/.dexy']) }}
 
 This is [JSON](http://www.json.org/) which is the file format we currently use for writing configuration files for Dexy. In terms of JSON elements, we have an object containing a single key/value pair whose key is "*.txt|jinja" and whose value is another object which happens to be empty, i.e. {}. For now, you don't need to worry too much about this, just type it in exactly as you see it here.
 
@@ -74,7 +74,7 @@ Now we are going to get Dexy to do something more useful and interesting, we are
 Let's write a simple script called hello.py, and save this in the same directory where we've been working (if you want you can make a copy of this directory so that you still have your original example). Here is what the script should look like:
 
 {{ d['01/hello.py|pyg'] }}
-{{ f.clippy_helper(d['01/hello.py']) }}
+{{ clippy_helper(d['01/hello.py']) }}
 
 You should run "python hello.py" from the command line to make sure that this script works.
 
@@ -82,7 +82,7 @@ Next we are going to modify the .dexy file. We want to add a line to tell Dexy t
 
 Modify your .dexy file so that it looks like this:
 
-{{ f.pre_and_clippy(d['01/.dexy']) }}
+{{ pre_and_clippy(d['01/.dexy']) }}
 
 We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add something in the next step, but let's look at the keys now.
 
@@ -109,7 +109,7 @@ Now we're finally ready to start using Dexy to document code!
 
 Let's first modify the .dexy file so it looks like this:
 
-{{ f.pre_and_clippy(d['02/.dexy']) }}
+{{ pre_and_clippy(d['02/.dexy']) }}
 
 We've made 3 changes here.
 

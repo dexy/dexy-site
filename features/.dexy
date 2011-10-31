@@ -2,7 +2,7 @@
   "*|pyg" : {
     "except" : ".*.txt"
   },
-  "*" : {},
+  "*" : {"final" : false},
   "hello.rb|rb" : {},
   "hello.cpp|cpp" : {},
   "hello.c|gcc" : {},
@@ -16,6 +16,9 @@
   "hello.py|py" : {},
   "hello.py|pycon|pyg" : {},
   "hello.py|pycon" : {},
+  "calculation.py|pycon" : {"record-vars" : true},
+  "calculation.py|pycon|pyg" : {},
+  "calculation.py|py" : {},
   "hello-jruby.rb|jruby" : {},
   "hello-jruby.rb|jirb|pyg" : {},
   "hello.java|java" : {},
