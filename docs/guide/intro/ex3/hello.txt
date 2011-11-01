@@ -1,0 +1,7 @@
+Here is some Python:
+
+{{ d['hello.py'] }}
+
+Here is some R:
+
+{{ d['hello.R'] }}

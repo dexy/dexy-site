@@ -1,3 +1,230 @@
-## Introduction to Filters and Dependencies
+<html>
+    <head>
+        <style type="text/css">
+            {{ pygments['pastie.css'] }}
+        </style>
+</head>
+<body>
 
+    <p>Dexy creates documents by taking files you specify and running them through 0 or more filters. Documents can depend on other documents, this means the information from these dependencies is available to the filters.</p>
 
+    <p>At the beginning of a Dexy run, the Controller makes a list of all the documents it needs to run, and the dependencies between these documents. It runs a topological sort to figure out what order it needs to run the documents in.</p>
+
+    <h2>Examples</h2>
+    <p>Let's look at some examples to see how this works.</p>
+
+    <h3>3 Files, No Dependencies</h3>
+
+    <p>To start with, we'll have a Python file, hello.py, an R file, hello.R, and a Text file, hello.txt. We won't run them through any filters at first. If you specify a file without any filters, Dexy just outputs the original file.</p>
+
+    <p>Here is our configuration file:</p>
+
+    {{ d['ex1/.dexy|ppjson|pyg'] }}
+
+    <p>Dexy's controller will process this configuration file, looking for files that match the specified names and creating Document objects for each one. Normally, this happens as part of the controller's <code>run()</code> method which is called when you run the <code>dexy</code> command. However, to illustrate what's happening, here is a script which creates a Controller class and processes the configuration file:</p>
+
+    {{ d['dexy-config.py|idio']['controller-config'] }}
+
+    <p>Running this code produces this output:</p>
+
+<pre>
+{{ d['script-output.json']['ex1-run'] | escape }}
+</pre>
+
+    <p>We have two documents, and they don't have any dependencies. As Dexy starts processing the config file, it creates Document objects for each document it will run, and it puts them into an OrderedDict called 'members', referenced by their document keys. We can loop over this members dict and see what's there:</p>
+
+{{ d['dexy-config.py|idio']['print-controller-members'] }}
+<pre>
+{{ d['script-output.json']['ex1-members'] | escape }}
+</pre>
+
+<p>We can peek at the dependencies list to confirm that it's empty:</p>
+
+<pre>
+{{ d['script-output.json']['ex1-depends'] | escape }}
+</pre>
+
+<p>Here is what gets written to the Dexy log:</p>
+<pre>
+{{ d['script-output.json']['ex1-log'] | escape }}
+</pre>
+
+<p>In the next section, we'll actually add a dependency to make things more interesting.</p>
+
+<h3>3 Files, 2 Dependencies</h3>
+
+<p>We just make 1 change to our configuration file:</p>
+
+{{ d['ex2/.dexy|ppjson|pyg'] }}
+
+<p>We add an 'inputs' attribute to the "hello.txt" document.</p>
+
+<p>The format of a .dexy configuration file is a JSON Object. A JSON Object is like a dictionary or hashmap, you have keys and values. In the case of a .dexy config, the keys are document keys, and the values are JSON Objects which can be empty (e.g. '{}'), or which can have additional arguments relating to that document. Some attributes are processed by Dexy itself, other attributes are passed on to Dexy filters.</p>
+
+<p>The "inputs" attribute is one of the ways we tell Dexy that a document depends on other documents. In this case, we are telling Dexy that the "hello.txt" document depends on the "hello.py" document.</p>
+
+Now when we run <code>process_config()</code>, we should see output like this:
+
+<pre>
+{{ d['script-output.json']['ex2-run'] | escape }}
+</pre>
+
+The members dict is:
+
+<pre>
+{{ d['script-output.json']['ex2-members'] | escape }}
+</pre>
+
+<p>This OrderedDict keeps track of members in the order they are added to the dict. The ordering is arbitrary, what's important is that each document has a consistent index within the dict.</p>
+
+<p>Now, we can look at the dependencies list. This is a list of tuples, where each tuple (a, b) represents a dependency of document b on input document a.</p>
+
+<p>Here is the dependency list for this example:</p>
+
+<pre>
+{{ d['script-output.json']['ex2-depends'] | escape }}
+</pre>
+
+<p>So document 2 depends on document 0, and document 2 depends on document 1.</p>
+
+<p>Dexy applies a topological sort to this dependency list to determine an order to run the documents so that, if b depends on a, a is always run before b.</p>
+
+<p>Here is the ordering for this example:</p>
+<pre>
+{{ d['script-output.json']['ex2-ordering'] | escape }}
+</pre>
+
+<p>This ordering is used to create a new list of the documents in the order in which they should be run by Dexy to satisfy all dependencies (if there are circular dependencies, Dexy raises an exception). Each document has a list of its inputs, which it will use later to access the information contained in the input documents.</p>
+
+{{ d['dexy-config.py|idio']['print-controller-docs'] }}
+<pre>
+{{ d['script-output.json']['ex2-docs'] | escape }}
+</pre>
+
+We can see that by the time we reach <code>hello.txt</code>, we have already passed the two documents it depends upon.
+
+<p>Here is what gets written to the Dexy log:</p>
+<pre>
+{{ d['script-output.json']['ex2-log'] | escape }}
+</pre>
+
+<h4>Config File Shortcut</h4>
+
+We wrote our config file like this:
+
+{{ d['ex2/.dexy|ppjson|pyg'] }}
+
+And this means we have listed hello.py and hello.R in two different places, once at the top level, and again when we listed them as explicit dependencies. As a shortcut, we can choose to just list them as dependencies, and Dexy will automatically create documents for them. The disadvantage of this approach is that we can't pass attributes to these documents, but when you don't need to pass extra attributes, this can save you some typing.
+
+Here is the shorter version:
+
+{{ d['ex2a/.dexy|ppjson|pyg'] }}
+
+{{ d['dexy-config.py|idio']['print-controller-docs'] }}
+<pre>
+{{ d['script-output.json']['ex2a-docs'] | escape }}
+</pre>
+
+<p>Here is what gets written to the Dexy log:</p>
+<pre>
+{{ d['script-output.json']['ex2a-log'] | escape }}
+</pre>
+
+<h4>Once More, With Filters</h4>
+
+<p>So far, all we've done is set Dexy up. We haven't actually run Dexy. Now, let's add a filter to our documents and actually run Dexy.</p>
+
+<p>Here is our config:</p>
+
+{{ d['ex3/.dexy|ppjson|pyg'] }}
+
+<p>'jinja' is a Filter Alias, a short key that we use to identify the filter we want to run. Each filter defines a list of its aliases (which must be unique) and Dexy figures out that when you put "|jinja" into your config file, it should run the JinjaFilter at that point. The "|" is the pipe symbol, the same one you type on the command line to pipe output from one command into another. You can apply as many filters as you want, the output from each filter becomes the input for the next filter in the chain.</p>
+
+<p>At the beginning of each Dexy run, a list of the filter aliases and the filters they map to is populated. Here is what gets written to the log:</p>
+
+<pre>
+{{ d['script-output.json']['ex3-populate-filters'] | escape }}
+</pre>
+
+<p>Sometimes, filters aren't available because they need software that isn't installed. A warning is written to the logfile in these cases. Dexy will raise an exception if you try to use a filter that isn't available.</p>
+
+<p>The jinja filter will let us insert content into the hello.txt document. Let's take a look at that document now:</p>
+
+<pre>
+{{ d['ex3/hello.txt'] }}
+</pre>
+
+<p>The {{ "{{ " }} and {{ "}}" }} symbols are Jinja content tags, whatever goes inside those tags gets evaluated by Jinja and the value is put in that place. The 'd' variable is a dictionary which has the contents of all the Dexy inputs, referred to by their keys. So, we are asking for the contents of hello.py and hello.R to be inserted into the hello.txt template at those points. We have not applied any filters to hello.py or hello.R, so Dexy will insert the unchanged content of those files. We will try applying filters to these files in the next section.</p>
+
+<p>We will run this by doing the same setup as before:</p>
+
+{{ d['dexy-config.py|idio']['controller-config'] }}
+
+<p>and then adding</p>
+{{ d['dexy-config.py|idio']['controller-run'] }}
+
+<p>Here is what gets written to the log:</p>
+<pre>
+{{ d['script-output.json']['ex3-log'] | escape }}
+</pre>
+
+<p>The log transcript starts out the same as before, but at the end we can see that Dexy is actually running the documents. For the first two documents, because they have no filters, Dexy only has to do Step 0, which is to just save the original file contents. For the third document, Dexy first does Step 0 as before, then goes on to Step 1 which is running the first (and in this case, the only) filter.</p>
+
+<p>Here is the result of running the hello.txt file through the jinja filter:</p>
+
+<pre>
+{{ d['ex3/hello.txt|jinja'] }}
+</pre>
+
+<p>We can see that the jinja tags have been filled in with the contents of our input files.</p>
+
+<h4>Even More Filters</h4>
+
+<p>Let's change our example now so that we can see the Python and R code, and also see the output that is generated by actually running the code. Here is our config file:</p>
+
+{{ d['ex4/.dexy|ppjson|pyg'] }}
+
+<p>Now, the hello.py file is listed twice. Once with no filters, and once with the 'pyout' filter. Similarly, hello.R is listed once with no filters, and once with the 'rout' filter. The 'pyout' filter takes Python code and runs it through the Python interpreter, returning whatever gets written to STDOUT. The 'rout' filter does the same thing, but for R code instead of Python code.</p>
+
+<p>Another change we've made is that, instead of listing each of these as inputs to hello.txt|jinja, we have taken a shortcut. Setting the "allinputs" attribute to "true" tells Dexy that every other document should be a dependency.</p>
+
+<p>Here is the hello.txt file now:</p>
+<pre>
+{{ d['ex4/hello.txt'] }}
+</pre>
+
+<p>Here is the members ordered dict:</p>
+<pre>
+{{ d['script-output.json']['ex4-members'] | escape }}
+</pre>
+
+<p>And here is the list of dependencies:</p>
+<pre>
+{{ d['script-output.json']['ex4-depends'] | escape }}
+</pre>
+
+<p>Here is the ordering:</p>
+<pre>
+{{ d['script-output.json']['ex4-ordering'] | escape }}
+</pre>
+
+<p>Using that ordering, the final list of documents in run order is:</p>
+
+{{ d['dexy-config.py|idio']['print-controller-docs'] }}
+<pre>
+{{ d['script-output.json']['ex4-docs'] | escape }}
+</pre>
+
+<p>Here is what gets written to the log file during the run:</p>
+
+<pre>
+{{ d['script-output.json']['ex4-log'] | escape }}
+</pre>
+
+<p>And, here is the result of running hello.txt through the jinja filter:</p>
+
+<pre>
+{{ d['ex4/hello.txt|jinja'] }}
+</pre>
+
+</body></html>

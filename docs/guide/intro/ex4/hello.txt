@@ -1,0 +1,15 @@
+Here is some Python:
+
+{{ d['hello.py'] }}
+
+Here is the output from running this Python code:
+
+{{ d['hello.py|pyout'] }}
+
+Here is some R:
+
+{{ d['hello.R'] }}
+
+Here is the output from running this R code:
+
+{{ d['hello.R|rout'] }}

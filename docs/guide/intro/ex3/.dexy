@@ -1,0 +1,3 @@
+{
+    "hello.txt|jinja" : { "inputs" : ["hello.py", "hello.R"]}
+}

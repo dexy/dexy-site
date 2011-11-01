@@ -2,4 +2,4 @@ artifacts/
 logs/
 output/
 output-long/
-*.swp
+*.sw*

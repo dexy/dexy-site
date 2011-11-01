@@ -1,0 +1,7 @@
+{
+    "hello.txt|jinja" : { "allinputs" : true},
+    "hello.py" : {},
+    "hello.py|pyout" : {},
+    "hello.R" : {},
+    "hello.R|rout" : {}
+}
