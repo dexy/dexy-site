@@ -87,7 +87,7 @@ def run_example(name, script_output, run=False):
 
 args = {
     "artifactclass" : Constants.DEFAULT_ACLASS,
-    "artifactsdir" : "../artifacts",
+    "artifactsdir" : "../../../../artifacts",
     "config" : Constants.DEFAULT_CONFIG,
     "dbclass" : Constants.DEFAULT_DBCLASS,
     "dbfile" : None,
@@ -107,7 +107,7 @@ script_output = {}
 
 # About ready to start, need to chdir because dexy runs this from
 # within artifacts/ dir. Remove this to run script directly.
-os.chdir("..")
+os.chdir("../docs/guide/documents-dependencies-and-filters/")
 
 run_example("ex1", script_output)
 run_example("ex2", script_output)
@@ -116,7 +116,7 @@ run_example("ex3", script_output, True)
 run_example("ex4", script_output, True)
 
 # end of all scripts, save data in artifacts dir
-os.chdir("artifacts")
+os.chdir("../../../artifacts")
 
 with open("dexy--script-output.json", "w") as f:
     json.dump(script_output, f, sort_keys=True, indent=4)

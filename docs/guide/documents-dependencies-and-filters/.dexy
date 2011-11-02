@@ -2,6 +2,5 @@
     "dexy-config.py|fn|py" : {},
     "*.py|idio" : {},
     ".dexy|ppjson|pyg" : {},
-    "*" : { "final" : false },
-    "index.html|jinja" : { "allinputs" : true}
+    "*" : { "final" : false }
 }

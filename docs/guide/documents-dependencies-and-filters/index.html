@@ -1,37 +1,27 @@
-<html>
-    <head>
-        <style type="text/css">
-            {{ pygments['pastie.css'] }}
-        </style>
-</head>
-<body>
+<p>Dexy creates documents by taking files you specify and running them through 0 or more filters. Documents can depend on other documents, this means the information from these dependencies is available to the filters.</p>
 
-    <p>Dexy creates documents by taking files you specify and running them through 0 or more filters. Documents can depend on other documents, this means the information from these dependencies is available to the filters.</p>
+<p>At the beginning of a Dexy run, the Controller makes a list of all the documents it needs to run, and the dependencies between these documents. It runs a topological sort to figure out what order it needs to run the documents in.</p>
 
-    <p>At the beginning of a Dexy run, the Controller makes a list of all the documents it needs to run, and the dependencies between these documents. It runs a topological sort to figure out what order it needs to run the documents in.</p>
+<p>Let's look at some examples to see how this works.</p>
 
-    <h2>Examples</h2>
-    <p>Let's look at some examples to see how this works.</p>
+<h3>3 Files, No Dependencies</h3>
 
-    <h3>3 Files, No Dependencies</h3>
+<p>To start with, we'll have a Python file, hello.py, an R file, hello.R, and a Text file, hello.txt. We won't run them through any filters at first. If you specify a file without any filters, Dexy just outputs the original file.</p>
 
-    <p>To start with, we'll have a Python file, hello.py, an R file, hello.R, and a Text file, hello.txt. We won't run them through any filters at first. If you specify a file without any filters, Dexy just outputs the original file.</p>
+<p>Here is our configuration file:</p>
 
-    <p>Here is our configuration file:</p>
+{{ d['ex1/.dexy|ppjson|pyg'] }}
 
-    {{ d['ex1/.dexy|ppjson|pyg'] }}
+<p>Dexy's controller will process this configuration file, looking for files that match the specified names and creating Document objects for each one. Normally, this happens as part of the controller's <code>run()</code> method which is called when you run the <code>dexy</code> command. However, to illustrate what's happening, here is a script which creates a Controller class and processes the configuration file:</p>
 
-    <p>Dexy's controller will process this configuration file, looking for files that match the specified names and creating Document objects for each one. Normally, this happens as part of the controller's <code>run()</code> method which is called when you run the <code>dexy</code> command. However, to illustrate what's happening, here is a script which creates a Controller class and processes the configuration file:</p>
-
-    {{ d['dexy-config.py|idio']['controller-config'] }}
-
-    <p>Running this code produces this output:</p>
+{{ d['dexy-config.py|idio']['controller-config'] }}
+<p>Running this code produces this output:</p>
 
 <pre>
 {{ d['script-output.json']['ex1-run'] | escape }}
 </pre>
 
-    <p>We have two documents, and they don't have any dependencies. As Dexy starts processing the config file, it creates Document objects for each document it will run, and it puts them into an OrderedDict called 'members', referenced by their document keys. We can loop over this members dict and see what's there:</p>
+<p>We have two documents, and they don't have any dependencies. As Dexy starts processing the config file, it creates Document objects for each document it will run, and it puts them into an OrderedDict called 'members', referenced by their document keys. We can loop over this members dict and see what's there:</p>
 
 {{ d['dexy-config.py|idio']['print-controller-members'] }}
 <pre>
@@ -63,13 +53,13 @@
 
 <p>The "inputs" attribute is one of the ways we tell Dexy that a document depends on other documents. In this case, we are telling Dexy that the "hello.txt" document depends on the "hello.py" document.</p>
 
-Now when we run <code>process_config()</code>, we should see output like this:
+<p>Now when we run <code>process_config()</code>, we should see output like this:</p>
 
 <pre>
 {{ d['script-output.json']['ex2-run'] | escape }}
 </pre>
 
-The members dict is:
+<p>The members dict is:</p>
 
 <pre>
 {{ d['script-output.json']['ex2-members'] | escape }}
@@ -101,7 +91,7 @@ The members dict is:
 {{ d['script-output.json']['ex2-docs'] | escape }}
 </pre>
 
-We can see that by the time we reach <code>hello.txt</code>, we have already passed the two documents it depends upon.
+<p>We can see that by the time we reach <code>hello.txt</code>, we have already passed the two documents it depends upon.</p>
 
 <p>Here is what gets written to the Dexy log:</p>
 <pre>
@@ -110,13 +100,13 @@ We can see that by the time we reach <code>hello.txt</code>, we have already pas
 
 <h4>Config File Shortcut</h4>
 
-We wrote our config file like this:
+<p>We wrote our config file like this:</p>
 
 {{ d['ex2/.dexy|ppjson|pyg'] }}
 
-And this means we have listed hello.py and hello.R in two different places, once at the top level, and again when we listed them as explicit dependencies. As a shortcut, we can choose to just list them as dependencies, and Dexy will automatically create documents for them. The disadvantage of this approach is that we can't pass attributes to these documents, but when you don't need to pass extra attributes, this can save you some typing.
+<p>And this means we have listed hello.py and hello.R in two different places, once at the top level, and again when we listed them as explicit dependencies. As a shortcut, we can choose to just list them as dependencies, and Dexy will automatically create documents for them. The disadvantage of this approach is that we can't pass attributes to these documents, but when you don't need to pass extra attributes, this can save you some typing.</p>
 
-Here is the shorter version:
+<p>Here is the shorter version:</p>
 
 {{ d['ex2a/.dexy|ppjson|pyg'] }}
 
@@ -227,4 +217,3 @@ Here is the shorter version:
 {{ d['ex4/hello.txt|jinja'] }}
 </pre>
 
-</body></html>

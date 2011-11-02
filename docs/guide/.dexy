@@ -1,0 +1,9 @@
+{
+    "$reset" : {},
+    "index.html|hd|ft|jinja" : {
+        "allinputs" : true,
+        "priority" : 10,
+        "header" : "_header.html",
+        "footer" : "_footer.html"
+    }
+}
