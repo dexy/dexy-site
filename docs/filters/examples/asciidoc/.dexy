@@ -1,5 +1,5 @@
 {
-  "*-example.html|jinja" : {
-    "inputs" : ["example.txt|dexy", "example.txt|asciidoc",  "example.txt|asciidoc|x|pyg"]
-  }
+    "example.txt" : {},
+    "example.txt|asciidoc" : {},
+    "example.txt|asciidoc|x" : {}
 }

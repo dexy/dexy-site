@@ -1,7 +1,8 @@
 {
-  "*.c|c" : { "ifnoinput" : "%-input.txt|dexy"},
-  "*.c|clang" : { "ifnoinput" : "%-input.txt|dexy"},
-  "*.c|ctime" : { "ifnoinput" : "%-input.txt|dexy"},
-  "*.c|cint" : { "ifinput" : "%-input.txt|dexy"},
-  "*.c|pyg" : {}
+  "*.c|c" : { "ifnoinput" : "%-input.txt"},
+  "*.c|clang" : { "ifnoinput" : "%-input.txt"},
+  "*.c|cinput" : { "ifinput" : "%-input.txt"},
+  "*.c|clanginput" : { "ifinput" : "%-input.txt"},
+  "*.c|pyg" : {},
+  "001f.c|cfussy" : {}
 }

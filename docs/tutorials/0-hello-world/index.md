@@ -7,7 +7,7 @@ This tutorial is mostly about making sure that everything is installed correctly
 
 You need Python installed in order for Dexy to work, and of course you need Dexy installed to use Dexy!
 
-If you haven't already, please [read the instructions](http://dexy.it/install) and install Dexy. If you installed Dexy a while ago then you should install it again to upgrade to the latest version.
+If you haven't already, please [read the instructions](/install) and install Dexy. If you installed Dexy a while ago then you should install it again to upgrade to the latest version.
 
 To check if Dexy is installed:
 
@@ -86,7 +86,7 @@ Modify your .dexy file so that it looks like this:
 
 We discussed briefly how each item in here is a key-value pair. Our 'values' are still empty objects like {}, we'll add something in the next step, but let's look at the keys now.
 
-We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter [here](http://www.dexy.it/docs/filters/jinja)). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is [here](http://dexy.it/docs/filters/py).
+We have a file name, or a wildcard expression, followed by the pipe symbol "|" and a filter alias. The file name tells Dexy which file (or pattern) to operate on, and the filter aliases tell Dexy what to do to that file. We have said that all the text files should be run through a filter identified by 'jinja', and we have said that the file named 'hello.py' should be run through a filter identified by 'py'. The Dexy jinja filter treats the text file that gets input as a Jinja template, and so it looks for all the Jinja tags and evaluates what's inside. (You can see documentation for the jinja filter [here](/docs/filters/jinja)). The Dexy 'py' filter means that the Python interpreter gets run on whatever script is passed to it, the documentation is [here](/docs/filters/py).
 
 If you have written your script and modified your .dexy configuration file as shown, then you can call dexy again:
 

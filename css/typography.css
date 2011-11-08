@@ -179,6 +179,10 @@ p, ul, ol, .button {
 	text-shadow:#fff 0px 1px 0px;
 }
 
+p {
+    text-align: justify;
+}
+
 /* Divider Element **************************/
 .divider h5 {
 	padding:0 20px;

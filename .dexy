@@ -13,12 +13,20 @@
     "*.html|pyg|-" : {
         "postfix" : "-src.html",
         "final" : true,
-        "pygments" : { "noclasses" : true }
+        "pygments" : {
+            "full" : true,
+            "linenos" : true,
+            "anchorlinenos" : true
+        }
     },
     "*.md|pyg|-" : {
         "postfix" : "-src.html",
         "final" : true,
-        "pygments" : { "noclasses" : true }
+        "pygments" : {
+           "full" : true,
+           "linenos" : "inline",
+           "anchorlinenos" : true
+        }
     },
     "*.html" : { "final" : false },
     "*.html|pyg" : { "final" : false },

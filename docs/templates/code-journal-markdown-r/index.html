@@ -1,0 +1,12 @@
+<p>This is a template for a simple R code journal, written in <a href="http://daringfireball.net/projects/markdown/syntax">markdown</a>, including generating and displaying graphs.</p>
+
+<p>The 'template.md' file contains your content. The _header.html file takes care of doctypes and CSS, and the _footer.html file closes the HTML tags that _header.html opens, so you don't need to worry about that (the 'hd' and 'ft' filters are what apply the header and footer to your file). If you need more control over your markup, you can also <a href="/docs/templates/code-journal-html-r/">write your journal in html</a>.</p>
+
+<p>This template uses the <a href="http://atatonic.timbenniks.nl/">atatonic</a> web framework to give nice typography and a simple, clean look.</p>
+
+<p>Here is the <code>.dexy</code> file for this template:</p>
+{{ d['template/.dexy|ppjson|pyg'] }}
+
+<p>You might notice that we run the 'jinja' filter twice, once at the start, and once at the end. You could just run jinja at the end, but this means that the markdown filter will encounter your jinja tags. At best, it will wrap your jinja statements in &lt;p&gt; tags which will probably not do too much harm, although it may produce HTML that doesn't strictly validate. At worst, if you have some complex expressions within your jinja tags, these might get mangled. So, we run the jinja filter at the start. The _header.html document contains some jinja tags also, so we need to run jinja again after the header content has been added to our document.</p>
+
+<p>Markdown ignores blocks of HTML that it encounters when processing, but take care that you separate blocks of HTML (such as syntax highlighted code) from other text by a blank line before and after.</p>

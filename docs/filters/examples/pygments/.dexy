@@ -1,7 +1,21 @@
 {
-  "*.py|dexy" : {},
-  "*.py|pyg" : {},
-  "*-example.html|jinja" : {
-    "inputs" : ["*.py|dexy", "*.py|pyg"]
-  }
+    "*.py" : {},
+      "example3.py|pyg|l" : {},
+      "example3.py|pyg|svg" : {},
+      "example3.py|pyg|pn" : { "final" : true },
+      "example1.py|pyg" : {},
+      "example2.py|pyg" : {
+          "pygments" : {
+              "linenos" : "inline"
+          }
+      },
+      "example3.py|pyg" : {
+          "pygments" : {
+              "anchorlinenos" : true,
+              "lineanchors" : "l",
+              "linenos" : "table",
+              "noclasses" : true,
+              "style" : "manni"
+          }
+      }
 }

@@ -1,0 +1,29 @@
+<p>The 'sed' filter will run sed commands on input text. To start with, you write a .sed file containing the commands you wish to run:</p>
+
+<pre>
+{{ d['example.sed'] }}
+</pre>
+
+<p>Then you prepare a text file with the content you would like to transform with sed:</p>
+<pre>
+{{ d['input.txt'] }}
+</pre>
+
+<p>You need to set the text file as an input, you can see how this is done in the config file below (see the <a href="/docs/filters/pyinput">Python input filter example</a> for how to run multiple inputs).</p>
+
+<p>Here is the output when run:</p>
+
+<pre>
+{{ d['example.sed|sed'] }}
+</pre>
+
+<p>If you have a really short script, then you might want to create a virtual file and just enter the contents in the .dexy config file below. This is faster, the down side is that it's a little harder to include your original sed script in your document, although it's still possible:</p>
+<pre>
+{{ a['virtual.sed|sed'].input_text() }}
+</pre>
+
+<p>You get the same result from a virtual file:</p>
+
+<pre>
+{{ d['virtual.sed|sed'] }}
+</pre>

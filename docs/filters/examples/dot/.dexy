@@ -1,7 +1,4 @@
 {
   "*.dot" : {},
-  "*.dot|dot" : {},
-  "DotFilter-example.html|jinja" : {
-    "inputs" : ["*.dot", "*.dot|dot"]
-  }
+  "*.dot|dot" : {}
 }

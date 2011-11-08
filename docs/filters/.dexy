@@ -1,5 +1,6 @@
 {
   "filter-docs.py|fn|py" : {},
+  ".dexy|cj" : {},
   "*-example.html|jinja" : {
       "allinputs" : true
   }

@@ -1,0 +1,58 @@
+{
+    "$reset" : {},
+    "examples.html|hd|ft|jinja" : {
+        "priority" : 50,
+        "allinputs" : true,
+        "canonical-name" : "index.html",
+        "header" : "_header.html",
+        "footer" : "_footer.html"
+    },
+    "*.html|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "noclasses" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "*.md|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "noclasses" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "*.tex|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "noclasses" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "index.html|hd|ft|jinja" : {
+        "priority" : 5,
+        "allinputs" : true,
+        "header" : "_header.html",
+        "footer" : "_footer.html"
+    },
+    "intro.html|jinja" : {
+        "priority" : 5,
+        "allinputs" : true,
+        "header" : "_header.html",
+        "footer" : "_footer.html"
+    },
+    "@garlicsim-dexy-example.tgz|tgzdir" : {
+        "dir" : "garlicsim"
+    },
+    "@nltk-dexy-example.tgz|tgzdir" : {
+        "dir" : "nltk"
+    },
+    "@devchix-ragel-dexy-example.tgz|tgzdir" : {
+        "dir" : "devchix-ragel"
+    }
+}

@@ -1,5 +1,6 @@
 .highlight { background: transparent; }
-pre, code { font-family: Courier; font-size: 14px; }
+pre, code { font-family: Courier; font-size: 12px; }
+pre { margin-bottom: 15px; }
 
 .pos-NN, .pos-NNP, .pos-NNS { color: green; }
 .pos-PRP { color: purple; }

@@ -1,6 +1,7 @@
 {
-    "example.html|html2pdf" : {},
-    "example.html" : {},
+    "example.html|wkhtmltopdf" : {
+        "inputs" : ["*.css", "*.png"]
+    },
     "*.css" : {},
-    "*.png" : {}
+    "example.html" : {}
 }

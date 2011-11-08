@@ -1,0 +1,13 @@
+{% for k1 in d['source.json'].keys() %}
+==================================================
+{{ k1 }}
+{% for k2, v2 in d['source.json'][k1].iteritems() -%}
+*    {{ k2 }}
+{% endfor -%}
+{% endfor %}
+
+{% for k in sorted(d) %}
+{{ k }}
+{% endfor %}
+
+

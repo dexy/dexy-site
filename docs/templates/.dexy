@@ -1,0 +1,36 @@
+{
+    "*.html|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "full" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "*.md|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "full" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "*.tex|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "full" : true,
+            "linenos" : "inline",
+            "anchorlinenos" : true
+        }
+    },
+    "templates.html|hd|ft|jinja" : {
+      "allinputs" : true,
+      "priority" : 100,
+      "canonical-name" : "index.html",
+      "header" : "_header.html",
+      "footer" : "_footer.html"
+    }
+}

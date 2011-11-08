@@ -1,6 +1,6 @@
 <!-- split "index" -->
 <h2>Filters</h2>
-<p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, <a href="http://bitbucket.org/ananelson/dexy">submit them as a patch</a> to the Dexy project.</p>
+<p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, <a href="https://github.com/ananelson/dexy/issues">submit them as a patch</a> to the Dexy project.</p>
 
 {% for k, v in d['filter-info.json'].items() %}
 <!-- split "{{k}} ({{ " ".join(v.aliases) }})" -->
@@ -21,7 +21,8 @@
 </p>
 
 {% for x in d.keys() -%}
-{% if x.startswith("/docs/filters/examples") and x.endswith(k + "-example.html|jinja") -%}
+{% if x.startswith("/docs/filters/examples") and x.endswith("/" + k + "-example.html|jinja") -%}
+<p>Here is an example of using this filter. The <code>.dexy</code> config file and the source of the example are shown below.</p>
 <div class="divider">
 <h5><span>Example</span></h5>
 <!--Divider With Titling-->
@@ -29,16 +30,17 @@
 {{ d[x] }}
 
 <div class="divider">
-<h5><span>Example Source</span></h5>
-<!--Divider With Titling-->
-</div>
-{{ d[x.replace("|jinja", "|pyg")] }}
-<br />
-<div class="divider">
 <h5><span>Example Config</span></h5>
 <!--Divider With Titling-->
 </div>
 {{ d["/".join(x.split("/")[:-1]) + "/.dexy|ppjson|pyg"] }}
+<br />
+
+<div class="divider">
+<h5><span>Example Source</span></h5>
+<!--Divider With Titling-->
+</div>
+{{ d[x.replace("|jinja", "|pyg")] }}
 <br />
 {% endif -%}
 {% endfor -%}

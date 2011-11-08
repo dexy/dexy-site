@@ -1,0 +1,11 @@
+<p>Here is some C code:</p>
+
+{{ d['001f.c|pyg'] }}
+
+<p>This filter compiles and runs this code, returning the output:</p>
+
+<pre>
+{{ d['001f.c|c'] }}
+</pre>
+
+<p>This filter raises an exception if your C code returns a nonzero exit status.</p>
