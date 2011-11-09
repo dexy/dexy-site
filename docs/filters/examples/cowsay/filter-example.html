@@ -1,0 +1,20 @@
+<pre>
+{{ d['hello.txt|cowsay'] }}
+</pre>
+
+<p>The <code>cowsay</code> filter makes cows say things. You can also pass command line options.</p>
+
+<pre>
+{{ d['borg.txt|cowsay'] }}
+{{ d['dead.txt|cowsay'] }}
+{{ d['tongue.txt|cowsay'] }}
+</pre>
+
+<p>And of course content be passed through other filters:</p>
+<pre>
+{{ d['youthful.txt'] }}
+</pre>
+
+<pre>
+{{ d['youthful.txt|jinja|cowsay'] }}
+</pre>

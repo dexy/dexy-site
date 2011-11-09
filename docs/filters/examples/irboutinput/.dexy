@@ -1,0 +1,3 @@
+{
+    "example-with-input.rb|irboutinput" : { "inputs" : ["input.txt"] }
+}

@@ -1,8 +1,0 @@
-{
-  "*.c|c" : { "ifnoinput" : "%-input.txt"},
-  "*.c|clang" : { "ifnoinput" : "%-input.txt"},
-  "*.c|cinput" : { "ifinput" : "%-input.txt"},
-  "*.c|clanginput" : { "ifinput" : "%-input.txt"},
-  "*.c|pyg" : {},
-  "001f.c|cfussy" : {}
-}

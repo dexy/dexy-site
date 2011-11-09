@@ -1,0 +1,4 @@
+{
+    "*.regex" : {},
+    "example*.regex|regetron" : { "ifinput" : ["input%.txt"] }
+}

@@ -1,6 +1,4 @@
 {
     "*.regex" : {},
-    "example*.regex|regetron" : { "ifinput" : ["input%.txt"] },
-    "another.regex|regetron" : { "inputs" : ["*.txt"] },
-    "*.html|jinja" : {"allinputs" : true}
+    "example.regex|regetron" : { "inputs" : ["*.txt"] }
 }

@@ -49,10 +49,6 @@
     ".htaccess|jinja" : {
       "allinputs" : true
     },
-    "split.html|hd|ft|jinja|split" : {
-      "allinputs" : true,
-      "canonical-name" : "index.html"
-    },
     "index.html|hd|ft|jinja" : {
       "allinputs" : true,
       "priority" : 100,

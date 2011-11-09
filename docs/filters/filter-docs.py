@@ -21,6 +21,7 @@ for k, v in filters.items():
             'parentclass' : v.__base__.__name__,
             'doc' : v.__doc__,
             'source' : source,
+            'module' : v.__module__,
             'html_source' : html_source
         }
 

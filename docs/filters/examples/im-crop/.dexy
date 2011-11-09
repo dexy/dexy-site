@@ -1,0 +1,7 @@
+{
+    "*.jpg" : {},
+    "*.jpg|im-crop" : {
+        "im-crop" : "300x300+100+50",
+        "postfix" : "-cropped.jpg"
+    }
+}

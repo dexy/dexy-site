@@ -1,5 +1,3 @@
 {
-    "*.sh|pyg" : {},
-    "example.sh|bash" : {},
-    "example-with-input.sh|shinput" : { "inputs" : ["input.txt"] }
+    "example.sh|bash" : {}
 }

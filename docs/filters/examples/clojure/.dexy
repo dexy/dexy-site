@@ -1,5 +1,0 @@
-{
-  "*.clj|idio|cljint" : {},
-  "*.clj|idio" : {},
-  "*.clj|pyg" : {}
-}

@@ -1,0 +1,13 @@
+<p>A JSON pretty printer.</p>
+
+<pre>
+{{ d['example.json'] }}
+</pre>
+
+<pre>
+{{ a['example.json|ppjson'].output_text() }}
+</pre>
+
+<p>Can be combined with Pygments:</p>
+
+{{ d['example.json|ppjson|pyg'] }}

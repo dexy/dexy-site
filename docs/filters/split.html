@@ -1,3 +1,5 @@
+<div class="grid_9 alpha">
+
 <!-- split "index" -->
 <h2>Filters</h2>
 <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, <a href="https://github.com/ananelson/dexy/issues">submit them as a patch</a> to the Dexy project.</p>
@@ -20,13 +22,15 @@
 </ul>
 </p>
 
+{% set i = 0 -%}
+{% for alias in v['aliases'] -%}
 {% for x in d.keys() -%}
-{% if x.startswith("/docs/filters/examples") and x.endswith("/" + k + "-example.html|jinja") -%}
-<p>Here is an example of using this filter. The <code>.dexy</code> config file and the source of the example are shown below.</p>
-<div class="divider">
-<h5><span>Example</span></h5>
-<!--Divider With Titling-->
-</div>
+{% if re_match("examples/%s(\-[a-z\-]*)?/filter-example.html\|jinja" % alias, x) -%}
+{% set i = i+1 -%}
+
+<h4>Example {{ i }}</h4>
+<p>Here is an example of using the {{ k }}. The <code>.dexy</code> config file and the source of the example are shown below.</p>
+
 {{ d[x] }}
 
 <div class="divider">
@@ -37,12 +41,24 @@
 <br />
 
 <div class="divider">
+<h5><span>Files</span></h5>
+<!--Divider With Titling-->
+</div>
+<pre>
+{{ d["/".join(x.split("/")[:-1]) + "/list-files.sh|jinja|sh"] }}
+</pre>
+<br />
+
+<div class="divider">
 <h5><span>Example Source</span></h5>
 <!--Divider With Titling-->
 </div>
 {{ d[x.replace("|jinja", "|pyg")] }}
 <br />
+<div class="clear"></div>
+
 {% endif -%}
+{% endfor -%}
 {% endfor -%}
 
 <div class="divider">
@@ -51,7 +67,7 @@
 </div>
 
 {% if v['parentclass'] != 'object' -%}
-<p>Parent class is <a href="{{ v['parentclass'] }}"/>{{ v['parentclass'] }}</a>.</p>
+<p>Parent class is <a href="{{ v['parentclass'] }}"/>{{ v['parentclass'] }}</a>. Module is {{ v['module'] }}.</p>
 {% endif -%}
 
 {{ v['html_source'] }}
@@ -62,3 +78,4 @@
 
 <!-- endsplit -->
 
+</div>

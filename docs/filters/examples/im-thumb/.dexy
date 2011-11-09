@@ -1,0 +1,11 @@
+{
+    "*.jpg" : {},
+    "*.jpg|im-thumb" : {
+        "postfix" : "-modified.jpg",
+        "im-thumb" : {
+            "crop" : "300x300+100+50",
+            "title" : "Lake",
+            "width" : 200
+        }
+    }
+}
