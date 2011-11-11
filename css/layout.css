@@ -56,7 +56,6 @@ img.alignright {
 	margin:10px 0 30px 0;
 	text-align:center;
 	background:url(../images/divpixel.gif) repeat-x center;
-	height: 12px;
 }
 .divider.slim {
 	margin:0 0 20px 0;
@@ -364,7 +363,7 @@ div.loader {
 	position: absolute;
 	top: 0;
 	left: 0;
-	background-image: url('images/loader.gif');
+	background-image: url('../images/loading.gif');
 	background-repeat: no-repeat;
 	background-position: center;
 }
@@ -561,6 +560,7 @@ div.gallery-gutter {
 	margin-top:-64px;
 	padding-top:40px;
 	min-height:200px;
+    overflow: auto;
 !important
 }
 .breadcrumbs {

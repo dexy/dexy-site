@@ -13,12 +13,20 @@
     "*.html|pyg|-" : {
         "postfix" : "-src.html",
         "final" : true,
-        "pygments" : { "noclasses" : true }
+        "pygments" : {
+            "full" : true,
+            "linenos" : true,
+            "anchorlinenos" : true
+        }
     },
     "*.md|pyg|-" : {
         "postfix" : "-src.html",
         "final" : true,
-        "pygments" : { "noclasses" : true }
+        "pygments" : {
+           "full" : true,
+           "linenos" : "inline",
+           "anchorlinenos" : true
+        }
     },
     "*.html" : { "final" : false },
     "*.html|pyg" : { "final" : false },
@@ -40,10 +48,6 @@
     "_*.html" : { "final" : false },
     ".htaccess|jinja" : {
       "allinputs" : true
-    },
-    "split.html|hd|ft|jinja|split" : {
-      "allinputs" : true,
-      "canonical-name" : "index.html"
     },
     "index.html|hd|ft|jinja" : {
       "allinputs" : true,

@@ -1,5 +1,3 @@
 {
-  "*-example.html|jinja" : {
-    "inputs" : ["example.sh|pyg", "example.sh|bash"]
-  }
+    "example.sh|bash" : {}
 }

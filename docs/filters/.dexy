@@ -1,6 +1,15 @@
 {
-  "filter-docs.py|fn|py" : {},
-  "*-example.html|jinja" : {
-      "allinputs" : true
-  }
+    "$reset" : {},
+     ".dexy|ppjson|pyg" : {},
+     "@list-files.sh|jinja|sh" : { "propagate" : true, "contents" : "cd ../{{ s.canonical_dir() }}; ls -A -I filter-example.html" },
+     "filter-docs.py|fn|py" : {},
+     "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2},
+     "*|pyg" : {
+         "except" : ".*\\.(dot|png|regex|pdf|sed|css|bib|jpg)"
+     },
+     "split.html|hd|ft|jinja|split" : {
+         "allinputs" : true,
+         "canonical-name" : "index.html"
+     },
+     "_*.html" : {}
 }

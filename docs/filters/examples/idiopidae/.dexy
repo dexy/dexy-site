@@ -1,7 +1,0 @@
-{
-  "*.py|idio" : {},
-  "*.py|pyg" : {},
-  "*-example.html|jinja" : {
-    "inputs" : ["*.py|idio", "*.py|pyg"]
-  }
-}

@@ -1,7 +1,4 @@
 {
-  "*.txt|dexy" : {},
-  "*.txt|jinja" : {},
-  "*-example.html|jinja" : {
-    "inputs" : ["*.txt|dexy", "*.txt|jinja"]
-  }
+  "*.txt" : {},
+  "*.txt|jinja" : {}
 }

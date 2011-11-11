@@ -1,0 +1,3 @@
+{
+    "@archive.tgz|tgz" : { "use-short-names" : true, "inputs" : ["hello.txt|jinja"] }
+}

@@ -1,0 +1,6 @@
+{
+  "*.feature" : {},
+  "*.feature|cuke" : {
+    "ifinput": ["%.rb|jinja"]
+  }
+}

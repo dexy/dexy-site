@@ -1,0 +1,17 @@
+<p>Here is a simple LaTeX document with a BibTeX bibliography (based on <a href="http://www.bibtex.org/Using/">this example</a>):</p>
+
+{{ d['example.tex|pyg'] }}
+
+<p>The bibiography content is:</p>
+
+<pre>
+{{ d['mybib.bib'] }}
+</pre>
+
+<p>In order to run this using Dexy, we will need to provide the location of the .bib file in the artifacts directory. The `bib` filter takes care of this automatically.</p>
+
+<pre>
+{{ d['example.tex|bib'] | escape }}
+</pre>
+
+<p>Dexy's LaTeX filter will automatically run BibTeX. The completed PDF for this example is {{ a['example.tex|bib|latex'].hyperlink('here') }}.</p>

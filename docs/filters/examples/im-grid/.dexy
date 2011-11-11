@@ -1,0 +1,6 @@
+{
+    "*.jpg" : {},
+    "*.jpg|im-grid" : {
+        "postfix" : "-modified.jpg"
+    }
+}

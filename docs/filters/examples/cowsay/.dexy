@@ -1,0 +1,9 @@
+{
+    "*.txt" : {},
+    "hello.txt|cowsay" : {},
+    "@borg.txt|cowsay" : { "contents" : "You will be assimilated.", "args" : { "cowsay" : "-b" }},
+    "@dead.txt|cowsay" : { "contents" : "You didn't use canned salmon, did you?", "args" : { "cowsay" : "-d" }},
+    "@tongue.txt|cowsay" : { "contents" : "I vant to suck your blood", "args" : { "cowsay" : "-T vv" }},
+    "youthful.txt|jinja|cowsay" : { "args" : { "cowsay" : "-y" }},
+    "*.html|jinja" : {"allinputs" : true}
+}

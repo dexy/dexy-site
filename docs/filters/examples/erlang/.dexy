@@ -1,7 +1,0 @@
-{
-  "*.erl|escript" : {"args" : {"escript" : "5"}},
-  "*.erl|pyg" : {},
-  "EscriptHandler-example.html|jinja" : {
-    "inputs" : ["*.erl|escript", "*.erl|pyg"]
-  }
-}

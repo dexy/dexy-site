@@ -1,0 +1,11 @@
+{
+  "@dexy-project-template.tgz|tgzdir" : {
+      "dir" : "template",
+      "use-short-names" : true
+  },
+  "template.html|hd|ft|jinja|wkhtmltopdf|pdf2png|im-crop|im-scale" : {
+    "allinputs" : true,
+    "im-crop" : "1950x600+0+350",
+    "im-scale" : "650x200"
+  }
+}

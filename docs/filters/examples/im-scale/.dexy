@@ -1,0 +1,7 @@
+{
+    "*.jpg" : {},
+    "*.jpg|im-scale" : {
+        "im-scale" : "300x200",
+        "postfix" : "-modified.jpg"
+    }
+}

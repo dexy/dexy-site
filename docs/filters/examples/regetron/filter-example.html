@@ -1,0 +1,34 @@
+<p>The <a href="http://gitorious.org/regetron">regetron</a> filter runs text
+through regetron and compares it with regex files. You apply the regetron
+filter to a .regex file, and any files you specify as inputs provide the text
+that is evaluated against the regex.</p>
+
+<p>Here is a regex:</p>
+
+<pre>
+{{ d['example.regex'] }}
+</pre>
+
+<p>Here is a sample text file:</p>
+
+<pre>
+{{ d['input1.txt'] }}
+</pre>
+
+<p>Here is the output from running this through regetron:</p>
+
+<pre>
+{{ d['example.regex|regetron']['input1.txt'] }}
+</pre>
+
+<p>Here is another text file:</p>
+
+<pre>
+{{ d['input2.txt'] }}
+</pre>
+
+<p>Here is the output from running this through regetron:</p>
+
+<pre>
+{{ d['example.regex|regetron']['input2.txt'] }}
+</pre>

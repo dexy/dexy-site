@@ -76,7 +76,7 @@ def run_example(name, script_output, run=False):
 
     os.chdir("..")
 
-    script_output["%s-depends" % name] = repr(controller.dependencies)
+    script_output["%s-depends" % name] = repr(controller.depends)
     script_output["%s-docs" % name] = print_controller_docs(controller)
     script_output["%s-log" % name] = logstream.getvalue()
     script_output["%s-populate-filters" % name] = populate_filters_logstream.getvalue()

@@ -1,0 +1,6 @@
+{
+    "*.jpg" : {},
+    "*.jpg|im-fliph" : {
+        "postfix" : "-modified.jpg"
+    }
+}

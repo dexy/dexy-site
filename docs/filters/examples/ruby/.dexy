@@ -1,0 +1,9 @@
+{
+    "example.rb|rb" : {},
+    "example.rb|irb" : {},
+    "example.rb|irbout" : {},
+    "example.rb|irb|pyg" : {},
+    "example.rb|irbout|pyg" : {},
+    "example-with-input.rb|rbinput" : { "inputs" : ["input.txt"] },
+    "example-with-input.rb|irboutinput" : { "inputs" : ["input.txt"] }
+}

@@ -1,9 +1,0 @@
-{
-  "*.clj|cljint" : {
-    "env" : { "CLASSPATH" : "/usr/local/Cellar/clojure/1.2.0/clojure.jar"}
-  },
-  "*.clj|pyg" : {},
-  "ClojureInteractiveHandler-example.html|jinja" : {
-    "inputs" : ["*.clj|cljint", "*.clj|pyg"]
-  }
-}

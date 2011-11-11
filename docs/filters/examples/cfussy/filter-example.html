@@ -1,0 +1,22 @@
+<p>Here is some C code:</p>
+
+{{ d['001f.c|pyg'] }}
+
+<p>This filter compiles and runs this code, returning the output:</p>
+
+<pre>
+{{ d['001f.c|cfussy'] }}
+</pre>
+
+<p>This filter is called 'fussy' because it raises an exception if your C code returns a nonzero exit status.</p>
+
+<p>For example, this code does not return 0:</p>
+
+{{ d['001.c|pyg'] }}
+
+<p>The cfussy filter will raise an exception if this code is run, unless you instruct Dexy to ignore nonzero exit codes. In this case a warning will be written to the log file:</p>
+
+<pre>
+{{ a['001.c|cfussy'].logstream }}
+</pre>
+

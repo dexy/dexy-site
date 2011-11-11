@@ -5,5 +5,21 @@
         "priority" : 10,
         "header" : "_header.html",
         "footer" : "_footer.html"
+    },
+    "index.md|jinja|markdown|hd|ft|jinja" : {
+        "allinputs" : true,
+        "priority" : 10,
+        "header" : "_header.html",
+        "footer" : "_footer.html"
+    },
+    "*.html|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : { "noclasses" : true }
+    },
+    "*.md|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : { "noclasses" : true }
     }
 }

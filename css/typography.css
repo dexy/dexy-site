@@ -51,7 +51,7 @@ h4 {
 }
 h5 {
 	padding:6px 0 12px 0;
-	font-size:10px;
+	font-size:16px;
 	font-family: 'Droid Serif', georgia, serif;
 	font-style:italic;
 	text-shadow:#fff 0px 1px 0px;
@@ -177,6 +177,10 @@ p, ul, ol, .button {
 	padding:0 0 1.25em 0;
 	color:#555555;
 	text-shadow:#fff 0px 1px 0px;
+}
+
+p {
+    text-align: justify;
 }
 
 /* Divider Element **************************/

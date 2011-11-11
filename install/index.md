@@ -3,7 +3,7 @@
 <!--Divider With Titling-->
 </div>
 
-Dexy's source code is available from [gitorious](http://gitorious.org/dexy).
+Dexy's source code is available from [github](http://github.com/ananelson/dexy).
 
 <div class="divider">
 <h5><span>Installation Instructions</span></h5>
@@ -105,7 +105,7 @@ Dexy should install on Windows using any of the above methods, however not all t
 <!--Divider With Titling-->
 </div>
 
-Here is an example using [virtualenv](http://virtualenv.openplans.org/) to create a local self-contained install of Dexy without requiring root access.
+Here is an example using [virtualenv](http://www.virtualenv.org/en/latest/) to create a local self-contained install of Dexy without requiring root access.
 
 Download and unpack virtualenv:
 {{ d['virtualenv-install.sh|idio']['download-virtualenv'] }}

@@ -1,0 +1,33 @@
+<h1>Code Journal</h1>
+
+<h2>A Python/Numpy/Matplotlib Example</h2>
+
+<p class="intro">First we import matplotlib and other libraries:</p>
+{{ d['code001.py|fn|idio|pycon|pyg']['imports'] }}
+
+<p>We tell pyplot to use Agg backend, since we want to save graphs to images. Then we import pyplot:</p>
+{{ d['code001.py|fn|idio|pycon|pyg']['pyplot'] }}
+
+<p>Generate random data and plot a histogram:</p>
+{{ d['code001.py|fn|idio|pycon|pyg']['hist'] }}
+
+<p>Save the histogram to a png file:</p>
+{{ d['code001.py|fn|idio|pycon|pyg']['save'] }}
+
+<p>Here is the graph:</p>
+
+<img src="pyplot-hist-example.png" alt="Histogram of Random Data" />
+
+<h2>A Python CSV Example</h2>
+
+<p>Here is some CSV data</p>
+
+<pre>
+{{ d['data.csv'] }}
+</pre>
+
+{{ d['code002.py|fn|idio|pycon|pyg']['import-data'] }}
+
+{{ d['code002.py|fn|idio|pycon|pyg']['graph-data'] }}
+
+<img src="pyplot-xy-example.png" alt="xy plot from CSV data" />
