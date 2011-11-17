@@ -1,5 +1,5 @@
-<p>We start with <a href="examples/pdf2img/logo-flower.pdf">a pdf</a></p>
+<p>We start with {{ a['logo-flower.pdf'].hyperlink("a pdf") }}.</p>
 
 <p>We get this image (click to enlarge):</p>
 
-<a href="examples/pdf2img/logo-flower.jpg"><img src="examples/pdf2img/logo-flower.jpg" width="600px" /></a>
+<a href="{{ a['logo-flower.pdf|pdf2jpg'].url() }}">{{ a['logo-flower.pdf|pdf2jpg'].img() }}</a>

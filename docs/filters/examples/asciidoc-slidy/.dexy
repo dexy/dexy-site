@@ -1,0 +1,9 @@
+{
+    "example.txt" : {},
+    "example.txt|asciidoc" : {
+        "backend" : "slidy",
+        "args" : {
+            "asciidoc" : ""
+        }
+    }
+}

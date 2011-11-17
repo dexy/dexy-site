@@ -1,4 +1,4 @@
 {
   "example.erl|escript" : {},
-  "example-with-args.erl|escript" : {"args" : {"escript" : "5"}}
+  "example-with-args.erl|escript" : {"scriptargs" : {"escript" : "5"}}
 }

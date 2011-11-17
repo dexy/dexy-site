@@ -1,6 +1,6 @@
 from idiopidae.runtime import Composer
 from pygments import highlight
-from pygments.formatters.latex import LatexFormatter
+from pygments.formatters.html import HtmlFormatter
 from pygments.lexers.agile import PythonLexer
 import dexy
 import idiopidae.parser
@@ -10,7 +10,7 @@ import pkgutil
 import sys
 
 lexer = PythonLexer()
-formatter = LatexFormatter()
+formatter = HtmlFormatter(lineanchors = 'dexy-source')
 composer = Composer()
 
 def fetch_item_content(cm):

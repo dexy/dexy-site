@@ -1,0 +1,15 @@
+{
+    "*.tex|pyg|l" : {},
+    ".dexy|dexy" : {},
+    "*.html|pyg|l" : {},
+    "*.py|pyg|l" : {},
+    "*.py|idio|l" : {},
+    "*.sh|pyg|l" : {},
+    "*.sh|idio|l" : {},
+    "*.sql|idio|l" : {},
+    "*.sql|pyg|l" : {},
+    "*.rb|idio|l" : {},
+    "*.rb|pyg|l" : {},
+    "demo.rb|fn|rb" : {},
+    "*.tex|fn|jinja|latex" : {"allinputs" : true}
+}

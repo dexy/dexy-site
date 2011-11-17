@@ -1,0 +1,11 @@
+{
+    "*.md|jinja|markdown" : { "allinputs" : true },
+    "*.md|pyg" : {},
+    "_*.html|dexy" : {},
+    "*.cpp|cpp" : {},
+    "*.cpp|pyg" : {},
+    "*-input.txt|dexy" : {},
+    "*.css" : {},
+    "*.png" : {},
+    "*.jpg" : {}
+}

@@ -1,0 +1,22 @@
+<html>
+  <head>
+      <style type="text/css">
+          {{ pygments['pastie.css'] }}
+    </style>
+  </head>
+  <body>
+    {% for k in sorted(d) -%}
+    {% if k.find("dexy") < 0 and k.find("|") > 0 and not k=="index.html|pyg" -%}
+    <h1>{{ k }}</h1>
+{% if k.find("pyg") == -1 -%}
+<pre>
+{{ d[k] }}
+</pre>
+{% else -%}
+{{ d[k] }}
+{% endif -%}
+    {% endif -%}
+    {% endfor -%}
+  </body>
+</html>
+

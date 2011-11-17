@@ -1,6 +1,15 @@
 {
     "*.py" : {},
-      "example3.py|pyg|l" : {},
+      "example3.py|pyg|l" : {
+          "pygments" : {
+              "linenos" : true
+          }
+      },
+      "example.txt|pyg" : {
+          "pygments" : {
+              "lexer" : "sqlite3"
+          }
+      },
       "example3.py|pyg|svg" : {},
       "example3.py|pyg|pn" : { "final" : true },
       "example1.py|pyg" : {},

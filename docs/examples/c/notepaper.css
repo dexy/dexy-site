@@ -1,0 +1,17 @@
+body {
+   margin: 0;
+   padding: 0; 
+   background: url(vellum.jpg);
+   margin-left: 50px;
+   width: 600px;
+   font-family: "Cochin", "Garamond", "Cochin", Helvetica, Arial, Sans-Serif;
+}
+
+pre {
+  background: white;
+}
+
+p {
+    text-align: justify;
+/*    background-color: #C0C0C0; */
+}

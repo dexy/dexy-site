@@ -1,0 +1,4 @@
+{
+    "hello.txt|simple" : {},
+    "hello.txt|simple|test" : { "expects" : "This document has 7 characters"}
+}

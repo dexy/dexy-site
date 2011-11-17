@@ -46,9 +46,6 @@
     ".dexy|dexy" : {},
     ".dexy|ppjson|pyg" : {},
     "_*.html" : { "final" : false },
-    ".htaccess|jinja" : {
-      "allinputs" : true
-    },
     "index.html|hd|ft|jinja" : {
       "allinputs" : true,
       "priority" : 100,

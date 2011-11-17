@@ -1,0 +1,60 @@
+\documentclass[a4paper]{tufte-handout}
+\usepackage[pdftex]{graphicx}
+\usepackage[latin1]{inputenc}
+\usepackage{fancyvrb}
+\usepackage{color}
+<< pygments['pastie.tex'] >>
+
+\title{Dexy for Big Data}
+\author{Ana Nelson}
+\date{July 13, 2011}
+
+\begin{document}
+
+\maketitle
+
+\section{About}
+More information about Dexy is available at \url{http://dexy.it}. You can follow the project @dexyit on twitter or the author @ananelson. Dexy is open source software to make you and your docs awesome. Check it out!
+\\This project's sources are available at \url{http://bitbucket.org/ananelson/dexy-examples/src/infochimps}
+
+\section{Python Script query-twitter-users.py}
+
+Here is the original Python script in full:
+
+\scriptsize
+<< d['query-twitter-users.py|pyg|l'] >>
+\normalsize
+
+Here is the CSV data generated:
+\scriptsize
+\begin{Verbatim}
+<< d['twitter-data.csv'] >>
+\end{Verbatim}
+\normalsize
+
+\section{R Script}
+
+\scriptsize
+<< d['graph-twitter-data.R|fn|idio|r|pyg|l']['import-csv'] >>
+\normalsize
+
+\scriptsize
+<< d['graph-twitter-data.R|fn|idio|r|pyg|l']['pairs'] >>
+\normalsize
+
+\includegraphics{dexy--pairs.pdf}
+
+\section{Slide Source}
+
+\scriptsize
+<< d['slides.tex|pyg|l'] >>
+\normalsize
+
+\section{Dexy Config}
+\scriptsize
+\begin{Verbatim}
+<< d['.dexy|dexy'] >>
+\end{Verbatim}
+\normalsize
+
+\end{document}

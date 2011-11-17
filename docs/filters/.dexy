@@ -1,7 +1,19 @@
 {
     "$reset" : {},
+    ".htaccess|jinja" : {
+      "allinputs" : true
+    },
      ".dexy|ppjson|pyg" : {},
      "@list-files.sh|jinja|sh" : { "propagate" : true, "contents" : "cd ../{{ s.canonical_dir() }}; ls -A -I filter-example.html" },
+    "*.html|pyg|-" : {
+        "postfix" : "-src.html",
+        "final" : true,
+        "pygments" : {
+            "full" : true,
+            "linenos" : true,
+            "anchorlinenos" : true
+        }
+    },
      "filter-docs.py|fn|py" : {},
      "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2},
      "*|pyg" : {

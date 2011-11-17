@@ -1,0 +1,11 @@
+{
+    "*.md|markdown|jinja|hd|ft" : { "allinputs" : true },
+    "_*.html|dexy" : {},
+    "*.c|cinput" : { "ifinput" : "%-input.txt|dexy"},
+    "*.c|c" : { "ifnoinput" : "%-input.txt|dexy"},
+    "*.c" : { "filters" : ["pyg"] },
+    "*-input.txt|dexy" : {},
+    "*.css" : {},
+    "*.png" : {},
+    "*.jpg" : {}
+}

@@ -1,0 +1,141 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+
+\usepackage{fancyvrb}
+<< pygments['pastie.tex'] >>
+
+\usetheme{Warsaw}
+\title[Dexy for Big Data]{Refreshing Stories\\Dexy for Big Data}
+\author{Ana Nelson}
+\institute{dexy.it}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}{In the next 20 minutes...}
+You will see how to:
+\begin{itemize}
+\item{Tell geeky stories without leaving your favourite text editor.}
+\item{Bring coding, data analysis and writing into one awesome loop.}
+\item{Recreate, update and maintain everything you write.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tool for the job}
+Dexy
+\begin{itemize}
+\item{Open Source (mostly MIT, some AGPL)}
+\item{Written in Python}
+\item{Command Line, Text Based}
+\item{* Agnostic}
+\item{My Day Job and my Mission in Life}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Geeky Stories}
+Talking About Code
+\begin{itemize}
+\item{Software Tutorials}
+\item{User Guides}
+\item{Code Blog}
+\end{itemize}
+Talking With Code
+\begin{itemize}
+\item{Research Reports}
+\item{Analytics Emails}
+\item{'Check Out This Awesome Graph' Blog Posts}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{In Common}
+\begin{itemize}
+\item{How do you know it's (still) right?}
+\item{Leaving your Text Editor Sucks (WordPress, Microsoft Word)}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What Dexy Does}
+Write around live code, not about dead code.
+\end{frame}
+
+\begin{frame}[fragile]{Lets Have Some Code}
+
+Let's play with the infochimps API. First, let's set up some constants:
+\scriptsize
+<< d['query-twitter-users.py|fn|idio|pycon|pyg|l']['base'] >>
+\normalsize
+
+\vspace{1cm}
+
+Next, let's define a helper function:
+\scriptsize
+<< d['query-twitter-users.py|fn|idio|pycon|pyg|l']['fetch-chimp-data'] >>
+\normalsize
+
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+Now we access the twitter influence metrics API.
+We fetch data for a list of twitter users:
+
+\scriptsize
+<< d['query-twitter-users.py|fn|idio|pycon|pyg|l']['call'] >>
+\normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+Here's what part of the data looks like:
+
+\scriptsize
+<< d['query-twitter-users.py|fn|idio|pycon|pyg|l']['pprint'] >>
+\normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+We want to save this in a tabular format:
+
+\scriptsize
+<< d['query-twitter-users.py|fn|idio|pycon|pyg|l']['save-csv'] >>
+\normalsize
+\end{frame}
+
+\begin{frame}[fragile]{Code}
+Now we're going to switch to R to import and graph the data:
+
+\scriptsize
+<< d['graph-twitter-data.R|fn|idio|r|pyg|l']['import-csv'] >>
+<< d['graph-twitter-data.R|fn|idio|r|pyg|l']['pairs'] >>
+\normalsize
+\end{frame}
+
+
+\begin{frame}{So What?}
+\begin{itemize}
+\item{These slides and the handouts use the same source code.}
+\item{The source code can be presented in different ways for different purposes.}
+\item{I can change/fix the source code and it is automatically updated everywhere it is used.}
+\item{I know that all the example scripts in my slides work, and that all quoted results are correct.}
+\item{I easily and automatically shared data between scripts.}
+\item{If I give you all my sources, you can reproduce my results.}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{What Else?}
+\begin{itemize}
+\item{Work in any language, or combination of languages.}
+\item{Recycle your existing documentation (e.g. Javadocs) with extra awesome.}
+\item{Easily write filters for any language that's not already supported, or to customize how they work.}
+\item{Pull data from APIs (like Infochimps, Scraperwiki, Google Analytics), publish results to APIs (like WordPress, FigShare)}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Writing}
+Once you get proficient with Dexy, it very quickly becomes invisible.
+Leaving you free to focus on communicating your work.
+\end{frame}
+
+
+\end{document}
