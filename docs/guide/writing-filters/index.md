@@ -230,3 +230,5 @@ And, here is a filter that overrides the <code>process</code> method while still
 And it, in turn, can be subclassed:
 
 {{ d['/classes.json']['dexy.filters.subprocess_filters.Pdf2JpgSubprocessFilter']['source'] }}
+
+</div>
