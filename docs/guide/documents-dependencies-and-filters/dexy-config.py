@@ -98,6 +98,7 @@ args = {
     "nocache" : True,
     "profmem" : False,
     "recurse" : True,
+    'run' : "",
     "strictinherit" : True,
     "zzz" : False # delete me when finished
 }

@@ -106,8 +106,8 @@ So, any local variable created can be referred to, for example:
 \sffamily
 
 The simulation was run with
-<< d['run-prisoner.py|fn|idio|ipython-vars']['NUMBER_OF_PLAYERS'] >> players for
-<< d['run-prisoner.py|fn|idio|ipython-vars']['NUMBER_OF_STEPS'] >> steps.
+<< d['run-prisoner.py|fn|idio|ipython-vars.json']['NUMBER_OF_PLAYERS'] >> players for
+<< d['run-prisoner.py|fn|idio|ipython-vars.json']['NUMBER_OF_STEPS'] >> steps.
 
 \normalfont
 
@@ -145,7 +145,7 @@ file. So, any local variable created can be referred to, for example:
 
 \sffamily
 The maximum number of points in the last period was
-<< d['prisoner.R|fn|idio|r-vars']['max_points_in_last_period'] >>.
+<< d['prisoner.R|fn|idio|r-vars.json']['max_points_in_last_period'] >>.
 \normalfont
 
 In R, objects that should not be written can be removed from the workspace. For
@@ -155,7 +155,7 @@ example large objects which we don't want:
 Here are all the available items:
 
 \begin{verbatim}
-<% for k, v in d['prisoner.R|fn|idio|r-vars'].iteritems() %>
+<% for k, v in d['prisoner.R|fn|idio|r-vars.json'].iteritems() %>
 << k >>
 << pformat(v) >>
 <% endfor %>
