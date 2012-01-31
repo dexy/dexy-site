@@ -1,0 +1,16 @@
+<p>Here is some Ruby code:</p>
+{{ d['example.rb|pyg'] }}
+
+<p>Here is the output when run through the irb filter:</p>
+<pre>
+{{ d['example.rb|irb'] }}
+</pre>
+
+<p>We can apply syntax highlighting:</p>
+{{ d['example.rb|irb|pyg'] }}
+
+<p>Code can be split into sections using idiopidae before running:</p>
+{{ d['example.rb|idio|irb|pyg']['set-variable'] }}
+
+<p>Now we use the variable we set earlier:</p>
+{{ d['example.rb|idio|irb|pyg']['say-hello'] }}

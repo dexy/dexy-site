@@ -1,0 +1,18 @@
+<p>Here is some JavaScript:</p>
+
+{{ d['example.js|pyg'] }}
+
+<p>The JavaScript interactive filter produces a transcript like this:</p>
+
+<pre>
+{{ d['example.js|jsint'] }}
+</pre>
+
+<p>We can use idiopidae to split input into sections:</p>
+
+<p>First, we define a function:</p>
+{{ d['example.js|idio|jsint']['define-function'] }}
+
+<p>Then, we call the function:</p>
+{{ d['example.js|idio|jsint']['call-function'] }}
+
