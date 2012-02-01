@@ -1,5 +1,5 @@
 {
   "dexy-automated-build-guide.tex|jinja|latex" : {
-    "inputs" : ["*.sh|idio|l"]
+    "inputs" : ["*.sh|idio|l", "*.sh|pyg|l"]
   }
 }
