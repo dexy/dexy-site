@@ -70,18 +70,6 @@ apt-get install -y rhino
 apt-get install -y apache2
 apt-get install -y linkchecker
 
-echo "
-<VirtualHost *:80>
-    DocumentRoot /mnt/work/dexy-site/output/
-    <Directory /mnt/work/dexy-site/output/>
-        Options Indexes FollowSymLinks MultiViews
-        AllowOverride All
-        Order allow,deny
-        allow from all
-    </Directory>
-</VirtualHost>
-" > /etc/apache2/sites-available/default
-
 ### @export "ruby-installs"
 gem install --no-rdoc --no-ri RedCloth
 gem install --no-rdoc --no-ri rspec

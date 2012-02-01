@@ -3,8 +3,18 @@ Xvfb :75 -ac &
 export DISPLAY=:75
 
 ### @export "restart-apache"
+echo "
+<VirtualHost *:80>
+    DocumentRoot /mnt/build-dexy-site/dexy-site/output/
+    <Directory /mnt/build-dexy-site/dexy-site/output/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+</VirtualHost>
+" > /etc/apache2/sites-available/default
 apachectl restart
-wget http://0.0.0.0
 
 ### @export "pip-install-dexy-source"
 git clone http://github.com/ananelson/dexy

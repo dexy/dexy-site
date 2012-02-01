@@ -1,5 +1,7 @@
 install_dexy() {
+    cd dexy
     pip install .
+    cd ..
 
     # These are not required by Dexy, but they enable extra functionality.
     pip install GitPython
@@ -41,7 +43,6 @@ apt-get install -y python-setuptools
 
 ### @export "dexy-source"
 git clone https://github.com/ananelson/dexy
-cd dexy
 
 ### @end
 echo "--------------------------------------------------"
