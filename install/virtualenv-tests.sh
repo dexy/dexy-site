@@ -9,7 +9,9 @@ install_dexy() {
 }
 
 run_tests_and_examples() {
+    cd dexy
     nosetests
+
     dexy reset
 
     dexy --directory test-examples --danger --output
@@ -32,14 +34,12 @@ run_tests_and_examples() {
     dexy filters
     dexy filters -alias rint
     dexy reporters
+    cd ..
 }
 
 apt-get install -y python2.6
-apt-get install -y git
-
-### @export "install-virtualenv"
 apt-get install -y python-virtualenv
-apt-get install -y python-setuptools
+apt-get install -y ksh
 
 ### @export "dexy-source"
 git clone https://github.com/ananelson/dexy
@@ -57,6 +57,8 @@ install_dexy
 run_tests_and_examples
 deactivate
 
+rm -r testenv/
+
 ### @end
 echo "--------------------------------------------------"
 echo "Starting test 2"
@@ -65,7 +67,7 @@ echo "--------------------------------------------------"
 ### @export "test-python-2.6"
 virtualenv --no-site-packages -p python2.6 testenv/
 
-source testenv2.6/bin/activate
+source testenv/bin/activate
 install_dexy
 run_tests_and_examples
 deactivate
