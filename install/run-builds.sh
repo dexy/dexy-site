@@ -40,6 +40,6 @@ source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
 run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI m1.small
-run_script_in_ec2 virtualenv-tests.sh $UBUNTU_AMI t1.micro
+run_script_in_ec2 virtualenv-tests.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 virtualenv-install.sh $UBUNTU_AMI t1.micro
 
