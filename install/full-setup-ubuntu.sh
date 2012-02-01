@@ -65,6 +65,7 @@ apt-get install -y ttf-bitstream-vera
 apt-get install -y cowsay
 apt-get install -y clojure
 apt-get install -y rhino
+apt-get install -y ksh
 
 # for checking links
 apt-get install -y apache2
