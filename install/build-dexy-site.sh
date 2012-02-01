@@ -34,8 +34,9 @@ dexy -danger -strictinherit
 cp -r logs output/logs
 cp -r artifacts output/artifacts
 
-linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
-mv linkchecker-out.html output/
+# linkchecker refuses to run as root
+#linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
+#mv linkchecker-out.html output/
 
 tar -czvf dexy-site.tgz -C output .
 
