@@ -14,11 +14,11 @@ Dexy is tested on Python 2.6 and Python 2.7.
 
 The easiest way to install dexy is:
 
-{{ d['dexy-pip-install.sh|idio']['install'] }}
+{{ d['virtualenv-install.sh|idio']['pip-install-dexy'] }}
 
 You can also:
 
-{{ d['dexy-easy-install.sh|idio']['install'] }}
+{{ d['virtualenv-install.sh|idio']['easy-install-dexy'] }}
 
 If you want more detail or if you are new to installing Python packages, keep reading.
 
@@ -29,11 +29,11 @@ If you want more detail or if you are new to installing Python packages, keep re
 
 To upgrade to the most recent version:
 
-{{ d['dexy-pip-upgrade.sh|idio']['upgrade'] }}
+{{ d['virtualenv-install.sh|idio']['pip-upgrade-dexy'] }}
 
 or
 
-{{ d['dexy-easy-upgrade.sh|idio']['upgrade'] }}
+{{ d['virtualenv-install.sh|idio']['easy-upgrade-dexy'] }}
 
 <div class="divider">
 <h5><span>New to Python?</span></h5>
@@ -42,7 +42,7 @@ or
 
 Dexy is installed in the same way as most Python packages. Dexy uses Setuptools which is a standard Python way to handle package management. Many systems already have setuptools installed. If you have a command called easy_install, then you can install dexy by typing:
 
-{{ d['dexy-easy-install.sh|idio']['install'] }}
+{{ d['virtualenv-install.sh|idio']['easy-install-dexy'] }}
 
 On Mac or Linux you probably need to add 'sudo' to the start of this command.
 
@@ -53,13 +53,13 @@ If you don't have easy_install already, then you will need to install some addit
 The first requirement is to have Python installed on your machine. If you don't already have Python 2.6 or 2.7 then go to [python.org/download](http://www.python.org/download/) and install the most recent version of Python 2.7 for your platform. Do not install Python 3.
 
 You can check whether Python is installed, and which version, by typing:
-{{ d['dexy-easy-install.sh|idio']['python-version'] }}
+{{ d['virtualenv-install.sh|idio']['python-version'] }}
 
 Once you have Python installed, you can install [Setuptools](http://pypi.python.org/pypi/setuptools). Once this is installed you should be able to install Dexy as at the start of this section. (Some people prefer to use [pip](http://www.pip-installer.org/), after you have installed Setuptools you may also want to install pip and use that to install Dexy.)
 
 Once you have installed Dexy, you can make sure it's working by typing:
 
-{{ d['dexy-easy-install.sh|idio']['check'] }}
+{{ d['virtualenv-install.sh|idio']['check-dexy'] }}
 
 <div class="divider">
 <h5><span>Software for Filters</span></h5>
@@ -70,7 +70,7 @@ Many of Dexy's filters depend on having other software installed, so depending o
 
 You can call the filters command to see which filters are available on your system. If a filter you want isn't available, then search the dexy.log file for information about why it's not available:
 
-{{ d['source-install.sh|idio']['list-filters'] }}
+{{ d['virtualenv-install.sh|idio']['list-filters'] }}
 
 In order to test all the Dexy filters and generate the filter documentation, we install all the software needed for each of the filters on a Ubuntu server. You can look at the [automated build guide](dexy-automated-build-guide.pdf) to see what is installed.
 
@@ -80,7 +80,7 @@ In order to test all the Dexy filters and generate the filter documentation, we 
 </div>
 
 Here is how to install Dexy from source using pip:
-{{ d['source-install.sh|idio']['source-install'] }}
+{{ d['build-dexy-site.sh|idio']['pip-install-dexy-source'] }}
 
 <div class="divider">
 <h5><span>Checking Your Installation</span></h5>
@@ -89,7 +89,7 @@ Here is how to install Dexy from source using pip:
 
 Regardless of which method you use, you can make sure it works by typing:
 
-{{ d['source-install.sh|idio']['dexy-help'] }}
+{{ d['virtualenv-install.sh|idio']['check-dexy'] }}
 
 Once you have Dexy installed, you can start working through the [tutorials](/docs/tutorials) or get started with one of the [project templates](http://github.com/ananelson/dexy-templates).
 
@@ -117,10 +117,10 @@ Activate the virtualenv (you will need to do this each time you wish to use it):
 {{ d['virtualenv-install.sh|idio']['activate-virtualenv'] }}
 
 Install Dexy:
-{{ d['virtualenv-install.sh|idio']['install-dexy'] }}
+{{ d['build-dexy-site.sh|idio']['pip-install-dexy-source'] }}
 
 Check that it is working:
-{{ d['virtualenv-install.sh|idio']['check-install'] }}
+{{ d['virtualenv-install.sh|idio']['check-dexy'] }}
 
 When you are finished, you can deactivate the virtualenv:
 {{ d['virtualenv-install.sh|idio']['deactivate-virtualenv'] }}

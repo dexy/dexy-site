@@ -22,7 +22,7 @@ function run_script_in_ec2 {
   echo "cat > script.sh <<END" >> $temp_filename
   cat $script_dir/$1 >> $temp_filename
   echo "END" >> $temp_filename
-  echo "bash script.sh &> out.txt" >> $temp_filename
+  echo "bash script.sh &> out.log" >> $temp_filename
   echo "cd .." >> $temp_filename
   cat $script_dir/_ec2_script_footer.sh >> $temp_filename
 
@@ -32,21 +32,14 @@ function run_script_in_ec2 {
 
 ### @export "amis"
 UBUNTU_AMI="ami-a7f539ce" # oneiric
-UBUNTU_LUCID_AMI="ami-61be7908" # lucid, for python 2.6 testing
-
-CUSTOM_AMI="ami-49a26d20" # oneiric
-CUSTOM_LUCID_AMI="ami-bbd71ad2" # lucid
+CUSTOM_AMI="ami-f50edf9c" # oneiric
 ### @end
 
 cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI t1.micro
-run_script_in_ec2 dexy-easy-install.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 dexy-easy-upgrade.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 dexy-pip-install.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 dexy-pip-upgrade.sh $UBUNTU_AMI t1.micro
-run_script_in_ec2 source-install.sh $CUSTOM_AMI t1.micro
+run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI m1.small
+run_script_in_ec2 virtualenv-tests.sh $UBUNTU_AMI t1.micro
 run_script_in_ec2 virtualenv-install.sh $UBUNTU_AMI t1.micro
 

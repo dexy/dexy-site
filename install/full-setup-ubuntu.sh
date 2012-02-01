@@ -1,4 +1,6 @@
 #!/bin/bash
+
+### @export "capture-logs"
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
 
 ### @export "get-release-name"
@@ -15,7 +17,7 @@ apt-get install -y gnupg
 gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9
 gpg -a --export E084DAB9 | sudo apt-key add -
 
-CRAN_MIRROR=http://software.rc.fas.harvard.edu/mirrors/R/
+CRAN_MIRROR=http://cran.cnr.berkeley.edu/ # previous mirror was missing several files
 echo "deb $CRAN_MIRROR/bin/linux/ubuntu $DISTRIB_CODENAME/" >> /etc/apt/sources.list.d/sources.list
 echo "deb http://archive.ubuntu.com/ubuntu $DISTRIB_CODENAME multiverse" >> /etc/apt/sources.list.d/sources.list
 
@@ -49,6 +51,36 @@ apt-get install -y r-base-dev # CRAN_MIRROR multiverse
 apt-get install -y git-core
 apt-get install -y libimlib2-dev
 apt-get install -y python-kaa-imlib2
+apt-get install -y python-tk
+apt-get install -y wkhtmltopdf xvfb
+apt-get install -y lynx-cur
+apt-get install -y python-cheetah
+apt-get install -y python-mako
+apt-get install -y python-nltk
+apt-get install -y python-numpy
+apt-get install -y python-scipy
+apt-get install -y python-matplotlib
+apt-get install -y python-imaging
+apt-get install -y ttf-bitstream-vera
+apt-get install -y cowsay
+apt-get install -y clojure
+apt-get install -y rhino
+
+# for checking links
+apt-get install -y apache2
+apt-get install -y linkchecker
+
+echo "
+<VirtualHost *:80>
+    DocumentRoot /mnt/work/dexy-site/output/
+    <Directory /mnt/work/dexy-site/output/>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    </Directory>
+</VirtualHost>
+" > /etc/apache2/sites-available/default
 
 ### @export "ruby-installs"
 gem install --no-rdoc --no-ri RedCloth
@@ -57,10 +89,13 @@ gem install --no-rdoc --no-ri gherkin
 gem install --no-rdoc --no-ri cucumber
 
 ### @export "python-installs"
+python -c "import nltk; nltk.download(\"all-corpora\")"
 pip install GitPython
 pip install Markdown
 pip install garlicsim
 pip install garlicsim_lib
+pip install regetron
+pip install ipython
 
 ### @export "r-installs"
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
@@ -76,11 +111,7 @@ make
 make install
 cd ..
 
-### @export "install-clojure"
-curl -O http://repo1.maven.org/maven2/org/clojure/clojure/1.3.0/clojure-1.3.0.zip
-unzip clojure-1.3.0.zip
-mv clojure-1.3.0/clojure-1.3.0.jar /clojure.jar
-
 ### @export "shutdown"
+echo "setup completed! :-)"
+echo "shutting down..."
 shutdown -h now
-

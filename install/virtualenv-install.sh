@@ -1,38 +1,86 @@
 ### @export "download-virtualenv"
-curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.6.4.tar.gz
-tar -xf virtualenv-1.6.4.tar.gz
+curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.tar.gz
+tar -xf virtualenv-1.7.tar.gz
+
+### @export "python-version"
+python --version
 
 ### @export "create-virtualenv"
-python virtualenv-1.6.4/virtualenv.py --no-site-packages dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
 
 ### @export "activate-virtualenv"
 source dexy_env/bin/activate
 
-### @export "install-dexy"
+### @export "pip-install-dexy"
 pip install dexy
 
-### @export "check-install"
+### @export "check-dexy"
 dexy version
 dexy help
 
-### @export "source-install-dexy"
-git clone https://github.com/ananelson/dexy
-cd dexy
-pip install .
-nosetests
-cd ..
+### @export "list-filters"
+dexy filters
 
-### @export "show-versions-virtualenv"
-which python
-python --version
-which pip
-which dexy
+### @export "check-install"
+echo "=================================================="
+echo "test 1"
 dexy version
+echo "=================================================="
+dexy help
 
 ### @export "deactivate-virtualenv"
 deactivate
 
-### @export "show-versions"
-which python
-python --version
-which dexy
+### @end
+rm -r dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "easy-install-dexy"
+easy_install dexy
+
+### @export "check-easy-install"
+echo "=================================================="
+echo "test 2"
+dexy version
+echo "=================================================="
+dexy help
+
+### @end
+deactivate
+rm -r dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "easy-install-previous"
+easy_install dexy==0.4.4
+
+### @export "easy-upgrade-dexy"
+easy_install --upgrade dexy
+
+### @export "check"
+echo "=================================================="
+echo "test 3"
+dexy version
+echo "=================================================="
+dexy help
+
+### @end
+deactivate
+rm -r dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "pip-install-previous"
+pip install dexy==0.4.4
+
+### @export "pip-upgrade-dexy"
+pip install --upgrade dexy
+
+### @export "check"
+echo "=================================================="
+echo "test 4"
+dexy version
+echo "=================================================="
+dexy help
+

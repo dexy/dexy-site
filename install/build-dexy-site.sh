@@ -1,16 +1,33 @@
-pip install dexy
+### @export "virtual-display"
+Xvfb :75 -ac &
+export DISPLAY=:75
 
+### @export "restart-apache"
+apachectl restart
+wget http://0.0.0.0
+
+### @export "pip-install-dexy-source"
+git clone http://github.com/ananelson/dexy
+cd dexy
+pip install .
+
+### @end
+cd ..
+
+### @export "build-dexy-site"
 git clone http://github.com/ananelson/dexy-site
 cd dexy-site
+
 dexy setup
-dexy
+dexy -danger -strictinherit
 
 cp -r logs output/logs
 cp -r artifacts output/artifacts
 
-tar -czvf dexy-site.tgz -C output .
+linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
+mv linkchecker-out.html output/
 
-# TODO validate HTML + links
+tar -czvf dexy-site.tgz -C output .
 
 /home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
 

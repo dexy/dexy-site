@@ -70,14 +70,10 @@ The AMIs currently in use are:
 << d['run-builds.sh|idio|l']['amis'] >>
 
 The custom AMI is private, however it can be replicated by running an install
-script on the Ubuntu AMI, as per this example: <<
-d['create-custom-ami.sh|idio|l'] >>
+script on the Ubuntu AMI, as per this example:
+<< d['create-custom-ami.sh|idio|l'] >>
 
-By running this on an elastic boot store (EBS)-based AMI, the resulting virtual
-machine image can be snapshotted and turned into an AMI. So in this way we can
-easily create AMIs with have all the software we need to run the Dexy examples,
-and which are easy to update and modify if we need to change our environment.
-The \verb=full-setup-ubuntu.sh= script will be discussed in the next section.
+By running this on an elastic boot store (EBS)-based AMI, the resulting virtual machine image can be snapshotted and turned into an AMI. So in this way we can easily create AMIs with have all the software we need to run the Dexy examples, and which are easy to update and modify if we need to change our environment. The \verb=full-setup-ubuntu.sh= script will be discussed in the next section.
 
 \section{Building the Environment}
 
@@ -107,9 +103,6 @@ and some R packages:
 although we installed asciidoc above, we want a more recent version:
 << d['full-setup-ubuntu.sh|idio|l']['install-asciidoc'] >>
 
-install clojure and move the JAR:
-<< d['full-setup-ubuntu.sh|idio|l']['install-clojure'] >>
-
 That's everything, we want to shut down the instance once we've finished installing everything:
 << d['full-setup-ubuntu.sh|idio|l']['shutdown'] >>
 
@@ -117,25 +110,9 @@ Recall that our script specified the instance should be stopped, not terminated,
 
 \section{Installing and Testing Dexy}
 
-The \verb=source-install.sh= script installs Dexy from source and runs a number of tests, including generating the Dexy website. The idea of this script is to check that various commands function as expected. These commands are then used in the installation page to describe how to do various tasks.
+The \verb|build-dexy-site.sh| script installs Dexy from source and generates the Dexy website, which also acts as a comprehensive test of dexy filters.
 
-Install the most recent Dexy from source:
-<< d['source-install.sh|idio|l']['source-install'] >>
-
-Run the unit tests:
-<< d['source-install.sh|idio|l']['nosetests'] >>
-
-Test various dexy commands:
-<< d['source-install.sh|idio|l']['dexy-version'] >>
-<< d['source-install.sh|idio|l']['dexy-help'] >>
-<< d['source-install.sh|idio|l']['list-filters'] >>
-<< d['source-install.sh|idio|l']['list-filters'] >>
-
-Run dexy on a test template:
-<< d['source-install.sh|idio|l']['run-dexy-test-template'] >>
-
-Generate the dexy site:
-<< d['source-install.sh|idio|l']['dexy-site'] >>
+{{ d['build-dexy-site.sh|pyg|l'] }}
 
 \end{document}
 
