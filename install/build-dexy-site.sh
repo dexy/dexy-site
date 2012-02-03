@@ -13,13 +13,14 @@ echo "
         allow from all
     </Directory>
 </VirtualHost>
-" > /etc/apache2/sites-available/default
-apachectl restart
+" > apache-config.txt
+sudo mv apache-config.txt /etc/apache2/sites-available/default
+sudo apachectl restart
 
 ### @export "pip-install-dexy-source"
 git clone http://github.com/ananelson/dexy
 cd dexy
-pip install .
+sudo pip install .
 
 ### @end
 cd ..
@@ -34,9 +35,14 @@ dexy -danger -strictinherit
 cp -r logs output/logs
 cp -r artifacts output/artifacts
 
-# linkchecker refuses to run as root
-#linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
-#mv linkchecker-out.html output/
+# hack because linkchecker thinks it's running as root, even though it's not
+echo "whoami?"
+whoami
+touch linkchecker-out.html
+chown -u nobody linkchecker-out.html
+linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
+sudo chown -u nobody linkchecker-out.html
+mv linkchecker-out.html output/
 
 tar -czvf dexy-site.tgz -C output .
 

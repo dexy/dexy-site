@@ -18,11 +18,12 @@ function run_script_in_ec2 {
   echo "script_name=$script_name" >> $temp_filename
   echo "cd /mnt" >> $temp_filename
   echo "mkdir $script_name" >> $temp_filename
+  echo "chown -R ubuntu $script_name" >> $temp_filename
   echo "cd $script_name" >> $temp_filename
   echo "cat > script.sh <<END" >> $temp_filename
   cat $script_dir/$1 >> $temp_filename
   echo "END" >> $temp_filename
-  echo "bash script.sh &> out.log" >> $temp_filename
+  echo "sudo -i -u ubuntu cd /mnt/$script_name; bash script.sh &> out.log" >> $temp_filename
   echo "cd .." >> $temp_filename
   cat $script_dir/_ec2_script_footer.sh >> $temp_filename
 
