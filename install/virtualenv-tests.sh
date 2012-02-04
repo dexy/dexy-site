@@ -21,7 +21,8 @@ run_tests_and_examples() {
     dexy --directory test-examples --danger --output --uselocals no
     dexy report --allreports
 
-    dexy --directory test-examples --danger --allreports --artifactclass FileSystemCjsonArtifact
+    # TODO run cjson only for python 2.7, not 2.6
+#    dexy --directory test-examples --danger --allreports --artifactclass FileSystemCjsonArtifact
     dexy --directory test-examples --danger --allreports --artifactclass FileSystemPickleArtifact
     dexy --directory test-examples --danger --allreports --artifactclass FileSystemcPickleArtifact
 
