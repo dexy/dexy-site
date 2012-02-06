@@ -28,6 +28,7 @@ cd ..
 ### @export "build-dexy-site"
 git clone http://github.com/ananelson/dexy-site
 cd dexy-site
+bash make-sdists.sh
 
 dexy setup
 dexy -danger -strictinherit
