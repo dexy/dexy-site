@@ -20,7 +20,7 @@ function run_script_in_ec2 {
   echo "mkdir $script_name" >> $temp_filename
   echo "chown -R ubuntu $script_name" >> $temp_filename
   echo "cd $script_name" >> $temp_filename
-  echo "cat > script.sh <<END" >> $temp_filename
+  echo "cat > script.sh << \"END\"" >> $temp_filename
   cat $script_dir/$1 >> $temp_filename
   echo "END" >> $temp_filename
   echo "sudo -i -u ubuntu bash -c \"cd /mnt/$script_name; bash script.sh\" &> out.log" >> $temp_filename
@@ -33,7 +33,7 @@ function run_script_in_ec2 {
 
 ### @export "amis"
 UBUNTU_AMI="ami-a7f539ce" # oneiric
-CUSTOM_AMI="ami-f50edf9c" # oneiric
+CUSTOM_AMI="ami-49a57520" # oneiric
 ### @end
 
 cd ~/.ec2

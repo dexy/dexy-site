@@ -5,7 +5,11 @@ install_dexy() {
 
     # These are not required by Dexy, but they enable extra functionality.
     pip install GitPython
-    pip install python-cjson
+
+    python_version_is_2_7
+    if [ $VERSION27 -eq 1 ]
+        then pip install python-cjson
+    fi
 }
 
 run_tests_and_examples() {
@@ -21,8 +25,10 @@ run_tests_and_examples() {
     dexy --directory test-examples --danger --output --uselocals no
     dexy report --allreports
 
-    # TODO run cjson only for python 2.7, not 2.6
-#    dexy --directory test-examples --danger --allreports --artifactclass FileSystemCjsonArtifact
+    python_version_is_2_7
+    if [ $VERSION27 -eq 1 ]
+        then dexy --directory test-examples --danger --allreports --artifactclass FileSystemCjsonArtifact
+    fi
     dexy --directory test-examples --danger --allreports --artifactclass FileSystemPickleArtifact
     dexy --directory test-examples --danger --allreports --artifactclass FileSystemcPickleArtifact
 
@@ -40,9 +46,27 @@ run_tests_and_examples() {
     cd ..
 }
 
+python_version_is_2_7() {
+    VERSION=`python --version 2>&1 | tr "Python" " " | tr "." " " | tr "+" " "`
+    read v_major v_minor v_rev << EOF
+`echo ${VERSION}`
+EOF
+
+    VERSION27=0
+
+    if [ $v_major == "2" ]
+    then
+        if [ $v_minor == "7" ]
+        then VERSION27=1
+        fi
+    fi
+
+    echo "Checked python version: $VERSION. Is 2.7? $VERSION27"
+    which python
+}
+
 sudo apt-get install -y python2.6
 sudo apt-get install -y python-virtualenv
-sudo apt-get install -y ksh
 
 ### @export "dexy-source"
 git clone https://github.com/ananelson/dexy
