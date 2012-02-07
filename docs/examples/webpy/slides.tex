@@ -2,7 +2,8 @@
 \usepackage[latin1]{inputenc}
 
 \usepackage{fancyvrb}
-\usepackage{../pastie}
+
+<< pygments['pastie.tex'] >>
 
 \usetheme{Pittsburgh}
 \title[Refreshing Docs]{Refreshing Documentation\\An Introduction to Dexy}
@@ -121,19 +122,8 @@ Install Script
 \end{frame}
 
 
-\begin{frame}[fragile]{install script}
-<< d['ubuntu-install.sh|idio|l']['update-package-manager'] >>
-<< d['ubuntu-install.sh|idio|l']['install'] >>
-\end{frame}
 
 \begin{frame}[fragile]{install script}
-<< d['ubuntu-install.sh|idio|l']['get-code'] >>
-<< d['ubuntu-install.sh|idio|l']['init-db'] >>
-<< d['ubuntu-install.sh|idio|l']['start-server'] >>
-\end{frame}
-
-\begin{frame}[fragile]{install script}
-<< d['run-ubuntu-install.sh|pyg|l'] >>
 \normalsize
 (Make sure to allow access to port 8080 in security group.)
 \end{frame}
@@ -156,28 +146,22 @@ Install Script
 \end{frame}
 
 \begin{frame}[fragile]{watir}
-\scriptsize
-<< d['demo.rb|idio|l']['requires'] >>
-<< d['demo.rb|idio|l']['constants'] >>
-\end{frame}
-
-\begin{frame}[fragile]{watir}
 \normalsize
 We create a reference to the browser:
 \scriptsize
-<< d['demo.rb|idio|l']['init-safari'] >>
+<< d['take-screenshots.py|idio|l']['start-browser'] >>
 
 \normalsize
 And define a helper method to take screenshots:
 \scriptsize
-<< d['demo.rb|idio|l']['def-screenshot'] >>
+<< d['take-screenshots.py|idio|l']['screencapture'] >>
 \end{frame}
 
 \begin{frame}[fragile]{watir}
 \normalsize
 Now we're ready to go!
 \scriptsize
-<< d['demo.rb|idio|l']['goto-index'] >>
+<< d['take-screenshots.py|idio|l']['load-index-page'] >>
 \includegraphics[width=3in]{dexy--index.png}
 \end{frame}
 
@@ -185,14 +169,14 @@ Now we're ready to go!
 \normalsize
 Let's enter a TODO:
 \scriptsize
-<< d['demo.rb|idio|l']['enter-text'] >>
+<< d['take-screenshots.py|idio|l']['enter-text'] >>
 \includegraphics[width=3in]{dexy--enter.png}
 \end{frame}
 
 \begin{frame}[fragile]{watir}
 Click the "Add todo" button to add it. We'll verify that it was actually added.
 \scriptsize
-<< d['demo.rb|idio|l']['add-todo'] >>
+<< d['take-screenshots.py|idio|l']['add-todo'] >>
 \includegraphics[width=3in]{dexy--add.png}
 \end{frame}
 
@@ -200,7 +184,7 @@ Click the "Add todo" button to add it. We'll verify that it was actually added.
 \normalsize
 And delete it again:
 \scriptsize
-<< d['demo.rb|idio|l']['delete-todo'] >>
+<< d['take-screenshots.py|idio|l']['delete-todo'] >>
 \includegraphics[width=3in]{dexy--delete.png}
 \end{frame}
 

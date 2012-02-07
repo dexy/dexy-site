@@ -1,7 +1,0 @@
-An example of using Dexy to document a web app.
-
-The install script can be run on an Ubuntu VM (such as an Amazon AMI) in order
-to install all necessary software and start the server, after which the demo.rb
-script can be run to take screenshots. The IP address of the server must be
-specified in an environment variable.
-

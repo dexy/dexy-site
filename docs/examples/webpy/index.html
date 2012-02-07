@@ -1,0 +1,18 @@
+<p>This is an example of using Dexy to document a web application.</p>
+
+<p>We document the source code, seed data (in SQL format), and even take screenshots of the running application, which we can redo at any time.</p>
+
+<p>Here is a <a href="handout.pdf">handout</a> and some <a href="slides.pdf">slides</a> containing this demo in PDF format.</p>
+
+{% if False -%}
+{{ d['/install/full-setup-ubuntu.sh|idio']['webpy-demo'] }}
+
+{{ d['/install/build-dexy-site.sh|idio']['start-selenium'] }}
+
+{% endif -%}
+
+<pre>
+{% for k in sorted(d.keys()) -%}
+{{ k }}
+{% endfor -%}
+</pre>

@@ -4,7 +4,8 @@
 \usepackage{fancyvrb}
 \usepackage{color}
 \usepackage{hyperref}
-\usepackage{../pastie}
+
+<< pygments['pastie.tex'] >>
 
 \title{Refreshing Documentation:\\An Introduction to Dexy}
 \author{Ana Nelson}
@@ -17,68 +18,17 @@
 More information about Dexy is available at \url{http://dexy.it}. You can follow the project @dexyit on twitter or the author @ananelson. Dexy is open source software to make you and your docs awesome. Check it out!
 \\This project's sources are available at \url{https://github.com/ananelson/dexy-site/tree/master/docs/examples/webpy}
 
-\section{Install Script}
-
-Here is the full install script:
-
-\scriptsize
-<< d['ubuntu-install.sh|pyg|l'] >>
-\normalsize
-
-And the helper which runs it on an EC2 instance:
-
-\scriptsize
-<< d['run-ubuntu-install.sh|pyg|l'] >>
-\normalsize
-
 \section{Watir Script}
 
-Here is the full Watir script we run:
+Here is the full selenium script we run:
 
 \scriptsize
-<< d['demo.rb|pyg|l'] >>
-\normalsize
-
-\section{Install Guide}
-
-We can create an install guide by discussing each step of our install script. For example:
-
-\sffamily
-
-First, we should update our package sources to make sure we are getting the most recent versions:
-
-\scriptsize
-<< d['ubuntu-install.sh|idio|l']['update-package-manager'] >>
-\normalsize
-
-Next we install the software that we need. We need the web.py python package, mercurial to obtain the source code, and sqlite for the database.
-\scriptsize
-<< d['ubuntu-install.sh|idio|l']['install'] >>
-\normalsize
-
-Now we can grab the source code for our app.
-\scriptsize
-<< d['ubuntu-install.sh|idio|l']['get-code'] >>
-\normalsize
-
-We need to create and initalize the database:
-\scriptsize
-<< d['ubuntu-install.sh|idio|l']['init-db'] >>
-\normalsize
-
-The schema is
-\scriptsize
-<< d['schema.sql|pyg|l'] >>
-\normalsize
-
-That's it! We're ready to start the server, like so:
-\scriptsize
-<< d['ubuntu-install.sh|idio|l']['start-server'] >>
+<< d['take-screenshots.py|pyg|l'] >>
 \normalsize
 
 You should see a page like this when you visit your site:
 
-\includegraphics[width=3in]{dexy--index.png}
+\includegraphics[width=3in]{dexy--index.pdf}
 
 \normalfont
 
@@ -91,10 +41,10 @@ We can mix and match various elements into developer docs, depending on how we w
 
 and we can show screenshots next to the code which generated those screenshots:
 \scriptsize
-<< d['demo.rb|idio|l']['enter-text'] >>
+<< d['take-screenshots.py|idio|l']['enter-text'] >>
 \normalsize
 
-\includegraphics[width=4in]{dexy--enter.png}
+\includegraphics[width=4in]{dexy--enter.pdf}
 
 It's probably a good idea to have the developer docs incorporate the elements from the user guide, along with extra information relevant to developers. This means that developers have a chance to spot problems with the user guide as they are using the same information.
 
@@ -108,14 +58,14 @@ In our user guide, we can tell people what steps they should take and show them 
 
 Welcome, new user, to the todo-o-matic! This exciting new web app will be sure to solve all your productivity problems. When you first enter this brave new world, here is the vista you will behold:
 
-\includegraphics[width=4in]{dexy--index.png}
+\includegraphics[width=4in]{dexy--index.pdf}
 
 Simply type your desired task into the box, like so:
 
-\includegraphics[width=4in]{dexy--enter.png}
+\includegraphics[width=4in]{dexy--enter.pdf}
 
 and feel the world of possibilities start to close around you as you realize the finiteness of time available left to you. But, never fear! The todo-o-matic, while reminding you of your mortailty, will help you to make the most of these precious grains of sand. Click the "Add todo" button, and you are on your way to the rest of your life:
 
-\includegraphics[width=4in]{dexy--add.png}
+\includegraphics[width=4in]{dexy--add.pdf}
 
 \end{document}
