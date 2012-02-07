@@ -1,11 +1,22 @@
 ### @export "imports"
 from selenium import webdriver
 import time
+from kaa import imlib2
+
+### @export "constants"
+WIDTH=850
 
 ### @export "screencapture"
-def screencapture(filename, delay=1):
+def screencapture(filename, height=150, delay=1):
     time.sleep(delay)
     browser.save_screenshot(filename)
+    crop_image(filename, WIDTH, height)
+
+### @export "crop"
+def crop_image(filename, region_width, region_height, x=0, y=0):
+    image = imlib2.open(filename)
+    image = image.crop((x, y), (region_width, region_height))
+    image.save(filename)
 
 ### @export "start-browser"
 browser = webdriver.Firefox() # Get local session of firefox

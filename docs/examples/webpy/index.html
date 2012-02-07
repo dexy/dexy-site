@@ -4,15 +4,48 @@
 
 <p>Here is a <a href="handout.pdf">handout</a> and some <a href="slides.pdf">slides</a> containing this demo in PDF format.</p>
 
-{% if False -%}
-{{ d['/install/full-setup-ubuntu.sh|idio']['webpy-demo'] }}
+<p>First we need to install some software:</p>
+{{ d['/install/full-setup-ubuntu.sh|idio']['webpy-installs'] }}
 
+<p>Because we are working with a remote server, we need to create a virtual display which will allow firefox to run and us to take screenshots:</p>
+{{ d['/install/build-dexy-site.sh|idio']['virtual-display'] }}
+
+<p>We download and start running a selenium server to allow us to automate a web browser:</p>
 {{ d['/install/build-dexy-site.sh|idio']['start-selenium'] }}
 
-{% endif -%}
+<p>Here is the database schema which will back our application:</p>
+{{ d['schema.sql|pyg'] }}
 
-<pre>
-{% for k in sorted(d.keys()) -%}
-{{ k }}
-{% endfor -%}
-</pre>
+<p>We load the schema into a database and start the web.py server:</p>
+{{ d['/install/build-dexy-site.sh|idio']['start-webpy'] }}
+
+<p>Now that we are set up, we can run our code and take screenshots:</p>
+{{ d['take-screenshots.py|idio']['imports'] }}
+
+<p>We define a helper method to take screenshots:</p>
+{{ d['take-screenshots.py|idio']['screencapture'] }}
+
+<p>We launch an instance of Firefox:</p>
+{{ d['take-screenshots.py|idio']['start-browser'] }}
+
+<p>Then, we simply load the home page of our web.py app:</p>
+{{ d['take-screenshots.py|idio']['load-index-page'] }}
+
+<p>Here is the first screenshot:</p>
+{{ a['index.png'].img() }}
+
+<p>The template for this page is:</p>
+{{ d['templates/index.html|pyg'] }}
+
+<p>Next, we will start entering a to-do item:</p>
+{{ d['take-screenshots.py|idio']['enter-text'] }}
+{{ a['enter.png'].img() }}
+
+<p>And then we click the "Add todo" button:</p>
+{{ d['take-screenshots.py|idio']['add-todo'] }}
+{{ a['add.png'].img() }}
+
+<p>And then we click the "Delete todo" button:</p>
+{{ d['take-screenshots.py|idio']['delete-todo'] }}
+{{ a['delete.png'].img() }}
+

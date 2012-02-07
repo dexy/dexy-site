@@ -24,10 +24,6 @@ wget http://selenium.googlecode.com/files/selenium-server-standalone-2.17.0.jar
 java -jar selenium-server-standalone-2.17.0.jar &
 cd ..
 
-### @end
-sudo pip install selenium # TODO remove
-sudo apt-get install -y firefox # TODO remove
-
 ### @export "pip-install-dexy-source"
 git clone http://github.com/ananelson/dexy
 cd dexy
@@ -47,6 +43,7 @@ bash make-sdists.sh
 cd docs/examples/webpy
 sqlite3 todo.sqlite3 < schema.sql
 python todo.py 8080 &
+### @end
 cd ../../..
 
 ### @export "run-dexy-on-dexy-site"
