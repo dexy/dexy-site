@@ -38,7 +38,11 @@
         "priority" : 5,
         "allinputs" : true,
         "header" : "_header.html",
-        "footer" : "_footer.html"
+        "footer" : "_footer.html",
+        "exact-inputs" : [
+            "install/full-setup-ubuntu.sh|idio",
+            "install/build-dexy-site.sh|idio"
+        ]
     },
     "intro.html|jinja" : {
         "priority" : 5,
@@ -54,5 +58,8 @@
     },
     "@devchix-ragel-dexy-example.tgz|tgzdir" : {
         "dir" : "devchix-ragel"
+    },
+    "@webpy-dexy-example.tgz|tgzdir" : {
+        "dir" : "webpy"
     }
 }

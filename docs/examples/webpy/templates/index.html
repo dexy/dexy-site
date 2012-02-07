@@ -10,7 +10,7 @@ $for todo in todos:
         <td>$todo.title</td>
         <td>
             <form action="/del/$todo.id" method="post">
-                <input type="submit" value="Delete"/>
+                <input name="Delete todo" type="submit" value="Delete"/>
             </form>
         </td>
     </tr>    

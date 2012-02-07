@@ -1,15 +1,10 @@
 {
-    "*.tex|pyg|l" : {},
-    ".dexy|dexy" : {},
-    "*.html|pyg|l" : {},
-    "*.py|pyg|l" : {},
-    "*.py|idio|l" : {},
-    "*.sh|pyg|l" : {},
-    "*.sh|idio|l" : {},
-    "*.sql|idio|l" : {},
-    "*.sql|pyg|l" : {},
-    "*.rb|idio|l" : {},
-    "*.rb|pyg|l" : {},
-    "demo.rb|fn|rb" : {},
+    "*|pyg|l" : { "except" : ".*.sqlite3" },
+    "*|pyg" : { "except" : ".*.sqlite3" },
+    "*|idio|l" : { "except" : ".*.sqlite3" },
+    "*|idio" : { "except" : ".*.sqlite3" },
+    ".dexy|pyg|l" : {},
+    ".dexy|ppjson" : {},
+    "take-screenshots.py|fn|py" : {},
     "*.tex|fn|jinja|latex" : {"allinputs" : true}
 }
