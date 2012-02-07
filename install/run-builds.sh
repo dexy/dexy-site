@@ -33,14 +33,14 @@ function run_script_in_ec2 {
 
 ### @export "amis"
 UBUNTU_AMI="ami-a7f539ce" # oneiric
-CUSTOM_AMI="ami-49a57520" # oneiric
+CUSTOM_AMI="ami-85cd1dec" # oneiric
+CUSTOM_64_AMI="ami-ebcd1d82" # oneiric
 ### @end
 
 cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI m1.small
+run_script_in_ec2 build-dexy-site.sh $CUSTOM_64_AMI m1.large
 run_script_in_ec2 virtualenv-tests.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 virtualenv-install.sh $UBUNTU_AMI t1.micro
-
