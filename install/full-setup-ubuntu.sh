@@ -66,6 +66,9 @@ apt-get install -y cowsay
 apt-get install -y clojure
 apt-get install -y rhino
 apt-get install -y ksh
+apt-get install -y python-webpy
+apt-get install -y sqlite3
+apt-get install -y firefox
 
 # for checking links
 apt-get install -y apache2
@@ -85,6 +88,7 @@ pip install garlicsim
 pip install garlicsim_lib
 pip install regetron
 pip install ipython
+pip install selenium
 
 ### @export "r-installs"
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"

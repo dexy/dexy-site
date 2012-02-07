@@ -17,6 +17,15 @@ echo "
 sudo mv apache-config.txt /etc/apache2/sites-available/default
 sudo apachectl restart
 
+### @export "start-selenium"
+mkdir selenium
+cd selenium
+wget http://selenium.googlecode.com/files/selenium-server-standalone-2.17.0.jar
+java -jar selenium-server-standalone-2.17.0.jar &
+sudo pip install selenium # TODO remove
+sudo apt-get install -y firefox # TODO remove
+cd ..
+
 ### @export "pip-install-dexy-source"
 git clone http://github.com/ananelson/dexy
 cd dexy
@@ -25,17 +34,30 @@ sudo pip install .
 ### @end
 cd ..
 
-### @export "build-dexy-site"
+### @export "download-dexy-site"
 git clone http://github.com/ananelson/dexy-site
 cd dexy-site
+
+### @export "make-sdists"
 bash make-sdists.sh
 
+### @export "start-webpy"
+cd docs/examples/webpy
+sqlite3 todo.sqlite3 < schema.sql
+python todo.py 8080 &
+cd ../../..
+
+### @export "run-dexy-on-dexy-site"
 dexy setup
 dexy -danger -strictinherit
 
+### @export "add-logs"
 cp -r logs output/logs
+
+### @export "add-artifacts"
 cp -r artifacts output/artifacts
 
+### @export "check-links"
 linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow-url=artifacts http://0.0.0.0
 mv linkchecker-out.html output/
 
