@@ -1,0 +1,317 @@
+\documentclass[custom, plainsections]{sciposter}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modify paper size and font size in papercustom.cfg in your tex install
+% e.g. something like:
+%  /usr/local/texlive/2010/texmf-dist/tex/latex/sciposter/papercustom.cfg
+%  /usr/share/texmf-texlive/tex/latex/sciposter/papercustom.cfg
+%
+%\renewcommand{\papertype}{custom}
+%\renewcommand{\fontpointsize}{14pt}
+%\setlength{\paperwidth}{28.9cm}
+%\setlength{\paperheight}{38.0cm}
+%\renewcommand{\setpspagesize}{
+%  \ifthenelse{\equal{\orientation}{portrait}}{
+%    \special{papersize=28.9cm,38.0cm}
+%    }{\special{papersize=38.0cm,28.9cm}
+%    }
+%  }
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[ascii]{inputenc}
+\usepackage[greek, english]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{color}
+\usepackage{cwpuzzle}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\usepackage{fancyvrb}
+\fvset{fontsize=\tiny} % have code extracts be in smaller font size
+
+\setlength\columnseprule{0.2pt}
+
+<< pygments['bw.tex'] >>
+
+\renewcommand{\rmdefault}{ptm}
+\newcommand{\megasize}{\fontsize{100pt}{20pt}\selectfont}
+
+\setmargins[0.6in]
+
+\pagenumbering{arabic}
+
+\title{Dexy News}
+\author{Ana Nelson}
+\begin{document}
+\rmfamily
+
+\begin{megasize}
+\includegraphics{dexy--logo.pdf}
+\hspace{0.1in}
+Dexy News
+\end{megasize} \hfill February 2012
+
+\begin{multicols*}{3}
+
+\small
+
+\PARstart{P}{itchlift.org} lets you practice your elevator pitch and listen to other people's any time, from any telephone, even your land line. You can phone pitchlift right now on << PHONE_NUMBER >>. In this newspaper we will document how the Tropo API was used to create the pitchlift app.
+
+\vspace{0.5cm}
+\hrule
+\Large
+\begin{center}
+\vspace{0.2cm}
+<< PHONE_NUMBER >>
+\end{center}
+\small
+\hrule
+
+\vspace{1cm}
+
+\PARstart{T}{ropo} is a powerful yet simple API that adds Voice and SMS support to the programming languages you already know.
+
+\vspace{0.7cm}
+\includegraphics[width=3.2in]{dexy--tropo-logo-new-wide.png}
+\vspace{0.5cm}
+
+\PARstart{I}{f} you can create a web site, you can make and receive phone calls, use voice recognition, interact via SMS. You can even create conference calls and transcribe calls. There's no need to learn new languages, wrestle with VoIP software, or learn about telephony. Host your code with Tropo, or use your existing web server in the language of your choice.
+
+\PARstart{T}{ropo} adds a few simple communications commands to your favorite programming languages. Tropo makes it simple to build phone and SMS applications.  You use the web technologies you already know and Tropo's powerful cloud API to bring real-time communications to your apps.
+
+\PARstart{R}{eady} to start coding? We've got lots of step by step quickstarts. Dive in with introductions on calling a phone number or accepting a call, sending text messages, receiving text through SMS, and transferring and rejecting calls. Want to do more? We have lots of tutorials available. If diving into sample code is more your thing, we've got sample apps in PHP, Ruby, Python, Groovy, and Javascript. Dig through the code for a voicemail system (complete with transcription), a weather forecast, or a local restaurant search that works over the phone and SMS. Call our demo numbers or try the code for yourself.
+
+Here's a simple Tropo app that works via voice and SMS:
+
+\fvset{fontsize=\small} % use small just this time
+<< d['easy.js|pyg|l'] >>
+\fvset{fontsize=\tiny}
+
+Phone or send an SMS to:
+
+\Large
+\begin{center}
+(240) 242-7909
+\end{center}
+\small
+
+\PARstart{D}{exy} is a free-form literate documentation tool for writing any kind of technical document incorporating code. Dexy helps you write correct documents, and to easily maintain them over time as your code changes. This newspaper was created using Dexy.
+
+\large
+\begin{center}
+\href{http://bit.ly/xCJXxJ}{http://dexy.it}
+\end{center}
+\small
+
+\PARstart{D}{exy} lets you get more out of the documentation tools you already use, and lets you write documentation in any text-based format. Dexy can interact with APIs to make publishing your output to wikis and blogs a snap. Dexy is also a powerful tool for reproducible scientific research, allowing calculations and plots to be embedded in documents while preserving provenance. Unlike some traditional literate programming tools, Dexy does not restrict you to writing code in special sections of your documents using clunky tags, instead you can pull code into your documents from source code files in your local file system, in a git repository, or even sometimes from installed packages. So you are documenting real, working code. It's also easy to use the same example code in multiple documents, such as an article, a blog post and presentation slides, saving you time and giving your documentation a professional consistency.
+
+\PARstart{W}{ith} Dexy you can document any programming language, and as many different languages as you want, even in a single document. So, you can use the same tool across all your different software projects. You can show raw source code, apply syntax highlighting to it, or show the output from actually running the code. Dexy can manage filenames for graphs generated by your code. It can even be used to take screenshots of a running web application, and to tie this in with your source code, integration tests and seed data.
+
+\PARstart{T}{o} get started, you can work through the tutorials at \href{http://bit.ly/zj8iAj}{http://dexy.it/docs/tutorials}, and read more in-depth information in the online guide at \href{http://bit.ly/xloDcF}{http://dexy.it/docs/guide}. You can get in touch on twitter @dexyit. The rest of this document uses Dexy to document an interactive telephony app, Read on to see how the app was built, and then you can phone it on << PHONE_NUMBER >> or browse the web interface at \href{http://bit.ly/xOt1qs}{http://pitchlift.org}, and you can come chat @Pitchlift on twitter.
+
+This newspaper was typeset in \LaTeX~using the sciposter document class (you can see the preamble later in this document, and all source code is available online).
+
+\vspace{10pt}
+\hrule
+\vspace{10pt}
+
+\vspace{5cm}
+
+\textbf{Contents}
+
+Multiple Programming Languages \dotfill \pageref{sec:multiple-languages}
+
+Pitchlift 1 (Ruby Scripting) \dotfill \pageref{sec:pitchlift-1}
+
+Pitchlift 2 (Python WebAPI) \dotfill \pageref{sec:pitchlift-2}
+
+\end{multicols*}
+
+\pagebreak
+
+\begin{multicols*}{2}
+\small
+
+\large
+Multiple Programming Languages
+\small
+
+\vspace{5pt}
+
+\label{sec:multiple-languages}
+\PARstart{D}{exy} lets you document multiple programming languages in a single document, so let's look at a simple Tropo voicemail application scripting example in Javascript, Ruby, PHP, Python and Groovy.
+
+Voicemail with transcription sounds like a potentially lengthy, complicated application - you'll need to answer a call, prompt the user for their message, give them a tone to indicate when to start speaking, send the call somewhere for transcription...lots of steps that often have lots of sub-steps. Tropo aims to take all of that, wrap it up behind the scenes and give you working code with just a few easy methods.
+
+The following example handles everything mentioned earlier, plus defines time constraints - 10 seconds without any talking and the app will end, 7 seconds after someone stops talking the app will end, and the caller gets cut off at 60 seconds no matter what. It also adds a terminator for the user to end the recording; if the caller uses it, Tropo will play their recording back to them before disconnecting. The recording is then sent off to the URL defined with transcription right behind it:
+
+\vspace{10pt}
+
+\textbf{Javascript:}
+
+<< d['voicemail.js|pyg|l'] >>
+
+\textbf{Ruby:}
+
+<< d['voicemail.rb|pyg|l'] >>
+
+\textbf{PHP:}
+
+<< d['voicemail.php|pyg|l'] >>
+
+\textbf{Python:}
+
+<< d['voicemail.py|pyg|l'] >>
+
+\textbf{Groovy:}
+
+<< d['voicemail.groovy|pyg|l'] >>
+
+\large
+Pitchlift 1 Source Code
+\small
+
+\label{sec:pitchlift-1}
+
+\vspace{5pt}
+
+\PARstart{T}{o} start developing pitchlift, we wrote a basic Tropo scripting application. There are two ways to develop Tropo applications, via direct scripting or via calls to the web API. The web API is more flexible, but scripting can be simpler to get started with and in some cases, it's all you need.
+
+The first pitchlift application presents you with a menu of 2 choices, you can create a new pitch or listen to pitches that have been recorded by other people.
+
+Here is how we record a new pitch. To start with, we create a pitch id which we will save the pitch under, and also a PIN which the caller can use later to manage their pitch. We also take note of the caller ID:
+
+<< d['pitchlift.rb|idio|l']['do-record'] >>
+
+Here is the code we use to create a random pitch ID and check that it is unique (not the best code, but we'll improve it later):
+
+<< d['pitchlift.rb|idio|l']['random-pitch-id'] >>
+
+And here is the code to create a random PIN:
+
+<< d['pitchlift.rb|idio|l']['random-pin'] >>
+
+To check for a valid caller id, we make sure this call is coming from a SIP phone and the caller ID is a number (maybe starting with plus):
+
+<< d['pitchlift.rb|idio|l']['is-valid-caller-id'] >>
+
+Next, we give our caller some instructions so they know what to expect:
+
+<< d['pitchlift.rb|idio|l']['recording-instructions'] >>
+
+And now we are ready to actually record:
+
+<< d['pitchlift.rb|idio|l']['record-pitch'] >>
+
+\pagebreak
+
+\large
+Tropo Web API
+\small
+
+\vspace{5pt}
+
+\PARstart{T}{he} Tropo Web API lets you integrate telephone and SMS with a web application. We will use the Tropo Web API to make a more advanced version of pitchlift with a web interfact.
+
+Here is a Hello, World for the web API using the Tropo Python webapi library and the web.py web application framework:
+
+<< d['pitchlift-2/hello.py|pyg|l'] >>
+
+The tropo library in Python helps us generate the JSON which Tropo reads when it contacts this application for instructions. We can see this JSON by accessing this URL directly using cURL:
+
+<< d['pitchlift-2/curl-hello.sh|pyg|l'] >>
+
+Here is the JSON output that Tropo will see and use to handle the call:
+
+\begin{Verbatim}
+<< d['pitchlift-2/curl-hello.sh|sh'] >>
+\end{Verbatim}
+
+\vspace{10pt}
+
+\large
+Pitchlift 2 Source Code
+\small
+
+\label{sec:pitchlift-2}
+
+\vspace{5pt}
+
+\PARstart{F}{or} our real pitchlift application, we want to have a web interface as well as Tropo interaction. We will use the web.py framework to create a web application which will use JSON to communicate with Tropo to handle calls, and also render HTML for people to browse. We will also use a sqlite database to store information about pitches. Here is the schema for our sqlite database:
+<< d['pitchlift-2/schema.sql|pyg|l'] >>
+
+When a call is first relayed, important metadata such as the caller id, caller network (e.g. SIP/telephones, Skype), and caller channel (e.g. voice or sms) are passed to our app, so we make sure to store this information for later use:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['main-menu-initial'] >>
+
+Then we proceed to the code for the main menu, which is going to read out available options to the caller:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['main-menu-index'] >>
+
+We can use cURL to view the main menu options as Tropo sees them:
+<< d['pitchlift-2/curl-pitchlift.sh|pyg|l'] >>
+
+Here is the JSON:
+
+<< d['pitchlift-2/curl-pitchlift.sh|sh|ppjson|pyg|l'] >>
+
+Then we handle the user's response and pass them on to the appropriate method:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['main-menu-cont'] >>
+
+The \verb|get_answer| helper method automatically parses the information from Tropo and returns the value chosen by the caller:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['get-answer'] >>
+
+Let's see how a new pitch is recorded. The \verb|do_pitch| method starts by generating a random pitch ID, a PIN to allow people to manage their pitches later, and a key which will be used behind the scenes to transfer data:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['do-pitch'] >>
+
+Next we give some verbal instructions to help the caller know what's about to happen:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['recording-instructions'] >>
+
+Then we actually record the call, passing callback URLs to tropo to receive the recording and the transcription:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['make-recording'] >>
+
+Finally we tell tropo what URL has the instructions for what to do with the caller after the recording is complete:
+<< d['pitchlift-2/pitchlift2.py|idio|l']['finish'] >>
+
+The recorded \verb|.wav| file is uploaded to Amazon S3:
+
+<< d['pitchlift-2/pitchlift2.py|idio|l']['record-pitch-tropo'] >>
+
+And a transcription will be generated and stored in the database:
+
+<< d['pitchlift-2/pitchlift2.py|idio|l']['transcription-tropo'] >>
+
+Our callback method reads the recorded pitch back to the user, and asks them to specify whether they are happy with it, or would like to delete it and redo:
+
+<< d['pitchlift-2/pitchlift2.py|idio|l']['after-record-pitch-tropo'] >>
+
+Assuming they are happy, the 'confirmed' state of the pitch is recorded in the database and the caller is read their pitch ID and pin number for managing their pitch (this information will also be sent by SMS if possible):
+
+<< d['pitchlift-2/pitchlift2.py|idio|l']['do-happy'] >>
+
+That's all for recording pitches! We aren't going to go through the complete source code of the app since you get the idea.
+
+In the next demo we will look at a very simple web application to see how to automate taking screenshots of a running app.
+
+\vspace{5pt}
+
+\large
+Automating Screenshots
+\small
+
+\pagebreak
+
+\large
+Source of This Newspaper
+\small
+
+Here is the .dexy configuration file for the newspaper (this newspaper is part of the dexy website so it also inherits from .dexy files in parent directories):
+
+<< d['.dexy|ppjson|pyg|l'] >>
+
+This is the beginning of the .tex file containing the source for this newspaper. This shows you the LaTeX preamble and also some Jinja tags for including dynamic Dexy content. Full source code is available from http://github.com/ananelson/dexy-site/tree/master/examples/newspaper.
+
+<< d['newspaper.tex|wrap|pyg|l'] >>
+
+\end{multicols*}
+
+\end{document}
+

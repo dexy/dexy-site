@@ -1,0 +1,43 @@
+{
+    "*.py|idio|l": {},
+    "*.rb|pyg|l": {},
+    "*.sql|pyg|l": {},
+    "*.py|pyg|l": {},
+    "*.php|pyg|l": {},
+    "*.groovy|pyg|l": {},
+    "*.js|pyg|l": {},
+    "*.sh|pyg|l": {},
+    "*.pdf" : {},
+    "*.png" : {},
+    "*.jpg" : {},
+    ".dexy": {},
+    ".dexy|ppjson|pyg|l": {},
+    "001.c|c": {},
+    "001.c|pyg|l": {},
+    "dexy-source.py|fn|py": {},
+    "dexy.sh|bash": {},
+    "example.dot": {},
+    "example.dot|dot|p": {},
+    "garlicsim_prisoner.py|fn|pycon|pyg|l": {
+        "record-vars": true
+    },
+    "pitchlift.rb|idio|l" : {},
+    "hello.R": {},
+    "hello.R|r": {},
+    "hello.R|r|pyg|l": {},
+    "newspaper.tex|fn|jinja|latex|prepress": {
+        "allinputs": true,
+        "variables" : { "PHONE_NUMBER" : "+1 (415) 889-8520" },
+        "pygments" : { "cmyk" : true }
+    },
+    "newspaper.tex|wrap|pyg|l": {
+        "width" : 70
+    },
+    "prisoner.R|fn|r|pyg|l": {
+        "inputs": [
+            "garlicsim_prisoner.py|fn|pycon|pyg|l"
+        ],
+        "record-vars": true
+    }
+}
+
