@@ -17,10 +17,13 @@ echo "
 sudo mv apache-config.txt /etc/apache2/sites-available/default
 sudo apachectl restart
 
+### @export "selenium-url"
+export SELENIUM_URL="http://selenium.googlecode.com/files/selenium-server-standalone-2.17.0.jar"
+
 ### @export "start-selenium"
 mkdir selenium
 cd selenium
-wget http://selenium.googlecode.com/files/selenium-server-standalone-2.17.0.jar
+wget $SELENIUM_URL
 java -jar selenium-server-standalone-2.17.0.jar &
 cd ..
 

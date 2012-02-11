@@ -38,7 +38,7 @@ def is_key(key):
     elif count == 1:
         return True
     else:
-        raise Exception("More than one pitch with id %s" % pitch_id)
+        raise Exception("More than one pitch with key %s" % key)
 
 def is_pitch(pitch_id):
     results = db.query('SELECT COUNT(*) AS count_pitches FROM pitches where pitch_id=$pitch_id and state="confirmed"', vars=locals())

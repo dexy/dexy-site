@@ -8,7 +8,6 @@ import re
 import web
 
 urls = (
-        '/(.*)', 'Index'
         '/listen', 'ListenTropo',
         '/menu/(initial|index|cont)', 'MenuTropo',
         '/record/([0-9a-f]+)', 'RecordPitchTropo',
@@ -16,6 +15,7 @@ urls = (
         '/record/after/cont/([0-9]+)', 'AfterRecordPitchContTropo',
         '/sms.json', 'SmsTropo',
         '/transcription/([0-9a-f]+)', 'TranscriptionTropo',
+        '/(.*)', 'Index'
         )
 
 render = web.template.render('templates/')
@@ -94,7 +94,10 @@ class ListenTropo(BaseTropo):
 
         if re.match("[0-9]{5}", answer):
             pitch_id = answer
-            p = pitch.get_pitch(pitch_id)
+
+            # test that the pitch exists...
+            pitch.get_pitch(pitch_id)
+
             t.say("You want to hear pitch")
             for c in pitch_id:
                 t.say(c)
@@ -102,7 +105,9 @@ class ListenTropo(BaseTropo):
         elif answer in ("0", "random"):
             pitch_id = pitch.random_pitch()['pitch_id']
             if pitch_id:
-                p = pitch.get_pitch(pitch_id)
+                # test that the pitch exists...
+                pitch.get_pitch(pitch_id)
+
                 t.say("Your random pitch is pitch number")
                 for c in pitch_id:
                     t.say(c)
@@ -364,8 +369,8 @@ class MenuTropo(BaseTropo):
             beep = True,
             choices = '#',
             maxTime = 120,
-            say = "Press pound when finished
-            to listen to your recording.",
+            say = """Press pound when finished
+            to listen to your recording.""",
             silenceTimeout = 7,
             timeout = 10,
             transcription = {

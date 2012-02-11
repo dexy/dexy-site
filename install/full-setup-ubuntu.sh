@@ -52,7 +52,7 @@ apt-get install -y git-core
 apt-get install -y libimlib2-dev
 apt-get install -y python-kaa-imlib2
 apt-get install -y python-tk
-apt-get install -y wkhtmltopdf xvfb
+apt-get install -y wkhtmltopdf
 apt-get install -y lynx-cur
 apt-get install -y python-cheetah
 apt-get install -y python-mako
@@ -67,7 +67,10 @@ apt-get install -y clojure
 apt-get install -y rhino
 apt-get install -y ksh
 
-# for checking links
+### @export "virtual-display"
+apt-get install -y xvfb
+
+### @export "check-links"
 apt-get install -y apache2
 apt-get install -y linkchecker
 
