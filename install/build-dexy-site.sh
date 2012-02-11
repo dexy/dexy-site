@@ -42,12 +42,22 @@ cd dexy-site
 ### @export "make-sdists"
 bash make-sdists.sh
 
-### @export "start-webpy"
 cd docs/examples/webpy
+### @export "start-webpy"
 sqlite3 todo.sqlite3 < schema.sql
 python todo.py 8080 &
 ### @end
 cd ../../..
+
+cd docs/examples/newspaper/pitchlift-2/
+### @export "start-webpy-tropo-pitchlift"
+sqlite3 pitch.sqlite3 < schema.sql
+python pitchlift2.py 8081 &
+### @export "start-webpy-tropo-hello"
+python hello.py 8082 &
+### @end
+cd ../../../../
+
 
 ### @export "run-dexy-on-dexy-site"
 dexy setup
@@ -64,6 +74,3 @@ linkchecker --file-output html -q --no-warnings --no-follow-url=logs --no-follow
 mv linkchecker-out.html output/
 
 tar -czvf dexy-site.tgz -C output .
-
-/home/ubuntu/s3-put -k $AWS_ACCESS_KEY_ID -s /home/ubuntu/secret.txt -T dexy-site.tgz /artifacts/dexy-site.tgz
-

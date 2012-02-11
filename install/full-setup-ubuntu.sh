@@ -67,6 +67,9 @@ apt-get install -y clojure
 apt-get install -y rhino
 apt-get install -y ksh
 
+### @export "preprint"
+apt-get install -y poppler-utils
+
 ### @export "virtual-display"
 apt-get install -y xvfb
 
@@ -94,6 +97,12 @@ apt-get install -y python-webpy
 apt-get install -y sqlite3
 apt-get install -y firefox
 pip install selenium
+
+### @export "tropo-installs"
+git clone https://github.com/tropo/tropo-webapi-python.git
+cd tropo-webapi-python
+pip install .
+cd ..
 
 ### @export "r-installs"
 R -e "install.packages(\"rjson\", repos=\"$CRAN_MIRROR\")"
