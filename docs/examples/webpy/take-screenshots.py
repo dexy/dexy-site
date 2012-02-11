@@ -1,7 +1,8 @@
 ### @export "imports"
-from selenium import webdriver
-import time
 from kaa import imlib2
+from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
+import time
 
 ### @export "constants"
 WIDTH=850
@@ -28,7 +29,7 @@ screencapture("dexy--index.pdf")
 
 ### @export "enter-text"
 element = browser.find_element_by_name("title")
-element.send_keys("Prepare Refresh Austin Talk demo")
+element.send_keys("finish writing Dexy News")
 screencapture("dexy--enter.png")
 screencapture("dexy--enter.pdf")
 
@@ -36,6 +37,15 @@ screencapture("dexy--enter.pdf")
 browser.find_element_by_name("Add todo").click()
 screencapture("dexy--add.png")
 screencapture("dexy--add.pdf")
+
+### @export "check-todo-added"
+browser.find_element_by_xpath("//td[contains(.,'Dexy News')]")
+
+### @export "show-exception"
+try:
+    browser.find_element_by_xpath("//td[contains(.,'jkjfiodsjoifd')]")
+except NoSuchElementException:
+    print "jkjfiodsjoifd not found"
 
 ### @export "delete-todo"
 browser.find_element_by_name("Delete todo").click()
