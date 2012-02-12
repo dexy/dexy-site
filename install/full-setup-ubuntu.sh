@@ -118,6 +118,9 @@ make
 make install
 cd ..
 
+### @export "install-pandoc"
+apt-get install -y pandoc
+
 ### @export "shutdown"
 echo "setup completed! :-)"
 echo "shutting down..."
