@@ -28,7 +28,7 @@ java -jar selenium-server-standalone-2.17.0.jar &
 cd ..
 
 ### @export "pip-install-dexy-source"
-git clone http://github.com/ananelson/dexy
+git clone https://github.com/ananelson/dexy
 cd dexy
 sudo pip install .
 
@@ -36,7 +36,7 @@ sudo pip install .
 cd ..
 
 ### @export "download-dexy-site"
-git clone http://github.com/ananelson/dexy-site
+git clone https://github.com/ananelson/dexy-site
 cd dexy-site
 
 ### @export "make-sdists"
