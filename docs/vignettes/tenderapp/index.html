@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style type="text/css">
+            {{ pygments['pastie.css'] }}
+        </style>
+    </head>
+    <body>
+        <p>In this example we look at creating a new discussion on tenderapp. For simplicity we will just upload a simple text file without doing any processing on it.</p>
+
+        <p>Here is the .dexy configuration file we will use:</p>
+
+        {{ d['dexy1.json|pyg'] }}
+
+        <p>We have already set up a global config file which defines the API endpoint and API key for our installation. We need a local file named tenderapp.json to provide some information about our new discussion. We need, at a minimum, to provide the title and category permalink for our new discussion.<p>
+
+        <p>You can view the categories available by visiting the <a href="http://dexy.tenderapp.com/discussions">/discussions</a> page of your tender:</p>
+        <a href="discussions.png"><img src="discussions.png" width="600px" /></a>
+
+        <p>or you can use a dexy filter command to list categories via the API:</p>
+
+        {{ d['script.sh|fn|idio|shtmp']['query-categories']['transcript-html'] }}
+
+        <p>We'll use the 'sandbox' category, so here is our tenderapp.json file:</p>
+
+        {{ d['tenderapp.json|pyg'] }}
+
+        <a href="prep.tgz">prep.tgz</a>
+
+        <p>Now we run dexy:</p>
+        {{ d['script.sh|fn|idio|shtmp']['dexy']['transcript-html'] }}
+
+        <p>The URL of our new discussion is printed out when dexy runs, we can also get it from the output returned by the tenderapp API. In this example the jazor command-line json parser is used to extract it, and then we snag a screenshot:</p>
+
+        {{ d['script.sh|fn|idio|shtmp']['screenshot-new-discussion']['transcript-html'] }}
+
+        <p><a href="new-discussion.png"><img src="new-discussion.png" width="600px" /></a></p>
+
+        {{ d['script.sh|fn|idio|shtmp']['comment']['transcript-html'] }}
+
+        <p><a href="new-comment.png"><img src="new-comment.png" width="600px" /></a></p>
+
+        {{ d['script.sh|pyg'] }}
+
+        <p><a href="deleted.png"><img src="deleted.png" width="600px" /></a></p>
+    </body>
+</html>
+
