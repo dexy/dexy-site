@@ -63,6 +63,7 @@ def run_example(name, script_output, run=False):
         controller.log = log
         controller.load_config()
         controller.process_config()
+	controller.virtual_docs = []
         ### @end
         if run:
             for doc in controller.docs:
@@ -70,6 +71,7 @@ def run_example(name, script_output, run=False):
             ### @export "populate-filters"
             Document.filter_list = dexy.introspect.filters(populate_filters_log)
             ### @export "controller-run"
+            [doc.setup() for doc in controller.docs]
             controller.docs = [doc.run() for doc in controller.docs]
             ### @end
         script_output["%s-run" % name] = stdout.getvalue()
