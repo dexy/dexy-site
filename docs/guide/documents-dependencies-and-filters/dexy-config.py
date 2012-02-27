@@ -63,7 +63,7 @@ def run_example(name, script_output, run=False):
         controller.log = log
         controller.load_config()
         controller.process_config()
-	controller.virtual_docs = []
+        controller.virtual_docs = []
         ### @end
         if run:
             for doc in controller.docs:

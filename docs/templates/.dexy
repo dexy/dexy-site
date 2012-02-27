@@ -31,6 +31,6 @@
       "priority" : 100,
       "canonical-name" : "index.html",
       "header" : "_header.html",
-      "footer" : "_footer.html"
+      "footer" : "/_footer.html"
     }
 }

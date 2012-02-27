@@ -1,7 +1,7 @@
 {
     "readme.txt" : {},
     "readme.txt|pandoc|-docbook" : { "args" : { "pandoc" : "--to docbook" } },
-    "readme.txt|pandoc|-docx" : { "ext" : "docx" },
+    "readme.txt|pandoc|-docx" : { "loglevel" : "DEBUG", "ext" : "docx" },
     "readme.txt|pandoc|-epub" : { "ext" : "epub" },
     "readme.txt|pandoc|-odt" : { "ext" : "odt" },
     "readme.txt|pandoc|-org" : { "ext" : "org" },
