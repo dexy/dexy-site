@@ -1,4 +1,4 @@
 {
-  "001.c|cfussy" : { "ignore" : true},
+  "001.c|cfussy" : { "ignore-errors" : true},
   "001f.c|cfussy" : {}
 }
