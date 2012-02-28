@@ -1,0 +1,5 @@
+{
+    "example-url.js|idio|phsecshot" : { "phsecshot" : { "url" : "http://google.com" }},
+    "example-filename.js|idio|phsecshot" : { "inputs" : ["example.html"],  "phsecshot" : { "filename" : "example.html" }},
+    "*.js|idio" : {}
+}

@@ -1,0 +1,11 @@
+{
+    "example.html|phrender" : {
+        "inputs" : ["*.css", "*.png"],
+        "width" : 800
+    },
+    "example.html|phrender|p" : {
+        "inputs" : ["*.css", "*.png"]
+    },
+    "*.css" : {},
+    "example.html" : {}
+}

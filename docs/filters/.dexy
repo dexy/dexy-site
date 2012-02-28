@@ -15,7 +15,7 @@
         }
     },
      "filter-docs.py|fn|py" : {},
-     "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2},
+     "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2, "loglevel" : "DEBUG" },
      "*|pyg" : {
          "except" : ".*\\.(dot|png|regex|pdf|sed|css|bib|jpg)"
      },

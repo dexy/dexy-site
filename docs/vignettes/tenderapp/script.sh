@@ -1,4 +1,5 @@
 ### @export "prep"
+ls
 mv dexy1.json .dexy
 
 ### @export "query-categories"
