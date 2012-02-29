@@ -1,5 +1,6 @@
 {
   "example.tex|fn|jinja|latex" : {"allinputs" : true},
+  "@new-filenames.json|filenames" : { "contents" : null, "inputs" : ["prisoner.R|fn|idio|r|pyg|l"] },
   "*.R|idio|l" : {},
   "*.py|idio|l" : {},
   "*.py|pyg|l" : {},
