@@ -2,5 +2,5 @@
 console.log(document.title);
 
 /// @export "url-bg-color"
-document.getElementById("lga").setAttribute("style", "background-color: purple;");
+document.getElementById("globalWrapper").setAttribute("style", "background-color: purple;");
 

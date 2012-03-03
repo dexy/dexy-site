@@ -13,9 +13,9 @@ fm = HtmlFormatter(lineanchors = "l")
 filter_info = {}
 for k, v in filters.items():
     name = v.__name__
-    source = inspect.getsource(v)
-    html_source = highlight(source, py_lexer, fm)
     if not filter_info.has_key(name):
+        source = inspect.getsource(v)
+        html_source = highlight(source, py_lexer, fm)
         filter_info[name] = {
             'aliases' : v.ALIASES,
             'final' : v.FINAL,

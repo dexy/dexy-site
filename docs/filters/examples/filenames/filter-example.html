@@ -21,7 +21,7 @@
 <p>Here are the generated graphs:</p>
 
 {% for k in sorted(s.inputs()) -%}
-{% if k.endswith(".png") -%}
+{% if k.endswith(".png") and k.startswith("docs/filters/examples/filenames") -%}
 <img src="/{{ k }}" />
 {% endif -%}{% endfor -%}
 

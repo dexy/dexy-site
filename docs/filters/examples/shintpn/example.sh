@@ -1,0 +1,3 @@
+scriptdoesnotexist
+date
+

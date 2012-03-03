@@ -23,5 +23,11 @@
          "allinputs" : true,
          "canonical-name" : "index.html"
      },
+     "index.md|markdown|hd|ft|jinja" : {
+      "allinputs" : true,
+      "priority" : 100,
+      "header" : "_header.html",
+      "footer" : "_footer.html"
+     },
      "_*.html" : {}
 }
