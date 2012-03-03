@@ -1,0 +1,27 @@
+<p>In this example we describe how to create an arbitrary number of new files in a script and have them accessible to Dexy, using the 'filenames' filter.</p>
+
+<p>The filenames filter expects an input which is a JSON object with 2 entries. A list of filenames, and the directory in which those filenames were created. For example:</p>
+
+{{ d['new-filenames.json|filenames|ppjson|pyg'] }}
+
+<p>This file can be created by your script. This example shows one way to accomplish this using R.</p>
+
+<p>We define a function which will generate a graph each time it is called, and return the filename under which the graph was saved.</p>
+
+{{ d['example.R|idio']['graphing-function'] }}
+
+<p>Then we call this function several times using sapply, so we return an array of the generated filenames.</p>
+
+{{ d['example.R|idio']['do-graphs'] }}
+
+<p>We save a JSON dict with this array of filenames, and also the current directory (where the files have been saved.</p>
+
+{{ d['example.R|idio']['save-info'] }}
+
+<p>Here are the generated graphs:</p>
+
+{% for k in sorted(s.inputs()) -%}
+{% if k.endswith(".png") and k.startswith("docs/filters/examples/filenames") -%}
+<img src="/{{ k }}" />
+{% endif -%}{% endfor -%}
+

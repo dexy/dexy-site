@@ -1,0 +1,58 @@
+<p>We can apply JS to a web page specified by a URL:</p>
+
+<pre>
+{{ a['example-url.js|idio|phsecshot']['args']['phsecshot']['url'] }}
+</pre>
+
+<p>First we get the document title:</p>
+
+{{ d['example-url.js|idio']['title'] }}
+
+<p>The result is:</p>
+
+<pre>
+{{ d['example-url.js|idio|phsecshot']['title'] }}
+</pre>
+
+<p>Here is a screenshot of the page at this point:</p>
+
+<img src="examples/phsecshot/example-url--title-screenshot.png" />
+
+<p>Next we modify the page by setting a different background color for the body element:</p>
+
+{{ d['example-url.js|idio']['url-bg-color'] }}
+
+<p>Our next screenshot shows the effect of this:</p>
+
+<img src="examples/phsecshot/example-url--url-bg-color-screenshot.png" />
+
+<p>We can also apply JS to a local HTML file:</p>
+
+<pre>
+{{ a['example-filename.js|idio|phsecshot']['args']['phsecshot']['filename'] }}
+</pre>
+
+<p>Here is the HTML</p>
+
+{{ d['example.html|pyg'] }}
+
+<p>The page starts out looking like this:</p>
+
+<img src="examples/phsecshot/example-filename--initial-screenshot.png" />
+
+<p>Now we add the date:</p>
+
+{{ d['example-filename.js|idio']['date'] }}
+
+<p>We can see this in the screenshot:</p>
+
+<img src="examples/phsecshot/example-filename--date-screenshot.png" />
+
+<p>Now we change the background color of the element:</p>
+
+{{ d['example-filename.js|idio']['bg-color'] }}
+
+<p>And now our screenshot looks like:</p>
+
+<img src="examples/phsecshot/example-filename--bg-color-screenshot.png" />
+

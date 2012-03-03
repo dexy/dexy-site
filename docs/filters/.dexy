@@ -15,13 +15,19 @@
         }
     },
      "filter-docs.py|fn|py" : {},
-     "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2},
+     "filter-example.html|jinja" : { "allinputs" : true, "priority" : 2, "loglevel" : "DEBUG" },
      "*|pyg" : {
          "except" : ".*\\.(dot|png|regex|pdf|sed|css|bib|jpg)"
      },
      "split.html|hd|ft|jinja|split" : {
          "allinputs" : true,
          "canonical-name" : "index.html"
+     },
+     "index.md|markdown|hd|ft|jinja" : {
+      "allinputs" : true,
+      "priority" : 100,
+      "header" : "_header.html",
+      "footer" : "_footer.html"
      },
      "_*.html" : {}
 }
