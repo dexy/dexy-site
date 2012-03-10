@@ -39,7 +39,7 @@ Next we need to give Dexy some instructions about what files we want Dexy to pro
 
 This is [JSON](http://www.json.org/) which is the file format we currently use for writing configuration files for Dexy. In terms of JSON elements, we have an object containing a single key/value pair whose key is "*.txt|jinja" and whose value is another object which happens to be empty, i.e. {}. For now, you don't need to worry too much about this, just type it in exactly as you see it here.
 
-Now we are ready to run dexy! The first time you run dexy you will need to call \verb=dexy setup= first so it can create some directories it needs (this is a safety measure so you don't run Dexy in the wrong directory):
+Now we are ready to run dexy! The first time you run dexy you will need to call `dexy setup` first so it can create some directories it needs (this is a safety measure so you don't run Dexy in the wrong directory):
 {{ d['run-00.sh|idio']['run'] }}
 
 Look to see what new directories have been created and feel free to poke around. Dexy puts some of the finished documents into the output/ directory (the ones it thinks you are most interested in) and all the finished documents into the output-long/ directory (with uglier, but unique, filenames). So, you should now be able to type:
