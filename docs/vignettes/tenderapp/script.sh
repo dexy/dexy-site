@@ -9,7 +9,7 @@ dexy fcmd -alias tenderapp -cmd categories
 dexy setup
 
 ### @export "screenshot-categories"
-screenshot http://dexy.tenderapp.com/discussions dexy--discussions.png
+screenshot -url http://dexy.tenderapp.com/discussions -filename dexy--discussions.png
 
 ### @export "dexy"
 dexy
@@ -17,7 +17,7 @@ dexy
 ### @export "screenshot-new-discussion"
 export NEW_DISCUSSION_URL=`jazor output-long/new-discussion.md-tenderapp.json html_href`
 echo $NEW_DISCUSSION_URL
-screenshot $NEW_DISCUSSION_URL dexy--new-discussion.png
+screenshot -url $NEW_DISCUSSION_URL -filename dexy--new-discussion.png
 
 ### @export "comment"
 NEW_DISCUSSION_HREF=`jazor output-long/new-discussion.md-tenderapp.json href`
@@ -28,10 +28,10 @@ cat tenderapp.json
 
 dexy
 
-screenshot $NEW_DISCUSSION_URL dexy--new-comment.png
+screenshot -url $NEW_DISCUSSION_URL -filename dexy--new-comment.png
 
 export TENDER_API_KEY=`jazor ~/.dexyapis 'tenderapp["api-key"]'`
 dexy fcmd -alias tenderapp -cmd delete_discussion -discussionid $NEW_DISCUSSION_HREF
 
-screenshot $NEW_DISCUSSION_URL dexy--deleted.png
+screenshot -url $NEW_DISCUSSION_URL -filename dexy--deleted.png
 

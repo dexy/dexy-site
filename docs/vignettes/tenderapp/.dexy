@@ -1,6 +1,16 @@
 {
-    "script.sh|fn|idio|shtmp" : { "loglevel" : "DEBUG", "inputs" : ["new-discussion.md", "new-comment.md", "tenderapp.json", "dexy1.json", "dexy2.json"] },
-    "index.html|jinja" : { "allinputs" : true },
-    "*.sh|pyg" : {},
-    "*.json|pyg" : {}
+    "*.json|pyg": {},
+    "*.sh|pyg": {},
+    "index.html|jinja": {
+        "allinputs": true
+    },
+    "script.sh|fn|idio|shtmp": {
+        "inputs": [
+            "new-discussion.md",
+            "new-comment.md",
+            "tenderapp.json",
+            "dexy1.json",
+            "dexy2.json"
+        ]
+    }
 }
