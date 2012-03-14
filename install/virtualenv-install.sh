@@ -2,6 +2,9 @@
 curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.tar.gz
 tar -xf virtualenv-1.7.tar.gz
 
+### @export "install-git"
+apt-get install -y git-core
+
 ### @export "python-version"
 python --version
 
@@ -25,8 +28,8 @@ dexy filters
 echo "=================================================="
 echo "test 1"
 dexy version
-echo "=================================================="
 dexy help
+echo "=================================================="
 
 ### @export "deactivate-virtualenv"
 deactivate
@@ -43,8 +46,8 @@ easy_install dexy
 echo "=================================================="
 echo "test 2"
 dexy version
-echo "=================================================="
 dexy help
+echo "=================================================="
 
 ### @end
 deactivate
@@ -62,8 +65,8 @@ easy_install --upgrade dexy
 echo "=================================================="
 echo "test 3"
 dexy version
-echo "=================================================="
 dexy help
+echo "=================================================="
 
 ### @end
 deactivate
@@ -81,6 +84,56 @@ pip install --upgrade dexy
 echo "=================================================="
 echo "test 4"
 dexy version
-echo "=================================================="
 dexy help
+echo "=================================================="
 
+### @end
+deactivate
+rm -r dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "pip-install-from-git"
+pip install git+https://github.com/ananelson/dexy
+
+### @export "check"
+echo "=================================================="
+echo "test 5"
+dexy version
+dexy help
+echo "=================================================="
+
+### @end
+deactivate
+rm -rf dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "pip-install-from-git-editable"
+pip install -e git://github.com/ananelson/dexy#egg=dexy
+
+### @export "check"
+echo "=================================================="
+echo "test 6"
+dexy version
+dexy help
+echo "=================================================="
+
+### @end
+deactivate
+rm -rf dexy_env
+python virtualenv-1.7/virtualenv.py dexy_env
+source dexy_env/bin/activate
+
+### @export "pip-install-from-git-local-editable"
+git clone https://github.com/ananelson/dexy
+cd dexy
+pip install -e .
+cd ..
+
+### @export "check"
+echo "=================================================="
+echo "test 7"
+dexy version
+dexy help
+echo "=================================================="
