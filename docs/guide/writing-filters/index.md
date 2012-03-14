@@ -159,29 +159,29 @@ Rather than subclassing DexyFilter, you can also subclass any other Dexy filter 
 
 Here is the process method of the SubprocessStdoutFilter class:
 
-{{ d['/source.json']['dexy.filters.stdout_filters.SubprocessStdoutFilter.process'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.stdout_filters.SubprocessStdoutFilter.process']['html-source'] }}
 
 The <code>previous_artifact_filename</code> attribute of the artifact stores the cache file location of the previous artifact's output, which is this artifact's input. This filename is the one that our executable will run on. (The filename is written to the log so you can inspect the file, and even run it manually, which can be useful for troubleshooting.) In the last line, the contents of stdout are passed to the artifact's <code>set_data</code> method.
 
-{{ d['/source.json']['dexy.artifact.Artifact.set_data'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.artifact.Artifact.set_data']['html-source'] }}
 
 Later, Dexy will automatically save the contents of the <code>data_dict</code> in the cache.
 
 The default command string is:
 
-{{ d['/source.json']['dexy.filters.stdout_filters.SubprocessStdoutFilter.command_string_stdout'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.stdout_filters.SubprocessStdoutFilter.command_string_stdout']['html-source'] }}
 
 So, in the simplest cases, you can create a new filter just by subclassing this filter and set some constants, like this:
 
-{{ d['/classes.json']['dexy.filters.stdout_filters.BashSubprocessStdoutFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.stdout_filters.BashSubprocessStdoutFilter']['html-source'] }}
 
 Or this:
 
-{{ d['/classes.json']['dexy.filters.stdout_filters.PythonSubprocessStdoutFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.stdout_filters.PythonSubprocessStdoutFilter']['html-source'] }}
 
 If you need to, you can override the <code>command_string_stdout</code> method if you need to pass arguments in a different order or pass different arguments, for example:
 
-{{ d['/classes.json']['dexy.filters.stdout_filters.CowsaySubprocessStdoutFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.stdout_filters.CowsaySubprocessStdoutFilter']['html-source'] }}
 
 If you created your own custom filter earlier, then try to create another one now by subclassing SubprocessStdoutFilter. Set the EXECUTABLE to be the name of the command you want to call. Remember, this command should just print its output, not write it to a file (the next section deals with programs that write their output to a file).
 
@@ -203,32 +203,32 @@ With some tools, the natural thing to do is to capture STDOUT. With others, it m
 
 Here is the process method of the SubprocessFilter class:
 
-{{ d['/source.json']['dexy.filters.process_filters.SubprocessFilter.process'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.process_filters.SubprocessFilter.process']['html-source'] }}
 
 The default command string is:
 
-{{ d['/source.json']['dexy.filters.process_filters.SubprocessFilter.command_string'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.process_filters.SubprocessFilter.command_string']['html-source'] }}
 
 In this case, the generated content is written directly to the cache under the correct file name, which is available from <code>self.artifact.filename()</code>. The <code>self.artifact.stdout</code> attribute is set to whatever gets written to stdout or stderr, which is going to be debugging or error messages.
 
 Here is a simple filter that just needs constants set:
 
-{{ d['/classes.json']['dexy.filters.subprocess_filters.Ps2PdfSubprocessFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.subprocess_filters.Ps2PdfSubprocessFilter']['html-source'] }}
 
 Here is a filter that overrides the <code>command_string</code> method:
 
-{{ d['/classes.json']['dexy.filters.subprocess_filters.RagelRubySubprocessFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.subprocess_filters.RagelRubySubprocessFilter']['html-source'] }}
 
 You can also do other setup work in the <code>command_string</code> method:
 
-{{ d['/classes.json']['dexy.filters.subprocess_filters.Html2PdfSubprocessFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.subprocess_filters.Html2PdfSubprocessFilter']['html-source'] }}
 
 And, here is a filter that overrides the <code>process</code> method while still taking advantage of several helper methods defined in the SubprocessFilter class:
 
-{{ d['/classes.json']['dexy.filters.subprocess_filters.Pdf2ImgSubprocessFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.subprocess_filters.Pdf2ImgSubprocessFilter']['html-source'] }}
 
 And it, in turn, can be subclassed:
 
-{{ d['/classes.json']['dexy.filters.subprocess_filters.Pdf2JpgSubprocessFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.subprocess_filters.Pdf2JpgSubprocessFilter']['html-source'] }}
 
 </div>

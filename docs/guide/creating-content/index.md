@@ -29,7 +29,7 @@ Dexy has a system of Template Plugins which allow us to easily customize what
 data we want available to our placeholders when we come to write documents.
 Here is the source of the base TemplatePlugin class:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.TemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.TemplatePlugin']['html-source'] }}
 
 Template plugins are very simple classes which implement a run method which
 returns a dictionary of key-value pairs.  The values can be pretty much
@@ -42,11 +42,11 @@ the results into 1 dict. Each TemplateFilter class can then use that dict to
 provide data to the documents which pass through that filter in a process or
 process_text method. The base TemplateFilter just uses string interpolation:
 
-{{ d['/classes.json']['dexy.filters.templating_filters.TemplateFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_filters.TemplateFilter']['html-source'] }}
 
 The JinjaFilter passes the dict to the document template's stream method:
 
-{{ d['/classes.json']['dexy.filters.templating_filters.JinjaFilter']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_filters.JinjaFilter']['html-source'] }}
 
 This means that the different templating systems implemented by Dexy can all
 share the underlying data processing. So, it's easy to switch between
@@ -185,38 +185,38 @@ built-in or custom plugins.
 The PrettyPrinterTemplatePlugin makes pformat available (the version of pretty
 print that prints to a string, rather than stdout):
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.PrettyPrinterTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.PrettyPrinterTemplatePlugin']['html-source'] }}
 
 Use regular expression matching and searching:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.RegularExpressionsTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.RegularExpressionsTemplatePlugin']['html-source'] }}
 
 Make most Python builtins available:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.PythonBuiltinsTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.PythonBuiltinsTemplatePlugin']['html-source'] }}
 
 Makes HTML and LaTeX Pygments stylesheets available:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.PygmentsStylesheetTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.PygmentsStylesheetTemplatePlugin']['html-source'] }}
 
 Lists subdirectories of the directory a document is in:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.SubdirectoriesTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.SubdirectoriesTemplatePlugin']['html-source'] }}
 
 Gives access to variables specified in a dexy config file:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.VariablesTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.VariablesTemplatePlugin']['html-source'] }}
 
 Gives access to globals specified in a dexy config file:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.GlobalsTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.GlobalsTemplatePlugin']['html-source'] }}
 
 Does preprocessing of inputs. Loads JSON into a dict etc. Populates the standard dexy objects:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.InputsTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.InputsTemplatePlugin']['html-source'] }}
 
 Makes the 'clippy' helper available, so you can make it easy for readers to copy/paste text snippets:
 
-{{ d['/classes.json']['dexy.filters.templating_plugins.ClippyHelperTemplatePlugin']['source'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.filters.templating_plugins.ClippyHelperTemplatePlugin']['html-source'] }}
 
 </div>

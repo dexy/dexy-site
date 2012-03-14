@@ -30,7 +30,7 @@
       "allinputs" : true,
       "priority" : 100,
       "canonical-name" : "index.html",
-      "header" : "_header.html",
+      "header" : "/_header.html",
       "footer" : "/docs/_footer.html"
     }
 }
