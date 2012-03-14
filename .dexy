@@ -5,7 +5,6 @@
         }
     },
     "@dexy-source.txt|pydoc" : { "contents" : "dexy" },
-    "dexy-source.py|fn|py" : {},
     "*.R|jinja|r|pyg" : {},
     "*.R|pyg" : {},
     "*.css" : {},

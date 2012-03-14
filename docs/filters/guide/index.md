@@ -20,7 +20,7 @@ That filter was recently added to Dexy because Mediawiki, the software that runs
 
 The DexyFilter class defines a method called 'process' which sets up convenience methods process_text, process_dict and process_text_to_dict which you can implement. This method also shows you what you need to implement if you decide to subclass the 'process' method in your subclass:
 
-{{ d['/dexy-source.txt|pydoc']['dexy']['dexy.dexy_filter.DexyFilter.process'] }}
+{{ d['/dexy-source.txt|pydoc']['dexy.dexy_filter.DexyFilter.process'] }}
 
 In the case of non-binary data, the artifact's data_dict attribute needs to be set to a dict that contains the output. In the case of binary data (such as an image), the binary data needs to be written to the file specified in artifact.filename().
 
