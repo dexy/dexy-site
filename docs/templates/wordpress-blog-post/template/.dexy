@@ -1,0 +1,7 @@
+{
+  "template.md|jinja|markdown|wp" : {
+    "allinputs" : true
+  },
+  "*.py|pyg" : {},
+  "*.py|idio|pycon|pyg" : {}
+}
