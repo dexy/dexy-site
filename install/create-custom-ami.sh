@@ -1,15 +1,13 @@
-UBUNTU_AMI="ami-a7f539ce" # oneiric
-UBUNTU_X64_AMI="ami-bbf539d2" # oneiric
+UBUNTU_AMI="ami-baba68d3"
+
+#INSTANCE_TYPE="m1.medium" # Takes about 60 minutes, costs $0.16
+#INSTANCE_TYPE="m1.large" # Takes about 40 minutes, costs $0.32
+INSTANCE_TYPE="m2.xlarge" # Takes ? minutes, costs $0.45
+#INSTANCE_TYPE="m2.2xlarge" # Takes 27 minutes, costs $0.90
 
 cd ~/.ec2
 source dexy-env.sh
 
-# Create 32 bit AMI
-ec2-run-instances $UBUNTU_AMI -k $EC2_KEYPAIR \
-  --instance-initiated-shutdown-behavior stop \
-  -f ~/dev/dexy-site/install/full-setup-ubuntu.sh
-
-# Create 64 bit AMI
-ec2-run-instances $UBUNTU_X64_AMI -k $EC2_KEYPAIR -t m1.large \
+ec2-run-instances $UBUNTU_AMI -k $EC2_KEYPAIR -t $INSTANCE_TYPE \
   --instance-initiated-shutdown-behavior stop \
   -f ~/dev/dexy-site/install/full-setup-ubuntu.sh

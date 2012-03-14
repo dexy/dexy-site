@@ -10,7 +10,7 @@ function run_script_in_ec2 {
   script_name=${script:0:($script_name_length-3)}
   ami_id=$2
 
-  echo "#!/bin/bash" > $temp_filename
+  echo "#!/bin/bash -v" > $temp_filename
   echo "AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $temp_filename
   echo "AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $temp_filename
   cat $script_dir/_ec2_script_header.sh >> $temp_filename
@@ -32,15 +32,14 @@ function run_script_in_ec2 {
 }
 
 ### @export "amis"
-UBUNTU_AMI="ami-a7f539ce" # oneiric
-CUSTOM_AMI="ami-85cd1dec" # oneiric
-CUSTOM_64_AMI="ami-ebcd1d82" # oneiric
+UBUNTU_AMI="ami-baba68d3"
+CUSTOM_AMI="ami-c0e73ba9"
 ### @end
 
 cd ~/.ec2
 source dexy-env.sh # AWS security credentials
 
 ### @export "run-scripts"
-run_script_in_ec2 build-dexy-site.sh $CUSTOM_64_AMI m1.large
+run_script_in_ec2 build-dexy-site.sh $CUSTOM_AMI m2.2xlarge
 run_script_in_ec2 virtualenv-tests.sh $CUSTOM_AMI t1.micro
 run_script_in_ec2 virtualenv-install.sh $UBUNTU_AMI t1.micro

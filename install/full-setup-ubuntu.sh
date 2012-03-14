@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -v
 
 ### @export "capture-logs"
 exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
@@ -24,9 +24,9 @@ echo "deb http://archive.ubuntu.com/ubuntu $DISTRIB_CODENAME multiverse" >> /etc
 apt-get update # with multiverse
 
 ### @export "sys-installs"
-apt-get install -y gcc make
-apt-get install -y python-setuptools
+apt-get install -y build-essential
 apt-get install -y python-dev
+apt-get install -y python-setuptools
 apt-get install -y python-pip
 apt-get install -y mercurial
 apt-get install -y clang
@@ -34,14 +34,12 @@ apt-get install -y ragel
 apt-get install -y ant
 apt-get install -y jruby
 apt-get install -y jython
-apt-get install -y asciidoc
 apt-get install -y ghostscript
 apt-get install -y graphviz
 apt-get install -y rubygems
 apt-get install -y lua50
 apt-get install -y sloccount
 apt-get install -y ruby1.8-dev
-apt-get install -y texlive-full
 apt-get install -y espeak
 apt-get install -y php5-cli
 apt-get install -y erlang
@@ -62,10 +60,13 @@ apt-get install -y python-scipy
 apt-get install -y python-matplotlib
 apt-get install -y python-imaging
 apt-get install -y ttf-bitstream-vera
+apt-get install -y ttf-freefont
 apt-get install -y cowsay
 apt-get install -y clojure
 apt-get install -y rhino
 apt-get install -y ksh
+apt-get install -y imagemagick
+apt-get install -y libv8
 
 ### @export "preprint"
 apt-get install -y poppler-utils
@@ -82,6 +83,8 @@ gem install --no-rdoc --no-ri RedCloth
 gem install --no-rdoc --no-ri rspec
 gem install --no-rdoc --no-ri gherkin
 gem install --no-rdoc --no-ri cucumber
+gem install --no-rdoc --no-ri jazor
+gem install --no-rdoc --no-ri chef
 
 ### @export "python-installs"
 python -c "import nltk; nltk.download(\"all-corpora\")"
@@ -91,12 +94,22 @@ pip install garlicsim
 pip install garlicsim_lib
 pip install regetron
 pip install ipython
+pip install BeautifulSoup
+pip install cssutils
+pip install pynliner
+pip install ansi2html
 
 ### @export "webpy-installs"
 apt-get install -y python-webpy
 apt-get install -y sqlite3
 apt-get install -y firefox
 pip install selenium
+
+### @export "seewave-installs"
+apt-get install -y pkg-config
+apt-get install -y libglu1-mesa-dev
+apt-get install -y libfftw3-dev
+R -e "install.packages(\"seewave\", repos=\"$CRAN_MIRROR\")"
 
 ### @export "tropo-installs"
 git clone https://github.com/tropo/tropo-webapi-python.git
@@ -120,6 +133,53 @@ cd ..
 
 ### @export "install-pandoc"
 apt-get install -y pandoc
+
+### @export "install-phantomjs"
+apt-get install -y libqt4-dev
+apt-get install -y libqtwebkit-dev
+apt-get install -y qt4-qmake
+git clone git://github.com/ariya/phantomjs.git
+cd phantomjs
+git checkout 1.4.1
+qmake-qt4 && make
+cp bin/phantomjs /usr/local/bin/
+cd ..
+
+### @export "install-texlive-2011"
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+tar -xzvf install-tl-unx.tar.gz
+cd install-tl-*
+touch texlive.profile # blank texlive.profile forces non-interactive mode
+./install-tl -profile texlive.profile
+cd ..
+
+### @export "install-node"
+wget http://nodejs.org/dist/v0.6.12/node-v0.6.12.tar.gz
+tar -xzvf node-v0.6.12.tar.gz
+cd node-v0.6.12/
+./configure
+make && make install
+cd ..
+
+### @export "install-pjsip"
+wget http://www.pjsip.org/release/1.12/pjproject-1.12.tar.bz2
+tar -xjvf pjproject-1.12.tar.bz2
+cd pjproject-1.12/
+./configure
+make && make install
+cd ..
+
+### @export "setup-swapfile"
+# Dexy website site has a lot of files, swapfile avoids 'cannot allocate
+# memory' errors during build
+dd if=/dev/zero of=/swapfile1 bs=1024 count=524288
+mkswap /swapfile1
+chown root:root /swapfile1
+chmod 0600 /swapfile1
+
+### @export "add-paths"
+echo "PATH=$PATH:/var/lib/gems/1.8/bin:/usr/games:/usr/local/texlive/2011/bin/x86_64-linux" >> /etc/environment
+echo "HOME=/home/ubuntu # for erlang" >> /home/ubuntu/.pam_environment
 
 ### @export "shutdown"
 echo "setup completed! :-)"

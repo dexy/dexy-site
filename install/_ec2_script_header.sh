@@ -10,7 +10,3 @@ curl -o s3-bash.tgz http://s3-bash.googlecode.com/files/s3-bash.0.02.tar.gz
 tar -xzvf s3-bash.tgz
 
 TIMESTAMP=`date +%s--%H-%M`
-
-export PATH=$PATH:/var/lib/gems/1.8/bin:/usr/games
-export HOME=/home/ubuntu # for erlang
-
