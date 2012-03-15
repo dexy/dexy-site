@@ -4,6 +4,7 @@
             "global_var" : 123.45
         }
     },
+    "sitemap.md|jinja|markdown|hd|ft" : { "allinputs" : true },
     "@dexy-source.txt|pydoc" : { "contents" : "dexy" },
     "*.R|jinja|r|pyg" : {},
     "*.R|pyg" : {},

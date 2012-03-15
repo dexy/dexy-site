@@ -1,3 +1,4 @@
 {
+    "@ansi2html.css|ansi2html" : {},
     "out.txt|ansi2html" : { "ansi2html" : { "inline" : true }}
 }
