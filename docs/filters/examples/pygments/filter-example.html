@@ -68,8 +68,11 @@ designated file extension.</p>
 {{ d['example.txt|pyg'] }}
 
 <p>For HTML and LaTeX output, you can generate stylesheets using the
-<code>pygmentize</code> command line tool, but there is a shortcut for
-including style definitions directly from jinja. You can just type:</p>
+<code>pygmentize</code> command line tool, but there are some shortcuts for this in dexy.</p>
+
+<p>You can now create a pygments stylesheet by specifying an empty virtual file with .css or .sty extension and passing this through the pygments filter (see .dexy config - virtual files begin with an '@). You can specify the pygments style to use. The generated file is linked {{ a['pygments.css|pyg'].hyperlink('here') }}.</p>
+
+<p>You can also include style definitions directly from jinja. You can just type:</p>
 
 <pre>
 {{ "{{ pygments['pastie.css'] }}" }}
@@ -78,7 +81,7 @@ including style definitions directly from jinja. You can just type:</p>
 <p>or</p>
 
 <pre>
-{{ "{{ pygments['pastie.tex'] }}" }}
+{{ "<< pygments['pastie.tex'] >>" }}
 </pre>
 
 <p>to insert the style definitions for the 'pastie' style in your document. The

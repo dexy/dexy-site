@@ -25,9 +25,10 @@
     {% if "%s/index.html|hd|ft|jinja" % example_key in d.keys() -%}
     <p><a class="small button light" href="{{ example_key }}/">View Example</a></p>
     <p><a class="small button light" href="{{ example_key }}/index.html-src.html">Template Source</a></p>
-    {% else -%}
+    {% elif "%s/example.tex|fn|jinja|latex" % example_key in d.keys() -%}
     <p><a class="small button light" href="{{ example_key }}/example.pdf">Download PDF Example</a></p>
     <p><a class="small button light" href="{{ example_key }}/example.html-src.html">Template Source</a></p>
+    {% else -%}
     {% endif -%}
     <p><a class="small button light" href="{{ example_key }}-dexy-example.tgz">Download Example Files</a></p>
 </div>

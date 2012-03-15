@@ -1,30 +1,33 @@
 {
-    "*.py" : {},
-      "example3.py|pyg|l" : {
-          "pygments" : {
-              "linenos" : true
-          }
-      },
-      "example.txt|pyg" : {
-          "pygments" : {
-              "lexer" : "sqlite3"
-          }
-      },
-      "example3.py|pyg|svg" : {},
-      "example3.py|pyg|pn" : { "final" : true },
-      "example1.py|pyg" : {},
-      "example2.py|pyg" : {
-          "pygments" : {
-              "linenos" : "inline"
-          }
-      },
-      "example3.py|pyg" : {
-          "pygments" : {
-              "anchorlinenos" : true,
-              "lineanchors" : "l",
-              "linenos" : "table",
-              "noclasses" : true,
-              "style" : "manni"
-          }
-      }
+    "*.py": {},
+    "@pygments.css|pyg": { "pygments" : { "style" : "manni" }},
+    "example.txt|pyg": {
+        "pygments": {
+            "lexer": "sqlite3"
+        }
+    },
+    "example1.py|pyg": {},
+    "example2.py|pyg": {
+        "pygments": {
+            "linenos": "inline"
+        }
+    },
+    "example3.py|pyg": {
+        "pygments": {
+            "anchorlinenos": true,
+            "lineanchors": "l",
+            "linenos": "table",
+            "noclasses": true,
+            "style": "manni"
+        }
+    },
+    "example3.py|pyg|l": {
+        "pygments": {
+            "linenos": true
+        }
+    },
+    "example3.py|pyg|pn": {
+        "final": true
+    },
+    "example3.py|pyg|svg": {}
 }
