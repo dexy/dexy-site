@@ -3,7 +3,7 @@ curl -O http://pypi.python.org/packages/source/v/virtualenv/virtualenv-1.7.tar.g
 tar -xf virtualenv-1.7.tar.gz
 
 ### @export "install-git"
-apt-get install -y git-core
+sudo apt-get install -y git-core
 
 ### @export "python-version"
 python --version
@@ -137,3 +137,6 @@ echo "test 7"
 dexy version
 dexy help
 echo "=================================================="
+
+deactivate
+rm -rf dexy_env

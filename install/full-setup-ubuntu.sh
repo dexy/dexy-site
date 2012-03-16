@@ -66,7 +66,7 @@ apt-get install -y clojure
 apt-get install -y rhino
 apt-get install -y ksh
 apt-get install -y imagemagick
-apt-get install -y libv8
+apt-get install -y libv8-dev # don't think we need dev but libv8 isn't resolving
 
 ### @export "preprint"
 apt-get install -y poppler-utils
@@ -124,7 +124,7 @@ R -e "install.packages(\"xtable\", repos=\"$CRAN_MIRROR\")"
 ### @export "install-asciidoc"
 wget http://sourceforge.net/projects/asciidoc/files/asciidoc/8.6.6/asciidoc-8.6.6.tar.gz/download
 mv download asciidoc.tgz
-tar -xzvf asciidoc.tgz
+tar -xzf asciidoc.tgz
 cd asciidoc-8.6.6/
 ./configure
 make
@@ -147,7 +147,7 @@ cd ..
 
 ### @export "install-texlive-2011"
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
-tar -xzvf install-tl-unx.tar.gz
+tar -xzf install-tl-unx.tar.gz
 cd install-tl-*
 touch texlive.profile # blank texlive.profile forces non-interactive mode
 ./install-tl -profile texlive.profile
@@ -155,7 +155,7 @@ cd ..
 
 ### @export "install-node"
 wget http://nodejs.org/dist/v0.6.12/node-v0.6.12.tar.gz
-tar -xzvf node-v0.6.12.tar.gz
+tar -xzf node-v0.6.12.tar.gz
 cd node-v0.6.12/
 ./configure
 make && make install
@@ -163,10 +163,16 @@ cd ..
 
 ### @export "install-pjsip"
 wget http://www.pjsip.org/release/1.12/pjproject-1.12.tar.bz2
-tar -xjvf pjproject-1.12.tar.bz2
+tar -xjf pjproject-1.12.tar.bz2
 cd pjproject-1.12/
 ./configure
 make && make install
+cd ..
+
+### @export "install-latest-pygments"
+hg clone https://bitbucket.org/birkenfeld/pygments-main
+cd pygments-main
+pip install -e .
 cd ..
 
 ### @export "setup-swapfile"
