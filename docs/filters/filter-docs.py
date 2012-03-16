@@ -8,7 +8,7 @@ import json
 filters = dexy.introspect.filters()
 
 py_lexer = PythonLexer()
-fm = HtmlFormatter(lineanchors = "l")
+fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 
 filter_info = {}
 for k, v in filters.items():

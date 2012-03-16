@@ -61,8 +61,5 @@
     },
     "@webpy-dexy-example.tgz|tgzdir" : {
         "dir" : "webpy"
-    },
-    "@static-website-example.tgz|tgzdir" : {
-        "dir" : "static-website"
     }
 }
