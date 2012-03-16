@@ -14,7 +14,7 @@ You can also use easy_install:
 
 {{ d['virtualenv-install.sh|idio']['easy-install-dexy'] }}
 
-If you are new to Python and pip/setuptools, please read the section [New to Python](#new-to-python) first.
+If you are new to Python and pip/setuptools, please read the section [New to Python](#new-to-python) first. [Here is a discussion on StackOverflow about pip vs. easy_install.](http://stackoverflow.com/questions/3220404/why-use-pip-over-easy-install)
 
 ### Upgrading
 
