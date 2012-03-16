@@ -36,7 +36,7 @@ def user_data(
     AWS_SECRET_ACCESS_KEY="%(aws_secret_access_key)s"
     TIMESTAMP=%(timestamp)s
     FOLDER_NAME="/dexy-builds/$TIMESTAMP--%(script_name)s--%(ami_id)s"
-    SCRIPT_NAME="%(script_name)s"
+    export SCRIPT_NAME="%(script_name)s"
 
     cd /home/ubuntu
     echo -n $AWS_SECRET_ACCESS_KEY > secret.txt
