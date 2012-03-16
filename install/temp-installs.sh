@@ -27,6 +27,7 @@ cd pjproject-1.12/
 ./configure
 make
 sudo make install
+sudo cp pjsip-apps/bin/pjsua* /usr/local/bin/pjsua
 cd ..
 
 ### @export "install-latest-pygments"
