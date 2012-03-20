@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <title>Code Journal</title>
+
+        <link href="/css/zp-compressed.css" type="text/css" media="screen, print" rel="stylesheet" />
+        <link href="/css/zp-print.css" type="text/css" media="print" rel="stylesheet" />
+
+        <style type="text/css">
+            .sidebar {
+                font-size: 11px;
+            }
+            p.intro {
+                font-style: bold;
+            }
+
+            .content .padding {
+                padding: 0 36px 0 0;
+            }
+
+            .item .padding {
+                padding: 0 12px 0 0;
+            }
+
+            .list-item h2 {
+                margin: 0;
+                line-height: 27px;
+            }
+
+            {{ pygments['pastie.css'] }}
+        </style>
+    </head>
+    <body>
+
+        <div class="zp-wrapper">
+            <div class="zp-70 content">
+                <div class="padding">
+                    {{ page_content }}
+
+                </div>
+            </div>
+            <div class="zp-30 sidebar">
+                <h2>List of Documents</h2>
+                <ul>
+                    {{ artifacts.keys() }}
+                    {% if False -%}
+                    {% for dir, artifact_keys in sitemap.iteritems() -%}
+                    {% for key in artifact_keys -%}
+                    {% set artifact = artifacts[key] -%}
+                    <li>{{ artifact.hyperlink() }}</li>
+                    {% endfor -%}
+                    {% endfor -%}
+                    {% endif -%}
+                </ul>
+            </div>
+        </div>
+
+    </body>
+</html>

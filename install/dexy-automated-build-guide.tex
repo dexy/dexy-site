@@ -47,27 +47,12 @@ The sources and scripts for this guide are part of the dexy-site repository \url
 
 The instructions in this document, such as the install script in the previous section, are validated by running them on virtual machines within Amazon's EC2 infrastructure, and then saving the output to S3.
 
-\noindent The following convenience function is called to run scripts on EC2 instances:
-<< d['run-builds.sh|idio|l']['function'] >>
+\noindent A python script uses boto to launch EC2 instances.
 
-This function captures the output from each script and uploads it, along with any generated artifacts, to S3.
+<< d['run-builds.py|pyg|l'] >>
 
-\noindent This function is called as follows:
-<< d['run-builds.sh|idio|l']['run-scripts'] >>
-
-So we pass the name of the script, the AMI identifier, and the instance size we
-wish to use. The \verb=run_script_in_ec2= function will start the instance and
-pass the script we wish to run, and it makes sure that the result of running
-our script will be saved in a log file for later.
-
-The contents of \verb=_ec2_script_header.sh= look like:
-<< d['_ec2_script_header.sh|idio|l'] >>
-
-And the \verb=_ec2_script_footer.sh= looks like:
-<< d['_ec2_script_footer.sh|idio|l'] >>
-
-The AMIs currently in use are:
-<< d['run-builds.sh|idio|l']['amis'] >>
+The \verb=_ec2_script_footer.sh= looks like:
+<< d['_ec2_script_footer.sh|pyg|l'] >>
 
 The custom AMI is private, however it can be replicated by running an install
 script on the Ubuntu AMI, as per this example:
@@ -112,7 +97,7 @@ Recall that our script specified the instance should be stopped, not terminated,
 
 The \verb|build-dexy-site.sh| script installs Dexy from source and generates the Dexy website, which also acts as a comprehensive test of dexy filters.
 
-<< d['build-dexy-site.sh|pyg|l'] >>
+<< d['dexy-site-environment.sh|pyg|l'] >>
 
 \end{document}
 

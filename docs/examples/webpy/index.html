@@ -6,16 +6,16 @@
 {{ d['/install/full-setup-ubuntu.sh|idio']['webpy-installs'] }}
 
 <p>Because we are working with a remote server, we need to create a virtual display which will allow firefox to run and us to take screenshots:</p>
-{{ d['/install/build-dexy-site.sh|idio']['virtual-display'] }}
+{{ d['/install/dexy-site-environment.sh|idio']['virtual-display'] }}
 
 <p>We download and start running a selenium server to allow us to automate a web browser:</p>
-{{ d['/install/build-dexy-site.sh|idio']['start-selenium'] }}
+{{ d['/install/dexy-site-environment.sh|idio']['start-selenium'] }}
 
 <p>Here is the database schema which will back our application:</p>
 {{ d['schema.sql|pyg'] }}
 
 <p>We load the schema into a database and start the web.py server:</p>
-{{ d['/install/build-dexy-site.sh|idio']['start-webpy'] }}
+{{ d['/install/dexy-site-environment.sh|idio']['start-webpy'] }}
 
 <p>Now that we are set up, we can run our code and take screenshots:</p>
 {{ d['take-screenshots.py|idio']['imports'] }}

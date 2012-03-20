@@ -35,7 +35,7 @@
         "pygments" : { "cmyk" : true },
         "exact-inputs" : [
             "install/full-setup-ubuntu.sh|idio|l",
-            "install/build-dexy-site.sh|idio|l",
+            "install/dexy-site-environment.sh|idio|l",
             "docs/examples/webpy/schema.sql|pyg|l",
             "docs/examples/webpy/take-screenshots.py|idio|l",
             "docs/examples/webpy/take-screenshots.py|fn|py",

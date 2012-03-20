@@ -41,7 +41,7 @@
         "footer" : "_footer.html",
         "exact-inputs" : [
             "install/full-setup-ubuntu.sh|idio",
-            "install/build-dexy-site.sh|idio"
+            "install/dexy-site-environment.sh|idio"
         ]
     },
     "intro.html|jinja" : {

@@ -1,125 +1,16 @@
-<div class="grid_12">
-    <!--Intro Section-->
-    <div class="aligncenter">
-        <h2>The Most Powerful, Flexible Documentation Tool Ever.</h2>
-    </div>
-    <div class="grid_6 alpha text-justify">
-        <p>Dexy was created out of a desire to unify software documentation and scientific document automation, resulting in a tool that is better at both of these than anything that has gone before. With Dexy you have total power and control over what and how you write, with powerful tools to help you manage your data and code.</p>
-    </div>
-    <div class="grid_6 omega text-justify">
-        <p>Dexy lets you to continue to use your favorite documentation tools, while getting more out of them than ever, and being able to combine them in new and powerful ways. With Dexy you can bring your scripting and testing skills into play in your documentation, bringing project automation and integration to new levels.
-        </p>
-    </div>
-</div>
-<!--End Grid-->
-<div class="clear"></div>
-<div class="divider">
-    <h5><span>Feature Overview</span></h5>
-    <!--Titled Divider-->
-</div>
-<div class="grid_3">
-    <div class="pricing">
-        <!--Pricing Container 100% width to container-->
-        <div class="white">
-            <!--Add White Border-->
-            <h4 class="color">Coding</h4>
-            <!--Title-->
-            <ul>
-                <!--Features-->
-                <li title="We haven't yet found a language that Dexy can't support.">Any Language</li>
-                <li title="Every document can have as many, or as few, languages as you want.">Multiple Languages</li>
-                <li title="Present raw code, highlighted, transcripts, output, or anything else.">Multiple Modes</li>
-                <li title="Write custom filters in minutes to control exactly how Dexy treats your language.">Add More Easily</li>
-                <li> <a href="#coding" class="button medium dark">Read More</a></li>
-                <!--Call to Action Button-->
-            </ul>
-        </div>
-    </div>
-</div>
-<!--End Grid-->
-<div class="grid_3">
-    <div class="pricing">
-        <!--Pricing Container 100% width to container-->
-        <div class="white">
-            <!--Add White Border-->
-            <h4 class="color">Writing</h4>
-            <!--Title-->
-            <ul>
-                <!--Features-->
-                <li title="Well, anything that can be compiled or scripted. Nasty proprietary binary formats, maybe not.">Any Markup</li>
-                <li title="Each document in your project can be in any markup, no all-or-nothing choices.">Multiple Markups</li>
-                <li title="Compose documents from other elements, re-use content and use the right tool for each paragraph.">Mix &amp; Match</li>
-                <li title="Write custom filters in minutes to support new formats or customize behavior.">Add More Easily</li>
-                <li> <a href="#writing" class="button medium dark">Read More</a></li>
-                <!--Call to Action Button-->
-            </ul>
-        </div>
-    </div>
-</div>
-<!--End Grid-->
-<div class="grid_3">
-    <div class="pricing">
-        <!--Pricing Container 100% width to container-->
-        <div class="white">
-            <!--Add White Border-->
-            <h4 class="color">Templates</h4>
-            <!--Title-->
-            <ul>
-                <!--Features-->
-                <li title="Templating is 'just another filter'. No lock-in to any template system.">Any Template</li>
-                <li title="Powerful and flexible access to the dependency graph.">Multiple Inputs</li>
-                <li title="Default jinja filter lets you show off code, display a chart, or automate a single number.">Flexible Display</li>
-                <li title="Write custom filters to let you template your documents exactly how you want.">Add More Easily</li>
-                <li> <a href="#templates" class="button medium dark">Read More</a></li>
-                <!--Call to Action Button-->
-            </ul>
-        </div>
-    </div>
-</div>
-<!--End Grid-->
-<div class="grid_3">
-    <div class="pricing">
-        <!--Pricing Container 100% width to container-->
-        <div class="white">
-            <!--Add White Border-->
-            <h4 class="color">Integration</h4>
-            <!--Title-->
-            <ul>
-                <!--Features-->
-                <li title="Take input from any source, publish output to any platform.">Any API</li>
-                <li title="Document code, present the results of your analysis, or do both at once.">Code &amp; Science</li>
-                <li title="Share data between scripts, track provenance, format results.">Data Management</li>
-                <li title="Filters are 'just code' and can do anything with your content.">Do More Easily</li>
-                <li> <a href="#integration" class="button medium dark">Read More</a></li>
-                <!--Call to Action Button-->
-            </ul>
-        </div>
-    </div>
-</div>
-<!--End Grid-->
-<div class="clear"></div>
-<div class="divider" id="coding">
-    <h5><span>Coding</span></h5>
-    <!--Titled Divider-->
-</div>
-<div class="grid_12">
-    <p>The challenge with documenting code is getting your code or your results into your document. With most tools, you need to copy and paste, or type your code directly in to your document. This is cumbersome and difficult, as anyone who has tried to type Python into a WordPress blog post can tell you. It also means that you have no way to test your code once it is in your document. It is dead code, and the only way to find typos or errors is with very careful proofreading (usually done by your customers).<p>
-    <p>Dexy takes a different approach. With Dexy you type your code into normal code files, Python in .py files, Java in .java files. Then you bring your code into your document, running it through various filters to get the effect you want. You can modify your code at any time and rebuild your document, and all the references will be updated.</p>
-    <p>Filters give you amazing flexibility. For example, you can show off raw code:
-<pre>
-{{ d['calculation.py'] }}
+['calculation.py'] }}
 </pre>
     <p>Or you can show off code with syntax highlighting</p>
-    {{ d['calculation.py|pyg'] }}
+    {{ d('calculation.py|pyg') }}
     <br />
     <p>You can run the code through an interpreter, showing input and output (great for writing tutorials):</p>
-    {{ d['calculation.py|pycon|pyg'] }}
+    {{ d('calculation.py|pycon|pyg') }}
     <br />
     <p>You can just show off the output:</p>
 <pre>
-{{ d['calculation.py|py'] }}
+{{ d('calculation.py|py') }}
 </pre>
-    {% set results = d['calculation.py|pycon-vars.json'] -%}
+    {% set results = d('calculation.py|pycon-vars.json') -%}
     <p>Or you can work the results directly in to your document.
 
 
@@ -139,31 +30,31 @@
         </tr>
         <tr>
             <th>Raw</th>
-                    <td><pre>{{ d['hello.R'] | escape }}</pre></td>
-                    <td><pre>{{ d['hello.c'] | escape }}</pre></td>
-                    <td><pre>{{ d['hello.java'] | escape }}</pre></td>
+                    <td><pre>{{ d('hello.R') | escape }}</pre></td>
+                    <td><pre>{{ d('hello.c') | escape }}</pre></td>
+                    <td><pre>{{ d('hello.java') | escape }}</pre></td>
                     </tr>
                     <tr>
                         <th>Syntax Highlighting</th>
-                        <td>{{ d['hello.R|pyg'] }}</td>
-                        <td>{{ d['hello.c|pyg'] }}</td>
-                        <td>{{ d['hello.java|pyg'] }}</td>
+                        <td>{{ d('hello.R|pyg') }}</td>
+                        <td>{{ d('hello.c|pyg') }}</td>
+                        <td>{{ d('hello.java|pyg') }}</td>
                     </tr>
                     <tr>
                         <th>Interpreter Output</th>
-                        <td>{{ d['hello.R|r|pyg'] }}</td>
+                        <td>{{ d('hello.R|r|pyg') }}</td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
                         <th>Output</th>
-                    <td><pre>{{ d['hello.R|routbatch'] }}</pre></td>
-                    <td><pre>{{ d['hello.c|c'] }}</pre></td>
-                    <td><pre>{{ d['hello.java|java'] }}</pre></td>
+                    <td><pre>{{ d('hello.R|routbatch') }}</pre></td>
+                    <td><pre>{{ d('hello.c|c') }}</pre></td>
+                    <td><pre>{{ d('hello.java|java') }}</pre></td>
                     </tr>
                 </table>
                 <!-- Check it out! We can even retrieve the compiler warnings for the C code and print them in our document (using the more verbose clang compiler):
-                {{ a['hello.c|clang'].stdout }}
+                {{ a('hello.c|clang').stdout }}
                 -->
                 <br />
                 <p>You can <a href="index.html-src.html#features-index.html-pyg---133">view the source</a> for this page to see the different filters used in that table.</p>

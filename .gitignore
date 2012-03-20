@@ -5,3 +5,4 @@ output-long/
 *.sw*
 *.pyc
 *.un*
+*.sqlite3

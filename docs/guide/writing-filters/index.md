@@ -1,6 +1,8 @@
 <div class="grid_8"><!-- keep things narrow and readable -->
 
-This document is about writing your own Dexy filters. We'll start with a very simple example, then talk in depth about filter design. Please update to Dexy 0.5.1 before trying these examples (if 0.5.1 isn't out yet, then you will need to install Dexy from source and you should do a 'git pull' every time you start working to get the latest source code).
+This document is about writing your own Dexy filters.
+
+[TOC]
 
 ### Simple Example
 

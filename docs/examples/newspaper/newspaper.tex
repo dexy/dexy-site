@@ -212,11 +212,11 @@ Automating Screenshots with Dexy
 
 And we run it like this, setting the DISPLAY variable correspondingly:
 
-<< d['/install/build-dexy-site.sh|idio|l']['virtual-display'] >>
+<< d['/install/dexy-site-environment.sh|idio|l']['virtual-display'] >>
 
 We download the standalone selenium server and start it, this is what will allow us to automate firefox:
 
-<< d['/install/build-dexy-site.sh|idio|l']['start-selenium'] >>
+<< d['/install/dexy-site-environment.sh|idio|l']['start-selenium'] >>
 
 Next we install some software needed for running our web application:
 
@@ -226,7 +226,7 @@ The web.py framework includes some tools for working with databases, we will use
 << d['/docs/examples/webpy/schema.sql|pyg|l'] >>
 
 We load the schema into a database and start the web.py server:
-<< d['/install/build-dexy-site.sh|idio|l']['start-webpy'] >>
+<< d['/install/dexy-site-environment.sh|idio|l']['start-webpy'] >>
 
 Now that we are set up, we can run our code and take screenshots:
 << d['/docs/examples/webpy/take-screenshots.py|idio|l']['imports'] >>

@@ -4,8 +4,9 @@
             "global_var" : 123.45
         }
     },
-    "sitemap.md|jinja|markdown|hd|ft" : { "allinputs" : true },
+    "sitemap.md|markdown|ws" : { "allinputs" : true },
     "@dexy-source.txt|pydoc" : { "contents" : "dexy" },
+    "@dexy-tests.txt|pytest" : { "contents" : "dexy.tests" },
     "*.R|jinja|r|pyg" : {},
     "*.R|pyg" : {},
     "*.css" : {},
@@ -47,29 +48,19 @@
     ".dexy|dexy" : {},
     ".dexy|ppjson|pyg" : {},
     "_*.html" : { "final" : false },
-    "index.html|hd|ft|jinja" : {
+    "index.html|jinjajit|ws" : {
       "allinputs" : true,
-      "priority" : 100,
-      "header" : "_header.html",
-      "footer" : "_footer.html"
+      "priority" : 100
     },
-    "index.md|markdown|hd|ft|jinja" : {
+    "index.md|markdown|jinjajit|ws" : {
       "allinputs" : true,
-      "priority" : 100,
-      "header" : "_header.html",
-      "footer" : "_footer.html"
-    },
-    "mailer.php|hd|ft" : {
-      "inputs" : ["_*.html"],
-      "final" : true,
-      "header" : "_header.html",
-      "footer" : "_footer.html"
+      "priority" : 100
     },
     "complete.html" : {
       "comment" : "Use complete.html as the name for files which provide their own HEAD and don't need a header and footer, or any dynamic content.",
       "canonical-name" : "index.html"
     },
-    "home.html|jinja" : {
+    "home.html|jinjajit" : {
       "canonical-name" : "index.html",
       "inputs" : ["_*.html"]
     }
