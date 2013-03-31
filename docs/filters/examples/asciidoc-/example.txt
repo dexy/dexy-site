@@ -1,9 +1,0 @@
-AsciiDoc User Guide
-===================
-
-Introduction
-------------
-The AsciiDoc format is a useful presentation format in its own right:
-AsciiDoc markup is simple, intuitive and as such is easily proofed and
-edited.
-

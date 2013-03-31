@@ -1,4 +1,0 @@
-This is a template.
-
-Let's see what's in $d
-

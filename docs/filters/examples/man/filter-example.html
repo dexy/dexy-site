@@ -1,9 +1,0 @@
-<p>We specify some package names in a text file, separated by spaces or lines:</p>
-{{ d['example.txt'] }}
-
-<p>Here are the man pages returned (truncated to save space):</p>
-
-{% for name, man in d['example.txt|man'].iteritems() -%}
-<h4>{{ name }}</h4>
-{{ man[0:500] }}
-{% endfor -%}

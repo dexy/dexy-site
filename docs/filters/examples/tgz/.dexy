@@ -1,3 +1,0 @@
-{
-    "@archive.tgz|tgz" : { "inputs" : ["hello.txt|jinja"] }
-}

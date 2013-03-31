@@ -1,4 +1,0 @@
-{
-    "*.regex" : {},
-    "example.regex|regetron" : { "inputs" : ["*.txt"] }
-}

@@ -1,8 +1,0 @@
-{
-    "hello.txt|cowthink" : {},
-    "@borg.txt|cowthink" : { "contents" : "You will be assimilated.", "args" : { "cowthink" : "-b" }},
-    "@dead.txt|cowthink" : { "contents" : "You didn't use canned salmon, did you?", "args" : { "cowthink" : "-d" }},
-    "@tongue.txt|cowthink" : { "contents" : "I vant to suck your blood", "args" : { "cowthink" : "-T vv" }},
-    "youthful.txt|jinja|cowthink" : { "args" : { "cowthink" : "-y" }},
-    "*.html|jinja" : {"allinputs" : true}
-}

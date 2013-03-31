@@ -1,9 +1,0 @@
-{% for artifact_key, rows in csv_rows|dictsort -%}
-Rows in {{ artifact_key }}:
-{% for row in rows -%}
-{{ row }}
-{% for k, v in row|dictsort -%}
-{{ k }} : {{ row[k] }}
-{% endfor -%}
-{% endfor -%}
-{% endfor -%}

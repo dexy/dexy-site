@@ -1,5 +1,0 @@
-{
-    "*.py|py|ps2pdf" : {
-        "final" : true
-    }
-}

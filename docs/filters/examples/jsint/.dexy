@@ -1,4 +1,0 @@
-{
-    "*.js|idio|jsint" : {},
-    "*.js|jsint" : {}
-}

@@ -1,5 +1,0 @@
-call sip:9991429732@sip.tropo.com
-send 1
-sleep 6
-send 3
-hangup

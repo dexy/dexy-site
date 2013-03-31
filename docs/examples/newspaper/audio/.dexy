@@ -1,4 +1,0 @@
-{
-    "pitch.txt" : {},
-    "plot.R|fn|idio|rint|pyg|l" : { "inputs" : ["pitch.txt|espeak"] }
-}

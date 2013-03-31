@@ -1,7 +1,0 @@
-{
-    "example.html|wkhtmltopdf" : {
-        "inputs" : ["*.css", "*.png"]
-    },
-    "*.css" : {},
-    "example.html" : {}
-}

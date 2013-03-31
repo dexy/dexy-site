@@ -1,7 +1,0 @@
-{% for x, y in foo -%}
-two times {{ x }} is {{ y }}
-{% endfor -%}
-
-double {{ 5 }} is {{ double(5) }}
-triple {{ 5 }} is {{ triple(5) }}
-

@@ -1,7 +1,0 @@
-{
-    "javadoc-data.json|javadoc" : {},
-    "javadoc-data.json|javadoc|ppjson|pyg" : {},
-    "javadoc-data.json|ppjson|pyg" : {},
-    "filter-example.html|jinja" : {"allinputs" : true},
-    "*|pyg" : { "except" : ".*\\.jar" }
-}

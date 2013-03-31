@@ -1,5 +1,0 @@
-{
-    "example.R|fn|r" : {},
-    "example.R|idio" : {},
-    "@new-filenames.json|filenames|ppjson|pyg" : { "contents" : null, "inputs" : ["example.R|fn|r"] }
-}

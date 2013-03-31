@@ -1,3 +1,0 @@
-{
-  "*.c|clanginput" : { "ifinput" : "%-input.txt"}
-}

@@ -1,3 +1,0 @@
-{
-    "example-with-input.sh|shinput" : { "inputs" : ["input.txt"] }
-}

@@ -1,7 +1,0 @@
-{
-    "$globals" : {
-        "jinjavars" : {
-         "global_var" : "321.98"
-        }
-    }
-}

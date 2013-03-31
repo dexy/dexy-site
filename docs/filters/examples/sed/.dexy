@@ -1,5 +1,0 @@
-{
-    "@virtual.sed|sed" : { "inputs" : ["input.txt"], "contents" : "s/make/dexy/" },
-    "example.sed" : {},
-    "example.sed|sed" : { "inputs" : ["input.txt"] }
-}

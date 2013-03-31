@@ -1,4 +1,0 @@
-{
-    "example.tex|bib" : { "inputs" : ["mybib.bib"] },
-    "example.tex|bib|latex" : { "inputs" : ["mybib.bib"] }
-}

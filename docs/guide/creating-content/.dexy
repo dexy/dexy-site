@@ -1,8 +1,0 @@
-{
-    "interpolation-example.py|py" : {},
-    "*.py|idio" : {},
-    "*.py|pyg" : {},
-    "*.txt" : {},
-    "*.csv" : {},
-    "run-ex*.py|fn|py" : {}
-}

@@ -1,5 +1,0 @@
-{
-  "*.html|jinja" : {"allinputs" : true},
-  "*.py|pyg" : {},
-  "*.py|py" : {}
-}

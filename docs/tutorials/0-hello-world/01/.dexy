@@ -1,4 +1,0 @@
-{
-  "*.txt|jinja" : {},
-  "hello.py|py" : {}
-}

@@ -1,5 +1,0 @@
-{
-    "hello.txt" : { "inputs" : ["hello.py", "hello.R"]},
-    "hello.py" : {},
-    "hello.R" : {}
-}

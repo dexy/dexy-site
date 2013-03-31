@@ -1,7 +1,0 @@
-{
-  "*.cpp|cpp" : { "ifnoinput" : "%-input.txt|dexy"},
-  "*.cpp|pyg" : {},
-  "CppHandler-example.html|jinja" : {
-    "inputs" : ["example.cpp|cpp", "example.cpp|pyg"]
-  }
-}

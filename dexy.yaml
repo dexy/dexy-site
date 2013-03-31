@@ -1,0 +1,123 @@
+filter-docs:
+    - filters/split.html|jinja|split:
+       - canonical-name: filters/index.html
+       - filters
+    - filters/htaccess.txt|jinja:
+       - canonical-name: filters/.htaccess 
+       - filters
+
+filters:
+    - filters/filter-docs.py|py:
+        - py:
+             add-new-files: True
+ 
+dexy-pydoc:
+    - modules.txt|pydoc:
+        - contents: 'dexy'
+        - version: 1
+
+script:test-install:
+    - disabled: True
+    - ami.json|ec2launch:
+        - contents: '{"ami" : "ami-7539b41c"}'
+        - ec2launch:
+            ec2_keypair: keylime
+            instance_type: m1.small
+    - guide/code/install.sh|ssh
+    - terminate.sh|ec2terminate:
+        - contents: " "
+
+assets:
+    - .png
+    - .jpg
+    - .css
+    - .js
+    - .gif
+    - .zip
+    - .tar.gz
+    - .tgz
+
+tex-assets:
+    - guide/pastie.sty|pyg:
+        - contents: ' '
+        - version: 1
+        - pyg: { 'ext' : '.sty' }
+
+code:
+    - .txt
+    - .sh|pyg|h
+    - .sh|pyg|l
+    - .sh|idio|h
+    - .sh|idio|l
+    - .py|pyg|h
+    - .py|pyg|l
+    - .py|idio|h
+    - .py|idio|l
+    - .yaml|pyg|h
+    - .yaml|pyg|l
+    - .yaml|idio|h
+    - .yaml|idio|l
+    - guide/code/*/*.sh|idio|shint|pyg|h:
+        - except: "install"
+        - shint: 
+            add-new-files : True
+            exclude-add-new-files: ["webapp/.cache", "journal/", 'website/']
+            additional-doc-filters: ['idio|h', 'pyg|h']
+    - guide/code/*/*.sh|idio|shint|pyg|l:
+        - except: "install"
+        - shint: 
+            add-new-files : True
+            exclude-add-new-files: ["webapp/.cache", "journal/", 'website/']
+            additional-doc-filters: ['idio|l', 'pyg|l']
+
+features-inputs:
+    - features/hello.R
+    - features/hello.R|pyg
+    - features/hello.R|r
+    - features/hello.R|rintbatch|pyg
+    - features/hello.R|routbatch
+    - features/hello.R|r|pyg
+    - features/hello.c
+    - features/hello.cpp|cpp
+    - features/hello.c|c
+    - features/hello.c|clang
+    - features/hello.c|gcc
+    - features/hello.c|pyg
+    - features/hello.java
+    - features/hello.java|pyg
+    - features/hello.py|py
+    - features/hello.py|pycon
+    - features/hello.py|pycon|pyg
+    - features/hello.rb|rb
+    - features/hello-jruby.rb|jruby
+    - features/hello-jruby.rb|jirb|pyg
+    - features/hello.java|java
+    - features/calculation.py|pycon|pyg
+    - features/calculation.py|py
+    - features/calculation.py
+    - features/calculation.py|pycon:
+            - pycon: { record_vars: True }
+
+
+content:
+    - home.html|jinja|htmlsections:
+        - ws-template: templates/_home.html
+        - canonical-name: index.html
+    - "*/index.html|yamlargs|jinja":
+        - features-inputs
+        - code
+    - .rst|yamlargs|jinja|rstbody:
+        - code
+        - dexy-pydoc
+        - .rst
+    - .rst|yamlargs|jinja|rst|latex:
+        - rst: { stylesheet : 'fancyvrb,pastie.sty' }
+        - code
+        - tex-assets
+        - dexy-pydoc
+        - .rst
+    - guide/the-dexy-guide.rst|jinja|rst|latex:
+        - rst: { stylesheet : 'fancyvrb,savetrees,pastie.sty' }
+        - code
+        - tex-assets
+        - .rst

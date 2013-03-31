@@ -1,8 +1,0 @@
-{
-  "hello.txt|jinja" : {
-    "inputs" : ["hello.py|py", "hello.py"]
-  },
-  "hello.py|py" : {},
-  "hello.py" : {}
-}
-
