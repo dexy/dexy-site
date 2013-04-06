@@ -1,7 +1,9 @@
 artifacts/
+.cache/
 logs/
 output/
 output-long/
+output-site/
 *.sw*
 *.pyc
 *.un*

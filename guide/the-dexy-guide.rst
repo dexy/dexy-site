@@ -6,13 +6,11 @@ The Dexy Guide
 Table Of Contents
 =================
 
-.. contents:: :depth: 1
+.. contents:: :depth: 2
 
-{% include "introduction.rst" %}
 {% include "quickstart.rst" %}
 {% include "installing-dexy.rst" %}
 {% include "getting-started.rst" %}
-{% include "basic-concepts.rst" %}
 {% include "command-line-interface.rst" %}
 {% include "configuring-dexy.rst" %}
 {% include "filters.rst" %}

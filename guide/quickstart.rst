@@ -1,8 +1,12 @@
-{% from "dexy.jinja" import code, codes, ext, hl with context %}
 Quickstart
 ==========
 
+{% from "dexy.jinja" import code, codes, ext, hl with context %}
+
 This section contains examples of using dexy, with explanations of the features being used.
+
+To install dexy do `pip install dexy`. If you need more help with installation,
+consult the `installation guide </guide/install/>`__.
 
 .. contents:: :local:
 
@@ -55,8 +59,11 @@ Check out the `dexy help` command for more commands and for learning about avail
 
 {{ codes('code/quickstart/tips.sh|idio|shint|pyg', 'help') }}
 
-Documenting a Web App
----------------------
+The `Command Line Interface </guide/command-line-interface/>`__ section has
+more details on the various dexy commands.
+
+Documenting a Web App TBD
+-------------------------
 
 We create a simple web application (using the `web.py` framework) and show how we can use dexy to create different types of documentation.
 
@@ -72,8 +79,8 @@ Sqlite:
 
 {{ codes('code/quickstart/webapp/dexy.yaml|idio', 'screenshots') }}
 
-Writing up Simulation Research
-------------------------------
+Writing up Simulation Research TBD
+----------------------------------
 
 In this example we write a simple python-based simulation and then analyze the generated data using R.
 

@@ -1,26 +1,43 @@
-{% from "dexy.jinja" import code, codes with context %}
 Installing Dexy
 ===============
+
+{% from "dexy.jinja" import code, codes with context %}
 
 .. contents:: :local:
 
 Standard Installation
 ---------------------
 
-`Dexy <http://pypi.python.org/pypi/dexy>`_ is a Python package (Python 2.6-2.7 only) and can be installed in the usual way, e.g. `pip install dexy`. If that makes sense you can skip the rest of this section, which explains in detail how to install Python and Dexy.
+`Dexy <http://pypi.python.org/pypi/dexy>`_ is a Python package (Python 2.6-2.7
+only) and can be installed in the usual way, e.g. `pip install dexy`. If you
+are familiar with Python then that's probably all you need to know, although
+you might want to read the `Installing Additional Software`_ section.
 
-If you are unfamiliar with using the command line to install software and run commands, then you should first work through the `Command Line Crash Course <http://cli.learncodethehardway.org/>`_ by Zed Shaw, it's available for free online.
+If you are unfamiliar with using the command line to install software and run
+commands, then you should first work through the `Command Line Crash Course
+<http://cli.learncodethehardway.org/>`_ by Zed Shaw, it's available for free
+online.
+
+The rest of this section explains in detail how to install Python and Dexy.
 
 Installing Python
 .................
 
-Python has to be installed to run Dexy. (You don't need to know the Python language to use Dexy.) First, check if Python is already installed. Python is automatically installed on OSX and many other operating systems. Here is how to check:
+Python has to be installed to run Dexy. (You don't need to know the Python
+language to use Dexy.) First, check if Python is already installed. Python is
+automatically installed on OSX and many other operating systems. Here is how
+to check:
 
 {{ codes("code/install.sh|idio", "python-version") }}
 
-If you get a version number which starts with 2.6 or 2.7, then you are all set.
+If you get a version number which starts with 2.6 or 2.7, then you are all
+set.
 
-If you see an error message like `command not found`, then you don't have Python installed. In that case go to the `python website <http://www.python.org/download/>`_ to find an installer for your operating system. Make sure to install Python 2.7 (currently the most recent version available is 2.7.3), and NOT Python 3.
+If you see an error message like `command not found`, then you don't have
+Python installed. In that case go to the `python website
+<http://www.python.org/download/>`__ to find an installer for your operating
+system. Make sure to install Python 2.7 (currently the most recent version
+available is 2.7.3), and NOT Python 3.
 
 If you already have an older version of Python like 2.5, then dexy will not work unless you install a newer version first. However, this may cause problems for your operating system. You'll need to do some research first, and it might make sense to update your operating system or use a `virtual machine`_.
 
@@ -55,7 +72,13 @@ If you don't have `easy_install`, then here is how to get it:
 Updating Dexy
 -------------
 
-In order to get access to new dexy features, performance improvements, and bug fixes, you will want to upgrade your dexy to the latest version from time to time. As with any software, it's possible that an upgrade will cause your dexy project to stop working, although there are lots of tests in place to try to prevent this. So, you should keep your dexy updated, but use common sense and don't update software the day before a huge project is due. Also, learn about Python virtualenvs (see `Installing in a Virtualenv`_ below).
+In order to get access to new dexy features, performance improvements, and
+bug fixes, you will want to upgrade your dexy to the latest version from time
+to time. As with any software, it's possible that an upgrade will cause your
+dexy project to stop working, although there are lots of tests in place to
+try to prevent this. So, you should keep your dexy updated, but use common
+sense and don't update software the day before a huge project is due. Also,
+learn about Python virtualenvs (see `Installing in a Virtualenv`_ below).
 
 If you used pip to install dexy, then you can update by running:
 
@@ -65,14 +88,24 @@ If you used easy_install, then run:
 
 {{ codes("code/install.sh|idio", "easy-upgrade-dexy") }}
 
-Check out the next section on virtualenvs for a way to test out a new version of dexy but still be able to revert back to the version you were using if there are problems with it.
+Check out the next section on virtualenvs for a way to test out a new version
+of dexy but still be able to revert back to the version you were using if
+there are problems with it.
 
 Installing in a Virtualenv
 --------------------------
 
-You can use `virtualenvs <http://www.virtualenv.org/en/latest/#what-it-does>`_ to allow you to try out a more recent version of dexy without losing the version that works for you. Here's a brief example.
+You can use `virtualenvs
+<http://www.virtualenv.org/en/latest/#what-it-does>`__ to allow you to try
+out a more recent version of dexy without losing the version that works for
+you. Here's a brief example.
 
-You can either `install virtualenv <http://www.virtualenv.org/en/latest/#installation>`_ or download the virtualenv script and run it. We'll do the latter in this example. It's a little less convenient than installing virtualenv and running the `virtualenv` command, but it has the advantage of not requiring sudo. Grab the virtualenv script:
+You can either `install virtualenv
+<http://www.virtualenv.org/en/latest/#installation>`__ or download the
+virtualenv script and run it. We'll do the latter in this example. It's a
+little less convenient than installing virtualenv and running the
+`virtualenv` command, but it has the advantage of not requiring sudo. Grab
+the virtualenv script:
 
 {{ codes("code/install.sh|idio", "download-virtualenv") }}
 
@@ -96,12 +129,17 @@ Next time you want to work in this virtualenv, just activate it again:
 
 {{ codes("code/install.sh|idio", "activate-virtualenv") }}
 
-To safely update dexy, you would create a new virtualenv, install the latest dexy (and any other python packages you need) in that env, and test your code. If the newer version of dexy causes problems, then you can just deactivate that virtualenv and go back to using your original virtualenv until you have time to figure out why and update your code.
+To safely update dexy, you would create a new virtualenv, install the latest
+dexy (and any other python packages you need) in that env, and test your
+code. If the newer version of dexy causes problems, then you can just
+deactivate that virtualenv and go back to using your original virtualenv
+until you have time to figure out why and update your code.
 
 Source Install
 --------------
 
-If you want to have the bleeding-edge version of dexy, then you can install dexy from the source code on github. Here's how:
+If you want to have the bleeding-edge version of dexy, then you can install
+dexy from the source code on github. Here's how:
 
 {{ codes("code/install.sh|idio", "pip-install-from-git") }}
 
@@ -117,22 +155,35 @@ Make sure the dexy version printed out is the one you expected.
 Installing Additional Software
 ------------------------------
 
-When you install dexy, it also installs some extra software which is commonly used in dexy, such as pygments for syntax highlighting, and jinja2 for creating document templates. But, you have to install any other software you would like to use with dexy. Dexy filters can work with many different Python packages and command line tools, but you need to install those packages or tools yourself.
+When you install dexy, it also installs some extra software which is commonly
+used in dexy, such as pygments for syntax highlighting, and jinja2 for
+creating document templates. But, you have to install any other software you
+would like to use with dexy. Dexy filters can work with many different Python
+packages and command line tools, but you need to install those packages or
+tools yourself.
 
 Here are some examples.
 
-If you want dexy to convert documents you write in Markdown to HTML, then you need to install the `Markdown package for python <http://pypi.python.org/pypi/Markdown>`_:
+If you want dexy to convert documents you write in Markdown to HTML, then you
+need to install the `Markdown package for python
+<http://pypi.python.org/pypi/Markdown>`__:
 
 {{ codes("code/install.sh|idio", "install-markdown") }}
 
-If you want to write documents in ReStructuredText and convert them to several different output formats such as HTML, LaTeX and libreoffice, then you need to install `docutils <http://docutils.sourceforge.net/>`_:
+If you want to use dexy to generate PDF documents from .tex sources (or from
+other formats that can be converted to .tex), then you will need to install a
+`LaTeX <http://www.latex-project.org/>`__ compiler.
 
-{{ codes("code/install.sh|idio", "install-docutils") }}
-
-`Pandoc <http://johnmacfarlane.net/pandoc/>`_ calls itself a "a universal document converter" and dexy has a pandoc filter allowing you to convert many different types of documents. On ubuntu this can be installed via:
+`Pandoc <http://johnmacfarlane.net/pandoc/>`_ calls itself a "a universal
+document converter" and dexy has a pandoc filter allowing you to convert many
+different types of documents. On ubuntu this can be installed via:
 
 {{ codes("code/install.sh|idio", "install-pandoc") }}
 
-There are `other pandoc installers <http://johnmacfarlane.net/pandoc/installing.html>`_ available for other operating systems.
+There are `other pandoc installers
+<http://johnmacfarlane.net/pandoc/installing.html>`__ available for other
+operating systems.
 
-Dexy's filters will try to tell you if you need to install extra software to use them.
+Dexy's filters will try to tell you if you need to install extra software to
+use them.
+

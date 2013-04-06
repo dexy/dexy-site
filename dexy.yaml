@@ -14,7 +14,6 @@ filters:
 dexy-pydoc:
     - modules.txt|pydoc:
         - contents: 'dexy'
-        - version: 1
 
 script:test-install:
     - disabled: True
@@ -61,13 +60,13 @@ code:
         - except: "install"
         - shint: 
             add-new-files : True
-            exclude-add-new-files: ["webapp/.cache", "journal/", 'website/']
+            exclude-add-new-files: ["logs/", "webapp/.cache", "journal/", 'website/']
             additional-doc-filters: ['idio|h', 'pyg|h']
     - guide/code/*/*.sh|idio|shint|pyg|l:
         - except: "install"
         - shint: 
             add-new-files : True
-            exclude-add-new-files: ["webapp/.cache", "journal/", 'website/']
+            exclude-add-new-files: ["logs/", "webapp/.cache", "journal/", 'website/']
             additional-doc-filters: ['idio|l', 'pyg|l']
 
 features-inputs:
@@ -98,26 +97,26 @@ features-inputs:
     - features/calculation.py|pycon:
             - pycon: { record_vars: True }
 
+content-deps:
+    - code
+    - dexy-pydoc
+    - .rst
 
 content:
+    # dexy.it home page
     - home.html|jinja|htmlsections:
         - ws-template: templates/_home.html
         - canonical-name: index.html
-    - "*/index.html|yamlargs|jinja":
-        - features-inputs
-        - code
+    # help page
+    - help/index.markdown|jinja|markdown
+    # .rst pages
     - .rst|yamlargs|jinja|rstbody:
-        - code
-        - dexy-pydoc
-        - .rst
+        - content-deps
     - .rst|yamlargs|jinja|rst|latex:
         - rst: { stylesheet : 'fancyvrb,pastie.sty' }
-        - code
+        - content-deps
         - tex-assets
-        - dexy-pydoc
-        - .rst
     - guide/the-dexy-guide.rst|jinja|rst|latex:
         - rst: { stylesheet : 'fancyvrb,savetrees,pastie.sty' }
-        - code
+        - content-deps
         - tex-assets
-        - .rst

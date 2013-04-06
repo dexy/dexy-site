@@ -117,15 +117,6 @@ help you understand how dexy is working. You can open the file
 `logs/run-latest/index.html` in your browser. If you leave this page open, you
 can just refresh it after each dexy run.
 
-{% if ext == '.html' %}
-Here is the run report for this example:
-
-.. raw:: html
-
-    <iframe style="width: 100%; height: 300px; border: thin solid gray;" src="code/getting-started/d02/logs/run-latest"></iframe>
-
-{% endif %}
-
 Processing Multiple Scripts
 ---------------------------
 
@@ -168,9 +159,9 @@ The way you use the YAML syntax is to list the dependencies for a document
 underneath it in an indented list. As a shortcut, you can (and should) leave
 off the initial `*` for a wildcard expression. (If you ever do need to start an
 expression with an asterisk, then it needs to be wrapped in "double quotes" or
-escaped with a \\.) In general in YAML you do not need to put string
-expressions in quotes (which makes it very convenient to work with). You can
-also include comments in your YAML by starting a comment line with #.
+escaped with a \\ (forward slash).) In general in YAML you do not need to put
+string expressions in quotes (which makes it very convenient to work with). You
+can also include comments in your YAML by starting a comment line with #.
 
 HTML Documents
 --------------
@@ -281,22 +272,26 @@ There is no need to make any change to the HTML file. After running dexy you sho
 
 Next, look at the documentation for the `pygments HtmlFormatter <http://pygments.org/docs/formatters#htmlformatter>`_ and try out some of the other options.
 
-Generating HTML from Markdown
------------------------------
+Applying a HTML Template
+------------------------
 
-In the last few examples we have been writing HTML by hand, but typing `<p>` all the time gets old fast. So, now let's write our document using `Markdown <http://daringfireball.net/projects/markdown/>`_ instead.
+In the last few examples we have been writing complete HTML documents by hand,
+but typing `<head>` tags all the time gets old fast. So, now let's use another
+dexy filter to help us.
 
-You will first need to install the Markdown package for python by running "pip install Markdown" (or see http://pypi.python.org/pypi/Markdown).
-
-Rename the `doc.html` file to `doc.md`, and get rid of any HTML markup (except the <pre> tags) so that it looks like this::
-
-    {{ d['code/getting-started/d09/doc.md'] | indent(4) }}
-
-The `markdown` filter in dexy will add `<p>` tags and other HTML markup for us, however it won't add an HTML header. We will use the `easyhtml` filter in dexy to apply a basic stylesheet including pygments CSS to our document. The `dexy.yaml` file should look like this::
+We will use the `easyhtml` filter in dexy to apply a basic stylesheet including
+pygments CSS to our document. The `dexy.yaml` file should look like this::
 
     {{ d['code/getting-started/d09/dexy.yaml'] | indent(4) }}
 
-We are applying multiple filters to the `doc.md` file. First, we run the jinja filter. Second, we run the markdown filter. Because of this ordering, we will be applying markdown conversion to the content inserted by jinja. Third and finally, we run the `easyhtml` filter which adds a header and footer to our document, making it a complete HTML document. You can view each step of this process in the `logs/run-latest/` report after you run dexy.
+Remove everything from the doc.html file except the contents of the <body>
+tags, it should look like this now::
+
+    {{ d['code/getting-started/d09/doc.html'] | indent(4) }}
+
+Now we are applying multiple filters to the `doc.html` file. First, we run the
+jinja filter. Second, we run the `easyhtml` filter which adds a header and
+footer to our document, making it a complete HTML document.
 
 {% if ext == '.html' %}
 
@@ -309,17 +304,23 @@ We are applying multiple filters to the `doc.md` file. First, we run the jinja f
 Python Console Output
 ---------------------
 
-The `pycon` filter used in this section is not available for Windows. If you are using Windows to run dexy then the example described in this section will not work.
+The `pycon` filter used in this section is not available for Windows. If you
+are using Windows to run dexy then the example described in this section will
+not work.
 
-Now, let's change this example so that instead of showing the code and, separately, showing the output, we just show a console transcript. The `dexy.yaml` file should look like::
+Now, let's change this example so that instead of showing the code and,
+separately, showing the output, we just show a console transcript. The
+`dexy.yaml` file should look like::
 
     {{ d['code/getting-started/d10/dexy.yaml'] | indent(4) }}
 
-The `pycon` dexy filter runs python code in the python REPL, so you see the prompts, input and output from running each line of code. We can pass this REPL transcript to pygments which knows how to syntax highlight console output.
+The `pycon` dexy filter runs python code in the python REPL, so you see the
+prompts, input and output from running each line of code. We can pass this REPL
+transcript to pygments which knows how to syntax highlight console output.
 
-Update the markdown file as follows::
+Update the html file as follows::
 
-    {{ d['code/getting-started/d10/doc.md'] | indent(4) }}
+    {{ d['code/getting-started/d10/doc.html'] | indent(4) }}
 
 {% if ext == '.html' %}
 
@@ -346,7 +347,7 @@ Here is the `dexy.yaml` file which tells dexy to run all files with `.py` extens
 
 Then in our document, we refer to the sections as follows::
 
-    {{ d['code/getting-started/d11/doc.md'] | indent(4) }}
+    {{ d['code/getting-started/d11/doc.html'] | indent(4) }}
 
 {% if ext == '.html' %}
 
@@ -362,7 +363,7 @@ By default, the `idio` filter will apply HTML syntax highlighting to the section
 
 Now we have to wrap the sections in <pre> tags::
 
-    {{ d['code/getting-started/d12/doc.md'] | indent(4) }}
+    {{ d['code/getting-started/d12/doc.html'] | indent(4) }}
 
 {% if ext == '.html' %}
 
@@ -383,9 +384,9 @@ Splitting code into sections is really useful when we can pass this code through
 
 We pass our python script through 3 filters. First, the `idio` filter will split the code into sections. Second, the `pycon` filter will run the code through the python interpreter (the `pycon` filter accepts files ending in `.py` or `.txt` extensions, so this forces the `idio` filter to output plain text). Finally, the `pyg` filter will apply syntax highlighting to the output from the python interpreter.
 
-Our `doc.md` looks like::
+Our `doc.html` looks like::
 
-    {{ d['code/getting-started/d13/doc.md'] | indent(4) }}
+    {{ d['code/getting-started/d13/doc.html'] | indent(4) }}
 
 {% if ext == '.html' %}
 

@@ -13,10 +13,7 @@ sudo python get-pip.py
 sudo apt-get install -y git-core
 
 ### @export "install-markdown"
-sudo pip install Markdown
-
-### @export "install-docutils"
-sudo pip install docutils
+sudo pip install --use-mirrors Markdown
 
 ### @export "install-pandoc"
 sudo apt-get install -y pandoc

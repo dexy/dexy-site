@@ -10,19 +10,17 @@ You can also view this guide as a `single HTML page <the-dexy-guide.html>`_ or
 Table Of Contents
 =================
 
-* `Introduction <introduction.html>`_ (`PDF <introduction.pdf>`_)
-* `Quickstart <quickstart.html>`_
-* `Installing Dexy <installing-dexy.html>`_
-* `Getting Started <getting-started.html>`_
-* `Basic Concepts (TBD) <basic-concepts.html>`_
-* `Command Line Interface <command-line-interface.html>`_
-* `Configuring Dexy (TBD) <configuring-dexy.html>`_
-* `Filters (TBD) <filters.html>`_
-* `Output and Post-Processing (TBD) <output-and-post-processing.html>`_
-* `Troubleshooting (TBD) <troubleshooting.html>`_
-* `Dexy Internals (TBD) <dexy-internals.html>`_
-* `Customizing Dexy (TBD) <customizing-dexy.html>`_
-* `What's Next (TBD) <whats-next.html>`_
+* `Quickstart <quickstart.html>`_ (`download PDF <quickstart.pdf>`__)
+* `Installing Dexy <installing-dexy.html>`_ (`download PDF <installing-dexy.pdf>`__)
+* `Getting Started <getting-started.html>`_ (`download PDF <getting-started.pdf>`__)
+* `Command Line Interface <command-line-interface.html>`_ (`download PDF <command-line-interface.pdf>`__)
+* `Configuring Dexy TBD <configuring-dexy.html>`_
+* `Filters TBD <filters.html>`_
+* `Output and Post-Processing TBD <output-and-post-processing.html>`_
+* `Troubleshooting TBD <troubleshooting.html>`_
+* `Dexy Internals TBD <dexy-internals.html>`_
+* `Customizing Dexy TBD <customizing-dexy.html>`_
+* `What's Next TBD <whats-next.html>`_
 
 {% if False -%}
 Formatting
