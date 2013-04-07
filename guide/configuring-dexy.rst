@@ -1,8 +1,10 @@
-{% from "dexy.jinja" import code, codes with context %}
 Configuring Dexy
 ================
 
-.. contents:: :local:
+{% from "dexy.jinja" import code, codes with context %}
+
+.. contents:: Contents
+    :local:
 
 Two config settings control how dexy looks for doc config files.
 

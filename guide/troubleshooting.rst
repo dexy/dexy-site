@@ -1,6 +1,10 @@
-{% from "dexy.jinja" import code, codes with context %}
 Troubleshooting
 ===============
+
+{% from "dexy.jinja" import code, codes with context %}
+
+.. contents:: Contents
+    :local:
 
 Document not Available
 ----------------------

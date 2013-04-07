@@ -8,7 +8,8 @@ This section contains examples of using dexy, with explanations of the features 
 To install dexy do `pip install dexy`. If you need more help with installation,
 consult the `installation guide </guide/install/>`__.
 
-.. contents:: :local:
+.. contents:: Contents
+    :local:
 
 Quick Tips
 ----------

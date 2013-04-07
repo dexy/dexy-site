@@ -101,6 +101,7 @@ content-deps:
     - code
     - dexy-pydoc
     - .rst
+    - .jinja
 
 content:
     # dexy.it home page
@@ -117,6 +118,6 @@ content:
         - content-deps
         - tex-assets
     - guide/the-dexy-guide.rst|jinja|rst|latex:
-        - rst: { stylesheet : 'fancyvrb,savetrees,pastie.sty' }
+        - rst: { stylesheet : 'fancyvrb,pastie.sty' }
         - content-deps
         - tex-assets

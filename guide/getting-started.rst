@@ -7,7 +7,8 @@ This section is designed to gently introduce you to Dexy by working through seve
 
 As a reminder, if you aren't already familiar with using the command line, then you should work through a course like Zed Shaw's `Command Line Crash Course <http://cli.learncodethehardway.org/>`_ before you start with these examples.
 
-.. contents:: :local:
+.. contents:: Contents
+    :local:
 
 Simple Dexy Example
 -------------------

@@ -1,8 +1,10 @@
-{% from "dexy.jinja" import code, codes with context %}
 What's Next
 ===========
 
-.. contents:: :local:
+{% from "dexy.jinja" import code, codes with context %}
+
+.. contents:: Contents
+    :local:
 
 Filter Reference
 ----------------

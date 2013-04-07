@@ -1,0 +1,21 @@
+{% from '_pages.jinja' import next_page, previous_page with context -%}
+
+<p>
+{% if previous_page -%}
+<a class="button light" href="{{ previous_page }}.html">&lt;&lt; Previous: {{ titleize(previous_page) }}</a>
+{% endif -%}
+
+{% if s.title() != "The Dexy Guide" -%}
+<a class="button light" href="/guide">&uarr; The Dexy Guide</a>
+{% endif -%}
+
+{% if next_page -%}
+<a class="button light" href="{{ next_page }}.html">Next: {{ titleize(next_page) }} &gt;&gt;</a>
+{% endif -%}
+</p>
+
+<p>
+{% if s.title() != "The Dexy Guide" -%}
+<a class="button light" href="{{ s.baserootname() }}.pdf">Download PDF of '{{ s.title() }}'</a>
+{% endif -%}
+</p>

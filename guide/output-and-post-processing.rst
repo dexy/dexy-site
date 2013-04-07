@@ -1,6 +1,10 @@
-{% from "dexy.jinja" import code, codes with context %}
 Output and Post-Processing
 ==========================
+
+{% from "dexy.jinja" import code, codes with context %}
+
+.. contents:: Contents
+    :local:
 
 This section deals with what shows up in directories like output/ and
 output-long/ after you run dexy, and how to automate post-processing with dexy.

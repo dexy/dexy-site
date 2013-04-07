@@ -3,8 +3,8 @@ Command Line Interface
 
 {% from "dexy.jinja" import code, codes with context %}
 
-.. contents:: :local:
-
+.. contents:: Contents
+    :local:
 
 Dexy's command line interface is the main way to interact with dexy and
 generate your documents. Dexy uses python-modargs_ to process commands and

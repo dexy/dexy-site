@@ -1,8 +1,10 @@
-{% from "dexy.jinja" import code, codes with context %}
 Customizing Dexy
 ================
 
-.. contents:: :local:
+{% from "dexy.jinja" import code, codes with context %}
+
+.. contents:: Contents
+    :local:
 
 Plugin System
 -------------

@@ -11,7 +11,8 @@ Dexy Internals
 {{ d['/modules.txt|pydoc'][key] | indent(4, True) }}
 {% endmacro -%}
 
-.. contents:: :local:
+.. contents:: Contents
+    :local:
 
 A guide to how dexy's internals work.
 

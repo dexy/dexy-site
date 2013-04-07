@@ -3,7 +3,8 @@ Installing Dexy
 
 {% from "dexy.jinja" import code, codes with context %}
 
-.. contents:: :local:
+.. contents:: Contents
+    :local:
 
 Standard Installation
 ---------------------
