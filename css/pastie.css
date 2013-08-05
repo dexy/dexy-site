@@ -1,5 +1,14 @@
 p.topic-title { font-weight: bold; }
 
+.filter-settings th {
+    font-weight: bold;
+}
+
+.filter-settings th, .filter-settings td {
+    border: thin solid grey;
+    padding: 5px;
+}
+
 .highlight { background: transparent; }
 
 .subpagecontent h1, .subpagecontent h2 { padding-top: 10px; }

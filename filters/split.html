@@ -15,47 +15,65 @@
     <h2 id="filters">Filters</h2>
     <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, submit them to the Dexy project.</p>
 
-    {% for k, v in d['filter-info.json'].json_as_dict().iteritems() %}
+    {% set filter_info = d['filter-info.json'].json_as_dict() -%}
+    {% for k in sorted(filter_info) -%}
+    {% set v = filter_info[k] -%}
 
     {% set count=len(v['examples']) -%}
     <!-- split "{{k}} ({{ " ".join(v.aliases) }}) {{ "&#x2710;" * count }}" -->
-    <h2>{{ k }}</h2>
-    <p></p>
+
     <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
+
+    <h2>{{ k }}</h2>
+    <br />
+
+    {% if count > 0 -%}
+    <p><a href="#examples">&darr; examples</a></p>
+    {% endif -%}
 
     {% if v['doc'] -%}
     <p>{{ v['doc'] }}</p>
     {% endif -%}
 
-    <p>Aliases for this filter:
+    <h3>Aliases for this filter</h3>
     <ul class="split">
         {% for alias in v['aliases'] -%}
-        <li>{{ alias }}</li>
+        <li><code>{{ alias }}</code></li>
         {% endfor -%}
     </ul>
-    </p>
 
-    <p>Converts from file formats:
-    {% for ext in v.settings['input-extensions'][1] -%}
-    {{ ext }}
-    {% endfor -%}
-    </p>
+    <br />
 
-    <p>To file formats:
-    {% for ext in v.settings['output-extensions'][1] -%}
-    {{ ext }}
-    {% endfor -%}
-    </p>
+    <h3>Converts from file formats:</h3>
+    <ul>
+        {% for ext in v.settings['input-extensions'][1] -%}
+        <li><code>{{ ext }}</code></li>
+        {% endfor -%}
+    </ul>
 
-    <p>Available settings:</p>
-    <table>
+    <br />
+
+    <h3>To file formats:</h3>
+    <ul>
+        {% for ext in v.settings['output-extensions'][1] -%}
+        <li><code>{{ ext }}</code></li>
+        {% endfor -%}
+    </ul>
+
+    <br />
+
+    <h3>Available settings:</h3>
+    <table class="filter-settings">
         <tr><th width="30%">Setting</th><th width="60%">Description</th><th width="20%">Default</th></tr>
-        {% for name, setting_info in v.settings.iteritems() -%}
-        {% if not name in ('help', 'aliases', 'input-extensions', 'output-extensions',) -%}
+        {% for name in sorted(v.settings) -%}
+        {% set setting_info = v.settings[name] -%}
+        {% if not name in ('aliases',) -%}
         <tr><td>{{ name }}</td><td>{{ setting_info[0] }}</td><td>{{ setting_info[1] }}</td></tr>
         {% endif -%}
         {% endfor -%}
     </table>
+
+    <span id="examples"></span>
 
     {% for example_name, example_text in v.examples.iteritems() -%}
 

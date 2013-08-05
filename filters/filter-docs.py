@@ -13,8 +13,8 @@ import shutil
 py_lexer = PythonLexer()
 fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 
-# store a copy of current wd since templates will be run in tmp dir
-wd = os.getcwd()
+# store location of current wd since templates will be run in tmp dir
+wd = os.path.abspath(".")
 
 filter_info = {}
 for filter_instance in dexy.filter.Filter:
@@ -46,12 +46,12 @@ for filter_instance in dexy.filter.Filter:
 
                 # Copy any image files
                 for data in batch:
-                    if data.ext in ('.png', '.jpg', '.gif',):
+                    if data.ext in ('.pdf', '.png', '.jpg', '.gif',):
                         png_filename = data.name
                         png_path = os.path.join(wd, png_filename)
                         if not os.path.exists(os.path.dirname(png_path)):
                             os.makedirs(os.path.dirname(png_path))
-                            shutil.copyfile(data.storage.data_file(), png_path)
+                        shutil.copyfile(data.storage.data_file(), png_path)
 
     filter_info[filter_instance.name()] = {
         'aliases' : filter_instance.setting('aliases'),

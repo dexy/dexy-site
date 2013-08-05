@@ -73,6 +73,8 @@ The help text itself is written in a file named `dexy.rst` and this file should
 
     {{ d['code/customizing-dexy/cowsay/dexy.rst'] | indent(4) }}
 
+The `dexy.rst` file should start with a descriptive heading using hyphens as the delimiter.
+
 And here is the `dexy.yaml`. Note that all entries need to be part of a `filters` bundle::
 
     {{ d['code/customizing-dexy/cowsay/dexy.yaml'] | indent(4) }}
