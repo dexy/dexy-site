@@ -8,3 +8,4 @@ output-site/
 *.pyc
 *.un*
 *.sqlite3
+.dexy/

@@ -1,10 +1,11 @@
 filter-docs:
     - filters/split.html|jinja|split:
-       - canonical-name: filters/index.html
+       - output-name: filters/index.html
+       - title: Filters
        - filters
     - filters/htaccess.txt|jinja:
-       - canonical-name: filters/.htaccess 
        - filters
+       - output-name: .htaccess
 
 filters:
     - filters/filter-docs.py|py:
@@ -44,7 +45,8 @@ tex-assets:
         - pyg: { 'ext' : '.sty' }
 
 code:
-    - .txt
+    - .txt:
+        - except: "htaccess"
     - .sh|pyg|h
     - .sh|pyg|l
     - .sh|idio|h
@@ -57,18 +59,24 @@ code:
     - .yaml|pyg|l
     - .yaml|idio|h
     - .yaml|idio|l
+    - guide/code/**/*.jinja
+    - guide/code/**/*.rst
+    - guide/code/getting-started/run-14.sh|bash:
+        - bash: 
+            add-new-files : True
+            exclude-add-new-files: [".cache", "logs", "journal", 'website']
     - guide/code/*/*.sh|idio|shint|pyg|h:
-        - except: "install"
+        - except: "install|webapp|14"
         - shint: 
+            timeout: 20
             add-new-files : True
-            exclude-add-new-files: ["logs/", "webapp/.cache", "journal/", 'website/']
-            additional-doc-filters: ['idio|h', 'pyg|h']
+            exclude-add-new-files: [".cache", "logs", "journal", 'website']
     - guide/code/*/*.sh|idio|shint|pyg|l:
-        - except: "install"
+        - except: "install|webapp|14"
         - shint: 
+            timeout: 20
             add-new-files : True
-            exclude-add-new-files: ["logs/", "webapp/.cache", "journal/", 'website/']
-            additional-doc-filters: ['idio|l', 'pyg|l']
+            exclude-add-new-files: [".cache", "logs", "journal", 'website']
 
 features-inputs:
     - features/hello.R
@@ -108,7 +116,7 @@ content:
     # dexy.it home page
     - home.html|jinja|htmlsections:
         - ws-template: templates/_home.html
-        - canonical-name: index.html
+        - output-name: index.html
     # help page
     - help/index.markdown|jinja|markdown
     # features page

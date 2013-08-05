@@ -1,7 +1,7 @@
 set -u
 set -e
 
-dexy gen -t "t12" -d "d12"
+dexy gen -t "gs-12" -d "d12"
 cd d12
 
 dexy

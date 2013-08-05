@@ -22,5 +22,5 @@ dexy grep -expr "index.md" -contents -lines 5
 dexy info -expr "index.md"
 
 ### @export "look in cache"
-ls .cache/da/
+ls .cache/
 find .cache/work/da/

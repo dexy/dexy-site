@@ -1,7 +1,7 @@
 set -u
 set -e
 
-dexy gen -t "t04" -d "d04"
+dexy gen -t "gs-04" -d "d04"
 cd d04
 
 ### @export "run"

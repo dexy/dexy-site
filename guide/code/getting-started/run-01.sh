@@ -1,7 +1,7 @@
 set -u
 set -e
 
-dexy gen -t "t01" -d "d01"
+dexy gen -t "gs-01" -d "d01"
 cd d01
 dexy cleanup
 
@@ -16,6 +16,3 @@ python hello.py
 
 ### @export "run"
 dexy
-
-### @export "cat"
-cat output-long/hello.py-py.txt

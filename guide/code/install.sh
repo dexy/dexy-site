@@ -12,8 +12,8 @@ sudo python get-pip.py
 ### @export "install-git"
 sudo apt-get install -y git-core
 
-### @export "install-markdown"
-sudo pip install --use-mirrors Markdown
+### @export "install-boto"
+sudo pip install boto
 
 ### @export "install-pandoc"
 sudo apt-get install -y pandoc

@@ -1,55 +1,83 @@
 <div class="grid_9 alpha">
+    <!-- split "index" -->
+    <h2>Dexy Filter Reference</h2>
+    <p><a href="#tags">Browse filters by tag</a> or view an <a href="#filters">alphabetical list of all filter aliases</a>.</p>
 
-<!-- split "index" -->
-<h2>Filters</h2>
-<p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, <a href="http://dexy.lighthouseapp.com">submit them as a patch</a> to the Dexy project.</p>
+    <h2 id="tags">Tags</h2>
+    {% for tag, aliases in d['filter-tags.json'].from_json() -%}
+    <h4 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">{{ tag }}</a></h4>
+    {% set bull = joiner("&bull;") -%}
+    {% for alias, helpstring in aliases -%}
+    {{ bull() }} <a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>
+    {% endfor -%}
+    {% endfor -%}
 
-{% for k, v in d['filter-info.json'].json_as_dict().iteritems() %}
+    <h2 id="filters">Filters</h2>
+    <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, submit them to the Dexy project.</p>
 
-{% set count=len(v['examples']) -%}
-<!-- split "{{k}} ({{ " ".join(v.aliases) }}) {{ "&#x2710;" * count }}" -->
-<h2>{{ k }}</h2>
-<p></p>
-<p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
+    {% for k, v in d['filter-info.json'].json_as_dict().iteritems() %}
 
-{% if v['doc'] -%}
-<p>{{ v['doc'] }}</p>
-{% endif -%}
+    {% set count=len(v['examples']) -%}
+    <!-- split "{{k}} ({{ " ".join(v.aliases) }}) {{ "&#x2710;" * count }}" -->
+    <h2>{{ k }}</h2>
+    <p></p>
+    <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
-<p>Aliases for this filter:
-<ul class="split">
-  {% for alias in v['aliases'] -%}
-  <li>{{ alias }}</li>
-  {% endfor -%}
-</ul>
-</p>
+    {% if v['doc'] -%}
+    <p>{{ v['doc'] }}</p>
+    {% endif -%}
 
-<p>
-Documents processed by this filter {{ v['output'] and "will" or "will not" }} automatically show up in output/.
-<br />(You can always set "canon" to true or false in document config to override this.)
-</p>
+    <p>Aliases for this filter:
+    <ul class="split">
+        {% for alias in v['aliases'] -%}
+        <li>{{ alias }}</li>
+        {% endfor -%}
+    </ul>
+    </p>
 
-{% for example_name, example_text in v.examples.iteritems() -%}
+    <p>Converts from file formats:
+    {% for ext in v.settings['input-extensions'][1] -%}
+    {{ ext }}
+    {% endfor -%}
+    </p>
 
-{{ example_text }}
+    <p>To file formats:
+    {% for ext in v.settings['output-extensions'][1] -%}
+    {{ ext }}
+    {% endfor -%}
+    </p>
 
-{% endfor -%}
+    <p>Available settings:</p>
+    <table>
+        <tr><th width="30%">Setting</th><th width="60%">Description</th><th width="20%">Default</th></tr>
+        {% for name, setting_info in v.settings.iteritems() -%}
+        {% if not name in ('help', 'aliases', 'input-extensions', 'output-extensions',) -%}
+        <tr><td>{{ name }}</td><td>{{ setting_info[0] }}</td><td>{{ setting_info[1] }}</td></tr>
+        {% endif -%}
+        {% endfor -%}
+    </table>
 
-<div class="divider">
-<h5><span>Filter Source Code</span></h5>
-<!--Divider With Titling-->
-</div>
+    {% for example_name, example_text in v.examples.iteritems() -%}
 
-{% if not v['parentclass'] in ('object', 'Filter') -%}
-<p>Parent class is <a href="{{ v['parentclass'] }}"/>{{ v['parentclass'] }}</a>. Module is {{ v['module'] }}.</p>
-{% endif -%}
+    {{ example_text }}
 
-{{ v['html_source'] }}
+    {% endfor -%}
 
-{% endfor %}
+    {% if v['defined_by_subclass'] -%}
 
-<p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
+    <div class="divider">
+        <h5><span>Filter Source Code</span></h5>
+        <!--Divider With Titling-->
+    </div>
 
-<!-- endsplit -->
+    {{ v['html_source'] }}
+
+    {% endif -%}
+
+    {% endfor %}
+
+    <p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
+
+    <!-- endsplit -->
 
 </div>

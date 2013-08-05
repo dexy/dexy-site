@@ -6,7 +6,7 @@ Quickstart
 This section contains examples of using dexy, with explanations of the features being used.
 
 To install dexy do `pip install dexy`. If you need more help with installation,
-consult the `installation guide </guide/install/>`__.
+see the `installation guide </guide/installing-dexy.html>`__.
 
 .. contents:: Contents
     :local:
@@ -63,8 +63,12 @@ Check out the `dexy help` command for more commands and for learning about avail
 The `Command Line Interface </guide/command-line-interface/>`__ section has
 more details on the various dexy commands.
 
-Documenting a Web App TBD
--------------------------
+Documenting a Web App
+---------------------
+
+To Be Developed.
+
+{% if False -%}
 
 We create a simple web application (using the `web.py` framework) and show how we can use dexy to create different types of documentation.
 
@@ -80,9 +84,10 @@ Sqlite:
 
 {{ codes('code/quickstart/webapp/dexy.yaml|idio', 'screenshots') }}
 
-Writing up Simulation Research TBD
-----------------------------------
+{% endif -%}
 
-In this example we write a simple python-based simulation and then analyze the generated data using R.
+Writing up Simulation Research
+------------------------------
 
+To Be Developed.
 

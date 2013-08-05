@@ -1,7 +1,7 @@
 set -u
 set -e
 
-dexy gen -t "t05" -d "d05"
+dexy gen -t "gs-05" -d "d05"
 cd d05
 dexy cleanup
 

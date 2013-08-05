@@ -6,6 +6,23 @@ Filters
 .. contents:: Contents
     :local:
 
+
+
+
+Common Features
+---------------
+
+Side Effects
+============
+
+Some filters will generate extra files when they run, and you can instruct dexy if you are interested in these files. For example, an R script might 
+
+Add new files and additional doc filters.
+
+
+
+
+
 Running Code
 ------------
 

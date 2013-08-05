@@ -169,7 +169,7 @@ a, a:link, a:visited, a:hover {
 /*	Section Specific Typography
 /*-----------------------------------------------------------------------------------*/
 
-p, ul, ol, .button {
+p, ul, ol, td, th, .button {
 	font-family: 'Droid Sans', arial, serif;
 	font-size:12px;
 	line-height:20px;

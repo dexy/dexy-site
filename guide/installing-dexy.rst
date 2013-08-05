@@ -165,11 +165,10 @@ tools yourself.
 
 Here are some examples.
 
-If you want dexy to convert documents you write in Markdown to HTML, then you
-need to install the `Markdown package for python
-<http://pypi.python.org/pypi/Markdown>`__:
+If you want dexy to upload files to Amazon S3 for storage, you will need to
+install the boto package for python.
 
-{{ codes("code/install.sh|idio", "install-markdown") }}
+{{ codes("code/install.sh|idio", "install-boto") }}
 
 If you want to use dexy to generate PDF documents from .tex sources (or from
 other formats that can be converted to .tex), then you will need to install a
@@ -177,7 +176,7 @@ other formats that can be converted to .tex), then you will need to install a
 
 `Pandoc <http://johnmacfarlane.net/pandoc/>`_ calls itself a "a universal
 document converter" and dexy has a pandoc filter allowing you to convert many
-different types of documents. On ubuntu this can be installed via:
+different types of documents. On ubuntu/debian this can be installed via:
 
 {{ codes("code/install.sh|idio", "install-pandoc") }}
 

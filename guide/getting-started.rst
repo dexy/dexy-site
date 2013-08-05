@@ -4,10 +4,9 @@ Getting Started
 {% from "dexy.jinja" import code, codes, ext with context %}
 
 This section is designed to gently introduce you to Dexy by working through
-several progressive examples. If you are impatient, then try out the Quickstart
-sections instead. These examples are written in Python because everyone using
-Dexy will have Python installed on their system, and Python is an easy,
-accessible language to understand. However, Dexy supports many other
+several progressive examples.  These examples are written in Python because
+everyone using Dexy will have Python installed on their system, and Python is
+an easy, accessible language to understand. However, Dexy supports many other
 programming languages and it's easy to add support for new languages, so please
 don't feel left out if Python is not your preferred language.
 
@@ -31,6 +30,7 @@ welcome to use these examples as the starting point for your own projects.
 Simple Dexy Example
 -------------------
 
+{% set ex = 'd00' -%}
 We are going to create a very simple project to learn how to run dexy.
 
 Create a new, empty directory to work in. Make a text file named `hello.txt` and type the following into it::
@@ -59,8 +59,29 @@ Dexy puts some of the finished documents into the output/ directory (the ones it
 
 We see from this output that jinja has taken the `1+1` which we typed within the tag and evaluated it, giving `2`. So, this tells us that dexy has successfully called the jinja filter we specified in the `dexy.txt` file.
 
+The Run Report
+--------------
+
+{% set run_report_path = ".dexy/reports/run/index.html" -%}
+
+Dexy has also generated a report which describes what has happened. You should
+have a HTML file at `{{ run_report_path }}` in your project directory. You can
+open this in your browser by running the "Open File" command in your browser,
+or by using the `open` or `xdg-open` command on OS X or Linux systems.
+
+.. raw:: html
+
+    <iframe style="width: 100%; height: 500px; border: thin solid gray;" src="code/getting-started/{{ ex }}/{{ run_report_path }}"></iframe>
+
+The run report lets you drill down into the steps of dexy's processing. It's
+especially useful when the output of a document isn't written to the `output/`
+directory as we'll see in the next section. As you work on a project, keep the
+report open in a browser and refresh the page each time you run dexy.
+
 Getting Dexy to Run Code
 ------------------------
+
+{% set ex = 'd01' -%}
 
 Next, we will get dexy to evaluate a simple python script. In the same directory where you've been working, create a new file named `hello.py` and put the following in it::
 
@@ -78,15 +99,21 @@ Now modify your `dexy.txt` file so that it looks like this::
 
     {{ d['code/getting-started/d01/dexy.txt'] | indent(4) }}
 
-This means we want the file named `hello.py` to be run through the `py` filter, and we want the file named `hello.txt` to be run through the `jinja` filter. The order of these lines is important because we want `hello.py` to be run first, so that it is available to `hello.txt|jinja`.
+This means we want the file named `hello.py` to be run through the `py` filter,
+and we want the file named `hello.txt` to be run through the `jinja` filter.
+The order of these lines is important because in the next section we want
+`hello.py` to be run first, so that it is available to `hello.txt|jinja`.
 
 Now you can call dexy again:
 
 {{ codes('code/getting-started/run-01.sh|idio|shint|pyg', 'run') }}
 
-In the `output-long/` directory, there should now be a file containing the output of running the Python script:
+This time we can't look in the `output/` directory to see what dexy did,
+because by default the output of running code through the `py` filter isn't
+included in that directory. However, we can see the results in the run report.
+You should use the run report to verify that dexy has run the code and produced
+the expected result.
 
-{{ codes('code/getting-started/run-01.sh|idio|shint|pyg', 'cat') }}
 
 Showing Code and Output
 -----------------------
@@ -110,31 +137,12 @@ Next, experiment with changing one of the variable values in `hello.py`, for exa
 Here are some more things you can try:
 
 * Change the text in your `hello.txt` file and run dexy again.
-* Remove one of the curly brackets `{` from the `hello.txt` file and try to run dexy again. You should get an error message because the jinja processor can't parse the file. Fix the file and make sure dexy runs with no more errors.
-
-Behind the Scenes
------------------
-
-Let's briefly take a look at what dexy is doing before we go on to more examples.
-
-After running dexy, your working directory should look like something like this:
-
-{{ codes('code/getting-started/run-02.sh|idio|shint|pyg', 'ls') }}
-
-When we ran `dexy setup`, dexy created some extra directories called `.cache`
-and `logs`. The cache directory contains the cache dexy uses to store results,
-and also working directories for the filters that need to run commands on
-files. The logs directory contains the main dexy log file `logs/dexy.log` and
-also reports about the dexy run. Dexy writes the output it generates to
-directories called `output/` and `output-long/`. The names of these directories
-and the reports which are output are configurable using the command line
-interface.
-
-Dexy generates a run report which shows you the documents you have created and
-the results of all the different steps of filter processing. This report will
-help you understand how dexy is working. You can open the file
-`logs/run-latest/index.html` in your browser. If you leave this page open, you
-can just refresh it after each dexy run.
+* Remove just one of the closing curly brackets `}` from the `hello.txt` file and
+  try to run dexy again. You should get an error message because the jinja
+  processor can't parse the file. Fix the file and make sure dexy runs with no
+  more errors. Experiment with other ways to break things, noting that some
+  produce error messages and others don't (like removing an opening curly
+  bracket `{`).
 
 Processing Multiple Scripts
 ---------------------------
