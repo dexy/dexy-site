@@ -14,13 +14,29 @@
 
     <h2 id="filters">Filters</h2>
     <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, submit them to the Dexy project.</p>
+    {% set current_release = '0.9.9.5' -%}
+    {% set new_feature_release_cutoff = '0.9.9.4' -%}
+    <p>Icons used:</p>
+    <p><i class="icon-pencil"></i> example</p>
+    <p><i class="icon-flag"></i> newly added filter (in version {{new_feature_release_cutoff}} or later)</p>
+    <p><i class="icon-wrench"></i> filter added after current released version {{current_release}}. Will be in next dexy release or is available now if you install dexy from the `develop` branch.</p>
+
 
     {% set filter_info = d['filter-info.json'].json_as_dict() -%}
     {% for k in sorted(filter_info) -%}
     {% set v = filter_info[k] -%}
 
     {% set count=len(v['examples']) -%}
-    <!-- split "{{k}} ({{ " ".join(v.aliases) }}) {{ "&#x2710;" * count }}" -->
+
+    {% if v['settings']['added-in-version'][1] > current_release -%}
+    {% set newicon = "<i class=\"icon-wrench\"></i>" -%}
+    {% elif v['settings']['added-in-version'][1] >= new_feature_release_cutoff -%}
+    {% set newicon = "<i class=\"icon-flag\"></i>" -%}
+    {% else -%}
+    {% set newicon = "" -%}
+    {% endif -%}
+
+    <!-- split "{{k}} {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
 
     <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
 

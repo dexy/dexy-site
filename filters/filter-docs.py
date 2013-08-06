@@ -49,7 +49,7 @@ for filter_instance in dexy.filter.Filter:
                 # Copy any image files
                 for data in batch:
                     if data.ext in image_extensions:
-                        png_filename = data.name
+                        png_filename = data.output_name()
                         png_path = os.path.join(wd, png_filename)
                         if not os.path.exists(os.path.dirname(png_path)):
                             os.makedirs(os.path.dirname(png_path))
