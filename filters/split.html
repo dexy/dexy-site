@@ -1,25 +1,31 @@
 <div class="grid_9 alpha">
     <!-- split "index" -->
     <h2>Dexy Filter Reference</h2>
-    <p><a href="#tags">Browse filters by tag</a> or view an <a href="#filters">alphabetical list of all filter aliases</a>.</p>
 
-    <h2 id="tags">Tags</h2>
-    {% for tag, aliases in d['filter-tags.json'].from_json() -%}
-    <h4 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">{{ tag }}</a></h4>
-    {% set bull = joiner("&bull;") -%}
-    {% for alias, helpstring in aliases -%}
-    {{ bull() }} <a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>
-    {% endfor -%}
-    {% endfor -%}
+    <p>
+        Here you will find reference pages for each of the built-in dexy filters.
+        Filters are what let dexy run code, transform text, and wrap libraries and
+        tools so you can easily and reproducibly create any kind of document.
+    </p>
+    
+    <p>
+        If you have worked through the <a
+            href="/guide/getting-started.html">getting started</a> tutorial,
+        then you are already familiar with some of these filters like <a
+            href="/filters/pyg">pyg</a> and <a
+            href="/filters/jinja">jinja</a>.
+    </p>
 
-    <h2 id="filters">Filters</h2>
-    <p>These are the currently available built-in filters for Dexy. Filters can be used to interpret or compile and run code for a programming language, to syntax highlight code, to interact with an API either to read or publish data, or pretty much anything else you can think of. Filters are "just code" so you can do whatever you want. It's easy to customize filters for tasks specific to your project, or you can write generic filters and, if you want, submit them to the Dexy project.</p>
+    <p>You can <a href="#filters">browse through the alphabetical list</a> or
+    <a href="#tags">browse filters by tag</a> (not all filters are tagged yet,
+    so the alphabetical list is more reliable).  </p>
+
+    <h2 id="filters">Alphabetical List of Filters</h2>
     {% set current_release = '0.9.9.5' -%}
     {% set new_feature_release_cutoff = '0.9.9.4' -%}
-    <p>Icons used:</p>
     <p><i class="icon-pencil"></i> example</p>
     <p><i class="icon-flag"></i> newly added filter (in version {{new_feature_release_cutoff}} or later)</p>
-    <p><i class="icon-wrench"></i> filter added after current released version {{current_release}}. Will be in next dexy release or is available now if you install dexy from the `develop` branch.</p>
+    <p><i class="icon-wrench"></i> filter added after current released version {{current_release}}. Will be in next dexy release or is available now if you install dexy from the <code>develop</code> branch.</p>
 
 
     {% set filter_info = d['filter-info.json'].json_as_dict() -%}
@@ -37,7 +43,10 @@
     {% endif -%}
 
     <!-- split "{{k}} {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
-
+    {% if v['doc'] -%}
+    <p>{{ v['doc'] }}</p>
+    {% endif -%}
+    <!-- content -->
     <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
     <h2>{{ k }}</h2>
@@ -111,6 +120,17 @@
     {% endfor %}
 
     <p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
+
+    <!-- footer -->
+
+    <h2 id="tags">Tags</h2>
+    {% for tag, aliases in d['filter-tags.json'].from_json() -%}
+    <h4 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">tag: {{ tag }}</a></h4>
+    {% set bull = joiner("&bull;") -%}
+    {% for alias, helpstring in aliases -%}
+    {{ bull() }} <a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>
+    {% endfor -%}
+    {% endfor -%}
 
     <!-- endsplit -->
 
