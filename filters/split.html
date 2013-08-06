@@ -73,9 +73,9 @@
         {% endfor -%}
     </table>
 
-    <span id="examples"></span>
+    <div id="examples"></div>
 
-    {% for example_name, example_text in v.examples.iteritems() -%}
+    {% for example_text in v.examples -%}
 
     {{ example_text }}
 

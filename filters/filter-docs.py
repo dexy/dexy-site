@@ -10,6 +10,8 @@ import json
 import os
 import shutil
 
+image_extensions = ['.pdf', '.png', '.jpg', '.gif', '.svg', '.py.gif', '.py.png', '.py.jpg']
+
 py_lexer = PythonLexer()
 fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 
@@ -32,7 +34,7 @@ for filter_instance in dexy.filter.Filter:
     html_source = highlight(source, py_lexer, fm)
 
     # run examples for this filter
-    examples = {}
+    examples = []
     for t in filter_instance.templates():
         if t.__module__ == "dexy_filter_examples":
             for wrapper in t.dexy():
@@ -42,11 +44,11 @@ for filter_instance in dexy.filter.Filter:
                 if doc_key in batch.docs:
                     data = batch.output_data(doc_key)
                     soup = BeautifulSoup(unicode(data))
-                    examples[t.alias] = "\n".join(str(x) for x in soup.body.contents)
+                    examples.append("\n".join(str(x) for x in soup.body.contents))
 
                 # Copy any image files
                 for data in batch:
-                    if data.ext in ('.pdf', '.png', '.jpg', '.gif',):
+                    if data.ext in image_extensions:
                         png_filename = data.name
                         png_path = os.path.join(wd, png_filename)
                         if not os.path.exists(os.path.dirname(png_path)):

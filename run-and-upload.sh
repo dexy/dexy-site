@@ -14,7 +14,11 @@ while getopts ":r" opt; do
   esac
 done
 
-rsync -rv --partial --progress --delete-after --exclude=.trash output-site/ dexy:~/sites/dexy.it/
+mv output-site/filters/hello{.py.gif,-py.gif}
+mv output-site/filters/hello{.py.jpg,-py.jpg}
+mv output-site/filters/hello{.py.png,-py.png}
+
+rsync -rvz --partial --progress --delete-after --exclude=.trash output-site/ dexy:~/sites/dexy.it/
 
 linkchecker --file-output html -q --no-warnings http://dexy.it
 scp linkchecker-out.html dexy:~/sites/dexy.it/linkchecker-out.html
