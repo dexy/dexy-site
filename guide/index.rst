@@ -3,7 +3,7 @@ The Dexy Guide
 ==============
 
 {% include "blurb.rst" %}
-{% from '_pages.jinja' import pages -%}
+{% from '_pages.jinja' import pages with context -%}
 
 You can also view this guide as a `single HTML page <the-dexy-guide.html>`_ or
 `download the PDF <the-dexy-guide.pdf>`_.

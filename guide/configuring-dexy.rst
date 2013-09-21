@@ -23,3 +23,14 @@ Writing document config files.
 
 values for true : true True what about 'yes' '1'?
 
+
+
+Configuring Filters Using YAML
+------------------------------
+
+dexyplugin.yaml
+
+
+
+What are available settings? Settings on docs vs. settings on filters. Command line options.
+

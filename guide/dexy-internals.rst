@@ -7,6 +7,22 @@ Dexy Internals
 {{ hl(d['/modules.txt|pydoc'][key], 'python') }}
 {% endmacro -%}
 
+{% macro hl_pytest(key) -%}
+{{ hl(d['/test.txt|pytest'][key], 'python') }}
+{% endmacro -%}
+
+{% macro pyt(key) -%}
+.. raw:: html
+
+  <p><b>{{ humanize(d['/test.txt|pytest'][key+":name"]) }}
+  {% if bool(d['test.txt|pytest'][key+":passed"]) %}
+  <i class="icon-check passed"></i>
+  {% else -%}
+  <i class="icon-minus failed"></i>
+  {% endif -%}
+  </b></p>
+{% endmacro -%}
+
 {% macro raw_pydoc(key) -%}
 {{ d['/modules.txt|pydoc'][key] | indent(4, True) }}
 {% endmacro -%}
@@ -14,24 +30,26 @@ Dexy Internals
 .. contents:: Contents
     :local:
 
-A guide to how dexy's internals work.
+Developer documentation for dexy's internals. For most purposes, you should be able to customize dexy's behavior by writing plugins instead of modifying dexy's internals. Read this if you want to use dexy as a library, fix a bug in dexy, or implement features which can't be implemented at plugin level.
 
-Wrapper State Machine
+Top-Down Tour of Dexy
 ---------------------
 
-The Wrapper class::
+Starting with the wrapper class, we'll drill down into each of the classes which are subsequently called to process a dexy run.
 
-{{ raw_pydoc('dexy.wrapper.Wrapper:doc') }}
+Wrapper State Machine
+.....................
+
+The wrapper state machine encapsulates the steps which dexy takes to process a batch.
 
 Instances of the wrapper class start out in the `new` state.
 
-{{ hl_pydoc('dexy.tests.test_wrapper.test_state_new_after_init:source') }}
+{{ hl_pytest('tests.test_wrapper.test_state_new_after_init:source') }}
 
 If the dexy required directories are present in the current working directory,
 then a wrapper instance can be moved into the `valid` state.
 
-{{ hl_pydoc('dexy.tests.test_wrapper.test_state_valid_after_to_valid:source') }}
-{{ hl_pydoc('dexy.tests.test_wrapper.test_error_if_to_valid_called_without_dirs_setup:source') }}
+{{ pyt('tests.test_wrapper.test_state_valid_after_to_valid') }}
 
 From a `valid` state, the wrapper can be moved into the `walked` state at
 which point it has a populated tree of node objects which are ready for dexy
@@ -54,7 +72,7 @@ in which there is no tree, but the batch information from the previous batch
 has been loaded. This information is sufficient for running many reports.
 
 Data
-----
+....
 
 The data class is the interface for saving and accessing document data.
 Different subclasses are available to handle different formats of data. The
@@ -65,7 +83,7 @@ KeyValue data class makes it convenient to work with key-value data, doing
 things like appending and retrieving values.
 
 Wrapper
--------
+.......
 
 The Wrapper class::
 

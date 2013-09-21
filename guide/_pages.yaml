@@ -1,0 +1,6 @@
+- quickstart: foo |
+    continued on |
+    another line
+- installing-dexy: bar
+- getting-started: getting started
+- command-line-interface: the cli

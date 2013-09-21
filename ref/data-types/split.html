@@ -1,0 +1,66 @@
+<div class="grid_9 alpha">
+    <!-- split "index" -->
+    <h2>Dexy Data Types Reference</h2>
+
+    <p>
+    Here you will find reference pages for each of the built-in dexy data types.
+
+    Data types are how you access the results of inputs in a document.
+    </p>
+    
+
+    {% set datas_info = d['datas-info.json'].json_as_dict() -%}
+    {% for k in sorted(datas_info) -%}
+    {% set v = datas_info[k] -%}
+
+    <!-- split "{{k}} ({{ " ".join(v.aliases) }})" -->
+    {% if v['doc'] -%}
+    <p>{{ v['doc'] }}</p>
+    {% endif -%}
+    <!-- content -->
+    <p><a href="/data-types/" class="button light small">&larr; Back to Data Type List</a></p>
+
+    <h2>{{ k }}</h2>
+    <br />
+
+    {% if v['doc'] -%}
+    <p>{{ v['doc'] }}</p>
+    {% endif -%}
+
+    <h3>Aliases for this data type</h3>
+    <ul class="split">
+        {% for alias in v['aliases'] -%}
+        <li><code>{{ alias }}</code></li>
+        {% endfor -%}
+    </ul>
+
+    <br />
+    <br />
+
+    <h3>Available settings:</h3>
+    <table class="filter-settings">
+        <tr><th width="30%">Setting</th><th width="60%">Description</th><th width="20%">Default</th></tr>
+        {% for name in sorted(v.settings) -%}
+        {% set setting_info = v.settings[name] -%}
+        {% if not name in ('aliases',) -%}
+        <tr><td>{{ name }}</td><td>{{ setting_info[0] }}</td><td>{{ setting_info[1] }}</td></tr>
+        {% endif -%}
+        {% endfor -%}
+    </table>
+
+    <div class="divider">
+        <h5><span>Source Code</span></h5>
+        <!--Divider With Titling-->
+    </div>
+
+    {{ v['html_source'] }}
+
+    {% endfor %}
+
+    <p><a href="/datas/" class="button light small">&larr; Back to Data Types List</a></p>
+
+    <!-- footer -->
+
+    <!-- endsplit -->
+
+</div>

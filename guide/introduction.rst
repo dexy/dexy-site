@@ -1,10 +1,4 @@
-Introduction to Dexy
-====================
+The Dexy Guide
+==============
 
-This is an introduction to what dexy is and does.
-
-About Dexy
-----------
-
-Dexy is a free form authoring tool for technical documents.
-
+Intro to the Guide. What the guide covers. How it is organized. How to use it.

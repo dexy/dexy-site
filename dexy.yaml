@@ -1,20 +1,35 @@
 filter-docs:
-    - filters/split.html|jinja|split:
-       - output-name: filters/index.html
+    - ref/filters/split.html|jinja|split:
+       - output-name: ref/filters/index.html
        - title: Filters
-       - filters
-    - filters/htaccess.txt|jinja:
-       - filters
+       - filter-inputs
+    - ref/filters/htaccess.txt|jinja:
+       - filter-inputs
        - output-name: .htaccess
 
-filters:
-    - filters/filter-docs.py|py:
+filter-inputs:
+    - ref/filters/filter-docs.py|py:
         - py: { add-new-files: True }
- 
+
+data-types-docs:
+    - ref/data-types/split.html|jinja|split:
+       - output-name: ref/data-types/index.html
+       - title: Data Types
+       - data-types-inputs
+    - ref/data-types/htaccess.txt|jinja:
+       - data-types-inputs
+       - output-name: .htaccess
+
+data-types-inputs:
+    - ref/data-types/data-docs.py|py:
+        - py: { add-new-files: True }
+
 dexy-pydoc:
     - modules.txt|pydoc:
-        - contents: 'dexy'
-        - version: 6
+        - contents: "dexy"
+    - test.txt|pytest:
+        - contents: "dexy"
+        - pytest: { 'run-tests' : False }
 
 script:test-install:
     - disabled: True
@@ -43,39 +58,6 @@ tex-assets:
         - version: 1
         - pyg: { 'ext' : '.sty' }
 
-code:
-    - .txt:
-        - except: "htaccess"
-    - .sh|pyg|h
-    - .sh|pyg|l
-    - .sh|idio|h
-    - .sh|idio|l
-    - .py|pyg|h
-    - .py|pyg|l
-    - .py|idio|h
-    - .py|idio|l
-    - .yaml|pyg|h
-    - .yaml|pyg|l
-    - .yaml|idio|h
-    - .yaml|idio|l
-    - guide/code/**/*.jinja
-    - guide/code/**/*.rst
-    - guide/code/getting-started/run-14.sh|bash:
-        - bash: 
-            add-new-files : True
-            exclude-add-new-files: [".cache", "logs", "journal", 'website']
-    - guide/code/*/*.sh|idio|shint|pyg|h:
-        - except: "install|webapp|14"
-        - shint: 
-            timeout: 20
-            add-new-files : True
-            exclude-add-new-files: [".cache", "logs", "journal", 'website']
-    - guide/code/*/*.sh|idio|shint|pyg|l:
-        - except: "install|webapp|14"
-        - shint: 
-            timeout: 20
-            add-new-files : True
-            exclude-add-new-files: [".cache", "logs", "journal", 'website']
 
 features-inputs:
     - features/hello.R
@@ -101,37 +83,152 @@ features-inputs:
     - features/hello.java|java
     - features/calculation.py|pycon|pyg
     - features/calculation.py|py
+    - features/calculation.py|pyg|h
     - features/calculation.py
     - features/calculation.py|pycon:
             - pycon: { record_vars: True }
-
-content-deps:
-    - code
-    - dexy-pydoc
-    - .rst
-    - .jinja
 
 content:
     # dexy.it home page
     - home.html|jinja|htmlsections:
         - ws-template: templates/_home.html
         - output-name: index.html
-    # help page
-    - help/index.markdown|jinja|markdown
+    - .md|jinja|markdown:
+        - except: sitemap
     # features page
     - features/index.html|jinja:
         - features-inputs
         - content-deps
-    # .rst pages
-    - .rst|yamlargs|jinja|rstbody:
-        - content-deps
+    - sitemap/index.md|jinja|markdown:
+        - ws-template: templates/_sitemap.html
 
-latex-content:
-    - .rst|yamlargs|jinja|rst|latex:
-        - rst: { stylesheet : 'fancyvrb,pastie.sty' }
-        - content-deps
-        - tex-assets
+guide:
+    - guide/index.rst|yamlargs|jinja|rstbody:
+        - dexy-pydoc
+        - guide-pages
     - guide/the-dexy-guide.rst|jinja|rst|latex:
         - rst: { stylesheet : 'fancyvrb,pastie.sty' }
-        - content-deps
+        - dexy-pydoc
+        - guide-pages
         - tex-assets
+
+guide-pages:
+    - docs/getting-started.rst|jinja|rstbody:
+        - docs-getting-started-inputs
+    - docs/quickstart.rst|jinja|rstbody:
+        - docs-quickstart-inputs
+        - guide-cli-inputs
+        - docs-install-inputs
+    - docs/installing-dexy.rst|jinja|rstbody:
+        - docs-install-inputs
+
+    - guide/command-line-interface.rst|jinja|rstbody:
+        - guide-cli-inputs
+    - guide/customizing-dexy.rst|jinja|rstbody:
+        - guide-customizing-dexy-inputs
+        - guide-cli-inputs
+        - dexy-pydoc
+    - guide/dexy-internals.rst|jinja|rstbody:
+        - dexy-pydoc
+    - guide/filters.rst|jinja|rstbody:
+        - dexy-pydoc
+
+docs-install-inputs:
+    - docs/code/install.sh|idio|h
+    - docs/code/install.sh|idio|l
+
+guide-cli-inputs:
+    - guide/code/cli/*.sh|idio|shint|pyg|l
+    - guide/code/cli/*.sh|idio|shint|pyg|h
+
+guide-customizing-dexy-inputs:
+    - guide/code/customizing-dexy/*.yaml|pyg|h
+    - guide/code/customizing-dexy/*.yaml|pyg|l
+    - guide/code/customizing-dexy/*.yaml|idio|h
+    - guide/code/customizing-dexy/*.yaml|idio|l
+    - guide/code/customizing-dexy/*.sh|pyg|h
+    - guide/code/customizing-dexy/*.sh|pyg|l
+    - guide/code/customizing-dexy/*.sh|idio|h
+    - guide/code/customizing-dexy/*.sh|idio|l
+    - guide/code/customizing-dexy/*.sh|idio|shint|pyg|h:
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|h', '.py' : ["idio|h", 'idio|t'] }
+            exclude-add-new-files: [".dexy", "journal", 'website']
+    - guide/code/customizing-dexy/*.sh|idio|shint|pyg|l:
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|l', '.py' : "idio|l" }
+            exclude-add-new-files: [".dexy", "journal", 'website']
+
+docs-quickstart-inputs:
+    - docs/code/quickstart/*.yaml|pyg|h
+    - docs/code/quickstart/*.yaml|pyg|l
+    - docs/code/quickstart/*.yaml|idio|h
+    - docs/code/quickstart/*.yaml|idio|l
+    - docs/code/quickstart/*.sh|pyg|h
+    - docs/code/quickstart/*.sh|pyg|l
+    - docs/code/quickstart/*.sh|idio|h
+    - docs/code/quickstart/*.sh|idio|l
+    - docs/code/quickstart/*.sh|idio|shint|pyg|h:
+        - shint: 
+            timeout: 100
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|h', '.py' : "idio|h" }
+            exclude-add-new-files: [".dexy", "journal", 'website']
+    - docs/code/quickstart/*.sh|idio|shint|pyg|l:
+        - shint: 
+            timeout: 100
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|l', '.py' : "idio|l" }
+            exclude-add-new-files: [".dexy", "journal", 'website']
+
+docs-getting-started-inputs:
+    - docs/code/getting-started/*.yaml|pyg|h
+    - docs/code/getting-started/*.yaml|pyg|l
+    - docs/code/getting-started/*.yaml|idio|h
+    - docs/code/getting-started/*.yaml|idio|l
+    - docs/code/getting-started/*.sh|pyg|h
+    - docs/code/getting-started/*.sh|pyg|l
+    - docs/code/getting-started/*.sh|idio|h
+    - docs/code/getting-started/*.sh|idio|l
+    - docs/code/getting-started/run-00.sh|idio|shint|pyg|h:
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|h', '.py' : "idio|h" }
+            exclude-add-new-files: ["journal", 'website']
+    - docs/code/getting-started/run-00.sh|idio|shint|pyg|l:
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|l', '.py' : "idio|l" }
+            exclude-add-new-files: ["journal", 'website']
+    - docs/code/getting-started/run-14.sh|bash:
+        - bash: 
+            add-new-files : True
+            exclude-add-new-files: [".dexy", "journal", 'website']
+    - docs/code/getting-started/*.sh|idio|shint|pyg|h:
+        - except: "14|00"
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|h', '.py' : "idio|h" }
+            exclude-add-new-files: [".dexy", "journal", 'website']
+    - docs/code/getting-started/*.sh|idio|shint|pyg|l:
+        - except: "14|00"
+        - shint: 
+            timeout: 20
+            add-new-files : True
+            keep-originals: True
+            additional-doc-filters: { '.yaml' : 'idio|l', '.py' : "idio|l" }
+            exclude-add-new-files: [".dexy", "journal", 'website']

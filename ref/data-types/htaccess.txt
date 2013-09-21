@@ -1,0 +1,6 @@
+{% for k, v in d['datas-info.json'].json_as_dict().iteritems() -%}
+Redirect /data-types/{{ k }} /data-types/{{ k }}.html
+{% for a in v.aliases -%}
+Redirect /data-types/{{ a }} /data-types/{{ k }}.html
+{% endfor -%}
+{% endfor -%}

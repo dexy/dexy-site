@@ -22,11 +22,23 @@
 
     <h2 id="filters">Alphabetical List of Filters</h2>
     {% set current_release = '0.9.9.5' -%}
+    {{ debug("Current version is " + DEXY_VERSION + " current_release is " + current_release, False) }}
     {% set new_feature_release_cutoff = '0.9.9.4' -%}
-    <p><i class="icon-pencil"></i> example</p>
-    <p><i class="icon-flag"></i> newly added filter (in version {{new_feature_release_cutoff}} or later)</p>
-    <p><i class="icon-wrench"></i> filter added after current released version {{current_release}}. Will be in next dexy release or is available now if you install dexy from the <code>develop</code> branch.</p>
-
+    <h3>Symbols</h3>
+    <table id="filter-symbols">
+        <tr>
+            <td><i class="icon-pencil"></i></td>
+            <td>An example is provided for this filter.</td>
+        </tr>
+        <tr>
+            <td><i class="icon-flag"></i></td>
+            <td>This is a newly added filter (in version {{new_feature_release_cutoff}} or later).</td>
+        </tr>
+        <tr>
+            <td><i class="icon-wrench"></i></td>
+            <td>This filter was added after the current released version {{current_release}}. Will be in the next dexy release, and is available now if you install dexy from the <code>develop</code> branch.</td>
+        </tr>
+    </table>
 
     {% set filter_info = d['filter-info.json'].json_as_dict() -%}
     {% for k in sorted(filter_info) -%}
@@ -43,8 +55,8 @@
     {% endif -%}
 
     <!-- split "{{k}} {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
-    {% if v['doc'] -%}
-    <p>{{ v['doc'] }}</p>
+    {% if v['firstdoc'] -%}
+    <p>{{ v['firstdoc'] }}</p>
     {% endif -%}
     <!-- content -->
     <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
@@ -119,16 +131,15 @@
 
     {% endfor %}
 
-    <p><a href="/docs/filters/" class="button light small">&larr; Back to Filter List</a></p>
+    <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
     <!-- footer -->
 
     <h2 id="tags">Tags</h2>
     {% for tag, aliases in d['filter-tags.json'].from_json() -%}
-    <h4 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">tag: {{ tag }}</a></h4>
-    {% set bull = joiner("&bull;") -%}
+    <h3 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">{{ tag }}</a></h4>
     {% for alias, helpstring in aliases -%}
-    {{ bull() }} <a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>
+    <p>&nbsp;&nbsp;&nbsp;<a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>: {{ helpstring }}</p>
     {% endfor -%}
     {% endfor -%}
 

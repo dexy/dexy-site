@@ -1,0 +1,29 @@
+{% extends 'templates/_base.html' %}
+
+{% block maincontent %}
+<div class="grid_10">
+    <h2>Sitemap</h2>
+    <ul class="sitemap">
+        {%- for item in sorted(root.children) recursive %}
+        {%- if item.index_page and not item.location == "/agile" -%}
+        <li><a href="{{ item.location | e }}">{{ item.index_page.title() }}</a>
+        {%- if item.has_children_with_index_pages() -%}
+        <ul>{{ loop(sorted(item.children, key=attrgetter('location'))) }}</ul>
+        {%- endif %}</li>
+
+        <li>
+        <ul>
+            {% for doc in sorted(item.docs) %}
+            {% set doc_name = doc.output_name() %}
+            {% if doc_name.endswith(".html") and not doc_name.endswith("index.html") -%}
+            <li><a href="/{{ doc.output_name() }}">{{ doc.title() }}</a></li>
+            {% endif %}
+            {% endfor -%}
+        </ul>
+        </li>
+
+        {%- endif %}
+        {%- endfor %}
+    </ul>
+</div>
+{% endblock %}

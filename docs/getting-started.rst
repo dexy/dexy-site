@@ -59,15 +59,24 @@ Dexy puts some of the finished documents into the output/ directory (the ones it
 
 We see from this output that jinja has taken the `1+1` which we typed within the tag and evaluated it, giving `2`. So, this tells us that dexy has successfully called the jinja filter we specified in the `dexy.txt` file.
 
+Every time you change a file and want dexy to re-generate the output, you need
+to call the `dexy` command again. As this tutorial goes on, it will stop
+reminding you to run the `dexy` command, but you'll need to do so each time.
+
+
 The Run Report
 --------------
 
 {% set run_report_path = ".dexy/reports/run/index.html" -%}
 
 Dexy has also generated a report which describes what has happened. You should
-have a HTML file at `{{ run_report_path }}` in your project directory. You can
-open this in your browser by running the "Open File" command in your browser,
-or by using the `open` or `xdg-open` command on OS X or Linux systems.
+have a HTML file at `{{ run_report_path }}` in your project directory.
+
+You can open this HTML file in a web browser to view it. It's in a hidden
+directory so you have to set the "show hidden files" setting to see it in your
+file browser (search online for instructions on how to do this for your
+specific operating system), or use a command line tool like `open` or
+`sensible-browser` to open the file in your browser from the command line.
 
 .. raw:: html
 

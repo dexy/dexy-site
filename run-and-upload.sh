@@ -14,9 +14,10 @@ while getopts ":r" opt; do
   esac
 done
 
-mv output-site/filters/hello{.py.gif,-py.gif}
-mv output-site/filters/hello{.py.jpg,-py.jpg}
-mv output-site/filters/hello{.py.png,-py.png}
+rm output-site/ref/filters/.htaccess
+mv output-site/ref/filters/hello{.py.gif,-py.gif}
+mv output-site/ref/filters/hello{.py.jpg,-py.jpg}
+mv output-site/ref/filters/hello{.py.png,-py.png}
 
 rsync -rvz --partial --progress --delete-after --exclude=.trash output-site/ dexy:~/sites/dexy.it/
 

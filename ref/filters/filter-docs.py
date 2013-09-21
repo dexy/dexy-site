@@ -15,7 +15,7 @@ image_extensions = ['.pdf', '.png', '.jpg', '.gif', '.svg', '.py.gif', '.py.png'
 py_lexer = PythonLexer()
 fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 
-# store location of current wd since templates will be run in tmp dir
+# store location of current wd since chdir happens
 wd = os.path.abspath(".")
 
 filter_info = {}
@@ -29,9 +29,14 @@ for filter_instance in dexy.filter.Filter:
     if skip:
         continue
 
-    # TODO only include source if this is a source-implemented filter
-    source = inspect.getsource(filter_instance.__class__)
-    html_source = highlight(source, py_lexer, fm)
+    defined_by_subclass = filter_instance.__class__.aliases == filter_instance.setting('aliases')
+
+    if defined_by_subclass:
+        source = inspect.getsource(filter_instance.__class__)
+        html_source = highlight(source, py_lexer, fm)
+    else:
+        source = ''
+        html_source = ''
 
     # run examples for this filter
     examples = []
@@ -46,6 +51,25 @@ for filter_instance in dexy.filter.Filter:
                     soup = BeautifulSoup(unicode(data))
                     examples.append("\n".join(str(x) for x in soup.body.contents))
 
+                if t.setting('copy-output-dir'):
+                    output_dir = t.alias
+                    os.makedirs(os.path.join(wd, output_dir))
+                    for doc in wrapper.nodes.values():
+                        if not hasattr(doc, 'output_data'):
+                            continue
+
+                        data = doc.output_data()
+                        if data.is_canonical_output():
+                            local_filename = data.output_name()
+
+                            if local_filename.endswith(".html") and not "|" in data.key:
+                                continue
+
+                            file_path = os.path.join(wd, output_dir, local_filename)
+                            if not os.path.exists(os.path.dirname(file_path)):
+                                os.makedirs(os.path.dirname(file_path))
+                            shutil.copyfile(data.storage.data_file(), file_path)
+
                 # Copy any image files
                 for data in batch:
                     if data.ext in image_extensions:
@@ -55,12 +79,14 @@ for filter_instance in dexy.filter.Filter:
                             os.makedirs(os.path.dirname(png_path))
                         shutil.copyfile(data.storage.data_file(), png_path)
 
+    docstring = filter_instance.help()
     filter_info[filter_instance.name()] = {
         'aliases' : filter_instance.setting('aliases'),
         'settings' : filter_instance._instance_settings,
-        'defined_by_subclass' : filter_instance.__class__.aliases == filter_instance.setting('aliases'),
+        'defined_by_subclass' : defined_by_subclass,
         'parentclass' : filter_instance.__class__.__base__.__name__,
-        'doc' : filter_instance.help(),
+        'doc' : docstring,
+        'firstdoc' : docstring.splitlines()[0],
         'output' : filter_instance.setting('output'),
         'examples' : examples,
         'source' : source,

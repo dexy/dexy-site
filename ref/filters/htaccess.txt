@@ -1,8 +1,6 @@
 {% for k, v in d['filter-info.json'].json_as_dict().iteritems() -%}
 Redirect /filters/{{ k }} /filters/{{ k }}.html
-Redirect /filters/{{ k }}/ /filters/{{ k }}.html
 {% for a in v.aliases -%}
 Redirect /filters/{{ a }} /filters/{{ k }}.html
-Redirect /filters/{{ a }}/ /filters/{{ k }}.html
 {% endfor -%}
 {% endfor -%}
