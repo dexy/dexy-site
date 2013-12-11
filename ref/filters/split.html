@@ -21,7 +21,7 @@
     so the alphabetical list is more reliable).  </p>
 
     <h2 id="filters">Alphabetical List of Filters</h2>
-    {% set current_release = '0.9.9.5' -%}
+    {% set current_release = '1.0.0' -%}
     {{ debug("Current version is " + DEXY_VERSION + " current_release is " + current_release, False) }}
     {% set new_feature_release_cutoff = '0.9.9.4' -%}
     <h3>Symbols</h3>
@@ -54,12 +54,12 @@
     {% set newicon = "" -%}
     {% endif -%}
 
-    <!-- split "{{k}} {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
+    <!-- split "{{titleize(k)}} Filter {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
     {% if v['firstdoc'] -%}
-    <p>{{ v['firstdoc'] }}</p>
+    <p>{{ v['firstdoc'] | e }}</p>
     {% endif -%}
     <!-- content -->
-    <p><a href="/filters/" class="button light small">&larr; Back to Filter List</a></p>
+    <p><a href="/ref/filters/" class="button light small">&larr; Back to Filter List</a></p>
 
     <h2>{{ k }}</h2>
     <br />

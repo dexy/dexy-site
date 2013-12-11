@@ -1,66 +1,84 @@
-<div class="grid_9 alpha">
-    <!-- split "index" -->
-    <h2>Dexy Data Types Reference</h2>
+<!-- split "index" -->
+<h2>Dexy Data Types Reference</h2>
 
-    <p>
-    Here you will find reference pages for each of the built-in dexy data types.
+<p>
+Here you will find reference pages for each of the built-in dexy data types.
 
-    Data types are how you access the results of inputs in a document.
-    </p>
-    
+Data types are how you access the results of inputs in a document.
+</p>
 
-    {% set datas_info = d['datas-info.json'].json_as_dict() -%}
-    {% for k in sorted(datas_info) -%}
-    {% set v = datas_info[k] -%}
 
-    <!-- split "{{k}} ({{ " ".join(v.aliases) }})" -->
-    {% if v['doc'] -%}
-    <p>{{ v['doc'] }}</p>
-    {% endif -%}
-    <!-- content -->
-    <p><a href="/data-types/" class="button light small">&larr; Back to Data Type List</a></p>
+{% set datas_info = d['datas-info.json'].json_as_dict() -%}
+{% for k in sorted(datas_info) -%}
+{% set v = datas_info[k] -%}
 
-    <h2>{{ k }}</h2>
-    <br />
+<!-- split "{{titleize(k)}} Data Type" -->
+{% if v['doc'] -%}
+<p>{{ v['doc'] }}</p>
+{% endif -%}
+<!-- content -->
+<p><a href="/data-types/" class="button light small">&larr; Back to Data Type List</a></p>
 
-    {% if v['doc'] -%}
-    <p>{{ v['doc'] }}</p>
-    {% endif -%}
+<h2>{{ k }}</h2>
+<br />
 
-    <h3>Aliases for this data type</h3>
-    <ul class="split">
-        {% for alias in v['aliases'] -%}
-        <li><code>{{ alias }}</code></li>
-        {% endfor -%}
-    </ul>
+{% if v['doc'] -%}
+<p>{{ v['doc'] }}</p>
+{% endif -%}
 
-    <br />
-    <br />
+<h3>Aliases for this data type</h3>
+<ul class="split">
+    {% for alias in v['aliases'] -%}
+    <li><code>{{ alias }}</code></li>
+    {% endfor -%}
+</ul>
 
-    <h3>Available settings:</h3>
-    <table class="filter-settings">
-        <tr><th width="30%">Setting</th><th width="60%">Description</th><th width="20%">Default</th></tr>
-        {% for name in sorted(v.settings) -%}
-        {% set setting_info = v.settings[name] -%}
-        {% if not name in ('aliases',) -%}
-        <tr><td>{{ name }}</td><td>{{ setting_info[0] }}</td><td>{{ setting_info[1] }}</td></tr>
-        {% endif -%}
-        {% endfor -%}
-    </table>
+<br />
+<br />
 
-    <div class="divider">
-        <h5><span>Source Code</span></h5>
-        <!--Divider With Titling-->
-    </div>
-
-    {{ v['html_source'] }}
-
+<h3>Available methods:</h3>
+<ul>
+    {% for method_name in sorted(v['members']) %}
+    {% set method_info = v['members'][method_name] %}
+    {% if method_info.has_key('source') %}
+    <li><a href="#{{ method_name }}">{{ method_name }}</a></li>
+    {% endif %}
     {% endfor %}
+</ul>
 
-    <p><a href="/datas/" class="button light small">&larr; Back to Data Types List</a></p>
+{% for method_name in sorted(v['members']) %}
+{% set method_info = v['members'][method_name] %}
+{% if method_info.has_key('source') %}
 
-    <!-- footer -->
+<h4 id="{{ method_name }}">{{ method_name }}</h4>
 
-    <!-- endsplit -->
+{{ highlight(method_info['source'], 'python') }}
 
+{% endif %}
+{% endfor %}
+
+<h3>Available settings:</h3>
+<table class="filter-settings">
+    <tr><th width="30%">Setting</th><th width="60%">Description</th><th width="20%">Default</th></tr>
+    {% for name in sorted(v.settings) -%}
+    {% set setting_info = v.settings[name] -%}
+    {% if not name in ('aliases',) -%}
+    <tr><td>{{ name }}</td><td>{{ setting_info[0] }}</td><td>{{ setting_info[1] }}</td></tr>
+    {% endif -%}
+    {% endfor -%}
+</table>
+
+<div class="divider">
+    <h5><span>Source Code</span></h5>
+    <!--Divider With Titling-->
 </div>
+
+{{ v['html_source'] }}
+
+{% endfor %}
+
+<p><a href="/datas/" class="button light small">&larr; Back to Data Types List</a></p>
+
+<!-- footer -->
+
+<!-- endsplit -->

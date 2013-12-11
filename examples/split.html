@@ -1,0 +1,14 @@
+<div class="grid_9 alpha">
+    {% set examples_info = d['examples.json'].json_as_dict() -%}
+    {% for template_alias in sorted(examples_info) %}
+    {% set example = examples_info[template_alias] %}
+
+    <!-- split "{{ template_alias }}" -->
+    <h2>{{ template_alias }}</h2>
+
+    {{ example }}
+
+    {% endfor %}
+
+    <!-- endsplit -->
+</div>

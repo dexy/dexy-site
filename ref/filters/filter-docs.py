@@ -20,6 +20,10 @@ wd = os.path.abspath(".")
 
 filter_info = {}
 for filter_instance in dexy.filter.Filter:
+    # until matlab install is fixed
+    if filter_instance.alias == 'matlabint':
+        continue
+
     no_aliases = not filter_instance.setting('aliases')
     no_doc = filter_instance.setting('nodoc')
     not_dexy = not filter_instance.__class__.__module__.startswith("dexy.")
@@ -79,7 +83,7 @@ for filter_instance in dexy.filter.Filter:
                             os.makedirs(os.path.dirname(png_path))
                         shutil.copyfile(data.storage.data_file(), png_path)
 
-    docstring = filter_instance.help()
+    docstring = filter_instance.setting('help')
     filter_info[filter_instance.name()] = {
         'aliases' : filter_instance.setting('aliases'),
         'settings' : filter_instance._instance_settings,

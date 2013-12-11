@@ -1,3 +1,6 @@
+title: What is Dexy?
+description: A short, minimally technical introduction to Dexy, how it works, and what it can do.
+---
 [TOC]
 
 ## What is Dexy?
@@ -123,7 +126,7 @@ Dexy provides a standard way to refer to locations within your project. Each doc
 
 The `d` in these expressions refers to a dictionary or key-value map which contains references to each of the document's dependencies. These dependencies have already been processed (this is discussed in the next section), you are just telling dexy's template engine where to pull information from.
 
-Dexy populates the `d` object as part of the `jinja` filter (several other templating systems are also available and they have access to the same `d` object). When you want to write a document which includes content from other documents, you apply the `jinja` filter to the source of this document. Jinja uses curly brackets to denote template content, so in your document you write expressions like {{ "`{{ d[\"script.R|r\" }}`" }} and when the `d` expression is evaluated, it inserts the content from that source at that point in your document.
+Dexy populates the `d` object as part of the `jinja` filter (several other templating systems are also available and they have access to the same `d` object). When you want to write a document which includes content from other documents, you apply the `jinja` filter to the source of this document. Jinja uses curly brackets to denote template content, so in your document you write expressions like {{ "`{{ d[\"script.R|r\"] }}`" }} and when the `d` expression is evaluated, it inserts the content from that source at that point in your document.
 
 If you change the source of `script.R` and run dexy again, dexy inserts the most up-to-date version of `script.R|r` in every location which references it. This is how dexy makes it possible to always refresh your documents to refer to up to date versions of code.
 

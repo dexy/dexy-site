@@ -6,28 +6,16 @@
         <!--Start Navigation-->
         <div class="grid_9 nav">
             <ul class="sf-menu">
-                {% if False %}
-                <li>
-                <a href="/guide"><span>The Dexy Guide</span></a>
-                {% from 'guide/_pages.jinja' import pages with context -%}
-                <ul>
-                    {% for page in pages -%}
-                    <li><a href="/guide/{{ page }}.html">{{ titleize(page) }}</a></li>
-                    {% endfor -%}
-                </ul>
-                </li>
-                {% endif %}
-                <li><a href="/docs">Docs & Help</a></li>
+                <li><a href="/docs">Docs &amp; Help</a></li>
 
                 <li>
                 <a href="/ref"><span>Plugin Reference</span></a>
                 <ul>
-                    <li><a href="/ref/data-types">Data Types</a></li>
                     <li><a href="/ref/filters">Filters</a></li>
                 </ul>
                 </li>
 
-                <li><a href="http://github.com/ananelson/dexy">Source Code &loz;</a> </li>
+                <li><a href="http://github.com/dexy/dexy">Source Code &loz;</a> </li>
                 <li><a href="http://blog.dexy.it">Dexy Blog &loz;</a> </li>
                 <li><a href="mailto:info@dexy.it">info@dexy.it</a> </li>
             </ul>

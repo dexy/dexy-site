@@ -9,3 +9,4 @@ output-site/
 *.un*
 *.sqlite3
 .dexy/
+drafts/
