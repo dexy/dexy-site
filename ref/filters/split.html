@@ -21,9 +21,8 @@
     so the alphabetical list is more reliable).  </p>
 
     <h2 id="filters">Alphabetical List of Filters</h2>
-    {% set current_release = '1.0.0' -%}
-    {{ debug("Current version is " + DEXY_VERSION + " current_release is " + current_release, False) }}
-    {% set new_feature_release_cutoff = '0.9.9.4' -%}
+    {% set current_release = DEXY_VERSION' -%}
+    {% set new_feature_release_cutoff = '1.0.0' -%}
     <h3>Symbols</h3>
     <table id="filter-symbols">
         <tr>
