@@ -18,9 +18,6 @@ filter-docs:
        - output-name: ref/filters/index.html
        - title: Filters
        - filter-inputs
-    - htaccess.txt|jinja:
-       - filter-inputs
-       - output-name: .htaccess
 
 filter-inputs:
     - ref/filters/filter-docs.py|py:
@@ -34,9 +31,6 @@ data-types-docs:
        - split: {
            additional-doc-filters: soups
            }
-    - ref/data-types/htaccess.txt|jinja:
-       - data-types-inputs
-       - output-name: .htaccess
 
 data-types-inputs:
     - ref/data-types/data-docs.py|py:
