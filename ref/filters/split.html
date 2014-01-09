@@ -12,8 +12,8 @@
         If you have worked through the <a
             href="/guide/getting-started.html">getting started</a> tutorial,
         then you are already familiar with some of these filters like <a
-            href="/ref/filters/Pyg.html">pyg</a> and <a
-            href="/ref/filters/Jinja.html">jinja</a>.
+            href="/ref/filters/pyg.html">pyg</a> and <a
+            href="/ref/filters/jinja.html">jinja</a>.
     </p>
 
     <p>You can <a href="#filters">browse through the alphabetical list</a> or
@@ -53,7 +53,7 @@
     {% set newicon = "" -%}
     {% endif -%}
 
-    <!-- split "{{titleize(k)}} Filter {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
+    <!-- split "{{ k }} filter {{newicon}} ({{ " ".join(v.aliases) }}) {{ "<i class=\"icon-pencil\"></i>" * count }}" -->
     {% if v['firstdoc'] -%}
     <p>{{ v['firstdoc'] | e }}</p>
     {% endif -%}
@@ -138,7 +138,7 @@
     {% for tag, aliases in d['filter-tags.json'].from_json() -%}
     <h3 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">{{ tag }}</a></h4>
     {% for alias, helpstring in aliases -%}
-    <p>&nbsp;&nbsp;&nbsp;<a title="{{ helpstring }}" href="{{ titleize(alias) }}.html">{{ alias }}</a>: {{ helpstring }}</p>
+    <p>&nbsp;&nbsp;&nbsp;<a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>: {{ helpstring }}</p>
     {% endfor -%}
     {% endfor -%}
 
