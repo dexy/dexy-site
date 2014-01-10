@@ -138,7 +138,7 @@
     {% for tag, aliases in d['filter-tags.json'].from_json() -%}
     <h3 id="tag-{{ tag }}"><a href="#tag-{{ tag }}">{{ tag }}</a></h4>
     {% for alias, helpstring in aliases -%}
-    <p>&nbsp;&nbsp;&nbsp;<a title="{{ helpstring }}" href="{{ alias }}">{{ alias }}</a>: {{ helpstring }}</p>
+    <p>&nbsp;&nbsp;&nbsp;<a title="{{ helpstring }}" href="{{ alias }}.html">{{ alias }}</a>: {{ helpstring }}</p>
     {% endfor -%}
     {% endfor -%}
 
