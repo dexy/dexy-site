@@ -84,7 +84,7 @@ for filter_instance in dexy.filter.Filter:
                         shutil.copyfile(data.storage.data_file(), png_path)
 
     docstring = filter_instance.setting('help')
-    filter_info[filter_instance.name()] = {
+    filter_info[filter_instance.alias] = {
         'aliases' : filter_instance.setting('aliases'),
         'settings' : filter_instance._instance_settings,
         'defined_by_subclass' : defined_by_subclass,
