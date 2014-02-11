@@ -70,7 +70,7 @@ source DEXYENV/bin/activate
 ### @export "pip-install-from-git"
 git clone https://github.com/dexy/dexy
 cd dexy
-pip install -e .
+pip install -e . # use sudo if not using virtualenv
 cd ..
 ### @end
 
