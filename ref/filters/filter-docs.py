@@ -18,10 +18,11 @@ fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 # store location of current wd since chdir happens
 wd = os.path.abspath(".")
 
+broken_examples = ('matlabint', 'cowsay', 'ditaa')
+
 filter_info = {}
 for filter_instance in dexy.filter.Filter:
-    # until matlab install is fixed
-    if filter_instance.alias == 'matlabint':
+    if filter_instance.alias in broken_examples:
         continue
 
     no_aliases = not filter_instance.setting('aliases')
@@ -52,7 +53,7 @@ for filter_instance in dexy.filter.Filter:
                 doc_key = 'doc:dexy.rst|jinja|rst2html'
                 if doc_key in batch.docs:
                     data = batch.output_data(doc_key)
-                    soup = BeautifulSoup(unicode(data))
+                    soup = BeautifulSoup(str(data), features="html.parser")
                     examples.append("\n".join(str(x) for x in soup.body.contents))
 
                 if t.setting('copy-output-dir'):
