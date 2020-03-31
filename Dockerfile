@@ -2,7 +2,7 @@ FROM python:3
 RUN apt-get update
 RUN apt-get install -y apt-utils
 
-# packages for dexy filters (see also dexy_filter_examples package)
+# additional software for dexy filters
 RUN apt-get install -y abcm2ps
 RUN apt-get install -y asciidoc
 RUN apt-get install -y asciidoctor
@@ -21,3 +21,4 @@ RUN mkdir /dexy-site
 COPY . /dexy-site
 WORKDIR /dexy-site
 RUN pip install -r requirements.txt
+RUN dexy

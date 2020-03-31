@@ -9,15 +9,10 @@ Installing Dexy
 Standard Installation
 ---------------------
 
-`Dexy <http://pypi.python.org/pypi/dexy>`_ is a Python package (Python 2.6-2.7
+`Dexy <http://pypi.python.org/pypi/dexy>`_ is a Python package (Python 3
 only) and can be installed in the usual way, e.g. `pip install dexy`. If you
 are familiar with Python then that's probably all you need to know, although
 you might want to read the `Installing Additional Software`_ section.
-
-If you are unfamiliar with using the command line to install software and run
-commands, then you should first work through the `Command Line Crash Course
-<http://cli.learncodethehardway.org/>`_ by Zed Shaw, it's available for free
-online.
 
 The rest of this section explains in detail how to install Python and Dexy.
 
@@ -31,25 +26,18 @@ to check:
 
 {{ codes("code/install.sh|idio", "python-version") }}
 
-If you get a version number which starts with 2.6 or 2.7, then you are all
+If you get a version number which starts with 3, then you are all
 set.
 
 If you see an error message like `command not found`, then you don't have
 Python installed. In that case go to the `python website
 <http://www.python.org/download/>`__ to find an installer for your operating
-system. Make sure to install Python 2.7 (currently the most recent version
-available is 2.7.3), and NOT Python 3.
-
-If you already have an older version of Python like 2.5, then dexy will not work unless you install a newer version first. However, this may cause problems for your operating system. You'll need to do some research first, and it might make sense to update your operating system or use a `virtual machine`_.
-
-If you already have Python 2.6 then you should *not* try to also install Python 2.7 unless you really know what you are doing. This might cause problems for your operating system. Dexy will run just fine on Python 2.6.
-
-If you already have Python 3, then you either need to remove this first (if you are not using it), or research how to install Python 2.7 alongside this.
+system.
 
 Using a Virtual Machine
 .......................
 
-If you have concerns about installing Python, then one option is to create a new _`virtual machine` (you can use the free `VirtualBox <https://www.virtualbox.org/>`_ software) and install Python 2.7 on this, where it will not interfere with your main operating system.
+If you have concerns about installing Python, then one option is to use a virtual machine or container system, like Docker, and install Python on there, where it will not interfere with your main operating system.
 
 Installing Dexy
 ...............
@@ -65,10 +53,6 @@ If you do not have the `pip` tool, then you probably do have `easy_install` and 
 {{ codes("code/install.sh|idio", "easy-install-dexy") }}
 
 Again, leave out `sudo` if appropriate.
-
-If you don't have `easy_install`, then here is how to get it:
-
-{{ codes("code/install.sh|idio", "install-distribute") }}
 
 Updating Dexy
 -------------
