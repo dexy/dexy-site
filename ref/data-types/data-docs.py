@@ -1,4 +1,3 @@
-from bs4 import BeautifulSoup
 from pygments import highlight
 from pygments.formatters.html import HtmlFormatter
 from pygments.lexers.agile import PythonLexer
@@ -7,14 +6,12 @@ import dexy.datas
 import dexy.data
 import inspect
 import json
-import os
-import shutil
 
 py_lexer = PythonLexer()
 fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 
 datas_info = {}
-for alias, info in dexy.data.Data.plugins.iteritems():
+for alias, info in dexy.data.Data.plugins.items():
     data_class, class_args = info
 
     source = inspect.getsource(data_class)

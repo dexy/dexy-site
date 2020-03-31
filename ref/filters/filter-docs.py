@@ -18,7 +18,7 @@ fm = HtmlFormatter(lineanchors = "l", anchorlinenos=True, linenos='table')
 # store location of current wd since chdir happens
 wd = os.path.abspath(".")
 
-broken_examples = ('matlabint', 'cowsay', 'ditaa')
+broken_examples = ('matlabint', 'cowsay', 'ditaa', 'phrender')
 
 filter_info = {}
 for filter_instance in dexy.filter.Filter:
@@ -58,7 +58,7 @@ for filter_instance in dexy.filter.Filter:
 
                 if t.setting('copy-output-dir'):
                     output_dir = t.alias
-                    os.makedirs(os.path.join(wd, output_dir))
+                    os.makedirs(os.path.join(wd, output_dir), exist_ok=True)
                     for doc in wrapper.nodes.values():
                         if not hasattr(doc, 'output_data'):
                             continue

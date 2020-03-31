@@ -21,4 +21,3 @@ RUN mkdir /dexy-site
 COPY . /dexy-site
 WORKDIR /dexy-site
 RUN pip install -r requirements.txt
-RUN pip install -e /dexy

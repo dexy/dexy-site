@@ -40,7 +40,7 @@ Data types are how you access the results of inputs in a document.
 <ul>
     {% for method_name in sorted(v['members']) %}
     {% set method_info = v['members'][method_name] %}
-    {% if method_info.has_key('source') %}
+    {% if 'source' in method_info %}
     <li><a href="#{{ method_name }}">{{ method_name }}</a></li>
     {% endif %}
     {% endfor %}
@@ -48,7 +48,7 @@ Data types are how you access the results of inputs in a document.
 
 {% for method_name in sorted(v['members']) %}
 {% set method_info = v['members'][method_name] %}
-{% if method_info.has_key('source') %}
+{% if 'source' in method_info %}
 
 <h4 id="{{ method_name }}">{{ method_name }}</h4>
 

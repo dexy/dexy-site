@@ -1,3 +1,7 @@
-dexy
+dexy>=2.0.6
 dexy_filter_examples
+dexy_guide_templates>=0.0.6
+dexy_user_guide_templates
+nose
+pillow
 pytest
